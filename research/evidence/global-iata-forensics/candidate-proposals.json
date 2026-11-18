@@ -1,0 +1,1247 @@
+{
+  "airports": [
+    {
+      "airportId": "apt_eb176a20-e0e3-438d-a330-a7b81185232d",
+      "coordinates": {
+        "note": "Reference coordinates consistent with FAA NASR 2026-10-01/2026-10-29 and AL-449 diagram.",
+        "sourceIds": [
+          "global-code-expansion-us-faa-djt-diagram-2611",
+          "faa-nasr-2026-10-01",
+          "faa-nasr-2026-10-29"
+        ],
+        "status": "reference",
+        "value": {
+          "latitude": 26.683201,
+          "longitude": -80.095596
+        }
+      },
+      "externalIds": {
+        "ourAirports": "3766"
+      },
+      "name": {
+        "note": "Canonical candidate UUIDv4 for OurAirports 3766 / FAA site 03555.*A, reconciling global-code-next (apt_eb176a20-e0e3-438d-a330-a7b81185232d) and global-public-data (apt_f12cc00a-7d95-478e-bc87-a67c836379a3).",
+        "sourceIds": [
+          "global-code-expansion-us-faa-djt-diagram-2611",
+          "global-code-expansion-us-pbc-airports",
+          "forensics-iata-lookup-djt"
+        ],
+        "status": "reference",
+        "value": "West Palm Beach physical airport (PBI/DJT)"
+      },
+      "timezone": {
+        "note": "Reference IANA timezone from pinned reference table; not a historical legal-time claim.",
+        "sourceIds": [
+          "ourairports-20261025"
+        ],
+        "status": "reference",
+        "value": "America/New_York"
+      }
+    },
+    {
+      "airportId": "apt_82a9b73d-530e-4f4a-9456-7f53c88246bc",
+      "coordinates": {
+        "note": "Reference point from pinned OurAirports snapshot row 6448.",
+        "sourceIds": [
+          "ourairports-20261025"
+        ],
+        "status": "reference",
+        "value": {
+          "latitude": 43.061306,
+          "longitude": 74.477556
+        }
+      },
+      "externalIds": {
+        "ourAirports": "6448"
+      },
+      "name": {
+        "note": "Reference display label for Bishkek Manas physical airfield (UCFM; FRU/BSZ).",
+        "sourceIds": [
+          "asia-kg-operator-code-notice",
+          "forensics-iata-lookup-bsz"
+        ],
+        "status": "reference",
+        "value": "Manas International Airport"
+      },
+      "timezone": {
+        "note": "No historical IANA timezone claim asserted.",
+        "sourceIds": [],
+        "status": "unknown",
+        "value": null
+      }
+    },
+    {
+      "airportId": "apt_ab3830d2-4506-46d5-8ff9-c2d5f46ce268",
+      "coordinates": {
+        "note": "Reference point from pinned OurAirports snapshot row 26603.",
+        "sourceIds": [
+          "ourairports-20261025"
+        ],
+        "status": "reference",
+        "value": {
+          "latitude": 12.95,
+          "longitude": 77.668198
+        }
+      },
+      "externalIds": {
+        "ourAirports": "26603"
+      },
+      "name": {
+        "note": "Display label only; reused from global-batch-5 / global-code-next.",
+        "sourceIds": [
+          "b5-in-aip-2012-ad13",
+          "b5-in-aip-2026-vobg"
+        ],
+        "status": "reference",
+        "value": "HAL Airport"
+      },
+      "timezone": {
+        "note": "No historical IANA timezone claim.",
+        "sourceIds": [],
+        "status": "unknown",
+        "value": null
+      }
+    },
+    {
+      "airportId": "apt_bf9260e8-2d9b-413b-81d9-c6842d53cbf7",
+      "coordinates": {
+        "note": "Reference point from pinned OurAirports snapshot row 35145.",
+        "sourceIds": [
+          "ourairports-20261025"
+        ],
+        "status": "reference",
+        "value": {
+          "latitude": 13.1979,
+          "longitude": 77.706299
+        }
+      },
+      "externalIds": {
+        "ourAirports": "35145"
+      },
+      "name": {
+        "note": "Display label only; reused from global-batch-5 / global-code-next.",
+        "sourceIds": [
+          "b5-in-aip-2012-ad13",
+          "b5-in-aip-2026-vobl"
+        ],
+        "status": "reference",
+        "value": "Kempegowda International Airport Bengaluru"
+      },
+      "timezone": {
+        "note": "No historical IANA timezone claim.",
+        "sourceIds": [],
+        "status": "unknown",
+        "value": null
+      }
+    }
+  ],
+  "assignments": [
+    {
+      "airportId": "apt_eb176a20-e0e3-438d-a330-a7b81185232d",
+      "assignmentId": "proposal-pbi-iata-pbi",
+      "code": "PBI",
+      "evidenceType": "primary_direct",
+      "note": "Boundary-only pending proposal. Enriched with same-day 2026-08-18 operator execution release, independent Air Canada cutover notice (PBI until Aug 18, DJT starting Aug 18), and direct iata.org lookup showing PBI retained as West Palm Beach Metropolitan Area code after cutover. Unknown outer validFrom retained.",
+      "scheme": "IATA",
+      "sourceIds": [
+        "global-code-expansion-us-pbi-name-faq",
+        "next-us-pbi-actual-name-change",
+        "forensics-us-flydjt-iata-article",
+        "forensics-us-flydjt-rename-announcement",
+        "forensics-ca-aircanada-djt-notice",
+        "forensics-iata-lookup-pbi"
+      ],
+      "validFrom": {
+        "earliest": null,
+        "latest": null,
+        "precision": "unknown"
+      },
+      "validTo": {
+        "earliest": "2026-08-18",
+        "latest": "2026-08-19",
+        "precision": "day"
+      },
+      "verificationStatus": "pending",
+      "verifiedOn": null
+    },
+    {
+      "airportId": "apt_eb176a20-e0e3-438d-a330-a7b81185232d",
+      "assignmentId": "proposal-pbi-iata-djt",
+      "code": "DJT",
+      "evidenceType": "primary_direct",
+      "note": "Boundary-only pending proposal. Enriched with direct iata.org lookup confirming DJT assigned to President Donald J. Trump International, same-day 2026-08-18 operator release, and independent Air Canada cutover notice. Unknown outer validTo retained; 2026-08-18 is not extended to an open-ended resolved interval.",
+      "scheme": "IATA",
+      "sourceIds": [
+        "global-code-expansion-us-pbi-name-faq",
+        "next-us-pbi-actual-name-change",
+        "forensics-us-flydjt-iata-article",
+        "forensics-ca-aircanada-djt-notice",
+        "forensics-iata-lookup-djt"
+      ],
+      "validFrom": {
+        "earliest": "2026-08-18",
+        "latest": "2026-08-19",
+        "precision": "day"
+      },
+      "validTo": {
+        "earliest": null,
+        "latest": null,
+        "precision": "unknown"
+      },
+      "verificationStatus": "pending",
+      "verifiedOn": null
+    },
+    {
+      "airportId": "apt_eb176a20-e0e3-438d-a330-a7b81185232d",
+      "assignmentId": "proposal-pbi-icao-kpbi",
+      "code": "KPBI",
+      "evidenceType": "primary_direct",
+      "note": "Boundary-only pending proposal for ICAO KPBI cutover on 2026-07-09, separated from IATA PBI cutover on 2026-08-18. Unknown outer validFrom retained.",
+      "scheme": "ICAO",
+      "sourceIds": [
+        "global-code-expansion-us-pbi-name-faq",
+        "next-us-faa-info26011-official",
+        "next-us-faa-notice8900780",
+        "next-us-nws-kdjt-implementation",
+        "next-us-pbi-actual-name-change"
+      ],
+      "validFrom": {
+        "earliest": null,
+        "latest": null,
+        "precision": "unknown"
+      },
+      "validTo": {
+        "earliest": "2026-07-09",
+        "latest": "2026-07-10",
+        "precision": "day"
+      },
+      "verificationStatus": "pending",
+      "verifiedOn": null
+    },
+    {
+      "airportId": "apt_eb176a20-e0e3-438d-a330-a7b81185232d",
+      "assignmentId": "proposal-pbi-icao-kdjt",
+      "code": "KDJT",
+      "evidenceType": "primary_direct",
+      "note": "Boundary-only pending proposal for ICAO KDJT cutover on 2026-07-09. Unknown outer validTo retained.",
+      "scheme": "ICAO",
+      "sourceIds": [
+        "global-code-expansion-us-pbi-name-faq",
+        "next-us-faa-info26011-official",
+        "next-us-faa-notice8900780",
+        "next-us-nws-kdjt-implementation",
+        "next-us-pbi-actual-name-change"
+      ],
+      "validFrom": {
+        "earliest": "2026-07-09",
+        "latest": "2026-07-10",
+        "precision": "day"
+      },
+      "validTo": {
+        "earliest": null,
+        "latest": null,
+        "precision": "unknown"
+      },
+      "verificationStatus": "pending",
+      "verifiedOn": null
+    },
+    {
+      "airportId": "apt_eb176a20-e0e3-438d-a330-a7b81185232d",
+      "assignmentId": "proposal-pbi-icao-kdjt-nasr-20261002-20261028",
+      "code": "KDJT",
+      "evidenceType": "continuity_inference",
+      "note": "Reconciled bounded ICAO KDJT observation window [2026-10-02, 2026-10-28) (26 certain local dates) from two dated FAA NASR APT_BASE.csv editions (2026-10-01 and 2026-10-29) unified onto canonical airportId apt_eb176a20-e0e3-438d-a330-a7b81185232d instead of conflicting duplicate apt_f12cc00a-7d95-478e-bc87-a67c836379a3.",
+      "scheme": "ICAO",
+      "sourceIds": [
+        "faa-nasr-2026-10-01",
+        "faa-nasr-2026-10-29",
+        "global-code-expansion-us-faa-dtpp-2611"
+      ],
+      "validFrom": {
+        "earliest": "2026-10-01",
+        "latest": "2026-10-02",
+        "precision": "day"
+      },
+      "validTo": {
+        "earliest": "2026-10-28",
+        "latest": "2026-10-29",
+        "precision": "day"
+      },
+      "verificationStatus": "pending",
+      "verifiedOn": null
+    },
+    {
+      "airportId": "apt_82a9b73d-530e-4f4a-9456-7f53c88246bc",
+      "assignmentId": "proposal-manas-iata-fru",
+      "code": "FRU",
+      "evidenceType": "primary_direct",
+      "note": "Boundary-only pending proposal. Direct iata.org lookup confirms FRU withdrawal; Ural Airlines notice (2025-08-11) corroborates IATA Resolution 763 90-day period from May 9, 2025 notification (2025-08-09). Multi-day boundary [2025-08-09, 2025-08-12) preserves uncertainty between Saturday 2025-08-09 Resolution 763 date and Monday 2025-08-11 operational/NOTAM reporting until UCFM NOTAM A0134/25 and A0140/25 full texts are obtained. No ICAO UCFM change inferred.",
+      "scheme": "IATA",
+      "sourceIds": [
+        "asia-kg-iata-notice-mirror",
+        "asia-kg-operator-code-notice",
+        "forensics-ru-uralairlines-bsz",
+        "forensics-iata-lookup-fru"
+      ],
+      "validFrom": {
+        "earliest": null,
+        "latest": null,
+        "precision": "unknown"
+      },
+      "validTo": {
+        "earliest": "2025-08-09",
+        "latest": "2025-08-12",
+        "precision": "unknown"
+      },
+      "verificationStatus": "pending",
+      "verifiedOn": null
+    },
+    {
+      "airportId": "apt_82a9b73d-530e-4f4a-9456-7f53c88246bc",
+      "assignmentId": "proposal-manas-iata-bsz",
+      "code": "BSZ",
+      "evidenceType": "primary_direct",
+      "note": "Boundary-only pending proposal. Direct iata.org lookup confirms Bishkek | Manas Intl | BSZ on issuing body's host; Ural Airlines notice (2025-08-11) corroborates IATA Resolution 763 90-day period from May 9, 2025 notification (2025-08-09). Multi-day boundary [2025-08-09, 2025-08-12) retained pending NOTAM A0134/25 and A0140/25 full text verification. Unknown outer validTo retained.",
+      "scheme": "IATA",
+      "sourceIds": [
+        "asia-kg-iata-notice-mirror",
+        "asia-kg-operator-code-notice",
+        "forensics-ru-uralairlines-bsz",
+        "forensics-iata-lookup-bsz",
+        "next-asia-kg-flyarystan-bsz"
+      ],
+      "validFrom": {
+        "earliest": "2025-08-09",
+        "latest": "2025-08-12",
+        "precision": "unknown"
+      },
+      "validTo": {
+        "earliest": null,
+        "latest": null,
+        "precision": "unknown"
+      },
+      "verificationStatus": "pending",
+      "verifiedOn": null
+    },
+    {
+      "airportId": "apt_ab3830d2-4506-46d5-8ff9-c2d5f46ce268",
+      "assignmentId": "b5-proposal-hal-iata-blr",
+      "code": "BLR",
+      "evidenceType": "primary_direct",
+      "note": "Cross-physical-airport IATA transfer boundary proposal. Government of India Gazette S.O. 1170(E) and S.O. 1181(E) transfer IATA code BLR from HAL Airport (VOBG) to Devanahalli (VOBL) at 00:01 on 2008-05-24. Unknown outer validFrom retained; no AAI continuity grant inherited.",
+      "scheme": "IATA",
+      "sourceIds": [
+        "next-asia-in-moca-bial-2008-amendment",
+        "next-asia-in-moca-bial-2023-concession"
+      ],
+      "validFrom": {
+        "earliest": null,
+        "latest": null,
+        "precision": "unknown"
+      },
+      "validTo": {
+        "earliest": "2008-05-24",
+        "latest": "2008-05-25",
+        "precision": "day"
+      },
+      "verificationStatus": "pending",
+      "verifiedOn": null
+    },
+    {
+      "airportId": "apt_bf9260e8-2d9b-413b-81d9-c6842d53cbf7",
+      "assignmentId": "b5-proposal-kempegowda-iata-blr",
+      "code": "BLR",
+      "evidenceType": "primary_direct",
+      "note": "Cross-physical-airport IATA transfer boundary proposal. Government of India Gazette S.O. 1170(E) and S.O. 1181(E) transfer IATA code BLR to Devanahalli (Kempegowda International Airport, VOBL) at 00:01 on 2008-05-24. Unknown outer validTo retained; no AAI continuity grant inherited.",
+      "scheme": "IATA",
+      "sourceIds": [
+        "next-asia-in-moca-bial-2008-amendment",
+        "next-asia-in-moca-bial-2023-concession"
+      ],
+      "validFrom": {
+        "earliest": "2008-05-24",
+        "latest": "2008-05-25",
+        "precision": "day"
+      },
+      "validTo": {
+        "earliest": null,
+        "latest": null,
+        "precision": "unknown"
+      },
+      "verificationStatus": "pending",
+      "verifiedOn": null
+    },
+    {
+      "airportId": "apt_5e325674-a832-4106-807e-7e1e1ef951fe",
+      "assignmentId": "proposal-in-vanm-iata-nmi",
+      "code": "NMI",
+      "evidenceType": "primary_direct",
+      "note": "Primary issuing-body (iata.org) IATA code identity observation binding NMI to existing formal physical airport apt_5e325674-a832-4106-807e-7e1e1ef951fe (Navi Mumbai International Airport, ICAO VANM). Both validFrom and validTo remain unknown because current directory lookup does not establish historical allocation dates and AAI's ICAO-only continuity grant cannot be extended to IATA.",
+      "scheme": "IATA",
+      "sourceIds": [
+        "forensics-iata-lookup-nmi"
+      ],
+      "validFrom": {
+        "earliest": null,
+        "latest": null,
+        "precision": "unknown"
+      },
+      "validTo": {
+        "earliest": null,
+        "latest": null,
+        "precision": "unknown"
+      },
+      "verificationStatus": "pending",
+      "verifiedOn": null
+    },
+    {
+      "airportId": "apt_96e253c6-48ee-4ca3-b9a1-c34b49df0a68",
+      "assignmentId": "proposal-in-veay-iata-ayj",
+      "code": "AYJ",
+      "evidenceType": "primary_direct",
+      "note": "Primary issuing-body (iata.org) IATA code identity observation binding AYJ to existing formal physical airport apt_96e253c6-48ee-4ca3-b9a1-c34b49df0a68 (Maharishi Valmiki International Airport Ayodhyadham, ICAO VEAY). Both validFrom and validTo remain unknown because current directory lookup does not establish historical allocation dates and AAI's ICAO-only continuity grant cannot be extended to IATA.",
+      "scheme": "IATA",
+      "sourceIds": [
+        "forensics-iata-lookup-ayj"
+      ],
+      "validFrom": {
+        "earliest": null,
+        "latest": null,
+        "precision": "unknown"
+      },
+      "validTo": {
+        "earliest": null,
+        "latest": null,
+        "precision": "unknown"
+      },
+      "verificationStatus": "pending",
+      "verifiedOn": null
+    },
+    {
+      "airportId": "apt_1130a628-5e21-4e68-b3e0-178487751f67",
+      "assignmentId": "proposal-in-vosh-iata-rqy",
+      "code": "RQY",
+      "evidenceType": "primary_direct",
+      "note": "Primary issuing-body (iata.org) IATA code identity observation binding RQY to existing formal physical airport apt_1130a628-5e21-4e68-b3e0-178487751f67 (Shivamogga Airport, ICAO VOSH). Both validFrom and validTo remain unknown because current directory lookup does not establish historical allocation dates and AAI's ICAO-only continuity grant cannot be extended to IATA.",
+      "scheme": "IATA",
+      "sourceIds": [
+        "forensics-iata-lookup-rqy"
+      ],
+      "validFrom": {
+        "earliest": null,
+        "latest": null,
+        "precision": "unknown"
+      },
+      "validTo": {
+        "earliest": null,
+        "latest": null,
+        "precision": "unknown"
+      },
+      "verificationStatus": "pending",
+      "verifiedOn": null
+    },
+    {
+      "airportId": "apt_fa1bf7a7-a97d-4676-9c9a-7871eda47767",
+      "assignmentId": "proposal-in-vasd-iata-sag",
+      "code": "SAG",
+      "evidenceType": "primary_direct",
+      "note": "Primary issuing-body (iata.org) IATA code identity observation binding SAG to existing formal physical airport apt_fa1bf7a7-a97d-4676-9c9a-7871eda47767 (Shirdi International Airport, ICAO VASD). Both validFrom and validTo remain unknown because current directory lookup does not establish historical allocation dates and AAI's ICAO-only continuity grant cannot be extended to IATA.",
+      "scheme": "IATA",
+      "sourceIds": [
+        "forensics-iata-lookup-sag"
+      ],
+      "validFrom": {
+        "earliest": null,
+        "latest": null,
+        "precision": "unknown"
+      },
+      "validTo": {
+        "earliest": null,
+        "latest": null,
+        "precision": "unknown"
+      },
+      "verificationStatus": "pending",
+      "verifiedOn": null
+    },
+    {
+      "airportId": "apt_58a2554f-6a9b-4ad7-bc2c-2550ad21b962",
+      "assignmentId": "proposal-in-vokn-iata-cnn",
+      "code": "CNN",
+      "evidenceType": "primary_direct",
+      "note": "Primary issuing-body (iata.org) IATA code identity observation binding CNN to existing formal physical airport apt_58a2554f-6a9b-4ad7-bc2c-2550ad21b962 (Kannur International Airport, ICAO VOKN). Both validFrom and validTo remain unknown because current directory lookup does not establish historical allocation dates and AAI's ICAO-only continuity grant cannot be extended to IATA.",
+      "scheme": "IATA",
+      "sourceIds": [
+        "forensics-iata-lookup-cnn"
+      ],
+      "validFrom": {
+        "earliest": null,
+        "latest": null,
+        "precision": "unknown"
+      },
+      "validTo": {
+        "earliest": null,
+        "latest": null,
+        "precision": "unknown"
+      },
+      "verificationStatus": "pending",
+      "verifiedOn": null
+    },
+    {
+      "airportId": "apt_9acf6a6b-6e22-48c6-881c-d602429a9268",
+      "assignmentId": "proposal-in-veho-iata-hgi",
+      "code": "HGI",
+      "evidenceType": "primary_direct",
+      "note": "Primary issuing-body (iata.org) IATA code identity observation binding HGI to existing formal physical airport apt_9acf6a6b-6e22-48c6-881c-d602429a9268 (Itanagar Donyi Polo Hollongi Airport, ICAO VEHO). Both validFrom and validTo remain unknown because current directory lookup does not establish historical allocation dates and AAI's ICAO-only continuity grant cannot be extended to IATA.",
+      "scheme": "IATA",
+      "sourceIds": [
+        "forensics-iata-lookup-hgi"
+      ],
+      "validFrom": {
+        "earliest": null,
+        "latest": null,
+        "precision": "unknown"
+      },
+      "validTo": {
+        "earliest": null,
+        "latest": null,
+        "precision": "unknown"
+      },
+      "verificationStatus": "pending",
+      "verifiedOn": null
+    },
+    {
+      "airportId": "apt_9e24d5d7-5e1a-4489-b936-2737c438921e",
+      "assignmentId": "proposal-in-vosr-iata-sdw",
+      "code": "SDW",
+      "evidenceType": "primary_direct",
+      "note": "Primary issuing-body (iata.org) IATA code identity observation binding SDW to existing formal physical airport apt_9e24d5d7-5e1a-4489-b936-2737c438921e (Sindhudurg Airport, ICAO VOSR). Both validFrom and validTo remain unknown because current directory lookup does not establish historical allocation dates and AAI's ICAO-only continuity grant cannot be extended to IATA.",
+      "scheme": "IATA",
+      "sourceIds": [
+        "forensics-iata-lookup-sdw"
+      ],
+      "validFrom": {
+        "earliest": null,
+        "latest": null,
+        "precision": "unknown"
+      },
+      "validTo": {
+        "earliest": null,
+        "latest": null,
+        "precision": "unknown"
+      },
+      "verificationStatus": "pending",
+      "verifiedOn": null
+    },
+    {
+      "airportId": "apt_66034969-b902-4ede-8011-cc87a23070b7",
+      "assignmentId": "proposal-in-vogb-iata-gbi",
+      "code": "GBI",
+      "evidenceType": "primary_direct",
+      "note": "Primary issuing-body (iata.org) IATA code identity observation binding GBI to existing formal physical airport apt_66034969-b902-4ede-8011-cc87a23070b7 (Kalaburagi Airport, ICAO VOGB). Both validFrom and validTo remain unknown because current directory lookup does not establish historical allocation dates and AAI's ICAO-only continuity grant cannot be extended to IATA.",
+      "scheme": "IATA",
+      "sourceIds": [
+        "forensics-iata-lookup-gbi"
+      ],
+      "validFrom": {
+        "earliest": null,
+        "latest": null,
+        "precision": "unknown"
+      },
+      "validTo": {
+        "earliest": null,
+        "latest": null,
+        "precision": "unknown"
+      },
+      "verificationStatus": "pending",
+      "verifiedOn": null
+    },
+    {
+      "airportId": "apt_0342f79b-a035-43b6-88bf-52b9a5e9622f",
+      "assignmentId": "proposal-in-veki-iata-kbk",
+      "code": "KBK",
+      "evidenceType": "primary_direct",
+      "note": "Primary issuing-body (iata.org) IATA code identity observation binding KBK to existing formal physical airport apt_0342f79b-a035-43b6-88bf-52b9a5e9622f (Kushinagar International Airport, ICAO VEKI). Both validFrom and validTo remain unknown because current directory lookup does not establish historical allocation dates and AAI's ICAO-only continuity grant cannot be extended to IATA.",
+      "scheme": "IATA",
+      "sourceIds": [
+        "forensics-iata-lookup-kbk"
+      ],
+      "validFrom": {
+        "earliest": null,
+        "latest": null,
+        "precision": "unknown"
+      },
+      "validTo": {
+        "earliest": null,
+        "latest": null,
+        "precision": "unknown"
+      },
+      "verificationStatus": "pending",
+      "verifiedOn": null
+    },
+    {
+      "airportId": "apt_162c7dfd-e70b-48c7-bbe5-282ede0a5cc9",
+      "assignmentId": "proposal-in-vepy-iata-pyg",
+      "code": "PYG",
+      "evidenceType": "primary_direct",
+      "note": "Primary issuing-body (iata.org) IATA code identity observation binding PYG to existing formal physical airport apt_162c7dfd-e70b-48c7-bbe5-282ede0a5cc9 (Pakyong Airport, ICAO VEPY). Both validFrom and validTo remain unknown because current directory lookup does not establish historical allocation dates and AAI's ICAO-only continuity grant cannot be extended to IATA.",
+      "scheme": "IATA",
+      "sourceIds": [
+        "forensics-iata-lookup-pyg"
+      ],
+      "validFrom": {
+        "earliest": null,
+        "latest": null,
+        "precision": "unknown"
+      },
+      "validTo": {
+        "earliest": null,
+        "latest": null,
+        "precision": "unknown"
+      },
+      "verificationStatus": "pending",
+      "verifiedOn": null
+    },
+    {
+      "airportId": "apt_5d260013-75b3-4ec4-8915-7c5ff2a47fc3",
+      "assignmentId": "proposal-in-voku-iata-kjb",
+      "code": "KJB",
+      "evidenceType": "primary_direct",
+      "note": "Primary issuing-body (iata.org) IATA code identity observation binding KJB to existing formal physical airport apt_5d260013-75b3-4ec4-8915-7c5ff2a47fc3 (Kurnool Airport, ICAO VOKU). Both validFrom and validTo remain unknown because current directory lookup does not establish historical allocation dates and AAI's ICAO-only continuity grant cannot be extended to IATA.",
+      "scheme": "IATA",
+      "sourceIds": [
+        "forensics-iata-lookup-kjb"
+      ],
+      "validFrom": {
+        "earliest": null,
+        "latest": null,
+        "precision": "unknown"
+      },
+      "validTo": {
+        "earliest": null,
+        "latest": null,
+        "precision": "unknown"
+      },
+      "verificationStatus": "pending",
+      "verifiedOn": null
+    },
+    {
+      "airportId": "apt_74a05fd5-53fa-40f8-a3a6-de8cfd7d5e99",
+      "assignmentId": "proposal-in-kecp-iata-ecp",
+      "code": "ECP",
+      "evidenceType": "primary_direct",
+      "note": "Primary issuing-body (iata.org) IATA code identity observation binding ECP to existing formal physical airport apt_74a05fd5-53fa-40f8-a3a6-de8cfd7d5e99 (Northwest Florida Beaches International Airport, ICAO KECP). Both validFrom and validTo remain unknown because current directory lookup does not establish historical allocation dates and AAI's ICAO-only continuity grant cannot be extended to IATA.",
+      "scheme": "IATA",
+      "sourceIds": [
+        "forensics-iata-lookup-ecp"
+      ],
+      "validFrom": {
+        "earliest": null,
+        "latest": null,
+        "precision": "unknown"
+      },
+      "validTo": {
+        "earliest": null,
+        "latest": null,
+        "precision": "unknown"
+      },
+      "verificationStatus": "pending",
+      "verifiedOn": null
+    },
+    {
+      "airportId": "apt_f50aecf6-9778-4db7-9027-0e751ffab63a",
+      "assignmentId": "proposal-in-lemi-iata-rmu",
+      "code": "RMU",
+      "evidenceType": "primary_direct",
+      "note": "Primary issuing-body (iata.org) IATA code identity observation binding RMU to existing formal physical airport apt_f50aecf6-9778-4db7-9027-0e751ffab63a (Region of Murcia International Airport, ICAO LEMI). Both validFrom and validTo remain unknown because current directory lookup does not establish historical allocation dates and AAI's ICAO-only continuity grant cannot be extended to IATA.",
+      "scheme": "IATA",
+      "sourceIds": [
+        "forensics-iata-lookup-rmu"
+      ],
+      "validFrom": {
+        "earliest": null,
+        "latest": null,
+        "precision": "unknown"
+      },
+      "validTo": {
+        "earliest": null,
+        "latest": null,
+        "precision": "unknown"
+      },
+      "verificationStatus": "pending",
+      "verifiedOn": null
+    }
+  ],
+  "baselineDataSha256": "4573fb7e6fac8e02c8e3f57443599385dffada17b250a29f1a18964f6d6d8cc9",
+  "baselineDataVersion": "0.12.0",
+  "counts": {
+    "candidateAssignmentsTotal": 22,
+    "candidateIataAssignments": 19,
+    "candidateIcaoAssignments": 3,
+    "candidateSources": 39,
+    "newCandidateAirports": 4,
+    "reusedFormalIndianAirports": 13
+  },
+  "crossBatchIdentityReconciliation": {
+    "canonicalAirportId": "apt_eb176a20-e0e3-438d-a330-a7b81185232d",
+    "faaSiteNumber": "03555.*A",
+    "ourAirportsId": "3766",
+    "reconciledAssignmentId": "proposal-pbi-icao-kdjt-nasr-20261002-20261028",
+    "supersededAssignmentId": "public-faa-03555-icao",
+    "supersededBatchPath": "research/evidence/global-public-data/proposed-data.json",
+    "supersededDuplicateAirportId": "apt_f12cc00a-7d95-478e-bc87-a67c836379a3",
+    "technicalFinding": "In src/resolve.ts (lines 112-119), resolveAirport() returns status='resolved' only when result.candidates.every(c => c.airport.airportId === first.airport.airportId). Because global-code-expansion/global-code-next assigned apt_eb176a20-e0e3-438d-a330-a7b81185232d to OurAirports 3766 while global-public-data generated apt_f12cc00a-7d95-478e-bc87-a67c836379a3 for the same physical airport, admitting both without reconciliation would cause validateDataset() to fail on duplicate OurAirports identity 3766 and would downgrade all 26 resolved KDJT days (2026-10-02..2026-10-27) to 'uncertain'. Reconciling onto apt_eb176a20-e0e3-438d-a330-a7b81185232d eliminates the duplicate physical airport and preserves all 26 resolved KDJT days."
+  },
+  "formalAdmissionExecuted": false,
+  "formatVersion": 1,
+  "names": [],
+  "publicationState": "pending_research_proposals_no_formal_data_mutation",
+  "reviewedOn": "2026-11-18",
+  "sources": [
+    {
+      "accessedOn": "2026-11-07",
+      "license": {
+        "id": "LicenseRef-PalmBeachCounty-RightsReserved",
+        "note": "Factual metadata and short citations only; full originals/extractions in ignored work/.",
+        "url": "https://flydjt.org/about/name-change-faqs/"
+      },
+      "note": "Operator FAQ (updated 2026-08-20) reporting ICAO KDJT change on 2026-07-09 and IATA DJT change on 2026-08-18. Reused locked original sha256 c5b980d2345a7ed17eef64b81eee261e249d3b89b488dfe93c40d0fb69baaa43.",
+      "sourceId": "global-code-expansion-us-pbi-name-faq",
+      "sourceType": "primary",
+      "title": "Palm Beach County Department of Airports: name-change FAQ (updated 2026-08-20)",
+      "url": "https://flydjt.org/about/name-change-faqs/",
+      "verificationStatus": "pending"
+    },
+    {
+      "accessedOn": "2026-11-07",
+      "license": {
+        "id": "LicenseRef-PalmBeachCounty-RightsReserved",
+        "note": "Factual metadata and short citations only; full originals/extractions in ignored work/.",
+        "url": "https://discover.pbc.gov/airports/Pages/default.aspx"
+      },
+      "note": "Establishes Palm Beach County Department of Airports operator identity. Reused locked original sha256 40ed3ce115d5669529cb048d995df4daa6454ac70e9fe644d477be7a747bbd3f.",
+      "sourceId": "global-code-expansion-us-pbc-airports",
+      "sourceType": "primary",
+      "title": "Palm Beach County Department of Airports administration page",
+      "url": "https://discover.pbc.gov/airports/Pages/default.aspx",
+      "verificationStatus": "pending"
+    },
+    {
+      "accessedOn": "2026-11-07",
+      "license": {
+        "id": "LicenseRef-US-Government",
+        "note": "17 USC 105 US federal work; factual metadata only.",
+        "url": "https://aeronav.faa.gov/d-tpp/2611/xml_data/d-TPP_Metafile.xml"
+      },
+      "note": "FAA cycle 2611 XML metafile observation of KDJT/DJT; edition observation only, not historical allocation boundary. Reused locked original sha256 35e554ff386032ac024dd2643d1bc287a4fafb1d1436006b0da6dbd70c81f99f.",
+      "sourceId": "global-code-expansion-us-faa-dtpp-2611",
+      "sourceType": "primary",
+      "title": "FAA d-TPP metafile cycle 2611",
+      "url": "https://aeronav.faa.gov/d-tpp/2611/xml_data/d-TPP_Metafile.xml",
+      "verificationStatus": "pending"
+    },
+    {
+      "accessedOn": "2026-11-07",
+      "license": {
+        "id": "LicenseRef-US-Government",
+        "note": "17 USC 105 US federal work; factual metadata only; no chart reproduced.",
+        "url": "https://aeronav.faa.gov/d-tpp/2611/00449AD.PDF"
+      },
+      "note": "Physical airfield diagram corroboration; FAA LID DJT is not used as IATA allocation proof. Reused locked original sha256 d728c128799f57e3e531b4de53c0535cfc80f6d20e5826d9d3eea4e1a70ac8cf.",
+      "sourceId": "global-code-expansion-us-faa-djt-diagram-2611",
+      "sourceType": "primary",
+      "title": "FAA airport diagram AL-449, cycle 2611",
+      "url": "https://aeronav.faa.gov/d-tpp/2611/00449AD.PDF",
+      "verificationStatus": "pending"
+    },
+    {
+      "accessedOn": "2026-11-08",
+      "license": {
+        "id": "LicenseRef-US-Government",
+        "note": "17 USC 105 US federal text; atomic factual metadata only.",
+        "url": "https://www.faa.gov/other_visit/aviation_industry/airline_operators/airline_safety/info/all_infos/InFO26011.pdf"
+      },
+      "note": "Prospective FAA Flight Standards guidance (2026-06-29) for 2026-07-09 ICAO KDJT system update. Reused locked original sha256 027d2cbbee23a2ed160c7dde993e41034f4d390b1e8b9c1818620e90fd4ec1da.",
+      "sourceId": "next-us-faa-info26011-official",
+      "sourceType": "primary",
+      "title": "FAA InFO 26011: renaming Palm Beach International Airport (2026-06-29)",
+      "url": "https://www.faa.gov/other_visit/aviation_industry/airline_operators/airline_safety/info/all_infos/InFO26011.pdf",
+      "verificationStatus": "pending"
+    },
+    {
+      "accessedOn": "2026-11-08",
+      "license": {
+        "id": "LicenseRef-US-Government",
+        "note": "17 USC 105 US federal text; atomic factual metadata only.",
+        "url": "https://www.faa.gov/documentLibrary/media/Notice/N_8900.780.pdf"
+      },
+      "note": "Prospective FAA Notice (2026-06-26) for 2026-07-09 system update. Reused locked original sha256 c4a43daa91227181c58d6eaf5194cb2120229373c0d638d2193e8e17a307a8ea.",
+      "sourceId": "next-us-faa-notice8900780",
+      "sourceType": "primary",
+      "title": "FAA Notice N 8900.780: renaming Palm Beach International Airport (2026-06-26)",
+      "url": "https://www.faa.gov/documentLibrary/media/Notice/N_8900.780.pdf",
+      "verificationStatus": "pending"
+    },
+    {
+      "accessedOn": "2026-11-08",
+      "license": {
+        "id": "LicenseRef-US-Government",
+        "note": "17 USC 105 US federal text; atomic factual metadata only.",
+        "url": "https://www.weather.gov/media/notification/pdf_2026/scn26-56_KDJT_TAF_Implementation.pdf"
+      },
+      "note": "Prospective NOAA/NWS notice (2026-06-12) for KPBI to KDJT transition on 2026-07-09; 1200 UTC applies to TAF service. Reused locked original sha256 77ba0ad058260158c981e3201c2ff6d835836bd4d6403c505e8b3b3e7c06483e.",
+      "sourceId": "next-us-nws-kdjt-implementation",
+      "sourceType": "primary",
+      "title": "NWS Service Change Notice 26-56: KDJT TAF implementation (2026-06-12)",
+      "url": "https://www.weather.gov/media/notification/pdf_2026/scn26-56_KDJT_TAF_Implementation.pdf",
+      "verificationStatus": "pending"
+    },
+    {
+      "accessedOn": "2026-11-08",
+      "license": {
+        "id": "LicenseRef-PalmBeachCounty-RightsReserved",
+        "note": "Atomic factual metadata only; full original/extraction in ignored work/.",
+        "url": "https://flydjt.org/articles/post/president-donald-j-trump-international-airport-name-change-takes-effect/"
+      },
+      "note": "Reports ICAO identifier is now KDJT as of 2026-07-09 while IATA remains PBI until 2026-08-18. Reused locked original sha256 3d13e66e848eb693c67ac27ccdbc108ecdd1d79428b4437c4b78c7810f1329f2.",
+      "sourceId": "next-us-pbi-actual-name-change",
+      "sourceType": "primary",
+      "title": "Palm Beach County airport name-change execution report (dateline 2026-07-09)",
+      "url": "https://flydjt.org/articles/post/president-donald-j-trump-international-airport-name-change-takes-effect/",
+      "verificationStatus": "pending"
+    },
+    {
+      "accessedOn": "2026-11-10",
+      "license": {
+        "id": "LicenseRef-US-Government-Public-Domain",
+        "note": "US federal aeronautical database; factual fields only.",
+        "url": "https://www.faa.gov/air_traffic/flight_info/aeronav/aero_data/NASR_Subscription/"
+      },
+      "note": "FAA NASR edition effective 2026-10-01 observing site 03555.*A as DJT / KDJT. Reused locked archive sha256 b8b5d2b311358be98874ecad599dc1871fa53c61fb720ebfb405c2ef4aa9c161.",
+      "sourceId": "faa-nasr-2026-10-01",
+      "sourceType": "primary",
+      "title": "FAA 28-Day NASR Subscription effective 2026-10-01 (APT_BASE.csv)",
+      "url": "https://nfdc.faa.gov/webContent/28DaySub/28DaySubscription_Effective_2026-10-01.zip",
+      "verificationStatus": "pending"
+    },
+    {
+      "accessedOn": "2026-11-10",
+      "license": {
+        "id": "LicenseRef-US-Government-Public-Domain",
+        "note": "US federal aeronautical database; factual fields only.",
+        "url": "https://www.faa.gov/air_traffic/flight_info/aeronav/aero_data/NASR_Subscription/"
+      },
+      "note": "FAA NASR edition effective 2026-10-29 observing site 03555.*A as DJT / KDJT. Reused locked archive sha256 97265256fa524bc59d295e0b86b0f80157ec5f49e87e7f5a38d0fa666d85360c.",
+      "sourceId": "faa-nasr-2026-10-29",
+      "sourceType": "primary",
+      "title": "FAA 28-Day NASR Subscription effective 2026-10-29 (APT_BASE.csv)",
+      "url": "https://nfdc.faa.gov/webContent/28DaySub/28DaySubscription_Effective_2026-10-29.zip",
+      "verificationStatus": "pending"
+    },
+    {
+      "accessedOn": "2026-11-18",
+      "license": {
+        "id": "LicenseRef-PalmBeachCounty-RightsReserved",
+        "note": "Atomic factual metadata and short citations only; full original in ignored work/.",
+        "url": "https://flydjt.org/articles/post/airport-iata-code-changes-from-pbi-to-djt/"
+      },
+      "note": "Same-day official operator release (2026-08-18) confirming IATA code changed from PBI to DJT effective 2026-08-18. Original sha256 d806933e3866b7e8859a95ff21ba0931bd84a0757ddce8a975f1b9c405f85a0d.",
+      "sourceId": "forensics-us-flydjt-iata-article",
+      "sourceType": "primary",
+      "title": "Palm Beach County Department of Airports release: Airport IATA Code Changes from PBI to DJT (Aug. 18, 2026)",
+      "url": "https://flydjt.org/articles/post/airport-iata-code-changes-from-pbi-to-djt/",
+      "verificationStatus": "pending"
+    },
+    {
+      "accessedOn": "2026-11-18",
+      "license": {
+        "id": "LicenseRef-PalmBeachCounty-RightsReserved",
+        "note": "Atomic factual metadata and short citations only; full original in ignored work/.",
+        "url": "https://flydjt.org/articles/post/palm-beach-international-airport-to-be-renamed-president-donald-j-trump-international-airport/"
+      },
+      "note": "Operator release (2026-03-31) clarifying that the March 30, 2026 Florida rename legislation (effective July 1, 2026) did not change airport code PBI. Original sha256 79d7c2268b13af50c8b50c6820fb443c6cf3a4f7e7ad64ab42ffdc6c196a7b6a.",
+      "sourceId": "forensics-us-flydjt-rename-announcement",
+      "sourceType": "primary",
+      "title": "Palm Beach County Department of Airports release: Palm Beach International Airport to be Renamed (Mar. 31, 2026)",
+      "url": "https://flydjt.org/articles/post/palm-beach-international-airport-to-be-renamed-president-donald-j-trump-international-airport/",
+      "verificationStatus": "pending"
+    },
+    {
+      "accessedOn": "2026-11-18",
+      "license": {
+        "id": "LicenseRef-AirCanada-Terms",
+        "note": "Atomic factual metadata and short citations only; full original in ignored work/.",
+        "url": "https://www.aircanada.com/us/en/aco/home/book/travel-news-and-updates/2026/airport-code-change-for-west-palm-beach.html"
+      },
+      "note": "Independent carrier operational cutover notice (published 2026-07-31) instructing use of PBI until 2026-08-18 and DJT starting 2026-08-18. Original sha256 d06a5e2f6024f768a907031dc747ca40e606b2bde35b1037bcff8be957acd7e6.",
+      "sourceId": "forensics-ca-aircanada-djt-notice",
+      "sourceType": "primary",
+      "title": "Air Canada Travel News and Updates: West Palm Beach airport code changing from PBI to DJT (July 31, 2026)",
+      "url": "https://www.aircanada.com/us/en/aco/home/book/travel-news-and-updates/2026/airport-code-change-for-west-palm-beach.html",
+      "verificationStatus": "pending"
+    },
+    {
+      "accessedOn": "2026-11-18",
+      "license": {
+        "id": "LicenseRef-IATA-Terms",
+        "note": "Atomic factual metadata and short citations only; full original in ignored work/.",
+        "url": "https://www.iata.org/en/publications/directories/code-search/?airport.search=DJT"
+      },
+      "note": "Direct iata.org code directory observation confirming West Palm Beach | President Donald J. Trump International | DJT. Original sha256 70dca7ffe7300e641b39dbbfc8cd85bbeef0dcbe599a4fa75a9761109e8f527a.",
+      "sourceId": "forensics-iata-lookup-djt",
+      "sourceType": "primary",
+      "title": "IATA Airline and Airport Code Search: DJT",
+      "url": "https://www.iata.org/en/publications/directories/code-search/?airport.search=DJT",
+      "verificationStatus": "pending"
+    },
+    {
+      "accessedOn": "2026-11-18",
+      "license": {
+        "id": "LicenseRef-IATA-Terms",
+        "note": "Atomic factual metadata and short citations only; full original in ignored work/.",
+        "url": "https://www.iata.org/en/publications/directories/code-search/?airport.search=PBI"
+      },
+      "note": "Direct iata.org code directory observation showing PBI is retained as West Palm Beach | Metropolitan Area | PBI rather than an individual airport code. Original sha256 a3f490e5b7416f2574586ad0e5d88931285312818e6c7d6fea55543bba896b6c.",
+      "sourceId": "forensics-iata-lookup-pbi",
+      "sourceType": "primary",
+      "title": "IATA Airline and Airport Code Search: PBI",
+      "url": "https://www.iata.org/en/publications/directories/code-search/?airport.search=PBI",
+      "verificationStatus": "pending"
+    },
+    {
+      "accessedOn": "2026-11-07",
+      "license": {
+        "id": "LicenseRef-Source-Specific-Factual-Evidence",
+        "note": "Mirrored PDF; atomic factual metadata only; full original in ignored work/.",
+        "url": "https://cdn-1.aki.kg/cdn-st-0/qgT/J/19644.ba3cbbb95b570b9d48e06479430c0906.pdf"
+      },
+      "note": "Mirrored IATA notification dated 2025-05-09 stating FRU changes to BSZ effective 2025-08-09. Reused locked original sha256 3a1d545cda856ac86e6c1d25a70325f448f3917a1bb939c5e1f07cf3d3dd3176.",
+      "sourceId": "asia-kg-iata-notice-mirror",
+      "sourceType": "primary",
+      "title": "Mirrored IATA Special Industry Notification: Bishkek FRU to BSZ (2025-05-09)",
+      "url": "https://cdn-1.aki.kg/cdn-st-0/qgT/J/19644.ba3cbbb95b570b9d48e06479430c0906.pdf",
+      "verificationStatus": "pending"
+    },
+    {
+      "accessedOn": "2026-11-07",
+      "license": {
+        "id": "LicenseRef-Source-Specific-Factual-Evidence",
+        "note": "Atomic factual metadata only; full original in ignored work/.",
+        "url": "https://airport.kg/ru/news/15"
+      },
+      "note": "Official Kyrgyz airport operator announcement stating Manas changes IATA code from FRU to BSZ effective 2025-08-09. Reused locked original sha256 f0bb454f0fa03ebb7daef095b48c60da33d846abcbd06383673b4670bd109c8f.",
+      "sourceId": "asia-kg-operator-code-notice",
+      "sourceType": "primary",
+      "title": "Airports of Kyrgyzstan news/15: Manas IATA code change FRU to BSZ",
+      "url": "https://airport.kg/ru/news/15",
+      "verificationStatus": "pending"
+    },
+    {
+      "accessedOn": "2026-11-18",
+      "license": {
+        "id": "LicenseRef-UralAirlines-Terms",
+        "note": "Atomic factual metadata and short citations only; full original in ignored work/.",
+        "url": "https://cargo.uralairlines.ru/en/news/aeroport-manas-v-bishkeke-smenil-kod-iata-s-fru-na-bsz"
+      },
+      "note": "Carrier operational notice published 2025-08-11 citing IATA Resolution 763 and the 90-day effective period from the May 9, 2025 IATA notification. Original sha256 048acbfd5157bb8397217213957e855decc1a5586900c89f2f4887f5e705b97c.",
+      "sourceId": "forensics-ru-uralairlines-bsz",
+      "sourceType": "primary",
+      "title": "JSC Ural Airlines official notice: Manas Airport in Bishkek has changed its IATA code from FRU to BSZ (2025-08-11)",
+      "url": "https://cargo.uralairlines.ru/en/news/aeroport-manas-v-bishkeke-smenil-kod-iata-s-fru-na-bsz",
+      "verificationStatus": "pending"
+    },
+    {
+      "accessedOn": "2026-11-18",
+      "license": {
+        "id": "LicenseRef-IATA-Terms",
+        "note": "Atomic factual metadata and short citations only; full original in ignored work/.",
+        "url": "https://www.iata.org/en/publications/directories/code-search/?airport.search=BSZ"
+      },
+      "note": "Direct iata.org code directory observation confirming Bishkek | Manas Intl | BSZ. Original sha256 abc63e2c8a2ff63de561239c7a90a89fdb21416b91750ad67456aeb255f05d36.",
+      "sourceId": "forensics-iata-lookup-bsz",
+      "sourceType": "primary",
+      "title": "IATA Airline and Airport Code Search: BSZ",
+      "url": "https://www.iata.org/en/publications/directories/code-search/?airport.search=BSZ",
+      "verificationStatus": "pending"
+    },
+    {
+      "accessedOn": "2026-11-18",
+      "license": {
+        "id": "LicenseRef-IATA-Terms",
+        "note": "Atomic factual metadata and short citations only; full original in ignored work/.",
+        "url": "https://www.iata.org/en/publications/directories/code-search/?airport.search=FRU"
+      },
+      "note": "Direct iata.org code directory observation confirming FRU is withdrawn ('No Airport Code found'). Original sha256 f29162bdebfc5cd2196d3b2f0c6ffa3758adf4f3f715175907f294458ff3de1b.",
+      "sourceId": "forensics-iata-lookup-fru",
+      "sourceType": "primary",
+      "title": "IATA Airline and Airport Code Search: FRU",
+      "url": "https://www.iata.org/en/publications/directories/code-search/?airport.search=FRU",
+      "verificationStatus": "pending"
+    },
+    {
+      "accessedOn": "2026-11-08",
+      "license": {
+        "id": "LicenseRef-Source-Specific-Factual-Evidence",
+        "note": "Atomic factual metadata only; full original in ignored work/.",
+        "url": "https://flyarystan.com/directions/almaty/almaty-astana"
+      },
+      "note": "Carrier booking directory listing Bishkek (BSZ). Reused locked original sha256 8aaa5e499228e6b7aaa1c3f472e828dfc35219eb0cdf5f3998c862e2402853fb.",
+      "sourceId": "next-asia-kg-flyarystan-bsz",
+      "sourceType": "primary",
+      "title": "FlyArystan booking directory: Bishkek BSZ",
+      "url": "https://flyarystan.com/directions/almaty/almaty-astana",
+      "verificationStatus": "pending"
+    },
+    {
+      "accessedOn": "2026-11-08",
+      "license": {
+        "id": "LicenseRef-Source-Specific-Factual-Evidence",
+        "note": "India Copyright Act s.52(1)(q)(i) official Gazette notification factual use; full original in ignored work/.",
+        "url": "https://www.civilaviation.gov.in/sites/default/files/migration/moca_001325.pdf"
+      },
+      "note": "Statutory Gazette notification S.O. 1170(E) (16 May 2008) and S.O. 1181(E) (21 May 2008) transferring IATA code BLR from HAL to Devanahalli at 00:01 on 24 May 2008. Reused locked original sha256 65c81fc0dcaba1bba68b2daac41874d9be30a60032653187d5cb4593e1446bda.",
+      "sourceId": "next-asia-in-moca-bial-2008-amendment",
+      "sourceType": "primary",
+      "title": "MoCA Bangalore airport opening amendment referencing S.O. 1170(E) and S.O. 1181(E) (2008-05-21)",
+      "url": "https://www.civilaviation.gov.in/sites/default/files/migration/moca_001325.pdf",
+      "verificationStatus": "pending"
+    },
+    {
+      "accessedOn": "2026-11-08",
+      "license": {
+        "id": "LicenseRef-Source-Specific-Factual-Evidence",
+        "note": "India Copyright Act s.52(1)(q)(i) official Gazette annex factual use; full original in ignored work/.",
+        "url": "https://www.civilaviation.gov.in/sites/default/files/2023-07/7%20Extension-of-Concession-Agreement.pdf"
+      },
+      "note": "Retrospective MoCA dossier (July 2021) corroborating 24 May 2008 execution and reproducing 2008 Gazette notification. Reused locked original sha256 b7b8fb690e604a95715f424fb54d5073b120082b695819c12969eb3af49c3467.",
+      "sourceId": "next-asia-in-moca-bial-2023-concession",
+      "sourceType": "primary",
+      "title": "MoCA July 2021 Bangalore concession extension dossier with 2008 Gazette annex",
+      "url": "https://www.civilaviation.gov.in/sites/default/files/2023-07/7%20Extension-of-Concession-Agreement.pdf",
+      "verificationStatus": "pending"
+    },
+    {
+      "accessedOn": "2026-11-03",
+      "license": {
+        "id": "LicenseRef-AAI-Terms",
+        "note": "Original aeronautical text; retain AAI attribution. Not licensed as MIT.",
+        "url": "https://www.aai.aero/en/corporate/copyright"
+      },
+      "note": "Reused locked original sha256 c0dcd7075f6347dfaa4716d24a80771dbf68f92dd50e55cdf302b0ba196ed9df.",
+      "sourceId": "b5-in-aip-2012-ad13",
+      "sourceType": "primary",
+      "title": "eAIP India 01-04-2012, AD 1.3 Index to aerodromes",
+      "url": "https://aim-india.aai.aero/eAIP_Archive/01-04-2012/eaip/PUB/2012-04-01/html/eAIP/EC-AD-1.3-en-GB.html",
+      "verificationStatus": "pending"
+    },
+    {
+      "accessedOn": "2026-11-03",
+      "license": {
+        "id": "LicenseRef-AAI-Terms",
+        "note": "Original aeronautical text; retain AAI attribution. Not licensed as MIT.",
+        "url": "https://www.aai.aero/en/corporate/copyright"
+      },
+      "note": "Reused locked original sha256 351ed6295d2db1065a200717dc1bdb59c0c789192343c1434a0a789420c95873.",
+      "sourceId": "b5-in-aip-2026-vobg",
+      "sourceType": "primary",
+      "title": "eAIP India AMDT 10-26, AD 2 VOBG",
+      "url": "https://aim-india.aai.aero/eaip/eaip-v2-10-2026/pdf/eAIP/AD%202.1VOBG.pdf",
+      "verificationStatus": "pending"
+    },
+    {
+      "accessedOn": "2026-11-03",
+      "license": {
+        "id": "LicenseRef-AAI-Terms",
+        "note": "Original aeronautical text; retain AAI attribution. Not licensed as MIT.",
+        "url": "https://www.aai.aero/en/corporate/copyright"
+      },
+      "note": "Reused locked original sha256 04cdb88682944feb1d43ddf495c9a4c4c15b3b26baf78202d0fb3fc5713e4f1b.",
+      "sourceId": "b5-in-aip-2026-vobl",
+      "sourceType": "primary",
+      "title": "eAIP India AMDT 10-26, AD 2 VOBL",
+      "url": "https://aim-india.aai.aero/eaip/eaip-v2-10-2026/pdf/eAIP/AD%202.1VOBL.pdf",
+      "verificationStatus": "pending"
+    },
+    {
+      "accessedOn": "2026-11-18",
+      "license": {
+        "id": "LicenseRef-IATA-Terms",
+        "note": "Atomic factual metadata and short citations only; full original in ignored work/.",
+        "url": "https://www.iata.org/en/publications/directories/code-search/?airport.search=NMI"
+      },
+      "note": "Direct iata.org code directory observation confirming NMI for Navi Mumbai International Airport (VANM, apt_5e325674-a832-4106-807e-7e1e1ef951fe). Original sha256 d245a8a4fc27a63b507754e4477de2f93bbe398e0c62c7eea7631b14177f6210. Current directory observation only; no historical effective dates inferred.",
+      "sourceId": "forensics-iata-lookup-nmi",
+      "sourceType": "primary",
+      "title": "IATA Airline and Airport Code Search: NMI (Mumbai Navi Mumbai International)",
+      "url": "https://www.iata.org/en/publications/directories/code-search/?airport.search=NMI",
+      "verificationStatus": "pending"
+    },
+    {
+      "accessedOn": "2026-11-18",
+      "license": {
+        "id": "LicenseRef-IATA-Terms",
+        "note": "Atomic factual metadata and short citations only; full original in ignored work/.",
+        "url": "https://www.iata.org/en/publications/directories/code-search/?airport.search=AYJ"
+      },
+      "note": "Direct iata.org code directory observation confirming AYJ for Maharishi Valmiki International Airport Ayodhyadham (VEAY, apt_96e253c6-48ee-4ca3-b9a1-c34b49df0a68). Original sha256 335c562e8b96e8b36a1a8836587100225d197798935bb8eb37eec71d32c78a65. Current directory observation only; no historical effective dates inferred.",
+      "sourceId": "forensics-iata-lookup-ayj",
+      "sourceType": "primary",
+      "title": "IATA Airline and Airport Code Search: AYJ (Ayodhya Airport)",
+      "url": "https://www.iata.org/en/publications/directories/code-search/?airport.search=AYJ",
+      "verificationStatus": "pending"
+    },
+    {
+      "accessedOn": "2026-11-18",
+      "license": {
+        "id": "LicenseRef-IATA-Terms",
+        "note": "Atomic factual metadata and short citations only; full original in ignored work/.",
+        "url": "https://www.iata.org/en/publications/directories/code-search/?airport.search=RQY"
+      },
+      "note": "Direct iata.org code directory observation confirming RQY for Shivamogga Airport (VOSH, apt_1130a628-5e21-4e68-b3e0-178487751f67). Original sha256 0292da9cfb10cea79b9672349af6be1b40962f0530ec248bedb174a799ba9130. Current directory observation only; no historical effective dates inferred.",
+      "sourceId": "forensics-iata-lookup-rqy",
+      "sourceType": "primary",
+      "title": "IATA Airline and Airport Code Search: RQY (Shivamogga Airport)",
+      "url": "https://www.iata.org/en/publications/directories/code-search/?airport.search=RQY",
+      "verificationStatus": "pending"
+    },
+    {
+      "accessedOn": "2026-11-18",
+      "license": {
+        "id": "LicenseRef-IATA-Terms",
+        "note": "Atomic factual metadata and short citations only; full original in ignored work/.",
+        "url": "https://www.iata.org/en/publications/directories/code-search/?airport.search=SAG"
+      },
+      "note": "Direct iata.org code directory observation confirming SAG for Shirdi International Airport (VASD, apt_fa1bf7a7-a97d-4676-9c9a-7871eda47767). Original sha256 71bd98148c91c61cb3a2285dcc3b59f8b482f5f04dc69828b96d3afd48fcdaf7. Current directory observation only; no historical effective dates inferred.",
+      "sourceId": "forensics-iata-lookup-sag",
+      "sourceType": "primary",
+      "title": "IATA Airline and Airport Code Search: SAG (Shirdi Airport)",
+      "url": "https://www.iata.org/en/publications/directories/code-search/?airport.search=SAG",
+      "verificationStatus": "pending"
+    },
+    {
+      "accessedOn": "2026-11-18",
+      "license": {
+        "id": "LicenseRef-IATA-Terms",
+        "note": "Atomic factual metadata and short citations only; full original in ignored work/.",
+        "url": "https://www.iata.org/en/publications/directories/code-search/?airport.search=CNN"
+      },
+      "note": "Direct iata.org code directory observation confirming CNN for Kannur International Airport (VOKN, apt_58a2554f-6a9b-4ad7-bc2c-2550ad21b962). Original sha256 311571b5103bd6248b6a27e0f82d8f3914fe4baabe2c2b6faa2361093a3336c2. Current directory observation only; no historical effective dates inferred.",
+      "sourceId": "forensics-iata-lookup-cnn",
+      "sourceType": "primary",
+      "title": "IATA Airline and Airport Code Search: CNN (Kannur Intl.)",
+      "url": "https://www.iata.org/en/publications/directories/code-search/?airport.search=CNN",
+      "verificationStatus": "pending"
+    },
+    {
+      "accessedOn": "2026-11-18",
+      "license": {
+        "id": "LicenseRef-IATA-Terms",
+        "note": "Atomic factual metadata and short citations only; full original in ignored work/.",
+        "url": "https://www.iata.org/en/publications/directories/code-search/?airport.search=HGI"
+      },
+      "note": "Direct iata.org code directory observation confirming HGI for Itanagar Donyi Polo Hollongi Airport (VEHO, apt_9acf6a6b-6e22-48c6-881c-d602429a9268). Original sha256 843e571abfeddd78471c7b9f43a768c8dbf91c563d32f46148e78def8c62a0c1. Current directory observation only; no historical effective dates inferred.",
+      "sourceId": "forensics-iata-lookup-hgi",
+      "sourceType": "primary",
+      "title": "IATA Airline and Airport Code Search: HGI (Itanagar Hollongi)",
+      "url": "https://www.iata.org/en/publications/directories/code-search/?airport.search=HGI",
+      "verificationStatus": "pending"
+    },
+    {
+      "accessedOn": "2026-11-18",
+      "license": {
+        "id": "LicenseRef-IATA-Terms",
+        "note": "Atomic factual metadata and short citations only; full original in ignored work/.",
+        "url": "https://www.iata.org/en/publications/directories/code-search/?airport.search=SDW"
+      },
+      "note": "Direct iata.org code directory observation confirming SDW for Sindhudurg Airport (VOSR, apt_9e24d5d7-5e1a-4489-b936-2737c438921e). Original sha256 666cd12b91305a947cf6cd1edc3e3bded5651eff46bfea70271920645dd7ebd1. Current directory observation only; no historical effective dates inferred.",
+      "sourceId": "forensics-iata-lookup-sdw",
+      "sourceType": "primary",
+      "title": "IATA Airline and Airport Code Search: SDW (Malvan Sindhudurg)",
+      "url": "https://www.iata.org/en/publications/directories/code-search/?airport.search=SDW",
+      "verificationStatus": "pending"
+    },
+    {
+      "accessedOn": "2026-11-18",
+      "license": {
+        "id": "LicenseRef-IATA-Terms",
+        "note": "Atomic factual metadata and short citations only; full original in ignored work/.",
+        "url": "https://www.iata.org/en/publications/directories/code-search/?airport.search=GBI"
+      },
+      "note": "Direct iata.org code directory observation confirming GBI for Kalaburagi Airport (VOGB, apt_66034969-b902-4ede-8011-cc87a23070b7). Original sha256 19fc903bd20d971d1a7ea6efcf0e707e4dc28d3b659761af1a22f26f7fb6172c. Current directory observation only; no historical effective dates inferred.",
+      "sourceId": "forensics-iata-lookup-gbi",
+      "sourceType": "primary",
+      "title": "IATA Airline and Airport Code Search: GBI (Gulbarga Kalaburagi)",
+      "url": "https://www.iata.org/en/publications/directories/code-search/?airport.search=GBI",
+      "verificationStatus": "pending"
+    },
+    {
+      "accessedOn": "2026-11-18",
+      "license": {
+        "id": "LicenseRef-IATA-Terms",
+        "note": "Atomic factual metadata and short citations only; full original in ignored work/.",
+        "url": "https://www.iata.org/en/publications/directories/code-search/?airport.search=KBK"
+      },
+      "note": "Direct iata.org code directory observation confirming KBK for Kushinagar International Airport (VEKI, apt_0342f79b-a035-43b6-88bf-52b9a5e9622f). Original sha256 ba502e048408605f15b5ad4360f1ba5fc92172e4178e0a5dc956b39d418134be. Current directory observation only; no historical effective dates inferred.",
+      "sourceId": "forensics-iata-lookup-kbk",
+      "sourceType": "primary",
+      "title": "IATA Airline and Airport Code Search: KBK (Kushinagar International)",
+      "url": "https://www.iata.org/en/publications/directories/code-search/?airport.search=KBK",
+      "verificationStatus": "pending"
+    },
+    {
+      "accessedOn": "2026-11-18",
+      "license": {
+        "id": "LicenseRef-IATA-Terms",
+        "note": "Atomic factual metadata and short citations only; full original in ignored work/.",
+        "url": "https://www.iata.org/en/publications/directories/code-search/?airport.search=PYG"
+      },
+      "note": "Direct iata.org code directory observation confirming PYG for Pakyong Airport (VEPY, apt_162c7dfd-e70b-48c7-bbe5-282ede0a5cc9). Original sha256 ed83b764703a6fdbd4e890db9976bd0d758c2900bb2bd51702b50ba02a26abef. Current directory observation only; no historical effective dates inferred.",
+      "sourceId": "forensics-iata-lookup-pyg",
+      "sourceType": "primary",
+      "title": "IATA Airline and Airport Code Search: PYG (Gangtok Pakyong)",
+      "url": "https://www.iata.org/en/publications/directories/code-search/?airport.search=PYG",
+      "verificationStatus": "pending"
+    },
+    {
+      "accessedOn": "2026-11-18",
+      "license": {
+        "id": "LicenseRef-IATA-Terms",
+        "note": "Atomic factual metadata and short citations only; full original in ignored work/.",
+        "url": "https://www.iata.org/en/publications/directories/code-search/?airport.search=KJB"
+      },
+      "note": "Direct iata.org code directory observation confirming KJB for Kurnool Airport (VOKU, apt_5d260013-75b3-4ec4-8915-7c5ff2a47fc3). Original sha256 a9d1a7129434dcf79bad68925848b5d0d2c7b1f310543c152b95c1f88ad366ea. Current directory observation only; no historical effective dates inferred.",
+      "sourceId": "forensics-iata-lookup-kjb",
+      "sourceType": "primary",
+      "title": "IATA Airline and Airport Code Search: KJB (Kurnool Airport)",
+      "url": "https://www.iata.org/en/publications/directories/code-search/?airport.search=KJB",
+      "verificationStatus": "pending"
+    },
+    {
+      "accessedOn": "2026-11-18",
+      "license": {
+        "id": "LicenseRef-IATA-Terms",
+        "note": "Atomic factual metadata and short citations only; full original in ignored work/.",
+        "url": "https://www.iata.org/en/publications/directories/code-search/?airport.search=ECP"
+      },
+      "note": "Direct iata.org code directory observation confirming ECP for Northwest Florida Beaches International Airport (KECP, apt_74a05fd5-53fa-40f8-a3a6-de8cfd7d5e99). Original sha256 602a8d228f56359814bb7d90fb8973f967297c40f39ec1a1d1a0de344be0cdae. Current directory observation only; no historical effective dates inferred.",
+      "sourceId": "forensics-iata-lookup-ecp",
+      "sourceType": "primary",
+      "title": "IATA Airline and Airport Code Search: ECP (Panama City NW Florida Beaches Int and Metropolitan Area)",
+      "url": "https://www.iata.org/en/publications/directories/code-search/?airport.search=ECP",
+      "verificationStatus": "pending"
+    },
+    {
+      "accessedOn": "2026-11-18",
+      "license": {
+        "id": "LicenseRef-IATA-Terms",
+        "note": "Atomic factual metadata and short citations only; full original in ignored work/.",
+        "url": "https://www.iata.org/en/publications/directories/code-search/?airport.search=RMU"
+      },
+      "note": "Direct iata.org code directory observation confirming RMU for Region of Murcia International Airport (LEMI, apt_f50aecf6-9778-4db7-9027-0e751ffab63a). Original sha256 12ac00b428803ed36657e151b364f3f00a06922c6971be1e8006ad745e288459. Current directory observation only; no historical effective dates inferred.",
+      "sourceId": "forensics-iata-lookup-rmu",
+      "sourceType": "primary",
+      "title": "IATA Airline and Airport Code Search: RMU (Murcia Intl Region de Murcia)",
+      "url": "https://www.iata.org/en/publications/directories/code-search/?airport.search=RMU",
+      "verificationStatus": "pending"
+    }
+  ],
+  "targetSchemaVersion": "3.0.0"
+}

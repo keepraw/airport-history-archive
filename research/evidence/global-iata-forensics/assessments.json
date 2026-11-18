@@ -1,0 +1,496 @@
+{
+  "baseline": {
+    "dataVersion": "0.12.0",
+    "formalAirports": 46,
+    "formalAirportsWithoutIata": 24,
+    "formalAirportsWithoutIataBreakdown": {
+      "chinaRelocationAirfieldsWithZeroAssignments": 6,
+      "indiaCommercialAirportsWithAdmittedIcaoOnly": 11,
+      "indonesiaSamarindaTemindungPredecessorWithoutIata": 1,
+      "spainMurciaRelocationAirfieldsWithoutIata": 2,
+      "usRelocationAirfieldsWithoutIata": 4
+    },
+    "formalAssignments": 55,
+    "formalIataAssignments": 28,
+    "formalIcaoAssignments": 27,
+    "formalSources": 112,
+    "mainCommit": "d2e92ea35709e5c7d0697c71eee680bb6be37a30",
+    "schemaVersion": "3.0.0"
+  },
+  "formatVersion": 1,
+  "priorityCases": [
+    {
+      "airportLabel": "Palm Beach International Airport / President Donald J. Trump International Airport",
+      "canonicalAirportId": "apt_eb176a20-e0e3-438d-a330-a7b81185232d",
+      "caseId": "case-a-palm-beach-pbi-djt",
+      "conflictingDuplicateAirportIdInPublicDataBatch": "apt_f12cc00a-7d95-478e-bc87-a67c836379a3",
+      "evidenceGrade": "tier_1_multi_issuer_primary_direct_cutover_plus_nasr_bounded_icao",
+      "faaSiteNumber": "03555.*A",
+      "iataConclusion": {
+        "cutoverBoundary": {
+          "earliest": "2026-08-18",
+          "latest": "2026-08-19",
+          "precision": "day"
+        },
+        "metropolitanCodeRetentionDiscovery": "Direct iata.org lookup (forensics-iata-lookup-pbi) proves PBI was NOT expunged from IATA's namespace after 2026-08-18; IATA retains PBI as 'West Palm Beach | Metropolitan Area | PBI' while assigning 'DJT' to the individual airport ('West Palm Beach | President Donald J. Trump International | DJT').",
+        "newCode": "DJT",
+        "oldCode": "PBI",
+        "outerValidFromOnOldCode": {
+          "earliest": null,
+          "latest": null,
+          "precision": "unknown"
+        },
+        "outerValidToOnNewCode": {
+          "earliest": null,
+          "latest": null,
+          "precision": "unknown"
+        },
+        "status": "pending_owner_batch_approval"
+      },
+      "icaoConclusion": {
+        "cutoverBoundary": {
+          "earliest": "2026-07-09",
+          "latest": "2026-07-10",
+          "precision": "day"
+        },
+        "nasrBoundedWindowForKdjt": {
+          "certainLocalDays": 26,
+          "validFrom": {
+            "earliest": "2026-10-01",
+            "latest": "2026-10-02",
+            "precision": "day"
+          },
+          "validTo": {
+            "earliest": "2026-10-28",
+            "latest": "2026-10-29",
+            "precision": "day"
+          }
+        },
+        "newCode": "KDJT",
+        "oldCode": "KPBI",
+        "outerValidFromOnOldCode": {
+          "earliest": null,
+          "latest": null,
+          "precision": "unknown"
+        },
+        "outerValidToOnNewCode": {
+          "earliest": null,
+          "latest": null,
+          "precision": "unknown"
+        },
+        "status": "pending_owner_batch_approval_and_uuid_reconciliation"
+      },
+      "newOriginalsAcquired": [
+        "forensics-iata-lookup-djt",
+        "forensics-iata-lookup-pbi",
+        "forensics-us-flydjt-articles-index",
+        "forensics-us-flydjt-iata-article",
+        "forensics-us-flydjt-rename-announcement",
+        "forensics-ca-aircanada-djt-notice"
+      ],
+      "ourAirportsId": "3766",
+      "physicalIdentityConclusion": {
+        "explanation": "Single physical airfield at 1000 James L. Turnage Blvd., West Palm Beach, FL (26.683201, -80.095596). Florida legislation signed 2026-03-30 (effective 2026-07-01) renamed the existing airport; FAA system rename and ICAO KPBI->KDJT took effect 2026-07-09; IATA PBI->DJT took effect 2026-08-18. Reconciling apt_eb176a20-e0e3-438d-a330-a7b81185232d and apt_f12cc00a-7d95-478e-bc87-a67c836379a3 prevents a duplicate OurAirports 3766 entity and preserves 26 resolved KDJT days.",
+        "relocationOccurred": false,
+        "samePhysicalAirfield": true
+      },
+      "priorityRank": 1,
+      "provenFacts": [
+        "IATA's live code directory directly assigns DJT to 'President Donald J. Trump International' in West Palm Beach (forensics-iata-lookup-djt).",
+        "IATA's live code directory retains PBI as 'West Palm Beach | Metropolitan Area | PBI' rather than an individual airport code (forensics-iata-lookup-pbi).",
+        "Palm Beach County Department of Airports published a same-day official press release on 2026-08-18 confirming that the IATA code officially changed from PBI to DJT on 2026-08-18 (forensics-us-flydjt-iata-article).",
+        "Air Canada's official operational update published 2026-07-31 independently corroborates that airline reservations, schedules, and baggage systems continued using PBI until 2026-08-18 and switched to DJT starting 2026-08-18 (forensics-ca-aircanada-djt-notice).",
+        "Florida's March 30, 2026 rename statute (effective 2026-07-01) explicitly did not change airport code PBI (forensics-us-flydjt-rename-announcement).",
+        "ICAO identifier changed from KPBI to KDJT on 2026-07-09 (40 days before the IATA cutover on 2026-08-18).",
+        "Two pinned FAA NASR APT_BASE.csv editions (2026-10-01 and 2026-10-29) observe KDJT at site 03555.*A, supporting a 26-day bounded ICAO interval [2026-10-02, 2026-10-28) when unified onto apt_eb176a20-e0e3-438d-a330-a7b81185232d."
+      ],
+      "reusedLockedOriginals": [
+        "global-code-expansion-us-pbi-name-faq",
+        "global-code-expansion-us-pbc-airports",
+        "global-code-expansion-us-faa-dtpp-2611",
+        "global-code-expansion-us-faa-djt-diagram-2611",
+        "next-us-faa-info26011-official",
+        "next-us-faa-notice8900780",
+        "next-us-nws-kdjt-implementation",
+        "next-us-pbi-actual-name-change",
+        "faa-nasr-2026-10-01",
+        "faa-nasr-2026-10-29"
+      ],
+      "rightsAndAuthorization": "Federal FAA/NOAA texts are public domain under 17 USC 105; county, carrier, and IATA pages are retained as bibliographic metadata, SHA-256 hashes, and short factual citations under Feist factual-use principles, with full originals restricted to gitignored work/. Project source-family admission requires Owner batch acceptance.",
+      "sourceIndependence": "Four independent issuer families corroborate the PBI->DJT / KPBI->KDJT chronology: (1) IATA-OFFICIAL-CODE-SEARCH (iata.org), (2) US-PALM-BEACH-COUNTY-OPERATOR (flydjt.org / discover.pbc.gov), (3) CA-AIR-CANADA-CARRIER-OPS (aircanada.com), and (4) US-FAA / US-NOAA-NWS federal notices and NASR databases.",
+      "unprovenFacts": [
+        "Initial historical allocation dates (validFrom) of PBI and KPBI.",
+        "Verbatim private IATA Special Industry Notification PDF sent to airline/GDS subscribers for the PBI->DJT cutover.",
+        "Unbounded future validity of DJT or KDJT beyond observed editions."
+      ],
+      "unresolvedQuestionsAndNextActions": [
+        "Obtain the underlying IATA Special Industry Notification circular for PBI->DJT if released in public regulatory filings.",
+        "Acquire earlier historical FAA NFDC/NASR editions and pre-2026 IATA Airline Coding Directory (ACD) snapshots to bound the pre-2026 validFrom of KPBI and PBI.",
+        "Execute UUID reconciliation (apt_eb176a20-e0e3-438d-a330-a7b81185232d replacing apt_f12cc00a-7d95-478e-bc87-a67c836379a3) when merging pending batches."
+      ]
+    },
+    {
+      "airportLabel": "Manas International Airport, Bishkek",
+      "canonicalAirportId": "apt_82a9b73d-530e-4f4a-9456-7f53c88246bc",
+      "caseId": "case-b-manas-fru-bsz",
+      "evidenceGrade": "tier_2_multi_issuer_iata_cutover_pending_notam_telegram_verification",
+      "iataConclusion": {
+        "cutoverBoundary": {
+          "earliest": "2025-08-09",
+          "latest": "2025-08-12",
+          "precision": "unknown"
+        },
+        "newCode": "BSZ",
+        "oldCode": "FRU",
+        "operationalAndCarrierReportingDate": "2025-08-11",
+        "outerValidFromOnOldCode": {
+          "earliest": null,
+          "latest": null,
+          "precision": "unknown"
+        },
+        "outerValidToOnNewCode": {
+          "earliest": null,
+          "latest": null,
+          "precision": "unknown"
+        },
+        "resolution763EffectiveDate": "2025-08-09",
+        "status": "pending_notam_a0134_a0140_lifecycle_and_owner_authorization"
+      },
+      "icaoConclusion": {
+        "changed": false,
+        "code": "UCFM",
+        "explanation": "ICAO location indicator UCFM was NOT changed by the May 9, 2025 IATA notification; no UCFM validity boundary may be inferred from the FRU->BSZ IATA change."
+      },
+      "newOriginalsAcquired": [
+        "forensics-iata-lookup-bsz",
+        "forensics-iata-lookup-fru",
+        "forensics-kg-operator-slug-bsz",
+        "forensics-ru-uralairlines-bsz"
+      ],
+      "ourAirportsId": "6448",
+      "physicalIdentityConclusion": {
+        "explanation": "Same physical airfield at Manas International Airport, Bishkek (43.061306, 74.477556, OurAirports 6448). Code change replaced Soviet-era Frunze mnemonic (FRU) with Bishkek code (BSZ) in place.",
+        "relocationOccurred": false,
+        "samePhysicalAirfield": true
+      },
+      "priorityRank": 2,
+      "provenFacts": [
+        "IATA's live code directory directly on iata.org lists 'Bishkek | Manas Intl | BSZ' (forensics-iata-lookup-bsz) and returns 'No Airport Code found' for FRU (forensics-iata-lookup-fru), proving on the issuing body's own host that BSZ is active and FRU is withdrawn.",
+        "JSC Ural Airlines' official notice published on Monday 2025-08-11 (forensics-ru-uralairlines-bsz) explicitly cites IATA Resolution 763 and states that the FRU->BSZ change takes effect after a 90-day period from receipt of the official IATA notification sent on May 9, 2025.",
+        "This resolves the discrepancy between 2025-08-09 and 2025-08-11: May 9, 2025 + 3 months (92 days) under IATA Resolution 763 is Saturday 2025-08-09 (matching the mirrored May 9, 2025 IATA notice and airport.kg/ru/news/15), while Monday 2025-08-11 is the first post-weekend business day on which carrier notices and operational NOTAM/GDS reports were published."
+      ],
+      "reusedLockedOriginals": [
+        "asia-kg-iata-notice-mirror",
+        "asia-kg-operator-code-notice",
+        "next-asia-kg-flyarystan-bsz"
+      ],
+      "rightsAndAuthorization": "Only bibliographic metadata, hashes, and short factual citations retained in repository; full originals in gitignored work/. No Kyrgyz or IATA source-family admission grant is currently active.",
+      "sourceIndependence": "Four distinct source families: (1) IATA-OFFICIAL-CODE-SEARCH (iata.org), (2) KG-AIRPORT-OPERATOR (airport.kg), (3) RU-URAL-AIRLINES-CARRIER-OPS (cargo.uralairlines.ru), and (4) KZ-FLYARYSTAN-OPERATIONAL-DIRECTORY (flyarystan.com), plus the AKI CDN mirror of the May 9, 2025 IATA notice.",
+      "unprovenFacts": [
+        "Verbatim Q)/A)/B)/C)/E) telegram texts and cancellation/supersession lifecycle of UCFM NOTAM A0134/25 and A0140/25 from Kyrgyzaeronavigatsia (kan.kg).",
+        "Whether NOTAM A0140/25 modified or replaced A0134/25 at an operational hour between 2025-08-09 and 2025-08-11.",
+        "Outer historical start date of FRU and outer end date of BSZ."
+      ],
+      "unresolvedQuestionsAndNextActions": [
+        "Acquire official Kyrgyzaeronavigatsia (kan.kg) or Kyrgyz CAA (caa.kg) AIP amendment / AIC or verbatim NOTAM A0134/25 and A0140/25 texts to narrow [2025-08-09, 2025-08-12) to a single confirmed day boundary."
+      ]
+    },
+    {
+      "airportLabel": "Bengaluru HAL Airport (VOBG) -> Kempegowda International Airport Devanahalli (VOBL)",
+      "caseId": "case-c1-india-blr-transfer",
+      "evidenceGrade": "tier_1_statutory_gazette_cross_site_iata_transfer_boundary",
+      "iataConclusion": {
+        "code": "BLR",
+        "outerBounds": "unknown (null) on both old validFrom and new validTo",
+        "status": "ready_for_owner_boundary_batch_decision",
+        "statutoryClause": "Government of India MoCA Gazette Notification S.O. 1170(E) (16 May 2008) as amended by S.O. 1181(E) (21 May 2008) transfers IATA code BLR from HAL Airport to Devanahalli at 00:01 on 24 May 2008.",
+        "transferBoundary": {
+          "earliest": "2008-05-24",
+          "latest": "2008-05-25",
+          "precision": "day"
+        }
+      },
+      "icaoConclusion": {
+        "explanation": "Distinct ICAO codes VOBG (HAL) and VOBL (Devanahalli); HAL remained open as an airfield for defense/non-commercial aviation under VOBG after BLR transferred to VOBL.",
+        "newSiteCode": "VOBL",
+        "oldSiteCode": "VOBG"
+      },
+      "newAirportId": "apt_bf9260e8-2d9b-413b-81d9-c6842d53cbf7",
+      "newOriginalsAcquired": [],
+      "oldAirportId": "apt_ab3830d2-4506-46d5-8ff9-c2d5f46ce268",
+      "physicalIdentityConclusion": {
+        "explanation": "True cross-physical-airport IATA code transfer (~30 km separation) from HAL Airport (OurAirports 26603) to Devanahalli / Kempegowda International Airport (OurAirports 35145).",
+        "relocationOccurred": true,
+        "samePhysicalAirfield": false
+      },
+      "priorityRank": 3,
+      "provenFacts": [
+        "Gazette S.O. 1170(E) explicitly orders that the three-letter IATA code BLR shall stand transferred to the new Bangalore International Airport at Devanahalli upon opening.",
+        "Gazette S.O. 1181(E) amends the opening timestamp from 23 May 2008 to 24 May 2008 at 00:01 hours IST.",
+        "July 2021 MoCA concession extension dossier retrospectively confirms actual commissioning on 24 May 2008."
+      ],
+      "reusedLockedOriginals": [
+        "next-asia-in-moca-bial-2008-amendment",
+        "next-asia-in-moca-bial-2023-concession",
+        "b5-in-aip-2012-ad13",
+        "b5-in-aip-2026-vobg",
+        "b5-in-aip-2026-vobl"
+      ],
+      "rightsAndAuthorization": "India Copyright Act 1957 s. 52(1)(q)(i) permits factual reproduction/retention of official Gazette notifications; AAI eAIP ICAO continuity grant is NOT extended to IATA.",
+      "sourceIndependence": "MoCA statutory Gazette notifications + AAI eAIP physical airfield records + OurAirports reference coordinates.",
+      "unprovenFacts": [
+        "Initial historical allocation date of BLR to HAL Airport.",
+        "Dated primary IATA directory series bounding BLR on Devanahalli after 24 May 2008 (since AAI eAIP AD 2 pages do not print IATA codes)."
+      ],
+      "unresolvedQuestionsAndNextActions": [
+        "Await Owner acceptance of the global-code-next boundary batch (scope SHA-256 a2622375de0b06ae716dcfeda26b87e68a66b2a72183a0393e8c255cd847ff5b)."
+      ]
+    },
+    {
+      "airportLabel": "13 Formal Physical Airports in data/airports.json Lacking IATA Assignments With Newly Acquired iata.org Issuing-Body Originals (11 Indian Airports: VANM/NMI, VEAY/AYJ, VOSH/RQY, VASD/SAG, VOKN/CNN, VEHO/HGI, VOSR/SDW, VOGB/GBI, VEKI/KBK, VEPY/PYG, VOKU/KJB + US KECP/ECP + Spain LEMI/RMU)",
+      "caseId": "case-c2-formal-airports-missing-iata-bindings",
+      "evidenceGrade": "tier_2_primary_issuing_body_identity_observation_without_temporal_bounds",
+      "iataConclusion": {
+        "codesVerifiedOnIataOrg": [
+          "NMI",
+          "AYJ",
+          "RQY",
+          "SAG",
+          "CNN",
+          "HGI",
+          "SDW",
+          "GBI",
+          "KBK",
+          "PYG",
+          "KJB",
+          "ECP",
+          "RMU"
+        ],
+        "status": "pending_temporal_allocation_evidence_and_owner_policy",
+        "temporalBounds": "validFrom=unknown, validTo=unknown (current iata.org directory observations cannot be backdated to ICAO AIP/NASR dates)"
+      },
+      "icaoConclusion": {
+        "explanation": "12 of the 13 already have verified formal ICAO intervals in data/airports.json v0.12.0; Region of Murcia (apt_f50aecf6-9778-4db7-9027-0e751ffab63a) has a formal physical airport record in data/airports.json.",
+        "formalIcaoCodesAlreadyAdmitted": [
+          "VANM",
+          "VEAY",
+          "VOSH",
+          "VASD",
+          "VOKN",
+          "VEHO",
+          "VOSR",
+          "VOGB",
+          "VEKI",
+          "VEPY",
+          "VOKU",
+          "KECP"
+        ]
+      },
+      "newOriginalsAcquired": [
+        "forensics-iata-lookup-nmi",
+        "forensics-iata-lookup-ayj",
+        "forensics-iata-lookup-rqy",
+        "forensics-iata-lookup-sag",
+        "forensics-iata-lookup-cnn",
+        "forensics-iata-lookup-hgi",
+        "forensics-iata-lookup-sdw",
+        "forensics-iata-lookup-gbi",
+        "forensics-iata-lookup-kbk",
+        "forensics-iata-lookup-pyg",
+        "forensics-iata-lookup-kjb",
+        "forensics-iata-lookup-ecp",
+        "forensics-iata-lookup-rmu"
+      ],
+      "physicalIdentityConclusion": {
+        "explanation": "Directly binds to the 13 existing permanent UUIDv4 airportIds in data/airports.json (Section 3 Type 6: existing permanent airportId lacking historical IATA record).",
+        "samePhysicalAirfield": true
+      },
+      "priorityRank": 4,
+      "provenFacts": [
+        "IATA's live coding directory on iata.org actively assigns NMI, AYJ, RQY, SAG, CNN, HGI, SDW, GBI, KBK, PYG, KJB, ECP, and RMU to these 13 formal physical airports."
+      ],
+      "reusedLockedOriginals": [
+        "asia-in-11-06-2026-vanm",
+        "asia-in-09-07-2026-vanm",
+        "asia-in-11-06-2026-veay",
+        "asia-in-09-07-2026-veay",
+        "asia-in-11-06-2026-vosh",
+        "asia-in-09-07-2026-vosh"
+      ],
+      "rightsAndAuthorization": "AAI eAIP authorization is strictly limited to Indian ICAO codes and cannot be extended to Indian IATA codes. All 13 IATA records remain pending.",
+      "sourceIndependence": "IATA issuing-body directory (iata.org) is independent of AAI eAIP, FAA NASR, and ENAIRE AIP.",
+      "unprovenFacts": [
+        "Exact IATA allocation effective dates (validFrom) and dated historical intervals for these 13 IATA codes."
+      ],
+      "unresolvedQuestionsAndNextActions": [
+        "Acquire dated DGCA India AICs, MoCA Gazette notifications, ENAIRE AIP/AIC, or dated IATA Special Industry Notifications to establish bounded IATA intervals."
+      ]
+    },
+    {
+      "airportLabel": "Cambodia Phnom Penh International (PNH / VDPP) -> Techo International (KTI / VDTI) and Kratie (KTI / VDBG)",
+      "caseId": "case-c3-cambodia-pnh-kti-kratie",
+      "evidenceGrade": "tier_1_issuing_body_corroboration_of_pnh_withdrawal_and_kti_reassignment",
+      "iataConclusion": {
+        "explanation": "In data/airports.json v0.12.0, iata-pnh-pochentong (apt_dafb3e33-c7ed-431a-b8e8-22eecf543107) has validTo={earliest: '2025-09-09', latest: null} because no proof of PNH withdrawal had been acquired, and iata-kti-techo (apt_b97de260-274b-4cfd-b56e-5f035c6a7768) has validFrom={earliest: null, latest: '2025-09-10'}. Our newly acquired direct iata.org lookups prove two facts on IATA's own host: (1) forensics-iata-lookup-pnh returns 'No Airport Code found', proving PNH HAS been withdrawn from IATA's active directory by 2026-11-18; (2) forensics-iata-lookup-kti returns solely 'Phnom Penh | Techo International | KTI', proving KTI is no longer assigned to Kratie Airport in IATA's directory.",
+        "newPhnomPenhCode": "KTI",
+        "oldPhnomPenhCode": "PNH",
+        "priorKtiHolder": "Kratie Airport (VDBG)"
+      },
+      "icaoConclusion": {
+        "explanation": "VDPP and VDTI are already formally admitted in data/airports.json; Kratie (VDBG) remains a separate physical airfield.",
+        "kratieIcao": "VDBG",
+        "newPhnomPenhIcao": "VDTI",
+        "oldPhnomPenhIcao": "VDPP"
+      },
+      "newOriginalsAcquired": [
+        "forensics-iata-lookup-kti",
+        "forensics-iata-lookup-pnh"
+      ],
+      "physicalIdentityConclusion": {
+        "explanation": "Three distinct physical airfields: Pochentong / Phnom Penh International (apt_dafb3e33-c7ed-431a-b8e8-22eecf543107), Techo International Airport (apt_b97de260-274b-4cfd-b56e-5f035c6a7768), and Kratie Airport (VDBG).",
+        "relocationOccurred": true,
+        "samePhysicalAirfield": false
+      },
+      "priorityRank": 5,
+      "provenFacts": [
+        "KTI is actively assigned to Phnom Penh Techo International in IATA's official directory and is no longer assigned to Kratie Airport (forensics-iata-lookup-kti).",
+        "PNH is withdrawn from IATA's active directory as of 2026-11-18 (forensics-iata-lookup-pnh)."
+      ],
+      "reusedLockedOriginals": [
+        "asia-kh-techo-inauguration"
+      ],
+      "rightsAndAuthorization": "Existing formal records iata-pnh-pochentong and iata-kti-techo remain unchanged because existing published records are never overwritten without an exact cutover instrument.",
+      "sourceIndependence": "IATA official directory (iata.org) + Cambodia Airport Investment Co. (techoairport.com.kh).",
+      "unprovenFacts": [
+        "Exact historical date on which IATA withdrew KTI from Kratie Airport and allocated KTI to Techo International Airport.",
+        "Exact date between 2025-09-09 and 2026-11-18 on which IATA withdrew PNH from its directory."
+      ],
+      "unresolvedQuestionsAndNextActions": [
+        "Acquire Cambodia SSCA AIP Supplement / AIC or IATA Special Industry Notification for the exact KTI withdrawal date from Kratie and PNH withdrawal date from Pochentong."
+      ]
+    },
+    {
+      "airportLabel": "Senegal Dakar Léopold Sédar Senghor (DKR / GOOY) and Blaise Diagne International (DSS / GOBD)",
+      "caseId": "case-c4-senegal-dkr-dss-code-retention",
+      "evidenceGrade": "tier_1_issuing_body_confirmation_of_dkr_retention_on_old_airfield",
+      "iataConclusion": {
+        "codeRetainedOnOldAirfield": true,
+        "explanation": "In data/airports.json v0.12.0, iata-dkr-yoff (apt_7b4e284f-4573-4de6-bdc1-75805dec20d4) has validTo={earliest: '2017-12-07', latest: null} because an early 2017 notice planned withdrawal while later directories retained DKR. Our newly acquired direct iata.org lookup (forensics-iata-lookup-dkr) directly confirms on IATA's own host that IATA still lists BOTH 'Dakar | Leopold Sedar Senghor | DKR' and 'Dakar | Metropolitan Area | DKR' alongside 'Dakar | Blaise Diagne Intl | DSS' (forensics-iata-lookup-dss). This confirms that DKR was retained on the old physical airport after commercial passenger transfer to DSS.",
+        "newAirfieldCode": "DSS",
+        "oldAirfieldCode": "DKR"
+      },
+      "icaoConclusion": {
+        "explanation": "Both GOOY and GOBD are already formally admitted in data/airports.json.",
+        "newAirfieldIcao": "GOBD",
+        "oldAirfieldIcao": "GOOY"
+      },
+      "newOriginalsAcquired": [
+        "forensics-iata-lookup-dkr",
+        "forensics-iata-lookup-dss"
+      ],
+      "physicalIdentityConclusion": {
+        "explanation": "Two distinct physical airfields: Yoff / Léopold Sédar Senghor (apt_7b4e284f-4573-4de6-bdc1-75805dec20d4) and Diass / Blaise Diagne (apt_ced7c7a9-5d08-4d0f-84d7-e0d432a78096).",
+        "relocationOccurred": true,
+        "samePhysicalAirfield": false
+      },
+      "priorityRank": 6,
+      "provenFacts": [
+        "DKR remains actively assigned to Dakar Léopold Sédar Senghor Airport (and Dakar Metropolitan Area) on iata.org as of 2026-11-18 (forensics-iata-lookup-dkr).",
+        "DSS is actively assigned to Dakar Blaise Diagne International Airport on iata.org (forensics-iata-lookup-dss)."
+      ],
+      "reusedLockedOriginals": [],
+      "rightsAndAuthorization": "Confirms that iata-dkr-yoff in data/airports.json must NOT be closed with a 2017-12-07 validTo.latest date.",
+      "sourceIndependence": "IATA official directory (iata.org).",
+      "unprovenFacts": [
+        "Whether DKR experienced any brief suspension around 2017-12-07 before continuing on Léopold Sédar Senghor."
+      ],
+      "unresolvedQuestionsAndNextActions": [
+        "Obtain IATA's post-December 2017 rescission/retention circular for DKR if extending iata-dkr-yoff's certain validTo beyond 2017-12-07."
+      ]
+    },
+    {
+      "airportLabel": "Istanbul Atatürk (IST -> ISL / LTBA) and Istanbul Airport (ISL -> IST / LTFM)",
+      "caseId": "case-c5-istanbul-ist-isl",
+      "evidenceGrade": "tier_1_issuing_body_corroboration_of_formal_ist_and_isl",
+      "iataConclusion": {
+        "cutoverDateInFormalBaseline": "2019-04-06..2019-04-07",
+        "explanation": "In data/airports.json v0.12.0, all four tuples (iata-ist-ataturk, iata-ist-istanbul, iata-isl-istanbul, iata-isl-ataturk) are already formally admitted across apt_d8f290d3-11cc-4441-af6d-f4dd52d3b8dc and apt_92a92544-1808-487a-85e0-0fa995e1de82. Our newly acquired direct iata.org lookups (forensics-iata-lookup-ist, forensics-iata-lookup-isl) provide primary issuing-body corroboration that IST is assigned to 'Istanbul | Istanbul Airport | IST' (and 'Istanbul | Metropolitan Area | IST') while ISL remains actively assigned to 'Istanbul | Ataturk | ISL' as of 2026-11-18.",
+        "replacementCodeOnOldSite": "ISL",
+        "transferredCode": "IST"
+      },
+      "icaoConclusion": {
+        "ataturkIcao": "LTBA",
+        "explanation": "Both LTBA and LTFM are already formally admitted in data/airports.json.",
+        "newIstanbulIcao": "LTFM"
+      },
+      "newOriginalsAcquired": [
+        "forensics-iata-lookup-ist",
+        "forensics-iata-lookup-isl"
+      ],
+      "physicalIdentityConclusion": {
+        "explanation": "Two distinct physical airfields in data/airports.json: Yeşilköy / Atatürk (apt_d8f290d3-11cc-4441-af6d-f4dd52d3b8dc) and Arnavutköy / Istanbul Airport (apt_92a92544-1808-487a-85e0-0fa995e1de82).",
+        "relocationOccurred": true,
+        "samePhysicalAirfield": false
+      },
+      "priorityRank": 7,
+      "provenFacts": [
+        "IATA's live directory lists Istanbul | Istanbul Airport | IST, Istanbul | Metropolitan Area | IST, and Istanbul | Ataturk | ISL (forensics-iata-lookup-ist, forensics-iata-lookup-isl), proving ISL remains retained on Atatürk Airport."
+      ],
+      "reusedLockedOriginals": [],
+      "rightsAndAuthorization": "Existing formal records in data/airports.json are preserved untouched.",
+      "sourceIndependence": "IATA official directory (iata.org) corroborates current state independently of DHMİ/IGA.",
+      "unprovenFacts": [
+        "Exact sub-day UTC/local instant of the IATA code swap on 2019-04-06 and initial pre-2015 IST / pre-2018 ISL allocation dates."
+      ],
+      "unresolvedQuestionsAndNextActions": [
+        "Acquire Turkish DHMİ AIC / AIRAC amendment or 2018 IATA ISL allocation notice to bound validFrom.earliest on iata-isl-istanbul."
+      ]
+    },
+    {
+      "airportLabel": "Japan (NGO/NKM), China Relocations (LYG, LZO, YBP, ENY, AKA, WUZ), US (PFN/ECP, ISN/XWA), Spain (MJV/RMU), Indonesia (SRI/AAP)",
+      "caseId": "case-c6-japan-ngo-nkm-and-china-relocations-and-global-swaps",
+      "evidenceGrade": "tier_3_identity_and_withdrawal_proven_missing_primary_code_effective_instrument",
+      "iataConclusion": {
+        "summary": "Direct iata.org lookups prove active successor codes and complete withdrawal of predecessor codes for Panama City (ECP active on apt_74a05fd5-53fa-40f8-a3a6-de8cfd7d5e99, PFN 'No Airport Code found'), Murcia (RMU active on apt_f50aecf6-9778-4db7-9027-0e751ffab63a, MJV 'No Airport Code found'), and Samarinda (AAP active on apt_80ab4c35-b89f-40af-a368-bc71b3716d5a, SRI absent for Samarinda Temindung apt_967383b9-116c-4c3b-a8fb-c67515a3eb83). For Nagoya (NGO/NKM), reused operator FAQs prove current IATA designations (NGO on Centrair RJGG, NKM on Komaki RJNA) without cutover date text. For China relocations (LYG on apt_6f1a6ff3-98db-4e58-95fc-cc78bd5aa836 -> apt_64b5eaa6-a984-4816-86d9-d8eb71c91451, LZO on apt_56b57bca-08d5-4b5e-944e-1e9cce968a0a -> apt_f11bdf7d-d81d-46fc-a94f-8c8c42d4e245, YBP on apt_bbf9f2c1-fc01-4ed7-a4aa-74e6ed8ca45f -> apt_8354da99-7d18-4329-bf7b-4ed042a4ad72, plus ENY, AKA, WUZ), reused 2018 CAAC/NDRC route directory proves pre-relocation IATA code existence and 2021 CAAC LYG release proves physical operational transfer, but explicit code-transfer clauses are absent from the public CAAC news texts and lie outside the locked CN_CAAC_NAME_RELOCATION_CONTINUITY_AUTHORIZATION scope."
+      },
+      "icaoConclusion": {
+        "summary": "KPFN, KECP, KISN, and LELC are already formally admitted in data/airports.json; no IATA boundaries are inferred from ICAO or airport opening/closing dates."
+      },
+      "newOriginalsAcquired": [
+        "forensics-iata-lookup-ecp",
+        "forensics-iata-lookup-pfn",
+        "forensics-iata-lookup-rmu",
+        "forensics-iata-lookup-mjv",
+        "forensics-iata-lookup-aap",
+        "forensics-iata-lookup-sri"
+      ],
+      "physicalIdentityConclusion": {
+        "summary": "Physical site separation confirmed for all relocation pairs; 13 of these relocation airfields (LYG pair, LZO pair, YBP pair, PFN/ECP pair, ISN/XWA pair, MJV/RMU pair, Temindung) already have permanent airportIds in data/airports.json."
+      },
+      "priorityRank": 8,
+      "provenFacts": [
+        "ECP (NW Florida Beaches Int), RMU (Intl Region de Murcia), and AAP (Samarinda AP Tumenggung Pranoto) are active in IATA's official directory, while PFN, MJV, and Samarinda's SRI are withdrawn (forensics-iata-lookup-ecp, pfn, rmu, mjv, aap, sri).",
+        "Centrair (NGO) and Nagoya Komaki (NKM) operator FAQs confirm current IATA separation between RJGG (NGO) and RJNA (NKM).",
+        "2018 CAAC/NDRC domestic route directory confirms LYG, LZO, YBP, ENY, and WUZ were active IATA codes in 2018."
+      ],
+      "reusedLockedOriginals": [
+        "next-asia-jp-nagoya-faq",
+        "next-asia-jp-centrair-ngo-faq",
+        "next-asia-cn-2018-route-directory",
+        "next-asia-cn-gd-2022-wuz",
+        "lyg-caac-2021",
+        "lyg-ndrc-2019"
+      ],
+      "rightsAndAuthorization": "No expansion of CN_CAAC_NAME_RELOCATION_CONTINUITY_AUTHORIZATION permitted without Owner approval and explicit code-bearing primary sources.",
+      "sourceIndependence": "IATA official directory (iata.org) + national civil aviation / operator sources.",
+      "unprovenFacts": [
+        "Primary IATA code-transfer notifications or explicit aeronautical code-cutover orders for LYG (2021-12-02), LZO (2018-09-10), YBP (2019-12-05), ENY (2018-11-08), AKA (2020-09-25), NGO/NKM (2005-02-17), PFN/ECP (2010-05-23), MJV/RMU (2019-01-15), and SRI/AAP (2018-05-24)."
+      ],
+      "unresolvedQuestionsAndNextActions": [
+        "Acquire CAAC Aeronautical Information Center (eaipchina.cn) SUP/AIC or CAAC ATMB code-change telegrams for LYG, LZO, YBP, ENY, AKA.",
+        "Acquire Japan MLIT CAB 2005 AIRAC AIP amendment for RJGG/RJNA (NGO/NKM)."
+      ]
+    }
+  ],
+  "reviewedOn": "2026-11-18"
+}

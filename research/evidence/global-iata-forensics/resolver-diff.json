@@ -1,0 +1,1603 @@
+{
+  "formatVersion": 1,
+  "measuredOn": "2026-11-18",
+  "baseline": {
+    "dataVersion": "0.12.0",
+    "schemaVersion": "3.0.0",
+    "airports": 46,
+    "assignments": 55,
+    "iataAssignments": 28,
+    "icaoAssignments": 27,
+    "sources": 112,
+    "baselineProbesEvaluated": 254,
+    "baselineResolvedProbesCount": 167
+  },
+  "pendingModeVerification": {
+    "description": "Appending all 20 candidate assignments with verificationStatus='pending' to baseline data/airports.json",
+    "validationErrors": [],
+    "validationWarnings": [
+      "Possible boundary overlap: iata-ist-ataturk / iata-ist-istanbul",
+      "Possible boundary overlap: iata-hkg-kai-tak / iata-hkg-chek-lap-kok",
+      "Possible boundary overlap: iata-den-stapleton / iata-den-denver",
+      "Possible boundary overlap: icao-vhhh-kai-tak / icao-vhhh-chek-lap-kok",
+      "Possible boundary overlap: iata-isl-istanbul / iata-isl-ataturk",
+      "Possible boundary overlap: iata-isb-benazir-bhutto / iata-isb-islamabad",
+      "Possible boundary overlap: iata-rov-rostov-on-don / iata-rov-platov",
+      "Possible boundary overlap: iata-ynt-laishan / iata-ynt-penglai",
+      "Unconfirmed assignment overlap (review required): b5-proposal-hal-iata-blr / b5-proposal-kempegowda-iata-blr",
+      "Possible official-name boundary overlap: name-astana-before-2017 / name-astana-nazarbayev-2017"
+    ],
+    "notFoundToResolved": 0,
+    "notFoundToUncertain": 0,
+    "existingResolvedChanged": 0,
+    "crossAirportConflicts": 0
+  },
+  "technicalExplanationOfSingleBoundaryResolution": {
+    "sourceFile": "src/time.ts (lines 11-26) & src/resolve.ts (lines 56-60, 106-127)",
+    "rule": "In src/time.ts, bounds({earliest: null, latest: null}) returns [-Infinity, Infinity], so interval(assignment).certain is [startMax, endMin]. Whenever either validFrom.latest is null or validTo.earliest is null, certain[0] > certain[1] (empty certain span), so temporalMatch is 'possible' and resolveAirport() returns status='uncertain' rather than 'resolved'. Consequently, boundary-only candidates with an unknown outer endpoint produce 0 new 'resolved' queries and instead transition 'not_found -> uncertain' across their possible half-plane until paired with a second dated boundary."
+  },
+  "perAssignmentCounterfactualResults": [
+    {
+      "assignmentId": "proposal-pbi-iata-pbi",
+      "scheme": "IATA",
+      "code": "PBI",
+      "airportId": "apt_eb176a20-e0e3-438d-a330-a7b81185232d",
+      "boundaryNature": "right_bounded_cutover_only_left_endpoint_unknown",
+      "validFrom": {
+        "earliest": null,
+        "latest": null,
+        "precision": "unknown"
+      },
+      "validTo": {
+        "earliest": "2026-08-18",
+        "latest": "2026-08-19",
+        "precision": "day"
+      },
+      "datasetValidationErrors": 0,
+      "datasetValidationWarnings": 9,
+      "probeDatesAndOutcomes": {
+        "dayBeforeStart": {
+          "date": "2000-01-01",
+          "baselineStatus": "not_found",
+          "candidateStatus": "uncertain",
+          "transition": "not_found -> uncertain",
+          "resolvedAirportId": null
+        },
+        "startDay": {
+          "date": "2026-08-17",
+          "baselineStatus": "not_found",
+          "candidateStatus": "uncertain",
+          "transition": "not_found -> uncertain",
+          "resolvedAirportId": null
+        },
+        "dayBeforeEnd": {
+          "date": "2026-08-18",
+          "baselineStatus": "not_found",
+          "candidateStatus": "uncertain",
+          "transition": "not_found -> uncertain",
+          "resolvedAirportId": null
+        },
+        "endDay": {
+          "date": "2026-08-19",
+          "baselineStatus": "not_found",
+          "candidateStatus": "not_found",
+          "transition": "not_found -> not_found",
+          "resolvedAirportId": null
+        }
+      },
+      "verifiedNotFoundToResolvedDaysTotal": 0,
+      "certainResolvedWindow": {
+        "certainDaysCount": 0,
+        "firstCertainDate": null,
+        "lastCertainDate": null
+      },
+      "notFoundToResolvedAtFourProbes": 0,
+      "notFoundToUncertainAtFourProbes": 3,
+      "existingResolvedBrokenCount": 0,
+      "crossAirportConflictCount": 0
+    },
+    {
+      "assignmentId": "proposal-pbi-iata-djt",
+      "scheme": "IATA",
+      "code": "DJT",
+      "airportId": "apt_eb176a20-e0e3-438d-a330-a7b81185232d",
+      "boundaryNature": "left_bounded_cutover_only_right_endpoint_unknown",
+      "validFrom": {
+        "earliest": "2026-08-18",
+        "latest": "2026-08-19",
+        "precision": "day"
+      },
+      "validTo": {
+        "earliest": null,
+        "latest": null,
+        "precision": "unknown"
+      },
+      "datasetValidationErrors": 0,
+      "datasetValidationWarnings": 9,
+      "probeDatesAndOutcomes": {
+        "dayBeforeStart": {
+          "date": "2026-08-17",
+          "baselineStatus": "not_found",
+          "candidateStatus": "not_found",
+          "transition": "not_found -> not_found",
+          "resolvedAirportId": null
+        },
+        "startDay": {
+          "date": "2026-08-18",
+          "baselineStatus": "not_found",
+          "candidateStatus": "uncertain",
+          "transition": "not_found -> uncertain",
+          "resolvedAirportId": null
+        },
+        "dayBeforeEnd": {
+          "date": "2026-08-19",
+          "baselineStatus": "not_found",
+          "candidateStatus": "uncertain",
+          "transition": "not_found -> uncertain",
+          "resolvedAirportId": null
+        },
+        "endDay": {
+          "date": "2026-11-18",
+          "baselineStatus": "not_found",
+          "candidateStatus": "uncertain",
+          "transition": "not_found -> uncertain",
+          "resolvedAirportId": null
+        }
+      },
+      "verifiedNotFoundToResolvedDaysTotal": 0,
+      "certainResolvedWindow": {
+        "certainDaysCount": 0,
+        "firstCertainDate": null,
+        "lastCertainDate": null
+      },
+      "notFoundToResolvedAtFourProbes": 0,
+      "notFoundToUncertainAtFourProbes": 3,
+      "existingResolvedBrokenCount": 0,
+      "crossAirportConflictCount": 0
+    },
+    {
+      "assignmentId": "proposal-pbi-icao-kpbi",
+      "scheme": "ICAO",
+      "code": "KPBI",
+      "airportId": "apt_eb176a20-e0e3-438d-a330-a7b81185232d",
+      "boundaryNature": "right_bounded_cutover_only_left_endpoint_unknown",
+      "validFrom": {
+        "earliest": null,
+        "latest": null,
+        "precision": "unknown"
+      },
+      "validTo": {
+        "earliest": "2026-07-09",
+        "latest": "2026-07-10",
+        "precision": "day"
+      },
+      "datasetValidationErrors": 0,
+      "datasetValidationWarnings": 9,
+      "probeDatesAndOutcomes": {
+        "dayBeforeStart": {
+          "date": "2000-01-01",
+          "baselineStatus": "not_found",
+          "candidateStatus": "uncertain",
+          "transition": "not_found -> uncertain",
+          "resolvedAirportId": null
+        },
+        "startDay": {
+          "date": "2026-07-08",
+          "baselineStatus": "not_found",
+          "candidateStatus": "uncertain",
+          "transition": "not_found -> uncertain",
+          "resolvedAirportId": null
+        },
+        "dayBeforeEnd": {
+          "date": "2026-07-09",
+          "baselineStatus": "not_found",
+          "candidateStatus": "uncertain",
+          "transition": "not_found -> uncertain",
+          "resolvedAirportId": null
+        },
+        "endDay": {
+          "date": "2026-07-10",
+          "baselineStatus": "not_found",
+          "candidateStatus": "not_found",
+          "transition": "not_found -> not_found",
+          "resolvedAirportId": null
+        }
+      },
+      "verifiedNotFoundToResolvedDaysTotal": 0,
+      "certainResolvedWindow": {
+        "certainDaysCount": 0,
+        "firstCertainDate": null,
+        "lastCertainDate": null
+      },
+      "notFoundToResolvedAtFourProbes": 0,
+      "notFoundToUncertainAtFourProbes": 3,
+      "existingResolvedBrokenCount": 0,
+      "crossAirportConflictCount": 0
+    },
+    {
+      "assignmentId": "proposal-pbi-icao-kdjt",
+      "scheme": "ICAO",
+      "code": "KDJT",
+      "airportId": "apt_eb176a20-e0e3-438d-a330-a7b81185232d",
+      "boundaryNature": "left_bounded_cutover_only_right_endpoint_unknown",
+      "validFrom": {
+        "earliest": "2026-07-09",
+        "latest": "2026-07-10",
+        "precision": "day"
+      },
+      "validTo": {
+        "earliest": null,
+        "latest": null,
+        "precision": "unknown"
+      },
+      "datasetValidationErrors": 0,
+      "datasetValidationWarnings": 9,
+      "probeDatesAndOutcomes": {
+        "dayBeforeStart": {
+          "date": "2026-07-08",
+          "baselineStatus": "not_found",
+          "candidateStatus": "not_found",
+          "transition": "not_found -> not_found",
+          "resolvedAirportId": null
+        },
+        "startDay": {
+          "date": "2026-07-09",
+          "baselineStatus": "not_found",
+          "candidateStatus": "uncertain",
+          "transition": "not_found -> uncertain",
+          "resolvedAirportId": null
+        },
+        "dayBeforeEnd": {
+          "date": "2026-07-10",
+          "baselineStatus": "not_found",
+          "candidateStatus": "uncertain",
+          "transition": "not_found -> uncertain",
+          "resolvedAirportId": null
+        },
+        "endDay": {
+          "date": "2026-11-18",
+          "baselineStatus": "not_found",
+          "candidateStatus": "uncertain",
+          "transition": "not_found -> uncertain",
+          "resolvedAirportId": null
+        }
+      },
+      "verifiedNotFoundToResolvedDaysTotal": 0,
+      "certainResolvedWindow": {
+        "certainDaysCount": 0,
+        "firstCertainDate": null,
+        "lastCertainDate": null
+      },
+      "notFoundToResolvedAtFourProbes": 0,
+      "notFoundToUncertainAtFourProbes": 3,
+      "existingResolvedBrokenCount": 0,
+      "crossAirportConflictCount": 0
+    },
+    {
+      "assignmentId": "proposal-pbi-icao-kdjt-nasr-20261002-20261028",
+      "scheme": "ICAO",
+      "code": "KDJT",
+      "airportId": "apt_eb176a20-e0e3-438d-a330-a7b81185232d",
+      "boundaryNature": "bounded_interval_both_endpoints_present",
+      "validFrom": {
+        "earliest": "2026-10-01",
+        "latest": "2026-10-02",
+        "precision": "day"
+      },
+      "validTo": {
+        "earliest": "2026-10-28",
+        "latest": "2026-10-29",
+        "precision": "day"
+      },
+      "datasetValidationErrors": 0,
+      "datasetValidationWarnings": 9,
+      "probeDatesAndOutcomes": {
+        "dayBeforeStart": {
+          "date": "2026-09-30",
+          "baselineStatus": "not_found",
+          "candidateStatus": "not_found",
+          "transition": "not_found -> not_found",
+          "resolvedAirportId": null
+        },
+        "startDay": {
+          "date": "2026-10-02",
+          "baselineStatus": "not_found",
+          "candidateStatus": "resolved",
+          "transition": "not_found -> resolved",
+          "resolvedAirportId": "apt_eb176a20-e0e3-438d-a330-a7b81185232d"
+        },
+        "dayBeforeEnd": {
+          "date": "2026-10-27",
+          "baselineStatus": "not_found",
+          "candidateStatus": "resolved",
+          "transition": "not_found -> resolved",
+          "resolvedAirportId": "apt_eb176a20-e0e3-438d-a330-a7b81185232d"
+        },
+        "endDay": {
+          "date": "2026-10-28",
+          "baselineStatus": "not_found",
+          "candidateStatus": "uncertain",
+          "transition": "not_found -> uncertain",
+          "resolvedAirportId": null
+        }
+      },
+      "verifiedNotFoundToResolvedDaysTotal": 26,
+      "certainResolvedWindow": {
+        "certainDaysCount": 26,
+        "firstCertainDate": "2026-10-02",
+        "lastCertainDate": "2026-10-27"
+      },
+      "notFoundToResolvedAtFourProbes": 2,
+      "notFoundToUncertainAtFourProbes": 1,
+      "existingResolvedBrokenCount": 0,
+      "crossAirportConflictCount": 0
+    },
+    {
+      "assignmentId": "proposal-manas-iata-fru",
+      "scheme": "IATA",
+      "code": "FRU",
+      "airportId": "apt_82a9b73d-530e-4f4a-9456-7f53c88246bc",
+      "boundaryNature": "right_bounded_cutover_only_left_endpoint_unknown",
+      "validFrom": {
+        "earliest": null,
+        "latest": null,
+        "precision": "unknown"
+      },
+      "validTo": {
+        "earliest": "2025-08-09",
+        "latest": "2025-08-12",
+        "precision": "unknown"
+      },
+      "datasetValidationErrors": 0,
+      "datasetValidationWarnings": 9,
+      "probeDatesAndOutcomes": {
+        "dayBeforeStart": {
+          "date": "2000-01-01",
+          "baselineStatus": "not_found",
+          "candidateStatus": "uncertain",
+          "transition": "not_found -> uncertain",
+          "resolvedAirportId": null
+        },
+        "startDay": {
+          "date": "2025-08-08",
+          "baselineStatus": "not_found",
+          "candidateStatus": "uncertain",
+          "transition": "not_found -> uncertain",
+          "resolvedAirportId": null
+        },
+        "dayBeforeEnd": {
+          "date": "2025-08-09",
+          "baselineStatus": "not_found",
+          "candidateStatus": "uncertain",
+          "transition": "not_found -> uncertain",
+          "resolvedAirportId": null
+        },
+        "endDay": {
+          "date": "2025-08-12",
+          "baselineStatus": "not_found",
+          "candidateStatus": "not_found",
+          "transition": "not_found -> not_found",
+          "resolvedAirportId": null
+        }
+      },
+      "verifiedNotFoundToResolvedDaysTotal": 0,
+      "certainResolvedWindow": {
+        "certainDaysCount": 0,
+        "firstCertainDate": null,
+        "lastCertainDate": null
+      },
+      "notFoundToResolvedAtFourProbes": 0,
+      "notFoundToUncertainAtFourProbes": 3,
+      "existingResolvedBrokenCount": 0,
+      "crossAirportConflictCount": 0
+    },
+    {
+      "assignmentId": "proposal-manas-iata-bsz",
+      "scheme": "IATA",
+      "code": "BSZ",
+      "airportId": "apt_82a9b73d-530e-4f4a-9456-7f53c88246bc",
+      "boundaryNature": "left_bounded_cutover_only_right_endpoint_unknown",
+      "validFrom": {
+        "earliest": "2025-08-09",
+        "latest": "2025-08-12",
+        "precision": "unknown"
+      },
+      "validTo": {
+        "earliest": null,
+        "latest": null,
+        "precision": "unknown"
+      },
+      "datasetValidationErrors": 0,
+      "datasetValidationWarnings": 9,
+      "probeDatesAndOutcomes": {
+        "dayBeforeStart": {
+          "date": "2025-08-08",
+          "baselineStatus": "not_found",
+          "candidateStatus": "not_found",
+          "transition": "not_found -> not_found",
+          "resolvedAirportId": null
+        },
+        "startDay": {
+          "date": "2025-08-09",
+          "baselineStatus": "not_found",
+          "candidateStatus": "uncertain",
+          "transition": "not_found -> uncertain",
+          "resolvedAirportId": null
+        },
+        "dayBeforeEnd": {
+          "date": "2025-08-12",
+          "baselineStatus": "not_found",
+          "candidateStatus": "uncertain",
+          "transition": "not_found -> uncertain",
+          "resolvedAirportId": null
+        },
+        "endDay": {
+          "date": "2026-11-18",
+          "baselineStatus": "not_found",
+          "candidateStatus": "uncertain",
+          "transition": "not_found -> uncertain",
+          "resolvedAirportId": null
+        }
+      },
+      "verifiedNotFoundToResolvedDaysTotal": 0,
+      "certainResolvedWindow": {
+        "certainDaysCount": 0,
+        "firstCertainDate": null,
+        "lastCertainDate": null
+      },
+      "notFoundToResolvedAtFourProbes": 0,
+      "notFoundToUncertainAtFourProbes": 3,
+      "existingResolvedBrokenCount": 0,
+      "crossAirportConflictCount": 0
+    },
+    {
+      "assignmentId": "b5-proposal-hal-iata-blr",
+      "scheme": "IATA",
+      "code": "BLR",
+      "airportId": "apt_ab3830d2-4506-46d5-8ff9-c2d5f46ce268",
+      "boundaryNature": "right_bounded_cutover_only_left_endpoint_unknown",
+      "validFrom": {
+        "earliest": null,
+        "latest": null,
+        "precision": "unknown"
+      },
+      "validTo": {
+        "earliest": "2008-05-24",
+        "latest": "2008-05-25",
+        "precision": "day"
+      },
+      "datasetValidationErrors": 0,
+      "datasetValidationWarnings": 9,
+      "probeDatesAndOutcomes": {
+        "dayBeforeStart": {
+          "date": "2000-01-01",
+          "baselineStatus": "not_found",
+          "candidateStatus": "uncertain",
+          "transition": "not_found -> uncertain",
+          "resolvedAirportId": null
+        },
+        "startDay": {
+          "date": "2008-05-23",
+          "baselineStatus": "not_found",
+          "candidateStatus": "uncertain",
+          "transition": "not_found -> uncertain",
+          "resolvedAirportId": null
+        },
+        "dayBeforeEnd": {
+          "date": "2008-05-24",
+          "baselineStatus": "not_found",
+          "candidateStatus": "uncertain",
+          "transition": "not_found -> uncertain",
+          "resolvedAirportId": null
+        },
+        "endDay": {
+          "date": "2008-05-25",
+          "baselineStatus": "not_found",
+          "candidateStatus": "not_found",
+          "transition": "not_found -> not_found",
+          "resolvedAirportId": null
+        }
+      },
+      "verifiedNotFoundToResolvedDaysTotal": 0,
+      "certainResolvedWindow": {
+        "certainDaysCount": 0,
+        "firstCertainDate": null,
+        "lastCertainDate": null
+      },
+      "notFoundToResolvedAtFourProbes": 0,
+      "notFoundToUncertainAtFourProbes": 3,
+      "existingResolvedBrokenCount": 0,
+      "crossAirportConflictCount": 0
+    },
+    {
+      "assignmentId": "b5-proposal-kempegowda-iata-blr",
+      "scheme": "IATA",
+      "code": "BLR",
+      "airportId": "apt_bf9260e8-2d9b-413b-81d9-c6842d53cbf7",
+      "boundaryNature": "left_bounded_cutover_only_right_endpoint_unknown",
+      "validFrom": {
+        "earliest": "2008-05-24",
+        "latest": "2008-05-25",
+        "precision": "day"
+      },
+      "validTo": {
+        "earliest": null,
+        "latest": null,
+        "precision": "unknown"
+      },
+      "datasetValidationErrors": 0,
+      "datasetValidationWarnings": 9,
+      "probeDatesAndOutcomes": {
+        "dayBeforeStart": {
+          "date": "2008-05-23",
+          "baselineStatus": "not_found",
+          "candidateStatus": "not_found",
+          "transition": "not_found -> not_found",
+          "resolvedAirportId": null
+        },
+        "startDay": {
+          "date": "2008-05-24",
+          "baselineStatus": "not_found",
+          "candidateStatus": "uncertain",
+          "transition": "not_found -> uncertain",
+          "resolvedAirportId": null
+        },
+        "dayBeforeEnd": {
+          "date": "2008-05-25",
+          "baselineStatus": "not_found",
+          "candidateStatus": "uncertain",
+          "transition": "not_found -> uncertain",
+          "resolvedAirportId": null
+        },
+        "endDay": {
+          "date": "2026-11-18",
+          "baselineStatus": "not_found",
+          "candidateStatus": "uncertain",
+          "transition": "not_found -> uncertain",
+          "resolvedAirportId": null
+        }
+      },
+      "verifiedNotFoundToResolvedDaysTotal": 0,
+      "certainResolvedWindow": {
+        "certainDaysCount": 0,
+        "firstCertainDate": null,
+        "lastCertainDate": null
+      },
+      "notFoundToResolvedAtFourProbes": 0,
+      "notFoundToUncertainAtFourProbes": 3,
+      "existingResolvedBrokenCount": 0,
+      "crossAirportConflictCount": 0
+    },
+    {
+      "assignmentId": "proposal-in-vanm-iata-nmi",
+      "scheme": "IATA",
+      "code": "NMI",
+      "airportId": "apt_5e325674-a832-4106-807e-7e1e1ef951fe",
+      "boundaryNature": "unbounded_identity_observation_both_endpoints_unknown",
+      "validFrom": {
+        "earliest": null,
+        "latest": null,
+        "precision": "unknown"
+      },
+      "validTo": {
+        "earliest": null,
+        "latest": null,
+        "precision": "unknown"
+      },
+      "datasetValidationErrors": 0,
+      "datasetValidationWarnings": 9,
+      "probeDatesAndOutcomes": {
+        "dayBeforeStart": {
+          "date": "2026-06-11",
+          "baselineStatus": "not_found",
+          "candidateStatus": "uncertain",
+          "transition": "not_found -> uncertain",
+          "resolvedAirportId": null
+        },
+        "startDay": {
+          "date": "2026-06-12",
+          "baselineStatus": "not_found",
+          "candidateStatus": "uncertain",
+          "transition": "not_found -> uncertain",
+          "resolvedAirportId": null
+        },
+        "dayBeforeEnd": {
+          "date": "2026-07-08",
+          "baselineStatus": "not_found",
+          "candidateStatus": "uncertain",
+          "transition": "not_found -> uncertain",
+          "resolvedAirportId": null
+        },
+        "endDay": {
+          "date": "2026-11-18",
+          "baselineStatus": "not_found",
+          "candidateStatus": "uncertain",
+          "transition": "not_found -> uncertain",
+          "resolvedAirportId": null
+        }
+      },
+      "verifiedNotFoundToResolvedDaysTotal": 0,
+      "certainResolvedWindow": {
+        "certainDaysCount": 0,
+        "firstCertainDate": null,
+        "lastCertainDate": null
+      },
+      "notFoundToResolvedAtFourProbes": 0,
+      "notFoundToUncertainAtFourProbes": 4,
+      "existingResolvedBrokenCount": 0,
+      "crossAirportConflictCount": 0
+    },
+    {
+      "assignmentId": "proposal-in-veay-iata-ayj",
+      "scheme": "IATA",
+      "code": "AYJ",
+      "airportId": "apt_96e253c6-48ee-4ca3-b9a1-c34b49df0a68",
+      "boundaryNature": "unbounded_identity_observation_both_endpoints_unknown",
+      "validFrom": {
+        "earliest": null,
+        "latest": null,
+        "precision": "unknown"
+      },
+      "validTo": {
+        "earliest": null,
+        "latest": null,
+        "precision": "unknown"
+      },
+      "datasetValidationErrors": 0,
+      "datasetValidationWarnings": 9,
+      "probeDatesAndOutcomes": {
+        "dayBeforeStart": {
+          "date": "2026-06-11",
+          "baselineStatus": "not_found",
+          "candidateStatus": "uncertain",
+          "transition": "not_found -> uncertain",
+          "resolvedAirportId": null
+        },
+        "startDay": {
+          "date": "2026-06-12",
+          "baselineStatus": "not_found",
+          "candidateStatus": "uncertain",
+          "transition": "not_found -> uncertain",
+          "resolvedAirportId": null
+        },
+        "dayBeforeEnd": {
+          "date": "2026-07-08",
+          "baselineStatus": "not_found",
+          "candidateStatus": "uncertain",
+          "transition": "not_found -> uncertain",
+          "resolvedAirportId": null
+        },
+        "endDay": {
+          "date": "2026-11-18",
+          "baselineStatus": "not_found",
+          "candidateStatus": "uncertain",
+          "transition": "not_found -> uncertain",
+          "resolvedAirportId": null
+        }
+      },
+      "verifiedNotFoundToResolvedDaysTotal": 0,
+      "certainResolvedWindow": {
+        "certainDaysCount": 0,
+        "firstCertainDate": null,
+        "lastCertainDate": null
+      },
+      "notFoundToResolvedAtFourProbes": 0,
+      "notFoundToUncertainAtFourProbes": 4,
+      "existingResolvedBrokenCount": 0,
+      "crossAirportConflictCount": 0
+    },
+    {
+      "assignmentId": "proposal-in-vosh-iata-rqy",
+      "scheme": "IATA",
+      "code": "RQY",
+      "airportId": "apt_1130a628-5e21-4e68-b3e0-178487751f67",
+      "boundaryNature": "unbounded_identity_observation_both_endpoints_unknown",
+      "validFrom": {
+        "earliest": null,
+        "latest": null,
+        "precision": "unknown"
+      },
+      "validTo": {
+        "earliest": null,
+        "latest": null,
+        "precision": "unknown"
+      },
+      "datasetValidationErrors": 0,
+      "datasetValidationWarnings": 9,
+      "probeDatesAndOutcomes": {
+        "dayBeforeStart": {
+          "date": "2026-06-11",
+          "baselineStatus": "not_found",
+          "candidateStatus": "uncertain",
+          "transition": "not_found -> uncertain",
+          "resolvedAirportId": null
+        },
+        "startDay": {
+          "date": "2026-06-12",
+          "baselineStatus": "not_found",
+          "candidateStatus": "uncertain",
+          "transition": "not_found -> uncertain",
+          "resolvedAirportId": null
+        },
+        "dayBeforeEnd": {
+          "date": "2026-07-08",
+          "baselineStatus": "not_found",
+          "candidateStatus": "uncertain",
+          "transition": "not_found -> uncertain",
+          "resolvedAirportId": null
+        },
+        "endDay": {
+          "date": "2026-11-18",
+          "baselineStatus": "not_found",
+          "candidateStatus": "uncertain",
+          "transition": "not_found -> uncertain",
+          "resolvedAirportId": null
+        }
+      },
+      "verifiedNotFoundToResolvedDaysTotal": 0,
+      "certainResolvedWindow": {
+        "certainDaysCount": 0,
+        "firstCertainDate": null,
+        "lastCertainDate": null
+      },
+      "notFoundToResolvedAtFourProbes": 0,
+      "notFoundToUncertainAtFourProbes": 4,
+      "existingResolvedBrokenCount": 0,
+      "crossAirportConflictCount": 0
+    },
+    {
+      "assignmentId": "proposal-in-vasd-iata-sag",
+      "scheme": "IATA",
+      "code": "SAG",
+      "airportId": "apt_fa1bf7a7-a97d-4676-9c9a-7871eda47767",
+      "boundaryNature": "unbounded_identity_observation_both_endpoints_unknown",
+      "validFrom": {
+        "earliest": null,
+        "latest": null,
+        "precision": "unknown"
+      },
+      "validTo": {
+        "earliest": null,
+        "latest": null,
+        "precision": "unknown"
+      },
+      "datasetValidationErrors": 0,
+      "datasetValidationWarnings": 9,
+      "probeDatesAndOutcomes": {
+        "dayBeforeStart": {
+          "date": "2026-06-11",
+          "baselineStatus": "not_found",
+          "candidateStatus": "uncertain",
+          "transition": "not_found -> uncertain",
+          "resolvedAirportId": null
+        },
+        "startDay": {
+          "date": "2026-06-12",
+          "baselineStatus": "not_found",
+          "candidateStatus": "uncertain",
+          "transition": "not_found -> uncertain",
+          "resolvedAirportId": null
+        },
+        "dayBeforeEnd": {
+          "date": "2026-07-08",
+          "baselineStatus": "not_found",
+          "candidateStatus": "uncertain",
+          "transition": "not_found -> uncertain",
+          "resolvedAirportId": null
+        },
+        "endDay": {
+          "date": "2026-11-18",
+          "baselineStatus": "not_found",
+          "candidateStatus": "uncertain",
+          "transition": "not_found -> uncertain",
+          "resolvedAirportId": null
+        }
+      },
+      "verifiedNotFoundToResolvedDaysTotal": 0,
+      "certainResolvedWindow": {
+        "certainDaysCount": 0,
+        "firstCertainDate": null,
+        "lastCertainDate": null
+      },
+      "notFoundToResolvedAtFourProbes": 0,
+      "notFoundToUncertainAtFourProbes": 4,
+      "existingResolvedBrokenCount": 0,
+      "crossAirportConflictCount": 0
+    },
+    {
+      "assignmentId": "proposal-in-vokn-iata-cnn",
+      "scheme": "IATA",
+      "code": "CNN",
+      "airportId": "apt_58a2554f-6a9b-4ad7-bc2c-2550ad21b962",
+      "boundaryNature": "unbounded_identity_observation_both_endpoints_unknown",
+      "validFrom": {
+        "earliest": null,
+        "latest": null,
+        "precision": "unknown"
+      },
+      "validTo": {
+        "earliest": null,
+        "latest": null,
+        "precision": "unknown"
+      },
+      "datasetValidationErrors": 0,
+      "datasetValidationWarnings": 9,
+      "probeDatesAndOutcomes": {
+        "dayBeforeStart": {
+          "date": "2026-06-11",
+          "baselineStatus": "not_found",
+          "candidateStatus": "uncertain",
+          "transition": "not_found -> uncertain",
+          "resolvedAirportId": null
+        },
+        "startDay": {
+          "date": "2026-06-12",
+          "baselineStatus": "not_found",
+          "candidateStatus": "uncertain",
+          "transition": "not_found -> uncertain",
+          "resolvedAirportId": null
+        },
+        "dayBeforeEnd": {
+          "date": "2026-07-08",
+          "baselineStatus": "not_found",
+          "candidateStatus": "uncertain",
+          "transition": "not_found -> uncertain",
+          "resolvedAirportId": null
+        },
+        "endDay": {
+          "date": "2026-11-18",
+          "baselineStatus": "not_found",
+          "candidateStatus": "uncertain",
+          "transition": "not_found -> uncertain",
+          "resolvedAirportId": null
+        }
+      },
+      "verifiedNotFoundToResolvedDaysTotal": 0,
+      "certainResolvedWindow": {
+        "certainDaysCount": 0,
+        "firstCertainDate": null,
+        "lastCertainDate": null
+      },
+      "notFoundToResolvedAtFourProbes": 0,
+      "notFoundToUncertainAtFourProbes": 4,
+      "existingResolvedBrokenCount": 0,
+      "crossAirportConflictCount": 0
+    },
+    {
+      "assignmentId": "proposal-in-veho-iata-hgi",
+      "scheme": "IATA",
+      "code": "HGI",
+      "airportId": "apt_9acf6a6b-6e22-48c6-881c-d602429a9268",
+      "boundaryNature": "unbounded_identity_observation_both_endpoints_unknown",
+      "validFrom": {
+        "earliest": null,
+        "latest": null,
+        "precision": "unknown"
+      },
+      "validTo": {
+        "earliest": null,
+        "latest": null,
+        "precision": "unknown"
+      },
+      "datasetValidationErrors": 0,
+      "datasetValidationWarnings": 9,
+      "probeDatesAndOutcomes": {
+        "dayBeforeStart": {
+          "date": "2026-06-11",
+          "baselineStatus": "not_found",
+          "candidateStatus": "uncertain",
+          "transition": "not_found -> uncertain",
+          "resolvedAirportId": null
+        },
+        "startDay": {
+          "date": "2026-06-12",
+          "baselineStatus": "not_found",
+          "candidateStatus": "uncertain",
+          "transition": "not_found -> uncertain",
+          "resolvedAirportId": null
+        },
+        "dayBeforeEnd": {
+          "date": "2026-07-08",
+          "baselineStatus": "not_found",
+          "candidateStatus": "uncertain",
+          "transition": "not_found -> uncertain",
+          "resolvedAirportId": null
+        },
+        "endDay": {
+          "date": "2026-11-18",
+          "baselineStatus": "not_found",
+          "candidateStatus": "uncertain",
+          "transition": "not_found -> uncertain",
+          "resolvedAirportId": null
+        }
+      },
+      "verifiedNotFoundToResolvedDaysTotal": 0,
+      "certainResolvedWindow": {
+        "certainDaysCount": 0,
+        "firstCertainDate": null,
+        "lastCertainDate": null
+      },
+      "notFoundToResolvedAtFourProbes": 0,
+      "notFoundToUncertainAtFourProbes": 4,
+      "existingResolvedBrokenCount": 0,
+      "crossAirportConflictCount": 0
+    },
+    {
+      "assignmentId": "proposal-in-vosr-iata-sdw",
+      "scheme": "IATA",
+      "code": "SDW",
+      "airportId": "apt_9e24d5d7-5e1a-4489-b936-2737c438921e",
+      "boundaryNature": "unbounded_identity_observation_both_endpoints_unknown",
+      "validFrom": {
+        "earliest": null,
+        "latest": null,
+        "precision": "unknown"
+      },
+      "validTo": {
+        "earliest": null,
+        "latest": null,
+        "precision": "unknown"
+      },
+      "datasetValidationErrors": 0,
+      "datasetValidationWarnings": 9,
+      "probeDatesAndOutcomes": {
+        "dayBeforeStart": {
+          "date": "2026-06-11",
+          "baselineStatus": "not_found",
+          "candidateStatus": "uncertain",
+          "transition": "not_found -> uncertain",
+          "resolvedAirportId": null
+        },
+        "startDay": {
+          "date": "2026-06-12",
+          "baselineStatus": "not_found",
+          "candidateStatus": "uncertain",
+          "transition": "not_found -> uncertain",
+          "resolvedAirportId": null
+        },
+        "dayBeforeEnd": {
+          "date": "2026-07-08",
+          "baselineStatus": "not_found",
+          "candidateStatus": "uncertain",
+          "transition": "not_found -> uncertain",
+          "resolvedAirportId": null
+        },
+        "endDay": {
+          "date": "2026-11-18",
+          "baselineStatus": "not_found",
+          "candidateStatus": "uncertain",
+          "transition": "not_found -> uncertain",
+          "resolvedAirportId": null
+        }
+      },
+      "verifiedNotFoundToResolvedDaysTotal": 0,
+      "certainResolvedWindow": {
+        "certainDaysCount": 0,
+        "firstCertainDate": null,
+        "lastCertainDate": null
+      },
+      "notFoundToResolvedAtFourProbes": 0,
+      "notFoundToUncertainAtFourProbes": 4,
+      "existingResolvedBrokenCount": 0,
+      "crossAirportConflictCount": 0
+    },
+    {
+      "assignmentId": "proposal-in-vogb-iata-gbi",
+      "scheme": "IATA",
+      "code": "GBI",
+      "airportId": "apt_66034969-b902-4ede-8011-cc87a23070b7",
+      "boundaryNature": "unbounded_identity_observation_both_endpoints_unknown",
+      "validFrom": {
+        "earliest": null,
+        "latest": null,
+        "precision": "unknown"
+      },
+      "validTo": {
+        "earliest": null,
+        "latest": null,
+        "precision": "unknown"
+      },
+      "datasetValidationErrors": 0,
+      "datasetValidationWarnings": 9,
+      "probeDatesAndOutcomes": {
+        "dayBeforeStart": {
+          "date": "2026-06-11",
+          "baselineStatus": "not_found",
+          "candidateStatus": "uncertain",
+          "transition": "not_found -> uncertain",
+          "resolvedAirportId": null
+        },
+        "startDay": {
+          "date": "2026-06-12",
+          "baselineStatus": "not_found",
+          "candidateStatus": "uncertain",
+          "transition": "not_found -> uncertain",
+          "resolvedAirportId": null
+        },
+        "dayBeforeEnd": {
+          "date": "2026-07-08",
+          "baselineStatus": "not_found",
+          "candidateStatus": "uncertain",
+          "transition": "not_found -> uncertain",
+          "resolvedAirportId": null
+        },
+        "endDay": {
+          "date": "2026-11-18",
+          "baselineStatus": "not_found",
+          "candidateStatus": "uncertain",
+          "transition": "not_found -> uncertain",
+          "resolvedAirportId": null
+        }
+      },
+      "verifiedNotFoundToResolvedDaysTotal": 0,
+      "certainResolvedWindow": {
+        "certainDaysCount": 0,
+        "firstCertainDate": null,
+        "lastCertainDate": null
+      },
+      "notFoundToResolvedAtFourProbes": 0,
+      "notFoundToUncertainAtFourProbes": 4,
+      "existingResolvedBrokenCount": 0,
+      "crossAirportConflictCount": 0
+    },
+    {
+      "assignmentId": "proposal-in-veki-iata-kbk",
+      "scheme": "IATA",
+      "code": "KBK",
+      "airportId": "apt_0342f79b-a035-43b6-88bf-52b9a5e9622f",
+      "boundaryNature": "unbounded_identity_observation_both_endpoints_unknown",
+      "validFrom": {
+        "earliest": null,
+        "latest": null,
+        "precision": "unknown"
+      },
+      "validTo": {
+        "earliest": null,
+        "latest": null,
+        "precision": "unknown"
+      },
+      "datasetValidationErrors": 0,
+      "datasetValidationWarnings": 9,
+      "probeDatesAndOutcomes": {
+        "dayBeforeStart": {
+          "date": "2026-06-11",
+          "baselineStatus": "not_found",
+          "candidateStatus": "uncertain",
+          "transition": "not_found -> uncertain",
+          "resolvedAirportId": null
+        },
+        "startDay": {
+          "date": "2026-06-12",
+          "baselineStatus": "not_found",
+          "candidateStatus": "uncertain",
+          "transition": "not_found -> uncertain",
+          "resolvedAirportId": null
+        },
+        "dayBeforeEnd": {
+          "date": "2026-07-08",
+          "baselineStatus": "not_found",
+          "candidateStatus": "uncertain",
+          "transition": "not_found -> uncertain",
+          "resolvedAirportId": null
+        },
+        "endDay": {
+          "date": "2026-11-18",
+          "baselineStatus": "not_found",
+          "candidateStatus": "uncertain",
+          "transition": "not_found -> uncertain",
+          "resolvedAirportId": null
+        }
+      },
+      "verifiedNotFoundToResolvedDaysTotal": 0,
+      "certainResolvedWindow": {
+        "certainDaysCount": 0,
+        "firstCertainDate": null,
+        "lastCertainDate": null
+      },
+      "notFoundToResolvedAtFourProbes": 0,
+      "notFoundToUncertainAtFourProbes": 4,
+      "existingResolvedBrokenCount": 0,
+      "crossAirportConflictCount": 0
+    },
+    {
+      "assignmentId": "proposal-in-vepy-iata-pyg",
+      "scheme": "IATA",
+      "code": "PYG",
+      "airportId": "apt_162c7dfd-e70b-48c7-bbe5-282ede0a5cc9",
+      "boundaryNature": "unbounded_identity_observation_both_endpoints_unknown",
+      "validFrom": {
+        "earliest": null,
+        "latest": null,
+        "precision": "unknown"
+      },
+      "validTo": {
+        "earliest": null,
+        "latest": null,
+        "precision": "unknown"
+      },
+      "datasetValidationErrors": 0,
+      "datasetValidationWarnings": 9,
+      "probeDatesAndOutcomes": {
+        "dayBeforeStart": {
+          "date": "2026-06-11",
+          "baselineStatus": "not_found",
+          "candidateStatus": "uncertain",
+          "transition": "not_found -> uncertain",
+          "resolvedAirportId": null
+        },
+        "startDay": {
+          "date": "2026-06-12",
+          "baselineStatus": "not_found",
+          "candidateStatus": "uncertain",
+          "transition": "not_found -> uncertain",
+          "resolvedAirportId": null
+        },
+        "dayBeforeEnd": {
+          "date": "2026-07-08",
+          "baselineStatus": "not_found",
+          "candidateStatus": "uncertain",
+          "transition": "not_found -> uncertain",
+          "resolvedAirportId": null
+        },
+        "endDay": {
+          "date": "2026-11-18",
+          "baselineStatus": "not_found",
+          "candidateStatus": "uncertain",
+          "transition": "not_found -> uncertain",
+          "resolvedAirportId": null
+        }
+      },
+      "verifiedNotFoundToResolvedDaysTotal": 0,
+      "certainResolvedWindow": {
+        "certainDaysCount": 0,
+        "firstCertainDate": null,
+        "lastCertainDate": null
+      },
+      "notFoundToResolvedAtFourProbes": 0,
+      "notFoundToUncertainAtFourProbes": 4,
+      "existingResolvedBrokenCount": 0,
+      "crossAirportConflictCount": 0
+    },
+    {
+      "assignmentId": "proposal-in-voku-iata-kjb",
+      "scheme": "IATA",
+      "code": "KJB",
+      "airportId": "apt_5d260013-75b3-4ec4-8915-7c5ff2a47fc3",
+      "boundaryNature": "unbounded_identity_observation_both_endpoints_unknown",
+      "validFrom": {
+        "earliest": null,
+        "latest": null,
+        "precision": "unknown"
+      },
+      "validTo": {
+        "earliest": null,
+        "latest": null,
+        "precision": "unknown"
+      },
+      "datasetValidationErrors": 0,
+      "datasetValidationWarnings": 9,
+      "probeDatesAndOutcomes": {
+        "dayBeforeStart": {
+          "date": "2026-06-11",
+          "baselineStatus": "not_found",
+          "candidateStatus": "uncertain",
+          "transition": "not_found -> uncertain",
+          "resolvedAirportId": null
+        },
+        "startDay": {
+          "date": "2026-06-12",
+          "baselineStatus": "not_found",
+          "candidateStatus": "uncertain",
+          "transition": "not_found -> uncertain",
+          "resolvedAirportId": null
+        },
+        "dayBeforeEnd": {
+          "date": "2026-07-08",
+          "baselineStatus": "not_found",
+          "candidateStatus": "uncertain",
+          "transition": "not_found -> uncertain",
+          "resolvedAirportId": null
+        },
+        "endDay": {
+          "date": "2026-11-18",
+          "baselineStatus": "not_found",
+          "candidateStatus": "uncertain",
+          "transition": "not_found -> uncertain",
+          "resolvedAirportId": null
+        }
+      },
+      "verifiedNotFoundToResolvedDaysTotal": 0,
+      "certainResolvedWindow": {
+        "certainDaysCount": 0,
+        "firstCertainDate": null,
+        "lastCertainDate": null
+      },
+      "notFoundToResolvedAtFourProbes": 0,
+      "notFoundToUncertainAtFourProbes": 4,
+      "existingResolvedBrokenCount": 0,
+      "crossAirportConflictCount": 0
+    },
+    {
+      "assignmentId": "proposal-in-kecp-iata-ecp",
+      "scheme": "IATA",
+      "code": "ECP",
+      "airportId": "apt_74a05fd5-53fa-40f8-a3a6-de8cfd7d5e99",
+      "boundaryNature": "unbounded_identity_observation_both_endpoints_unknown",
+      "validFrom": {
+        "earliest": null,
+        "latest": null,
+        "precision": "unknown"
+      },
+      "validTo": {
+        "earliest": null,
+        "latest": null,
+        "precision": "unknown"
+      },
+      "datasetValidationErrors": 0,
+      "datasetValidationWarnings": 9,
+      "probeDatesAndOutcomes": {
+        "dayBeforeStart": {
+          "date": "2026-06-11",
+          "baselineStatus": "not_found",
+          "candidateStatus": "uncertain",
+          "transition": "not_found -> uncertain",
+          "resolvedAirportId": null
+        },
+        "startDay": {
+          "date": "2026-06-12",
+          "baselineStatus": "not_found",
+          "candidateStatus": "uncertain",
+          "transition": "not_found -> uncertain",
+          "resolvedAirportId": null
+        },
+        "dayBeforeEnd": {
+          "date": "2026-07-08",
+          "baselineStatus": "not_found",
+          "candidateStatus": "uncertain",
+          "transition": "not_found -> uncertain",
+          "resolvedAirportId": null
+        },
+        "endDay": {
+          "date": "2026-11-18",
+          "baselineStatus": "not_found",
+          "candidateStatus": "uncertain",
+          "transition": "not_found -> uncertain",
+          "resolvedAirportId": null
+        }
+      },
+      "verifiedNotFoundToResolvedDaysTotal": 0,
+      "certainResolvedWindow": {
+        "certainDaysCount": 0,
+        "firstCertainDate": null,
+        "lastCertainDate": null
+      },
+      "notFoundToResolvedAtFourProbes": 0,
+      "notFoundToUncertainAtFourProbes": 4,
+      "existingResolvedBrokenCount": 0,
+      "crossAirportConflictCount": 0
+    },
+    {
+      "assignmentId": "proposal-in-lemi-iata-rmu",
+      "scheme": "IATA",
+      "code": "RMU",
+      "airportId": "apt_f50aecf6-9778-4db7-9027-0e751ffab63a",
+      "boundaryNature": "unbounded_identity_observation_both_endpoints_unknown",
+      "validFrom": {
+        "earliest": null,
+        "latest": null,
+        "precision": "unknown"
+      },
+      "validTo": {
+        "earliest": null,
+        "latest": null,
+        "precision": "unknown"
+      },
+      "datasetValidationErrors": 0,
+      "datasetValidationWarnings": 9,
+      "probeDatesAndOutcomes": {
+        "dayBeforeStart": {
+          "date": "2026-06-11",
+          "baselineStatus": "not_found",
+          "candidateStatus": "uncertain",
+          "transition": "not_found -> uncertain",
+          "resolvedAirportId": null
+        },
+        "startDay": {
+          "date": "2026-06-12",
+          "baselineStatus": "not_found",
+          "candidateStatus": "uncertain",
+          "transition": "not_found -> uncertain",
+          "resolvedAirportId": null
+        },
+        "dayBeforeEnd": {
+          "date": "2026-07-08",
+          "baselineStatus": "not_found",
+          "candidateStatus": "uncertain",
+          "transition": "not_found -> uncertain",
+          "resolvedAirportId": null
+        },
+        "endDay": {
+          "date": "2026-11-18",
+          "baselineStatus": "not_found",
+          "candidateStatus": "uncertain",
+          "transition": "not_found -> uncertain",
+          "resolvedAirportId": null
+        }
+      },
+      "verifiedNotFoundToResolvedDaysTotal": 0,
+      "certainResolvedWindow": {
+        "certainDaysCount": 0,
+        "firstCertainDate": null,
+        "lastCertainDate": null
+      },
+      "notFoundToResolvedAtFourProbes": 0,
+      "notFoundToUncertainAtFourProbes": 4,
+      "existingResolvedBrokenCount": 0,
+      "crossAirportConflictCount": 0
+    }
+  ],
+  "scenarios": [
+    {
+      "scenarioId": "scenario-1-iata-only-verified",
+      "description": "Counterfactual verification of all 17 IATA candidates only (PBI, DJT, FRU, BSZ, BLR HAL/Kempegowda, and 11 Indian IATA observations).",
+      "assignmentsIncluded": 19,
+      "iataAssignmentsIncluded": 19,
+      "icaoAssignmentsIncluded": 0,
+      "validationErrors": [],
+      "validationWarnings": [
+        "Possible boundary overlap: iata-ist-ataturk / iata-ist-istanbul",
+        "Possible boundary overlap: iata-hkg-kai-tak / iata-hkg-chek-lap-kok",
+        "Possible boundary overlap: iata-den-stapleton / iata-den-denver",
+        "Possible boundary overlap: icao-vhhh-kai-tak / icao-vhhh-chek-lap-kok",
+        "Possible boundary overlap: iata-isl-istanbul / iata-isl-ataturk",
+        "Possible boundary overlap: iata-isb-benazir-bhutto / iata-isb-islamabad",
+        "Possible boundary overlap: iata-rov-rostov-on-don / iata-rov-platov",
+        "Possible boundary overlap: iata-ynt-laishan / iata-ynt-penglai",
+        "Possible boundary overlap: b5-proposal-hal-iata-blr / b5-proposal-kempegowda-iata-blr",
+        "Possible official-name boundary overlap: name-astana-before-2017 / name-astana-nazarbayev-2017"
+      ],
+      "totalNewNotFoundToResolvedDays": 0,
+      "kdjtNasrCoreWindow26Days": {
+        "window": "[2026-10-02, 2026-10-28)",
+        "notFoundToResolvedDays": 0,
+        "notFoundToUncertainDays": 0,
+        "dayBeforeStart_2026_10_01": "not_found",
+        "startDay_2026_10_02": "not_found",
+        "dayBeforeEnd_2026_10_27": "not_found",
+        "endDay_2026_10_28": "not_found"
+      },
+      "fourProbeSummaryAcrossIncludedAssignments": {
+        "notFoundToResolved": 0,
+        "notFoundToUncertain": 72,
+        "crossAirportConflicts": 0
+      },
+      "existingFormalResolvedPreserved": true,
+      "existingFormalResolvedBrokenCount": 0
+    },
+    {
+      "scenarioId": "scenario-2-icao-only-verified-reconciled-uuid",
+      "description": "Counterfactual verification of the 3 ICAO candidates (KPBI cutover, KDJT cutover, and KDJT NASR [2026-10-02, 2026-10-28)) unified onto canonical airportId apt_eb176a20-e0e3-438d-a330-a7b81185232d.",
+      "assignmentsIncluded": 3,
+      "iataAssignmentsIncluded": 0,
+      "icaoAssignmentsIncluded": 3,
+      "validationErrors": [],
+      "validationWarnings": [
+        "Possible boundary overlap: iata-ist-ataturk / iata-ist-istanbul",
+        "Possible boundary overlap: iata-hkg-kai-tak / iata-hkg-chek-lap-kok",
+        "Possible boundary overlap: iata-den-stapleton / iata-den-denver",
+        "Possible boundary overlap: icao-vhhh-kai-tak / icao-vhhh-chek-lap-kok",
+        "Possible boundary overlap: iata-isl-istanbul / iata-isl-ataturk",
+        "Possible boundary overlap: iata-isb-benazir-bhutto / iata-isb-islamabad",
+        "Possible boundary overlap: iata-rov-rostov-on-don / iata-rov-platov",
+        "Possible boundary overlap: iata-ynt-laishan / iata-ynt-penglai",
+        "Possible official-name boundary overlap: name-astana-before-2017 / name-astana-nazarbayev-2017"
+      ],
+      "totalNewNotFoundToResolvedDays": 26,
+      "kdjtNasrCoreWindow26Days": {
+        "window": "[2026-10-02, 2026-10-28)",
+        "notFoundToResolvedDays": 26,
+        "notFoundToUncertainDays": 0,
+        "dayBeforeStart_2026_10_01": "uncertain",
+        "startDay_2026_10_02": "resolved",
+        "dayBeforeEnd_2026_10_27": "resolved",
+        "endDay_2026_10_28": "uncertain"
+      },
+      "fourProbeSummaryAcrossIncludedAssignments": {
+        "notFoundToResolved": 2,
+        "notFoundToUncertain": 8,
+        "crossAirportConflicts": 0
+      },
+      "existingFormalResolvedPreserved": true,
+      "existingFormalResolvedBrokenCount": 0
+    },
+    {
+      "scenarioId": "scenario-3-icao-unreconciled-uuid-collision-demo",
+      "description": "Counterfactual demonstration of un-reconciled OurAirports 3766 UUIDs (apt_eb176a20-e0e3-438d-a330-a7b81185232d in global-code-next vs apt_f12cc00a-7d95-478e-bc87-a67c836379a3 in global-public-data): destroys all 26 resolved KDJT days and fails validateDataset().",
+      "assignmentsIncluded": 3,
+      "iataAssignmentsIncluded": 0,
+      "icaoAssignmentsIncluded": 3,
+      "validationErrors": [
+        "Duplicate OurAirports identity: 3766"
+      ],
+      "validationWarnings": [
+        "Possible boundary overlap: iata-ist-ataturk / iata-ist-istanbul",
+        "Possible boundary overlap: iata-hkg-kai-tak / iata-hkg-chek-lap-kok",
+        "Possible boundary overlap: iata-den-stapleton / iata-den-denver",
+        "Possible boundary overlap: icao-vhhh-kai-tak / icao-vhhh-chek-lap-kok",
+        "Possible boundary overlap: iata-isl-istanbul / iata-isl-ataturk",
+        "Possible boundary overlap: iata-isb-benazir-bhutto / iata-isb-islamabad",
+        "Possible boundary overlap: iata-rov-rostov-on-don / iata-rov-platov",
+        "Possible boundary overlap: iata-ynt-laishan / iata-ynt-penglai",
+        "Possible boundary overlap: proposal-pbi-icao-kdjt / public-faa-03555-icao",
+        "Possible official-name boundary overlap: name-astana-before-2017 / name-astana-nazarbayev-2017"
+      ],
+      "totalNewNotFoundToResolvedDays": 0,
+      "kdjtNasrCoreWindow26Days": {
+        "window": "[2026-10-02, 2026-10-28)",
+        "notFoundToResolvedDays": 0,
+        "notFoundToUncertainDays": 26,
+        "dayBeforeStart_2026_10_01": "uncertain",
+        "startDay_2026_10_02": "uncertain",
+        "dayBeforeEnd_2026_10_27": "uncertain",
+        "endDay_2026_10_28": "uncertain"
+      },
+      "fourProbeSummaryAcrossIncludedAssignments": {
+        "notFoundToResolved": 0,
+        "notFoundToUncertain": 10,
+        "crossAirportConflicts": 0
+      },
+      "existingFormalResolvedPreserved": true,
+      "existingFormalResolvedBrokenCount": 0
+    },
+    {
+      "scenarioId": "scenario-4-combined-iata-and-icao-verified-reconciled",
+      "description": "Counterfactual verification of all 22 candidate assignments (19 IATA + 3 ICAO) with reconciled West Palm Beach UUID.",
+      "assignmentsIncluded": 22,
+      "iataAssignmentsIncluded": 19,
+      "icaoAssignmentsIncluded": 3,
+      "validationErrors": [],
+      "validationWarnings": [
+        "Possible boundary overlap: iata-ist-ataturk / iata-ist-istanbul",
+        "Possible boundary overlap: iata-hkg-kai-tak / iata-hkg-chek-lap-kok",
+        "Possible boundary overlap: iata-den-stapleton / iata-den-denver",
+        "Possible boundary overlap: icao-vhhh-kai-tak / icao-vhhh-chek-lap-kok",
+        "Possible boundary overlap: iata-isl-istanbul / iata-isl-ataturk",
+        "Possible boundary overlap: iata-isb-benazir-bhutto / iata-isb-islamabad",
+        "Possible boundary overlap: iata-rov-rostov-on-don / iata-rov-platov",
+        "Possible boundary overlap: iata-ynt-laishan / iata-ynt-penglai",
+        "Possible boundary overlap: b5-proposal-hal-iata-blr / b5-proposal-kempegowda-iata-blr",
+        "Possible official-name boundary overlap: name-astana-before-2017 / name-astana-nazarbayev-2017"
+      ],
+      "totalNewNotFoundToResolvedDays": 26,
+      "kdjtNasrCoreWindow26Days": {
+        "window": "[2026-10-02, 2026-10-28)",
+        "notFoundToResolvedDays": 26,
+        "notFoundToUncertainDays": 0,
+        "dayBeforeStart_2026_10_01": "uncertain",
+        "startDay_2026_10_02": "resolved",
+        "dayBeforeEnd_2026_10_27": "resolved",
+        "endDay_2026_10_28": "uncertain"
+      },
+      "fourProbeSummaryAcrossIncludedAssignments": {
+        "notFoundToResolved": 2,
+        "notFoundToUncertain": 80,
+        "crossAirportConflicts": 0
+      },
+      "existingFormalResolvedPreserved": true,
+      "existingFormalResolvedBrokenCount": 0
+    }
+  ],
+  "conditionalPalmBeachObservationBoundedScenario": {
+    "description": "Counterfactual measurement if continuity were inferred for PBI between Air Canada's 2026-07-31 notice (latest start 2026-08-01) and the 2026-08-18 cutover, and for DJT between the 2026-08-18 cutover (latest start 2026-08-19) and the 2026-08-20 FAQ update. Not claimed as formal coverage gain because candidate-proposals.json retains null outer bounds.",
+    "pbiConditionalWindow": "[2026-08-01, 2026-08-18)",
+    "pbiConditionalResolvedDays": 17,
+    "pbiProbes": {
+      "dayBeforeStart_2026_07_31": "uncertain",
+      "startDay_2026_08_01": "resolved",
+      "dayBeforeEnd_2026_08_17": "resolved",
+      "endDay_2026_08_18": "uncertain"
+    },
+    "djtConditionalWindow": "[2026-08-19, 2026-08-20)",
+    "djtConditionalResolvedDays": 1,
+    "djtProbes": {
+      "dayBeforeStart_2026_08_18": "uncertain",
+      "startDay_2026_08_19": "resolved",
+      "endDay_2026_08_20": "uncertain"
+    }
+  },
+  "manasCutoverSensitivity": {
+    "multiDay_20250809_20250812": {
+      "boundary": {
+        "earliest": "2025-08-09",
+        "latest": "2025-08-12",
+        "precision": "unknown"
+      },
+      "validationErrors": 0,
+      "notFoundToResolvedDays": 0,
+      "dateTrace": {
+        "2025-08-08": {
+          "FRU": "uncertain",
+          "BSZ": "not_found"
+        },
+        "2025-08-09": {
+          "FRU": "uncertain",
+          "BSZ": "uncertain"
+        },
+        "2025-08-10": {
+          "FRU": "uncertain",
+          "BSZ": "uncertain"
+        },
+        "2025-08-11": {
+          "FRU": "uncertain",
+          "BSZ": "uncertain"
+        },
+        "2025-08-12": {
+          "FRU": "not_found",
+          "BSZ": "uncertain"
+        }
+      }
+    },
+    "resolution763Day_20250809_20250810": {
+      "boundary": {
+        "earliest": "2025-08-09",
+        "latest": "2025-08-10",
+        "precision": "day"
+      },
+      "validationErrors": 0,
+      "notFoundToResolvedDays": 0,
+      "dateTrace": {
+        "2025-08-08": {
+          "FRU": "uncertain",
+          "BSZ": "not_found"
+        },
+        "2025-08-09": {
+          "FRU": "uncertain",
+          "BSZ": "uncertain"
+        },
+        "2025-08-10": {
+          "FRU": "not_found",
+          "BSZ": "uncertain"
+        },
+        "2025-08-11": {
+          "FRU": "not_found",
+          "BSZ": "uncertain"
+        },
+        "2025-08-12": {
+          "FRU": "not_found",
+          "BSZ": "uncertain"
+        }
+      }
+    },
+    "operationalReportDay_20250811_20250812": {
+      "boundary": {
+        "earliest": "2025-08-11",
+        "latest": "2025-08-12",
+        "precision": "day"
+      },
+      "validationErrors": 0,
+      "notFoundToResolvedDays": 0,
+      "dateTrace": {
+        "2025-08-08": {
+          "FRU": "uncertain",
+          "BSZ": "not_found"
+        },
+        "2025-08-09": {
+          "FRU": "uncertain",
+          "BSZ": "not_found"
+        },
+        "2025-08-10": {
+          "FRU": "uncertain",
+          "BSZ": "not_found"
+        },
+        "2025-08-11": {
+          "FRU": "uncertain",
+          "BSZ": "uncertain"
+        },
+        "2025-08-12": {
+          "FRU": "not_found",
+          "BSZ": "uncertain"
+        }
+      }
+    }
+  }
+}
