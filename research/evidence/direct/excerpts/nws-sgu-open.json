@@ -1,0 +1,30 @@
+{
+  "admitted080Citations": [],
+  "citedPageWindows": {
+    "1": [
+      {
+        "expectedCitation": {
+          "anchor": "Effective January 12, 2011, at 1800 Coordinated Universal Time (UTC)",
+          "context": "act on NOAA Weather Wire Service subscribers. Corrected station identifier in subject line to KDXZ. Effective January 12, 2011, at 1800 Coordinated Universal Time (UTC), the NWS Office in Salt Lake City, UT, will begin disseminating the St. George, UT, Airport TAF under a new identifier: KDXZ. Routine and u",
+          "extractedPage": 1,
+          "normalizedOffset": 670
+        },
+        "factId": "sgu-taf-start",
+        "pageLength": 1964,
+        "requiredContext": [],
+        "snippet": "ief, Aviation Services Branch Subject: Corrected: Change of Terminal Aerodrome Forecast (TAF) Service for the Replacement St. George, UT, Airport (KDXZ): Effective January 12, 2011 Note: The following changes have no impact on NOAA Weather Wire Service subscribers. Corrected station identifier in subject line to KDXZ. Effective January 12, 2011, at 1800 Coordinated Universal Time (UTC), the NWS Office in Salt Lake City, UT, will begin disseminating the St. George, UT, Airport TAF under a new identifier: KDXZ. Routine and updated TAFs will be issued for the repla",
+        "windowEnd": 918,
+        "windowStart": 350
+      }
+    ]
+  },
+  "formatVersion": 1,
+  "inputSha256": "a5d3368a9c4f281575367e31b17e70fbb799840dc4577e1a0658cb2091176775",
+  "originalPublicationKey": "noaa-nws:TIN10-63:CCA",
+  "originalSha256": "70aab999d82e42cbf1390e0ab86cebe236a383471d3861712de5b27df17296ef",
+  "pageCount": 3,
+  "sourceId": "nws-sgu-open",
+  "textOriginalSha256": "2e426f01e1fcbcb9201902d5661a3eb8468f6db710fab5b611e2e3f6db174699",
+  "textSha256": "bdbc24d78d702171531d29392676f0241fe445f3d687d90a16dca5aebddc095b",
+  "url": "https://www.weather.gov/media/notification/tins/tin10-63st_george_taf_cca.pdf"
+}

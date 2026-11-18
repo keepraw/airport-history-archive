@@ -1,4 +1,4 @@
-"""Inspect candidate shards without network or loading the entire registry."""
+"""Inspect candidate shards from work/discovery/generated (or generated/) without network."""
 import argparse
 import json
 from pathlib import Path
@@ -6,6 +6,18 @@ from pathlib import Path
 from core import apply_review, canonical, read_candidates, read_jsonl
 
 ROOT = Path(__file__).resolve().parents[2]
+
+
+def corpus_dir():
+    work = ROOT / 'work/discovery/generated'
+    if (work / 'verification-queue.jsonl.gz').is_file():
+        return work
+    shipped = ROOT / 'research/discovery/generated'
+    if (shipped / 'verification-queue.jsonl.gz').is_file():
+        return shipped
+    raise FileNotFoundError(
+        'Discovery JSONL shards are omitted from Git; materialize locally in work/discovery/generated via research:scan / research:report.'
+    )
 
 
 def main():
@@ -18,7 +30,7 @@ def main():
     args = parser.parse_args()
     config = json.loads((ROOT / 'research/discovery/sources.json').read_text())
     reviews = {} if args.snapshot else json.loads((ROOT / 'research/discovery/reviews.json').read_text())
-    out = ROOT / 'research/discovery/generated'
+    out = corpus_dir()
     count = 0
     collections = ([read_jsonl(out / 'verification-queue.jsonl.gz')] if args.queue else
                    [read_candidates(out, s['id']) for s in config['sources'] if not args.source or s['id'] == args.source])

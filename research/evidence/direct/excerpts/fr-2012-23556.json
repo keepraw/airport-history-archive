@@ -1,0 +1,44 @@
+{
+  "admitted080Citations": [],
+  "citedPageWindows": {
+    "1": [
+      {
+        "expectedCitation": {
+          "anchor": "Airport was decommissioned on January 15, 2011",
+          "context": "pening of the Replacement Airport in 2011 approximately 15 miles to the east. The former St. George Airport was decommissioned on January 15, 2011. The former airport is no longer needed for aviation purposes and the release is to allow for the sale of the property so the proceeds from",
+          "extractedPage": 1,
+          "normalizedOffset": 3540
+        },
+        "factId": "sgu-decommission",
+        "pageLength": 4598,
+        "requiredContext": [],
+        "snippet": "under Section 16 of the Surplus Property Act of 1944 to be used in developing, improving, operating, or maintaining and operating a public airport. Physical constraints of the airport site required the construction and opening of the Replacement Airport in 2011 approximately 15 miles to the east. The former St. George Airport was decommissioned on January 15, 2011. The former airport is no longer needed for aviation purposes and the release is to allow for the sale of the property so the proceeds from the sale can be used towards payment of",
+        "windowEnd": 3766,
+        "windowStart": 3220
+      },
+      {
+        "expectedCitation": {
+          "anchor": "in 2011 approximately 15 miles to the east",
+          "context": "al constraints of the airport site required the construction and opening of the Replacement Airport in 2011 approximately 15 miles to the east. The former St. George Airport was decommissioned on January 15, 2011. The former airport is no longer needed for aviation purposes and the",
+          "extractedPage": 1,
+          "normalizedOffset": 3474
+        },
+        "factId": "sgu-distance-error",
+        "pageLength": 4598,
+        "requiredContext": [],
+        "snippet": "osal dated June 28, 1951. The property was conveyed to St. George under Section 16 of the Surplus Property Act of 1944 to be used in developing, improving, operating, or maintaining and operating a public airport. Physical constraints of the airport site required the construction and opening of the Replacement Airport in 2011 approximately 15 miles to the east. The former St. George Airport was decommissioned on January 15, 2011. The former airport is no longer needed for aviation purposes and the release is to allow for the sale of the",
+        "windowEnd": 3696,
+        "windowStart": 3154
+      }
+    ]
+  },
+  "formatVersion": 1,
+  "inputSha256": "b1c377bbbe4c492467146b2fdff628a59873cf38896e6291383c1b4daae2b603",
+  "originalPublicationKey": "usdot-faa:FR:2012-23556",
+  "originalSha256": "452c718adbce22216ecf7e4bd5f91a29561386c692027522aeb229ad7cda6b29",
+  "pageCount": 1,
+  "sourceId": "fr-2012-23556",
+  "textOriginalSha256": "1883240b18ced62ec2c3b322a4c086646503e6771b7c1489a6de518b333fc425",
+  "textSha256": "6b1a739136f40d3aa71893a486bc5dbf270810dd5e73fd6bb10dd1d88347ee95",
+  "url": "https://www.govinfo.gov/content/pkg/FR-2012-09-25/html/2012-23556.htm"
+}

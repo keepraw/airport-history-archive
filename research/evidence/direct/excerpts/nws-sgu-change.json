@@ -1,0 +1,44 @@
+{
+  "admitted080Citations": [],
+  "citedPageWindows": {
+    "1": [
+      {
+        "expectedCitation": {
+          "anchor": "KDXZ was a temporary identifier for the new airport in St. George",
+          "context": " will begin disseminating the St. George, Utah Airport TAF under the old airport identifier (KSGU). KDXZ was a temporary identifier for the new airport in St. George, and the Federal Aviation Administration (FAA) and airport have requested that the old identifier (KSGU) be re-established. Routine and upd",
+          "extractedPage": 1,
+          "normalizedOffset": 789
+        },
+        "factId": "sgu-temp-code",
+        "pageLength": 1806,
+        "requiredContext": [],
+        "snippet": "ffective December 15, 2011 Note: The following changes have no impact on NOAA Weather Wire Service subscribers. Effective December 15, 2011, at 1900 Coordinated Universal Time (UTC), the NWS Office in Salt Lake City, UT, will begin disseminating the St. George, Utah Airport TAF under the old airport identifier (KSGU). KDXZ was a temporary identifier for the new airport in St. George, and the Federal Aviation Administration (FAA) and airport have requested that the old identifier (KSGU) be re-established. Routine and updated TAF issuances will continue to be d",
+        "windowEnd": 1034,
+        "windowStart": 469
+      },
+      {
+        "expectedCitation": {
+          "anchor": "Effective December 15, 2011, at 1900 Coordinated Universal Time (UTC)",
+          "context": "ember 15, 2011 Note: The following changes have no impact on NOAA Weather Wire Service subscribers. Effective December 15, 2011, at 1900 Coordinated Universal Time (UTC), the NWS Office in Salt Lake City, UT, will begin disseminating the St. George, Utah Airport TAF under the old airport identifier (KSGU). K",
+          "extractedPage": 1,
+          "normalizedOffset": 581
+        },
+        "factId": "sgu-taf-restore",
+        "pageLength": 1806,
+        "requiredContext": [],
+        "snippet": "bscribers Other Customers of NWS Aviation Forecasts From: Cyndie Abelman Chief, Aviation Services Branch Subject: Change of Terminal Aerodrome Forecast (TAF) Service for the St. George, Utah Airport (KSGU): Effective December 15, 2011 Note: The following changes have no impact on NOAA Weather Wire Service subscribers. Effective December 15, 2011, at 1900 Coordinated Universal Time (UTC), the NWS Office in Salt Lake City, UT, will begin disseminating the St. George, Utah Airport TAF under the old airport identifier (KSGU). KDXZ was a temporary identifier for the n",
+        "windowEnd": 830,
+        "windowStart": 261
+      }
+    ]
+  },
+  "formatVersion": 1,
+  "inputSha256": "c3fda2303be480076ff13aec3f8b54899dd97b91ac2a1b541d81ca628face2dc",
+  "originalPublicationKey": "noaa-nws:TIN11-48",
+  "originalSha256": "2855156d4ba745dcc8967b400474e4ed327a9db9b951e7c181a20b03f0bba2bb",
+  "pageCount": 3,
+  "sourceId": "nws-sgu-change",
+  "textOriginalSha256": "11dcded03d3031a9e1a76cd111ec0e7874be35b8ed1a08c0eb89214aeb9859fa",
+  "textSha256": "53a3047ce9fe1f9ac24e0aba0122e8380c15ee15e8738134e2e9bd92d31badbc",
+  "url": "https://www.weather.gov/media/notification/tins/tin11-48taf_sgu.pdf"
+}

@@ -17,7 +17,7 @@ def main():
             raise ValueError('Published records changed')
     # The original script and all draft fingerprints remain byte-identical.
     paths = ['scripts/evidence/priority_markets.py', 'scripts/evidence/priority_market_coverage.ts']
-    paths += [str(p.relative_to(ROOT)) for p in (ROOT / 'research/evidence/priority-markets').rglob('*') if p.is_file()]
+    paths += [p.relative_to(ROOT).as_posix() for p in (ROOT / 'research/evidence/priority-markets').rglob('*') if p.is_file()]
     for path in paths:
         expected = subprocess.check_output(['git', 'show', f'{COMMIT}:{path}'], cwd=ROOT)
         if (ROOT / path).read_bytes() != expected:
@@ -27,7 +27,10 @@ def main():
         raw = subprocess.check_output(['git', 'archive', COMMIT], cwd=ROOT)
         with tarfile.open(fileobj=io.BytesIO(raw)) as archive:
             archive.extractall(tmp, filter='data')
-        Path(tmp, 'node_modules').symlink_to(ROOT / 'node_modules', target_is_directory=True)
+        try:
+            Path(tmp, 'node_modules').symlink_to(ROOT / 'node_modules', target_is_directory=True)
+        except OSError:
+            subprocess.run(['cmd', '/c', 'mklink', '/J', str(Path(tmp, 'node_modules')), str(ROOT / 'node_modules')], check=True, stdout=subprocess.DEVNULL)
         subprocess.run(['python3', 'scripts/evidence/priority_markets.py', 'validate'], cwd=tmp, check=True)
     print('Immutable PR22 research replay passed; current formal records checked separately.')
 

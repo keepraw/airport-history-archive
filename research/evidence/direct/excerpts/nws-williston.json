@@ -1,0 +1,30 @@
+{
+  "admitted080Citations": [],
+  "citedPageWindows": {
+    "1": [
+      {
+        "expectedCitation": {
+          "anchor": "And the removed station is: KISN (KXWA replaces this station).",
+          "context": "t relocation. The new stations are: KADS, KCNO, KDPA, KDTO, KGKY, KLZU, KRYY, KSDM, KXWA, and PGSN. And the removed station is: KISN (KXWA replaces this station). The current “RTMA weather status list” files are located on the NOAA Operational Model Archive and Distribution System (NOMADS)/FTPPRD at: ",
+          "extractedPage": 1,
+          "normalizedOffset": 1381
+        },
+        "factId": "williston-list-correction",
+        "pageLength": 2123,
+        "requiredContext": [],
+        "snippet": "eter setting values instead of surface pressure at select airport sites. In addition, several stations have been added to the CONUS and Guam lists at the request of the FAA, and one station has been removed due to airport relocation. The new stations are: KADS, KCNO, KDPA, KDTO, KGKY, KLZU, KRYY, KSDM, KXWA, and PGSN. And the removed station is: KISN (KXWA replaces this station). The current “RTMA weather status list” files are located on the NOAA Operational Model Archive and Distribution System (NOMADS)/FTPPRD at: https://nomads.ncep.noaa.gov/pub/data/nc",
+        "windowEnd": 1623,
+        "windowStart": 1061
+      }
+    ]
+  },
+  "formatVersion": 1,
+  "inputSha256": "eb9f2b0eade4e59a61af2251b85c1591ce1b78e4c4e6704f752fdc56f4889d10",
+  "originalPublicationKey": "noaa-nws:SCN23-112",
+  "originalSha256": "0a7f8f0575da2f469a45b0fe864f4851aeb5c1055a77a40d5883c9392a76fc37",
+  "pageCount": 3,
+  "sourceId": "nws-williston",
+  "textOriginalSha256": "143e4c8c28005b0ecf2d201c539dd0ce08fd15785be77be101e6b87fefae8974",
+  "textSha256": "7553bb8c612106d125e63adc067514cbf3fddb0e40b8c40fa5dcc0ff1b9fa576",
+  "url": "https://www.weather.gov/media/notification/pdf_2023_24/scn23-112_rtma_and_urma_v2.10.5.pdf"
+}

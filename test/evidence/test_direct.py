@@ -111,6 +111,8 @@ class DirectEvidenceTests(unittest.TestCase):
         self.assertTrue(set(a['airportId'] for a in blocked['airports']).isdisjoint(a['airportId'] for a in pending['airports']))
 
     def test_complete_offline_rebuild_is_byte_identical(self):
+        if not (direct.BASE / 'inputs').is_dir():
+            self.skipTest('Raw PDF/text archives omitted from Git; recover to work/evidence/direct to test full rebuild.')
         with tempfile.TemporaryDirectory(dir=ROOT / 'work') as tmp, \
                 patch.object(socket, 'create_connection', side_effect=AssertionError('network disabled')), \
                 patch.object(direct, 'get', side_effect=AssertionError('network disabled')):
@@ -121,6 +123,8 @@ class DirectEvidenceTests(unittest.TestCase):
                 self.assertEqual(path.read_bytes(), (output / path.name).read_bytes(), path.name)
 
     def test_build_consumes_an_explicit_new_snapshot_and_traces_its_originals(self):
+        if not (direct.BASE / 'inputs').is_dir():
+            self.skipTest('Raw PDF/text archives omitted from Git; recover to work/evidence/direct to test snapshot copy.')
         with tempfile.TemporaryDirectory(dir=ROOT / 'work') as tmp:
             snapshot = Path(tmp) / 'new-snapshot'
             snapshot.mkdir()

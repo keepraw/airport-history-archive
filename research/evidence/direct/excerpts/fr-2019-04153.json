@@ -1,0 +1,30 @@
+{
+  "admitted080Citations": [],
+  "citedPageWindows": {
+    "1": [
+      {
+        "expectedCitation": {
+          "anchor": "Lat. 48[deg]15'35'' N, long. 103[deg]45'02'' W",
+          "context": "ce of the Earth. * * * * * AGL ND E5 Williston, ND [New] Williston Basin International Airport, ND (Lat. 48[deg]15'35'' N, long. 103[deg]45'02'' W) That airspace extending upward from 700 feet above the surface within a 6.7-mile radius of the Williston Basin International Airport. Issu",
+          "extractedPage": 1,
+          "normalizedOffset": 7045
+        },
+        "factId": "williston-new-first-coordinate",
+        "pageLength": 7423,
+        "requiredContext": [],
+        "snippet": "1C, Airspace Designations and Reporting Points, dated August 13, 2018, and effective September 15, 2018, is amended as follows: Paragraph 6005 Class E Airspace Areas Extending Upward From 700 Feet or More Above the Surface of the Earth. * * * * * AGL ND E5 Williston, ND [New] Williston Basin International Airport, ND (Lat. 48[deg]15'35'' N, long. 103[deg]45'02'' W) That airspace extending upward from 700 feet above the surface within a 6.7-mile radius of the Williston Basin International Airport. Issued in Fort Worth, Texas, on March 1, 201",
+        "windowEnd": 7271,
+        "windowStart": 6725
+      }
+    ]
+  },
+  "formatVersion": 1,
+  "inputSha256": "6d02bd7a1a722db15950c5b6973d57d720549f967b5305c0840797e0d59d29a6",
+  "originalPublicationKey": "usdot-faa:FR:2019-04153",
+  "originalSha256": "714e2bcaeba8104b3075e64ebed8e6fab0119b0b41784354db968f6b7683b768",
+  "pageCount": 1,
+  "sourceId": "fr-2019-04153",
+  "textOriginalSha256": "f3c7c435d501a9dd1254260b38b7fb45a62c6e783a08ebad7b4d82b8f6cdf67f",
+  "textSha256": "39505c21efa02467e3b254b555abcb3770ab32a0c8a8bd7ecfccf810eed8c8cd",
+  "url": "https://www.govinfo.gov/content/pkg/FR-2019-03-08/html/2019-04153.htm"
+}

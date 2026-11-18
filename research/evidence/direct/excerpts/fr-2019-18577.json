@@ -1,0 +1,44 @@
+{
+  "admitted080Citations": [],
+  "citedPageWindows": {
+    "1": [
+      {
+        "expectedCitation": {
+          "anchor": "The permanent closure of the airport is effective as of October 10, 2019",
+          "context": ", ND. The notice was in excess of 30 days before the closure in accordance with federal law. DATES: The permanent closure of the airport is effective as of October 10, 2019. FOR FURTHER INFORMATION CONTACT: James G. Keefer, Deputy Director, Airports Division, Great Lakes Region, (847) 294-7272. SUPPLEMENTARY IN",
+          "extractedPage": 1,
+          "normalizedOffset": 978
+        },
+        "factId": "williston-announced",
+        "pageLength": 1814,
+        "requiredContext": [],
+        "snippet": "ion Administration (FAA) received written notice, July 26, 2019, from the City of Williston advising that on October 10, 2019, it will permanently close Sloulin Field International Airport (ISN), [[Page 45619]] Williston, ND. The notice was in excess of 30 days before the closure in accordance with federal law. DATES: The permanent closure of the airport is effective as of October 10, 2019. FOR FURTHER INFORMATION CONTACT: James G. Keefer, Deputy Director, Airports Division, Great Lakes Region, (847) 294-7272. SUPPLEMENTARY INFORMATION: The City of Williston is cons",
+        "windowEnd": 1230,
+        "windowStart": 658
+      },
+      {
+        "expectedCitation": {
+          "anchor": "replacement airport, Williston Basin International Airport (XWA)",
+          "context": "ity of Williston is constructing a replacement airport for Sloulin Field International Airport. The replacement airport, Williston Basin International Airport (XWA) will open on October 10, 2019 and coincide with the closing of Sloulin Field International Airport. The FAA hereby publishes the City of Wi",
+          "extractedPage": 1,
+          "normalizedOffset": 1306
+        },
+        "factId": "williston-xwa-code",
+        "pageLength": 1814,
+        "requiredContext": [],
+        "snippet": "anent closure of the airport is effective as of October 10, 2019. FOR FURTHER INFORMATION CONTACT: James G. Keefer, Deputy Director, Airports Division, Great Lakes Region, (847) 294-7272. SUPPLEMENTARY INFORMATION: The City of Williston is constructing a replacement airport for Sloulin Field International Airport. The replacement airport, Williston Basin International Airport (XWA) will open on October 10, 2019 and coincide with the closing of Sloulin Field International Airport. The FAA hereby publishes the City of Williston's notice of permanent closure of",
+        "windowEnd": 1550,
+        "windowStart": 986
+      }
+    ]
+  },
+  "formatVersion": 1,
+  "inputSha256": "ea23fbdbba614234f26942587e0ced83668d4ed9fcfa10003e6ebc72c7501319",
+  "originalPublicationKey": "usdot-faa:FR:2019-18577",
+  "originalSha256": "edc2a26d4aae8f17ba72fdeb691b42afeff231ddc18c1fb8b3fa9aca626e02b3",
+  "pageCount": 1,
+  "sourceId": "fr-2019-18577",
+  "textOriginalSha256": "5eb083d9be04a0fefbf3d6b42e9002f375d7d31e5379c69448a9163879536eeb",
+  "textSha256": "4a176e2f25ea8d860843c5ec59b408431f6af661a46477bebb629c46953a7b52",
+  "url": "https://www.govinfo.gov/content/pkg/FR-2019-08-29/html/2019-18577.htm"
+}

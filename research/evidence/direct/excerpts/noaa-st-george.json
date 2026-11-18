@@ -1,0 +1,30 @@
+{
+  "admitted080Citations": [],
+  "citedPageWindows": {
+    "3": [
+      {
+        "expectedCitation": {
+          "anchor": "Sample Waiver Letter and Form",
+          "context": "trol Checklist ..................................................................... 1 APPENDIX E - Sample Waiver Letter and Form .......................................................................E-1 3",
+          "extractedPage": 3,
+          "normalizedOffset": 2326
+        },
+        "factId": "sgu-sample",
+        "pageLength": 2432,
+        "requiredContext": [],
+        "snippet": "e of National Notices .................................................. 1 APPENDIX C - Sample SCN/TIN/PNS/ADW Notices ................................................................. 1 APPENDIX D - Optional Quality Control Checklist ..................................................................... 1 APPENDIX E - Sample Waiver Letter and Form .......................................................................E-1 3",
+        "windowEnd": 2432,
+        "windowStart": 2006
+      }
+    ]
+  },
+  "formatVersion": 1,
+  "inputSha256": "cdcc0e05137cc0da8a9d2be69233dcedaaea21275e3dd08fb2b170a79e701602",
+  "originalPublicationKey": "noaa-nws:NWSI10-1805:2011-11-09",
+  "originalSha256": "39eb3639b96af3184b612bf9b1f20c44ea02d0eccce093c530744e59287ba694",
+  "pageCount": 26,
+  "sourceId": "noaa-st-george",
+  "textOriginalSha256": "57d45e405fe752db73c608247c3cdfdf3661c8f6be5aa9c518368ff18f07b92a",
+  "textSha256": "cd809357206248254446214d91abd25eeda667ca200404c6cb00a8848fb8466e",
+  "url": "https://www.weather.gov/media/directives/010_pdfs_archived/pd01018005a.pdf"
+}

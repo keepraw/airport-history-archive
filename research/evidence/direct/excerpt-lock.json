@@ -1,0 +1,167 @@
+{
+  "formatVersion": 1,
+  "meaning": "Hash-locked minimal page excerpts for PR13 direct-source facts and 0.8.0 admitted citations; replaces 52.03 MiB of raw PDF/HTML/full-text archives in Git.",
+  "sourceLockSha256": "d054af9e1a37816207393e8768e5780ff12d3f5b4ef9e30348dbcacfca75431d",
+  "sources": [
+    {
+      "bytes": 7285,
+      "excerptPath": "excerpts/faa-2009.json",
+      "excerptSha256": "8d1265960ad1fbafbc764a2eb8689b1d5e74e11c170ecc95775fad8a8fc7fe9d",
+      "inputSha256": "023bebcd3cec5704e2971f2c68c59b3d0eb889b2088090e86ec65d4cef5a395c",
+      "originalSha256": "f72508c44fdee1b74cf124f85e4af854672860856e95e3db76c71e992967dfe3",
+      "sourceId": "faa-2009",
+      "textOriginalSha256": "79d3f483a5833a64419f2d57921d866acb33eabd1184dbea1f56260daa2e31a6",
+      "textSha256": "5b153dcbc04cb0f134b5f3c609d9bbe2c0502d2b1387c1ff2b1f079aa08762d5"
+    },
+    {
+      "bytes": 7731,
+      "excerptPath": "excerpts/faa-2014.json",
+      "excerptSha256": "b7f5c9dc54a4ea3597574d134fcfea6dbf4641637ce5ce7b5264ae9ff096a8da",
+      "inputSha256": "b21e49ea5f9e2bf9abbedf28c014c28029e1489fe275bf30991f6c6a15afa7b7",
+      "originalSha256": "d25ceac462f7f1f5e0b6d09339a15120e86a99d523228365a711e7e9edd78b15",
+      "sourceId": "faa-2014",
+      "textOriginalSha256": "e7d8bbccf05263567b55c140be0dd829a955c7c714905d388e5cfc5f966c977f",
+      "textSha256": "2a3b81e5b71c780e4ae33929fe0b6eb4687c4d6a2af0276fccc467f397720414"
+    },
+    {
+      "bytes": 4444,
+      "excerptPath": "excerpts/airspace-2007.json",
+      "excerptSha256": "1f8c354ae99bc48beee17a3d66150c22e69fec1a3b4191290804210a6d439d22",
+      "inputSha256": "ef50c29dc3b559e0d6800e042f6ab25ca1a24ab919f3431634c5d0e6a6ac04df",
+      "originalSha256": "9e6b81cd4f29fb858a2bb8a197ed1dfcab872f2b6c3c44e76d0a2e10faa24457",
+      "sourceId": "airspace-2007",
+      "textOriginalSha256": "a2e2b4200c7065724d3295fa3bbe6f8d9f970496f5c1600ae53cfe5c26391cd0",
+      "textSha256": "217c0e07f70c0ca4215ba1ae50fa81751b671845e825c53e4d089c8f899a9d31"
+    },
+    {
+      "bytes": 2969,
+      "excerptPath": "excerpts/airspace-2014.json",
+      "excerptSha256": "d27d729b38349532167969228b7fb6958e20e554bab7baefada87905d370a554",
+      "inputSha256": "066fe5210452615916fbcbf6cca2e1e166016c0c8988176480b4a0979a6d842c",
+      "originalSha256": "3b021d8b244b90c50de7c92b19eeb339c30e52a4227f8d24c3a9d87492227605",
+      "sourceId": "airspace-2014",
+      "textOriginalSha256": "3248311d99972c4d19c8058b71c4c5b906c4bff9fc6f9f409930f7bc2d66e8b3",
+      "textSha256": "d70bba4cd81938202f1abcf03fd6cde8b3d7a767d3b3b1631a592b69bbba37bf"
+    },
+    {
+      "bytes": 3728,
+      "excerptPath": "excerpts/nws-panama.json",
+      "excerptSha256": "57beca5ea6e902e6ee9a663c05028fb23bc226bb3aa23fc522792e95f83942ae",
+      "inputSha256": "22ee304d88e2791e080bb940953fc58633af3ca0a9a824ca1af1f96644e26d04",
+      "originalSha256": "d4d58a531fc8fc845340e7a46d879894c6759a66da04512778f91e00be277e62",
+      "sourceId": "nws-panama",
+      "textOriginalSha256": "0542dc498543165874308c205e2e35e5f267e1e6ec290b204038348feea5648e",
+      "textSha256": "6fd6645eb50a8acb2598c12db06e9486c08187e59fbd24818db662cceab3ae39"
+    },
+    {
+      "bytes": 1925,
+      "excerptPath": "excerpts/nws-sgu-open.json",
+      "excerptSha256": "3f000dafc317397ad57660b676322b182349951626108e4f8ce52facd9b5ac68",
+      "inputSha256": "a5d3368a9c4f281575367e31b17e70fbb799840dc4577e1a0658cb2091176775",
+      "originalSha256": "70aab999d82e42cbf1390e0ab86cebe236a383471d3861712de5b27df17296ef",
+      "sourceId": "nws-sgu-open",
+      "textOriginalSha256": "2e426f01e1fcbcb9201902d5661a3eb8468f6db710fab5b611e2e3f6db174699",
+      "textSha256": "bdbc24d78d702171531d29392676f0241fe445f3d687d90a16dca5aebddc095b"
+    },
+    {
+      "bytes": 3195,
+      "excerptPath": "excerpts/nws-sgu-change.json",
+      "excerptSha256": "602087b3102637f65c00bd0a878b2a6c0f9c80db11d0a66468f19098d7638ded",
+      "inputSha256": "c3fda2303be480076ff13aec3f8b54899dd97b91ac2a1b541d81ca628face2dc",
+      "originalSha256": "2855156d4ba745dcc8967b400474e4ed327a9db9b951e7c181a20b03f0bba2bb",
+      "sourceId": "nws-sgu-change",
+      "textOriginalSha256": "11dcded03d3031a9e1a76cd111ec0e7874be35b8ed1a08c0eb89214aeb9859fa",
+      "textSha256": "53a3047ce9fe1f9ac24e0aba0122e8380c15ee15e8738134e2e9bd92d31badbc"
+    },
+    {
+      "bytes": 1941,
+      "excerptPath": "excerpts/nws-williston.json",
+      "excerptSha256": "858a5fd3dada7053c93bee2dc010071f43c67254192543c606328af1186a7b90",
+      "inputSha256": "eb9f2b0eade4e59a61af2251b85c1591ce1b78e4c4e6704f752fdc56f4889d10",
+      "originalSha256": "0a7f8f0575da2f469a45b0fe864f4851aeb5c1055a77a40d5883c9392a76fc37",
+      "sourceId": "nws-williston",
+      "textOriginalSha256": "143e4c8c28005b0ecf2d201c539dd0ce08fd15785be77be101e6b87fefae8974",
+      "textSha256": "7553bb8c612106d125e63adc067514cbf3fddb0e40b8c40fa5dcc0ff1b9fa576"
+    },
+    {
+      "bytes": 1652,
+      "excerptPath": "excerpts/noaa-st-george.json",
+      "excerptSha256": "ab61f11cb98089bcd6c0aeea111ebf7091e67a4d1769ce4023fc9f67f384a0e4",
+      "inputSha256": "cdcc0e05137cc0da8a9d2be69233dcedaaea21275e3dd08fb2b170a79e701602",
+      "originalSha256": "39eb3639b96af3184b612bf9b1f20c44ea02d0eccce093c530744e59287ba694",
+      "sourceId": "noaa-st-george",
+      "textOriginalSha256": "57d45e405fe752db73c608247c3cdfdf3661c8f6be5aa9c518368ff18f07b92a",
+      "textSha256": "cd809357206248254446214d91abd25eeda667ca200404c6cb00a8848fb8466e"
+    },
+    {
+      "bytes": 2007,
+      "excerptPath": "excerpts/fr-2011-12359.json",
+      "excerptSha256": "43fc8ec3d2601af1808f4fad7f40a807bb0a54cce2b9c98a145025ddcc43eaf0",
+      "inputSha256": "f1cca96e42038eae23231571914dc14dcf0520246363fb4ab9b35693592ecc28",
+      "originalSha256": "53478a7ff54a77a3084dc7693a669840e2541291fee7f849e59ddd06be6d8cb9",
+      "sourceId": "fr-2011-12359",
+      "textOriginalSha256": "79a4198fb44d52716acd5bc53abf852c6603b94dc42f03f8669087304d245f5c",
+      "textSha256": "3d3f90711a574a5cd3ffcc51ff360dac0e822b209c404e5d65ab11358059c4e3"
+    },
+    {
+      "bytes": 3075,
+      "excerptPath": "excerpts/fr-2012-23556.json",
+      "excerptSha256": "a656f7ac8baffe5aa2497ad7cd990c550d493e7baa4c0252e0115e3fa8f92da1",
+      "inputSha256": "b1c377bbbe4c492467146b2fdff628a59873cf38896e6291383c1b4daae2b603",
+      "originalSha256": "452c718adbce22216ecf7e4bd5f91a29561386c692027522aeb229ad7cda6b29",
+      "sourceId": "fr-2012-23556",
+      "textOriginalSha256": "1883240b18ced62ec2c3b322a4c086646503e6771b7c1489a6de518b333fc425",
+      "textSha256": "6b1a739136f40d3aa71893a486bc5dbf270810dd5e73fd6bb10dd1d88347ee95"
+    },
+    {
+      "bytes": 1874,
+      "excerptPath": "excerpts/fr-2019-04153.json",
+      "excerptSha256": "69e1e36f796629f7b9aca652093f61a2692e6671d698214126b689803157ffc2",
+      "inputSha256": "6d02bd7a1a722db15950c5b6973d57d720549f967b5305c0840797e0d59d29a6",
+      "originalSha256": "714e2bcaeba8104b3075e64ebed8e6fab0119b0b41784354db968f6b7683b768",
+      "sourceId": "fr-2019-04153",
+      "textOriginalSha256": "f3c7c435d501a9dd1254260b38b7fb45a62c6e783a08ebad7b4d82b8f6cdf67f",
+      "textSha256": "39505c21efa02467e3b254b555abcb3770ab32a0c8a8bd7ecfccf810eed8c8cd"
+    },
+    {
+      "bytes": 4642,
+      "excerptPath": "excerpts/fr-2020-09591.json",
+      "excerptSha256": "2d2d5426558fbb8484aa67cbc7b699ee7d14a252dcbe5bc2316431ab6cacfdb5",
+      "inputSha256": "478aa300dfe8ff74e750eb2577248b4c425e6156bbf76deaf40cc50b79d00da8",
+      "originalSha256": "cbe2e5ab7db779a2041f81241f88a9658f1d323a7f87f695d1e854eaf36b226f",
+      "sourceId": "fr-2020-09591",
+      "textOriginalSha256": "57e7c9196317f911083ef2bbb5fa73d40a79dc0954aefe1a20f2e6682d3d830c",
+      "textSha256": "71a5d0ea9465d60a8123a94e9b3c886c412c3397455287d4b1daa65715407811"
+    },
+    {
+      "bytes": 3052,
+      "excerptPath": "excerpts/fr-2013-20499.json",
+      "excerptSha256": "cadfffccd34e1dbf9c30eadb66962b5ded8fe20198ca62da23077aa710116167",
+      "inputSha256": "0a5ecec9555ea82bfd226347de8c4b2ed9971ece4751510358a4989949f3b71f",
+      "originalSha256": "780a79e1895b069bd53957f8e13e975f25516c16db9819b2cef3f5b631bc429f",
+      "sourceId": "fr-2013-20499",
+      "textOriginalSha256": "f1cacb0f5b2d12624efbb5b404f5279e639a323fbbcaadc6aa6d2200200e4378",
+      "textSha256": "dbef4a619ecab83faf6be2c7d4cd1ac9dd6e0e18d59e5be1dbb19d3d8c0a89c9"
+    },
+    {
+      "bytes": 3370,
+      "excerptPath": "excerpts/fr-2014-02473.json",
+      "excerptSha256": "b10bdce82668f5440557ac7e527ed759eb23556cba446f35ae269da707bcb08a",
+      "inputSha256": "0acee6dde65d34239c551df3ed8ce728cef35a2c02d5e45ca68e3c79c7fdea18",
+      "originalSha256": "ee935cadfb2fa436674a8300016eb2580531568830947417a7aa155962caa3fd",
+      "sourceId": "fr-2014-02473",
+      "textOriginalSha256": "6798dcc95ca9c9bdad5830ba6778dca7bb80c0bdd32bcc998e3ac95d84507e98",
+      "textSha256": "14cfc91a756990dbbb5c96590dd9fbd8df399a1c8ebd4f857fc9fef4d61b36c0"
+    },
+    {
+      "bytes": 3219,
+      "excerptPath": "excerpts/fr-2019-18577.json",
+      "excerptSha256": "5e7f9cd4d59a43a9479d2b36a0a9db82cd9f6f2e09fee7601e7565ebe1fa05e6",
+      "inputSha256": "ea23fbdbba614234f26942587e0ced83668d4ed9fcfa10003e6ebc72c7501319",
+      "originalSha256": "edc2a26d4aae8f17ba72fdeb691b42afeff231ddc18c1fb8b3fa9aca626e02b3",
+      "sourceId": "fr-2019-18577",
+      "textOriginalSha256": "5eb083d9be04a0fefbf3d6b42e9002f375d7d31e5379c69448a9163879536eeb",
+      "textSha256": "4a176e2f25ea8d860843c5ec59b408431f6af661a46477bebb629c46953a7b52"
+    }
+  ]
+}

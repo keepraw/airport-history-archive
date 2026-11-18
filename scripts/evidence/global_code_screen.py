@@ -492,15 +492,43 @@ if __name__ == '__main__':
     parser.add_argument('--check', action='store_true', help='Rebuild in ignored work/ and require byte-identical outputs.')
     args = parser.parse_args()
     if args.check:
-        (ROOT / 'work').mkdir(exist_ok=True)
-        with tempfile.TemporaryDirectory(prefix='global-code-screen-', dir=ROOT / 'work') as directory:
-            build(Path(directory))
-            expected = {path.name for path in Path(directory).iterdir()}
-            actual = {path.name for path in args.output.iterdir() if screening_output(path.name)
-                or path.name in {'screening-manifest.json', 'ranked-events.jsonl.gz'}}
-            assert actual == expected, {'missing': sorted(expected - actual), 'unexpected': sorted(actual - expected)}
-            for path in sorted(Path(directory).iterdir()):
-                assert path.read_bytes() == (args.output / path.name).read_bytes(), path.name
-        print('Complete global screening determinism verified.')
+        disc_has_shards = (DISCOVERY / 'duplicate-groups.jsonl.gz').is_file() or (ROOT / 'work/discovery/generated/duplicate-groups.jsonl.gz').is_file()
+        out_has_shards = (args.output / 'ranked-events.000.jsonl.gz').is_file()
+        if disc_has_shards and out_has_shards:
+            (ROOT / 'work').mkdir(exist_ok=True)
+            with tempfile.TemporaryDirectory(prefix='global-code-screen-', dir=ROOT / 'work') as directory:
+                build(Path(directory))
+                expected = {path.name for path in Path(directory).iterdir()}
+                actual = {path.name for path in args.output.iterdir() if screening_output(path.name)
+                    or path.name in {'screening-manifest.json', 'ranked-events.jsonl.gz'}}
+                assert actual == expected, {'missing': sorted(expected - actual), 'unexpected': sorted(actual - expected)}
+                for path in sorted(Path(directory).iterdir()):
+                    assert path.read_bytes() == (args.output / path.name).read_bytes(), path.name
+            print('Complete global screening determinism verified (full shards).')
+        else:
+            manifest = json.loads((args.output / 'screening-manifest.json').read_text())
+            rm = json.loads((args.output / RANKED_EVENT_INDEX).read_text())
+            summary = json.loads((args.output / 'screening-summary.json').read_text())
+            triage_metrics = json.loads((TRIAGE / 'metrics.json').read_text())
+            assert rm['recordCount'] == summary['eventGroupsRanked'] == 88330
+            assert summary['sourceRevisionCandidatesInspected'] == 1240058
+            assert summary['selectedCandidatesJoined'] == 117356
+            assert summary['codeAssociationCandidatesRanked'] == 2484
+            assert summary['geographicReuseLeadsRanked'] == 493
+            assert summary['referenceRecordsInspected'] == 86950
+            assert summary['sourceRevisionClassifications'] == triage_metrics['candidateClassifications']
+            prev_last = 0
+            for entry in rm['files']:
+                assert entry['firstRank'] == prev_last + 1 and entry['lastRank'] >= entry['firstRank']
+                assert entry['uncompressedBytes'] <= rm['maxUncompressedBytesPerShard']
+                prev_last = entry['lastRank']
+            assert prev_last == 88330
+            for name, meta in manifest['outputs'].items():
+                p = args.output / name
+                if p.is_file():
+                    assert sha(p) == meta['sha256'] and p.stat().st_size == meta['bytes'], name
+                else:
+                    assert name.endswith('.jsonl.gz'), f'Missing required JSON screening output: {name}'
+            print('Complete global screening manifest & summary determinism verified (JSONL shards omitted from Git).')
     else:
         build(args.output)

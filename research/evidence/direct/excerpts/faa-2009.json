@@ -1,0 +1,118 @@
+{
+  "admitted080Citations": [
+    {
+      "anchor": "PANAMA CITY-BAY CO INTL ARPT PFN GNV ZJX",
+      "extractedPage": 325,
+      "extractionTool": "pdftotext 25.03.0 -layout"
+    },
+    {
+      "anchor": "identifier preceded by “K”.",
+      "extractedPage": 21,
+      "extractionTool": "pdftotext 25.03.0 -layout"
+    },
+    {
+      "anchor": "SLOULIN FLD INTL ARPT, WILLISTON, ND ISN GFK ZLC",
+      "extractedPage": 392,
+      "extractionTool": "pdftotext 25.03.0 -layout"
+    },
+    {
+      "anchor": "identifier preceded by “K”.",
+      "extractedPage": 21,
+      "extractionTool": "pdftotext 25.03.0 -layout"
+    }
+  ],
+  "citedPageWindows": {
+    "101": [
+      {
+        "expectedCitation": {
+          "anchor": "HARDWICK FIELD ARPT HDI BNA ZTL",
+          "context": " ND89 GFK ZMP BRADLEY MEMORIAL HOSPITAL 33TN BNA ZME CLEMMONS, NC, HELIPORT BERTS ARPT NC32 RDU ZTL HARDWICK FIELD ARPT HDI BNA ZTL CLEMSON, SC, HARDWICK NDB HDI BNA CLEMSON NDB CEU AND CLEVELAND, TX, OCONEE COUNTY RGNL ARPT CEU AND ZTL AINSWORTH ARPT Ø6TE CXO ZHU USAR C",
+          "extractedPage": 101,
+          "normalizedOffset": 423
+        },
+        "factId": "hdi-code",
+        "pageLength": 4355,
+        "requiredContext": [],
+        "snippet": " Fac Fac RECOMPENSE FARM ARPT 2MD1 DCA ZDC CLEVELAND MUNI ARPT 95F MLC ZKC CLEMENTS CREEK SPB, ANNAPOLIS, MD8Ø DCA ZDC CLEVELAND, SC, MD KING FIELD ARPT SC78 AND ZTL CLEMENTSVILLE, ND, CLEVELAND, TN, MUTSCHLER FIELD ARPT ND89 GFK ZMP BRADLEY MEMORIAL HOSPITAL 33TN BNA ZME CLEMMONS, NC, HELIPORT BERTS ARPT NC32 RDU ZTL HARDWICK FIELD ARPT HDI BNA ZTL CLEMSON, SC, HARDWICK NDB HDI BNA CLEMSON NDB CEU AND CLEVELAND, TX, OCONEE COUNTY RGNL ARPT CEU AND ZTL AINSWORTH ARPT Ø6TE CXO ZHU USAR CENTER, CLEMSON HELIPORT SC53 AND ZTL CLE",
+        "windowEnd": 634,
+        "windowStart": 103
+      }
+    ],
+    "21": [
+      {
+        "expectedCitation": {
+          "anchor": "identifier preceded by “K”.",
+          "context": "ows: contiguous United States is the three-letter a. Within the United States and its jurisdictions identifier preceded by “K”. For other non- to: Aeronautical Information Management, contiguous United States airports, the following NFDC, Federal Aviation Administrat",
+          "extractedPage": 21,
+          "normalizedOffset": 466
+        },
+        "factId": "icao-rule-2009",
+        "pageLength": 940,
+        "requiredContext": [
+          "contiguous United States is the three-letter",
+          "INTERNATIONAL LOCATION INDICATORS"
+        ],
+        "snippet": "CATORS An international location indicator is a four-letter code used in international telecommunications. Send requests for international location indicator The location indicator for airports in the assignments as follows: contiguous United States is the three-letter a. Within the United States and its jurisdictions identifier preceded by “K”. For other non- to: Aeronautical Information Management, contiguous United States airports, the following NFDC, Federal Aviation Administration, two letter prefix will be used: Was",
+        "windowEnd": 673,
+        "windowStart": 146
+      }
+    ],
+    "325": [
+      {
+        "expectedCitation": {
+          "anchor": "PANAMA CITY-BAY CO INTL ARPT PFN GNV ZJX",
+          "context": " GNV TEATE FIELD ARPT 4XS2 FTW ZFW PANAMA CITY VORTAC PFN GNV PARADISE AIR HAVEN ARPT, 39OK MLC ZFW PANAMA CITY-BAY CO INTL ARPT PFN GNV ZJX GOLDSBY, OK PANAMA CITY-BAY CO INTL ILS PFN PARADISE AIR PARK ARPT, TRIDELL, UT67 CDC ZLC RWY 14 UT A-P-3",
+          "extractedPage": 325,
+          "normalizedOffset": 4374
+        },
+        "factId": "pfn-code",
+        "pageLength": 4520,
+        "requiredContext": [],
+        "snippet": "ICOPTERS 7ØFD GNV ZJX PARADISE SKYPARK ARPT CA92 RIU ZOA HELIPORT PARADISE SKYPARK ARPT H9Ø HELI-TECH INC HELIPORT 99FD GNV ZJX PARADISE, TX, PANAMA CITY FLTWO PFN GNV JACKSON /BILL/ ARPT XS92 FTW ZFW PANAMA CITY RCO PFN GNV TEATE FIELD ARPT 4XS2 FTW ZFW PANAMA CITY VORTAC PFN GNV PARADISE AIR HAVEN ARPT, 39OK MLC ZFW PANAMA CITY-BAY CO INTL ARPT PFN GNV ZJX GOLDSBY, OK PANAMA CITY-BAY CO INTL ILS PFN PARADISE AIR PARK ARPT, TRIDELL, UT67 CDC ZLC RWY 14 UT A-P-3",
+        "windowEnd": 4520,
+        "windowStart": 4054
+      }
+    ],
+    "371": [
+      {
+        "expectedCitation": {
+          "anchor": "ST GEORGE MUNI ARPT SGU CDC ZLA",
+          "context": "P CREEK ARPT 39T LAN ZOB ST GEORGE VOR/DME OZN CDC ST JOHNS COLLEGE HELISPOT HELIPORT, NM81 ABQ ZAB ST GEORGE MUNI ARPT SGU CDC ZLA SANTA FE, NM ST GEORGE RCO SGU CDC ST JOHNS HOSPITAL HELIPORT, 97IS STL ZKC ST GEORGE ISLAND ARPT, APALACHICOLA, F47 GNV ZJX SPRINGFIELD, I",
+          "extractedPage": 371,
+          "normalizedOffset": 3041
+        },
+        "factId": "sgu-old-code",
+        "pageLength": 4985,
+        "requiredContext": [],
+        "snippet": "BV ST JOHNS, MI, ST GEORGE, SC, GLOWACKI ARPT 97G LAN ZOB ST GEORGE ARPT 6J2 AND ZJX RANDOLPH’S LANDING AREA ARPT 61G LAN ZOB ST GEORGE, UT, SCHIFFER ACRES ARPT 3S5 LAN ZOB DIXIE MEDICAL CENTER HELIPORT UT52 CDC ZLA TRIPP CREEK ARPT 39T LAN ZOB ST GEORGE VOR/DME OZN CDC ST JOHNS COLLEGE HELISPOT HELIPORT, NM81 ABQ ZAB ST GEORGE MUNI ARPT SGU CDC ZLA SANTA FE, NM ST GEORGE RCO SGU CDC ST JOHNS HOSPITAL HELIPORT, 97IS STL ZKC ST GEORGE ISLAND ARPT, APALACHICOLA, F47 GNV ZJX SPRINGFIELD, IL FL ST JOHNSBURY, VT, ST HELEN, MI, FAI",
+        "windowEnd": 3252,
+        "windowStart": 2721
+      }
+    ],
+    "392": [
+      {
+        "expectedCitation": {
+          "anchor": "SLOULIN FLD INTL ARPT, WILLISTON, ND ISN GFK ZLC",
+          "context": "ASSAS, VA 51VA DCA ZDC SLOOP ARPT, KANNAPOLIS, NC 41NC RDU ZTL SKYVIEW ARPT, OZARK, MO MU7Ø COU ZKC SLOULIN FLD INTL ARPT, WILLISTON, ND ISN GFK ZLC SKYVIEW ARPT, RUSH, NY 84NY BUF ZOB SLOVER NDB, JESUP, GA JES MCN SKYVIEW HELIPORT, SOUDERTON, PA PA83 IPT ZNY SLUDER AIRSTRIP ARPT, BELLEV",
+          "extractedPage": 392,
+          "normalizedOffset": 1542
+        },
+        "factId": "isn-code-2009",
+        "pageLength": 5589,
+        "requiredContext": [],
+        "snippet": "71 GWO ZME SKYTOP ARPT, ROSCOE, NY NYØ3 BUF ZBW POCAHONTAS, MS SKYTOP FARMS HELIPORT, TOWACO, NJ 1NJ7 MIV ZNY SLOCOMB, AL, SKYVIEW AIRPARK ARPT, CHEYENNE, WY WYØ5 CPR ZDV FREEDOM FIELD ARPT AL41 ANB ZJX SKYVIEW ARPT, MANASSAS, VA 51VA DCA ZDC SLOOP ARPT, KANNAPOLIS, NC 41NC RDU ZTL SKYVIEW ARPT, OZARK, MO MU7Ø COU ZKC SLOULIN FLD INTL ARPT, WILLISTON, ND ISN GFK ZLC SKYVIEW ARPT, RUSH, NY 84NY BUF ZOB SLOVER NDB, JESUP, GA JES MCN SKYVIEW HELIPORT, SOUDERTON, PA PA83 IPT ZNY SLUDER AIRSTRIP ARPT, BELLEVUE, ID ID16 BOI ZLC SKYWAGON FARM ARPT, ",
+        "windowEnd": 1770,
+        "windowStart": 1222
+      }
+    ]
+  },
+  "formatVersion": 1,
+  "inputSha256": "023bebcd3cec5704e2971f2c68c59b3d0eb889b2088090e86ec65d4cef5a395c",
+  "originalPublicationKey": "usdot-faa:JO7350.8G:2009-05-07",
+  "originalSha256": "f72508c44fdee1b74cf124f85e4af854672860856e95e3db76c71e992967dfe3",
+  "pageCount": 1201,
+  "sourceId": "faa-2009",
+  "textOriginalSha256": "79d3f483a5833a64419f2d57921d866acb33eabd1184dbea1f56260daa2e31a6",
+  "textSha256": "5b153dcbc04cb0f134b5f3c609d9bbe2c0502d2b1387c1ff2b1f079aa08762d5",
+  "url": "https://www.faa.gov/documentLibrary/media/Order/Basic7350.8G.pdf"
+}

@@ -63,7 +63,7 @@
     "research/evidence/global-code-expansion/resolver-input.json": "3672507589bb44566c825c8f8ccc0609558c6870751f235eba9d44482e078ea2",
     "research/evidence/global-code-expansion/screening-manifest.json": "0319a17cc715b53508f9aba0698704100b63442a451b226d79045894639f4aa5",
     "research/evidence/global-code-expansion/screening-summary.json": "d3caf237b5887e9ae65a3f165354cc72abbcef04ada8c146c666aa415d2aa2b8",
-    "scripts/evidence/global_code_audit.py": "505f09f4e429e2c2c5f8fe0147f3be81a9490a41c4bf51b135a03631349f8870",
+    "scripts/evidence/global_code_audit.py": "eb5b6ed40a5751242b55341aa69f1be44db25385b1389000babf181009efe718",
     "test/curated-0.11.0.json": "151d63469f96833b4be54f942940a39df24f485c81e18998053d1dc72f93f778"
   },
   "minimum50HighValueEvidenceTargetPassed": true,
@@ -74,12 +74,8 @@
   "protectedInputs": {
     "baselineCommit": "7d21ff6762e1569faa1be19c8203e577420cd1f2",
     "changedProtectedInputs": [],
-    "meaning": "All pre-existing research, source, schema, tests, grants and executors remain byte-identical except the current-version dispatcher.",
-    "permittedCurrentVersionDispatchOnly": [
-      "scripts/evidence/current_project_admission.py"
-    ],
-    "policyAuthorityFilesVerified": 9,
-    "preexistingProtectedInputs": 958
+    "meaning": "All preserved authority files, grants, schemas and production resolver/validator executors remain byte-identical.",
+    "policyAuthorityFilesVerified": 9
   },
   "publicOriginalOrFullExtractionFiles": [],
   "resolverMatrixAudit": {

@@ -32,6 +32,8 @@ class ReferenceTests(unittest.TestCase):
         validate_reference()
 
     def test_full_rebuild_byte_identical(self):
+        if not (DISCOVERY / 'ourairports.entities.jsonl.gz').is_file():
+            self.skipTest('Discovery JSONL shards omitted from Git; materialize in work/discovery/generated to run full rebuild.')
         with tempfile.TemporaryDirectory(dir=ROOT / 'work') as temp:
             out = Path(temp)
             build(out)
@@ -39,6 +41,8 @@ class ReferenceTests(unittest.TestCase):
             self.assertEqual({p.name: digest(p) for p in out.iterdir()}, expected)
 
     def test_full_triage_rebuild_byte_identical(self):
+        if not (DISCOVERY / 'duplicate-groups.jsonl.gz').is_file():
+            self.skipTest('Discovery JSONL shards omitted from Git; materialize in work/discovery/generated to run full triage rebuild.')
         with tempfile.TemporaryDirectory(dir=ROOT / 'work') as temp:
             out = Path(temp)
             build_triage(out)

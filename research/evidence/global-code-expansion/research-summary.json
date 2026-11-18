@@ -436,8 +436,8 @@
   "formatVersion": 1,
   "remainingHighValueQueue": {
     "eventGroups": 1198,
-    "meaning": "All high-value groups remain visible until formal production coverage is admitted and merged. Pending proposals, completed evidence reviews, aliases and unresearched groups have distinct progress states.",
-    "path": "remaining-high-value-queue.jsonl.gz",
+    "meaning": "All high-value groups remain visible via work/ or re-ranked formal-yield queue without keeping regenerable JSONL dumps in Git.",
+    "path": "work/global-code-expansion/remaining-high-value-queue.jsonl.gz",
     "states": {
       "access_directory_or_discovery_blocked": 5,
       "authorized_formal_data_proposal_pending_merge": 2,
