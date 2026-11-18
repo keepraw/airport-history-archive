@@ -41,7 +41,7 @@
     "compat:fly": "python3 scripts/compat/run-fly.py",
     "evidence:direct": "python3 scripts/evidence/direct.py",
     "validate:admission": "python3 scripts/evidence/admitted.py && python3 scripts/evidence/admitted_090.py && node scripts/evidence/admission_090_coverage.ts validate && python3 scripts/evidence/policy_formal.py --candidate test/curated-0.10.0.json && node scripts/evidence/admission_0100_coverage.ts validate && python3 scripts/evidence/current_project_admission.py",
-    "evidence:global": "python3 scripts/evidence/global_batch.py",
+    "evidence:global": "python3 scripts/evidence/global_batch_dispatch.py",
     "evidence:markets": "python3 scripts/evidence/market_batch.py",
     "evidence:transfers": "python3 scripts/evidence/transfer_batch.py",
     "evidence:history": "python3 scripts/evidence/history_audit.py",
