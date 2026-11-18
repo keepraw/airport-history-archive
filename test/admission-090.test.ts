@@ -7,7 +7,7 @@ import type { Dataset } from "../src/types.ts";
 
 const read = (path: string) => JSON.parse(readFileSync(new URL(path, import.meta.url), "utf8"));
 const data: Dataset = read("./curated-0.9.0.json");
-const current: Dataset = read("../data/airports.json");
+const current: Dataset = read("./curated-0.12.0.json");
 const old: Dataset = read("./curated-0.8.0.json");
 const approval = read("../research/admissions/0.9.0/approval.json");
 

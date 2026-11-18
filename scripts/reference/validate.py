@@ -2,6 +2,7 @@
 import csv
 import gzip
 import json
+import sys
 from collections import Counter, defaultdict
 from pathlib import Path
 
@@ -9,6 +10,8 @@ from common import ROOT, DISCOVERY, OUTPUT, checked, distance, read_jsonl, stabl
 from build import TYPES, identifiers
 from triage import OUT
 from timezones import load_catalog
+sys.path.insert(0, str(ROOT / 'scripts/evidence'))
+from default_continuity import inherited_assignment_view
 
 WORK_DISCOVERY = ROOT / 'work/discovery/generated'
 WORK_TRIAGE = ROOT / 'work/reference/triage'
@@ -60,10 +63,11 @@ def main():
     validate_manifest(OUTPUT, allow_omitted_gz=False)
     validate_manifest(OUT, allow_omitted_gz=True)
     curated = json.loads((ROOT / 'data/airports.json').read_text())
+    preserved = inherited_assignment_view(curated)
     checked(ROOT / 'test/curated-0.7.0.json', '31c5735b333881d7afdd527fe4af1db8e28413d5bba114fbf88a4aad0809cff7')
     frozen = json.loads((ROOT / 'test/curated-0.7.0.json').read_text())
     for collection, key in [('airports', 'airportId'), ('assignments', 'assignmentId'), ('names', 'nameId'), ('sources', 'sourceId')]:
-        current = {r[key]: r for r in curated[collection]}
+        current = {r[key]: r for r in preserved[collection]}
         assert all(current.get(r[key]) == r for r in frozen[collection]), 'Reviewed 0.7.0 changed'
     airports = {a['airportId']: a for a in curated['airports']}
     allowed_timezones = load_catalog()

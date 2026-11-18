@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { loadDataset } from "../scripts/load.ts";
+import frozenRelease from "./curated-0.12.0.json" with { type: "json" };
 import { resolveAirport, resolveAirportName } from "../src/index.ts";
 import { validateDataset } from "../src/validate.ts";
 import type {
@@ -9,7 +9,7 @@ import type {
   VerificationStatus,
 } from "../src/types.ts";
 
-const data = await loadDataset();
+const data = frozenRelease as Dataset;
 const astanaId = "apt_99f19660-7609-49c5-b221-ed4a37046566";
 const oldName = "Международный аэропорт Астана";
 const newName = "Международный аэропорт Нурсултан Назарбаев";

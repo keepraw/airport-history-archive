@@ -31,8 +31,12 @@ describe("Fly adapter on real curated history", () => {
     expect(boundary.airportId).toBeNull();
     expect(boundary.canCalculateDistance).toBe(false);
     expect(boundary.result.candidates).toHaveLength(2);
-    expect(resolveEndpoint(dataset, "JFK", "2020-01-01", directory).result.status).toBe("not_found");
-    expect(resolveEndpoint(dataset, "JFK", "2020-01-01", directory).referenceFallback?.iata).toBe("JFK");
+    const kennedy = resolveEndpoint(dataset, "JFK", "2020-01-01", directory);
+    expect(kennedy.result.status).toBe("resolved");
+    expect(kennedy.historicalIdentityVerified).toBe(true);
+    const outOfRange = resolveEndpoint(dataset, "JFK", "2026-11-19", directory);
+    expect(outOfRange.result.status).toBe("not_found");
+    expect(outOfRange.referenceFallback?.iata).toBe("JFK");
     expect(resolveEndpoint(dataset, "KTI", "2025-09-09", directory).historicalIdentityVerified).toBe(false);
   });
   it("defines conflict policy without inventing assignments in production history", () => {

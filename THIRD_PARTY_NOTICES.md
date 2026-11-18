@@ -33,6 +33,9 @@ host tzdata, and makes no new historical airport/timezone-rule assertion.
 | Kazakhstan Government Resolutions Nos. 1095 (2006) and 381 (2017), including the original newspaper reproduction and Adilet publication metadata | No open redistribution license established; `LicenseRef-Reference-Only` | Official-name facts and independently written evidence notes with links; no document, newspaper page or PDF redistributed. The new name intervals are reviewed continuity inferences; current reference labels do not prove earlier use |
 | IATA 2017 Dakar notification (Sabre copy), BEA flight investigation, ASECNA AIP (2017 supplement on Scribd and current official entries), DGCA/airport history, Merdeka operational report, Indonesian Decision KP 676/2017 | Reference-only; each publisher retains rights | Links and original factual notes for Dakar and Samarinda. Third-party reproductions are identified. No source prose, PDFs, maps or images distributed |
 | Pakistan CAA/PAA and DHMI AIP, BEA occurrence records, ANAC administrative flight reconstruction, Berlin Brandenburg operator manual, Kazaeronavigatsia eAIP | Reference-only; no open redistribution license established | 0.7.0 ICAO evidence: links and independently written factual annotations only. Historical Pakistan and DHMI AIP reproductions on Scribd/X-Plane are explicitly identified; their hosts do not confer redistribution rights. No source PDF, chart, table, page image or article is distributed |
+| 0.13.0 pinned OurAirports snapshot | [Public domain declaration](https://ourairports.com/data/) | Physical-site names, reference coordinates, IDs and separately typed current IATA and ICAO associations |
+| 0.13.0 pinned airportsdata timezone attributes | MIT | Timezone names matched through the worldwide reference layer. The full notice is below |
+| 0.13.0 historical exception sources | Per-source terms in the [exception register](research/admission/default-continuity-v1/exceptions.json) | Source links, factual observations and reproducibility hashes |
 
 `LicenseRef-Reference-Only` means no open redistribution license was established.
 It is not a permission grant. Source access/review status is separate from its
@@ -173,3 +176,32 @@ See its `LICENSES.md` and `source-catalog.json`. OSM-derived combined research
 databases retain ODbL obligations and are outside the project CC0 dedication.
 The FAA-only pending formal proposal contains no OSM material. No formal
 production data or existing source authorization is changed by this package.
+
+## 0.13.0 airportsdata timezone attribution
+
+```text
+The MIT License (MIT)
+
+Copyright (c) 2020- Mike Borsetti <mike@borsetti.com>
+
+This project includes data from https://github.com/mwgg/Airports Copyright
+(c) 2014 mwgg
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+```

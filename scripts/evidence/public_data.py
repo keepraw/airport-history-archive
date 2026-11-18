@@ -282,7 +282,7 @@ def build():
  refs,cross=crosswalk();cross_by_qid={c['sourceEntityId']:c for c in cross if c['sourceFamily']=='wikidata'};refmap={r['referenceId']:r for r in refs};external=defaultdict(list)
  for c in cross:
   for m in c['matches']:external[m['referenceId']].append({'sourceFamily':c['sourceFamily'],'sourceEntityId':c['sourceEntityId'],'distanceKm':m['distanceKm'],'license':c['license']})
- formal=json.loads((ROOT/'data/airports.json').read_text());assert formal['dataVersion']=='0.12.0' and formal['schemaVersion']=='3.0.0'
+ formal=json.loads((ROOT/'test/curated-0.12.0.json').read_text());assert formal['dataVersion']=='0.12.0' and formal['schemaVersion']=='3.0.0'
  groups=Counter();countries=Counter();regions=Counter();classes=Counter();candidates=[];high=0;matched_groups=0;transition_obs=0
  high_ids={e['eventGroupId'] for e in rows(ROOT/'research/evidence/global-code-expansion/high-value-queue.jsonl.gz')}
  remaining_ids={e['eventGroupId'] for e in rows(ROOT/'research/evidence/global-code-next/remaining-high-value-queue.jsonl.gz')}
@@ -459,7 +459,7 @@ def faa():
   if r['country']=='US' and r.get('presentAtSnapshot'):
    for scheme in ['ICAO','GPS','LOCAL']:
     if r['identifiers'].get(scheme):idx[r['identifiers'][scheme]].append(r)
- formal=json.loads((ROOT/'data/airports.json').read_text());proposed=json.loads(json.dumps(formal));byoa={a['externalIds'].get('ourAirports'):a for a in formal['airports']};exclusions=Counter();claims=[];newairports={};seen_codes=Counter();review=[]
+ formal=json.loads((ROOT/'test/curated-0.12.0.json').read_text());proposed=json.loads(json.dumps(formal));byoa={a['externalIds'].get('ourAirports'):a for a in formal['airports']};exclusions=Counter();claims=[];newairports={};seen_codes=Counter();review=[]
  existing_assignments={(a['airportId'],a['scheme'],a['code']) for a in formal['assignments']}
  for site,old in editions[0].items():
   new=editions[1].get(site)
@@ -621,7 +621,7 @@ Validation: native schema validation of pending and simulated datasets; producti
 
 def reconstruct_proposed_data(directory=None):
  directory=OUT if directory is None else Path(directory)
- formal=json.loads((ROOT/'data/airports.json').read_text(encoding='utf-8'))
+ formal=json.loads((ROOT/'test/curated-0.12.0.json').read_text(encoding='utf-8'))
  proposed=json.loads(json.dumps(formal))
  refs_by_id={r['referenceId']:r for r in references()}
  source_ids=['public-faa-nasr-20261001','public-faa-nasr-20261029']
@@ -656,7 +656,7 @@ def validate():
  assert present_files<=set(manifest_by_name),'Unmanifested artifact in global-public-data'
  for name in sorted(present_files):
   assert artifact_metadata(OUT/name)==manifest_by_name[name],name
- original=subprocess.check_output(['git','show','bb1046455e949c6c0bf3a18769464cb232bec19e:data/airports.json'],cwd=ROOT);assert original==(ROOT/'data/airports.json').read_bytes()
+ original=subprocess.check_output(['git','show','bb1046455e949c6c0bf3a18769464cb232bec19e:data/airports.json'],cwd=ROOT);assert original==(ROOT/'test/curated-0.12.0.json').read_bytes()
  always_required=['source-catalog.json','source-lock.json','faa-source-lock.json','faa-admission-candidates.jsonl.gz','faa-admission-summary.json','admission-proposal.json','proposed-airport-id-bindings.json','coverage-report.json','summary.md','jsonl-shards.json','shard-reconstruction.json']
  for name in always_required:assert (OUT/name).is_file(),name
  if full_present:

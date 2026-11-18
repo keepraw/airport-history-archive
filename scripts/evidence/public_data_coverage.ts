@@ -5,7 +5,7 @@ import {resolveAirport} from '../../src/resolve.ts';
 import {dateNumber} from '../../src/time.ts';
 import type {Dataset} from '../../src/types.ts';
 const dir=process.argv[2]??'research/evidence/global-public-data';
-const baseline:Dataset=JSON.parse(readFileSync('data/airports.json','utf8'));
+const baseline:Dataset=JSON.parse(readFileSync('test/curated-0.12.0.json','utf8'));
 const proposal=JSON.parse(readFileSync(`${dir}/admission-proposal.json`,'utf8'));
 if(baseline.dataVersion!=='0.12.0'||baseline.schemaVersion!=='3.0.0')throw new Error('Unexpected baseline');
 const pending:Dataset=JSON.parse(readFileSync(`${dir}/proposed-data.json`,'utf8'));

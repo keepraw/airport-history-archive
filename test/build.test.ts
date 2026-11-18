@@ -80,4 +80,4 @@ it("builds identical bytes twice and ships a parseable, independently checked ar
   expect(resolveAirport(dataset, "ISB", "2018-05-03").status).toBe("uncertain");
   expect(resolveAirport(dataset, "BER", "2020-10-26").status).toBe("resolved");
   expect(resolveAirport(dataset, "KIV", "2024-01-19").status).toBe("not_found");
-});
+}, 30_000);

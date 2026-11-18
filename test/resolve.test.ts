@@ -133,8 +133,32 @@ describe("offline resolver contract", () => {
   });
   it("accepts Gregorian leap day", () =>
     expect(resolveAirport(data, "TAO", "2024-02-29").status).toBe("resolved"));
+  it("resolves independently sourced Heathrow codes from the cutoff", () => {
+    const iata = resolveAirport(data, "LHR", "2000-01-01", "IATA");
+    const icao = resolveAirport(data, "EGLL", "2000-01-01", "ICAO");
+    expect(iata.status).toBe("resolved");
+    expect(icao.status).toBe("resolved");
+    expect(iata.airport?.externalIds.ourAirports).toBe("2434");
+    expect(icao.airport?.airportId).toBe(iata.airport?.airportId);
+    for (const result of [iata, icao]) {
+      expect(result.candidates[0]?.assignment.evidenceType).toBe("continuity_inference");
+      expect(result.candidates[0]?.assignment.sourceIds).toContain("owner-default-continuity-v1");
+    }
+  });
+  it.each([
+    ["BLR", "2008-05-24", "2008-05-23", "2008-05-25", "26603", "35145"],
+    ["CAN", "2004-08-05", "2004-08-03", "2004-08-06", "35146", "27194"],
+    ["ATH", "2001-03-29", "2001-03-27", "2001-03-30", "29673", "4251"],
+  ])("preserves distinct sites around the %s transfer on %s", (code, transition, before, after, formerSite, currentSite) => {
+    const boundary = resolveAirport(data, code, transition);
+    expect(boundary.status).toBe("uncertain");
+    expect(boundary.airport).toBeNull();
+    expect(boundary.candidates).toHaveLength(2);
+    expect(resolveAirport(data, code, before).airport?.externalIds.ourAirports).toBe(formerSite);
+    expect(resolveAirport(data, code, after).airport?.externalIds.ourAirports).toBe(currentSite);
+  });
   it("does not use any fallback for missing codes", () =>
-    expect(resolveAirport(data, "LHR", "2024-01-01").status).toBe("not_found"));
+    expect(resolveAirport(data, "NYC", "2024-01-01").status).toBe("not_found"));
   it("rejects malformed codes and schemes", () => {
     expect(resolveAirport(data, "T4O", "2024-01-01").status).toBe(
       "invalid_input",

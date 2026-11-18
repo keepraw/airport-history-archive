@@ -41,9 +41,10 @@ permanent operating rules without exception:
    task, inspect `data/`, existing `research/` assets, `source-lock` records,
    and retained excerpts first. Repeating global upstream database scans is
    prohibited.
-4. **Close high-clarity cases first:** Prioritize airports that already have
-   clear historical boundary leads so their evidence loop can be completed and
-   admitted into formal `data/`.
+4. **Build the global passenger baseline:** Process the entire eligible
+   population. Prioritize scheduled passenger sites, then regional airports
+   and in-scope predecessors. Use batches for review and validation without
+   imposing a project-wide airport cap.
 5. **Mandatory per-batch reporting:** Every research or admission batch must
    explicitly report:
    - newly added formal airport identities;
@@ -54,12 +55,17 @@ permanent operating rules without exception:
    - which candidates remain `pending`, and the exact evidence missing for each.
 6. **No vanity metrics:** Candidate counts, source counts, and research file
    counts are never primary KPIs or success criteria.
-7. **Strict admission bar:** If a case cannot satisfy the existing admission
-   policy, keep it explicitly `pending` or `rejected`. Never weaken evidence or
-   authorization requirements to increase formal counts.
-8. **Cross-site code reuse priority:** Historical code research must prioritize
-   resolving how the **same code** is partitioned across **different physical
-   airports** over time.
+7. **Owner-authorized continuity:** For a verified current airport-code
+   association on a known physical site, presume continuous validity from
+   the 2000 cutoff. Record this as `continuity_inference` and cite the current
+   association and [owner policy](research/admission/default-continuity-v1/policy.json).
+   The original allocation date is optional. Resolve a date only when the
+   verified interval supports one physical airport.
+8. **Evidence-driven exceptions:** Correct the baseline where affirmative
+   evidence establishes a later opening, code transfer, withdrawal,
+   metropolitan designation, wrong location or physical replacement. Record
+   the scheme, affected site IDs, evidence and any uncertain transition.
+   Prioritize cross-site reuse and preserve plausible ambiguity.
 9. **Code boundaries are distinct from airport events:** Airport opening or
    closing dates, renames, regulatory certificates, and current directory rows
    cannot substitute for code effective or withdrawal dates.
@@ -82,11 +88,10 @@ permanent operating rules without exception:
     [targeted research indexes](docs/repository-slimming-and-history-plan.md#compact-index-retention)
     in Git.
 15. **Historical scope:** Support local dates in `[2000-01-01, 2026-11-19)`.
-    Prioritize roughly 4,000–6,500 commercial passenger airports and their
-    physical predecessors. For an assignment already in use at the cutoff,
-    verify that use at the cutoff. Research earlier dates only when needed
-    for that verification. For changes since 2000, verify the actual code
-    boundaries. Store intervals and keep unknown boundaries explicit.
+    Prioritize approximately 3,800–4,000 scheduled commercial passenger sites
+    and 6,000–6,500 broader passenger and regional sites. Include predecessors
+    with passenger relevance inside the supported range. Store intervals and
+    leave unestablished boundary dates open.
 
 ## Mandatory closed-loop workflow
 

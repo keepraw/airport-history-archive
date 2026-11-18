@@ -1,12 +1,12 @@
 import { describe, expect, it } from "vitest";
 import { readFileSync } from "node:fs";
 import type { Dataset } from "../src/types.ts";
-import { loadDataset } from "../scripts/load.ts";
+import frozenRelease from "./curated-0.12.0.json" with { type: "json" };
 import { resolveAirport } from "../src/index.ts";
 import initialIds from "./identities.json" with { type: "json" };
 import batchIds from "./batch-1-identities.json" with { type: "json" };
 
-const data = await loadDataset();
+const data = frozenRelease as Dataset;
 const identities = {
   ...batchIds,
   istanbul: {

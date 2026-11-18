@@ -85,7 +85,8 @@ def validate():
     for name, sha in manifest['reviewFiles'].items():
         checked(REVIEW / name, sha)
     checked(ROOT / 'test/curated-0.8.0.json', manifest['formalDatasetSha256'])
-    formal = load(ROOT / 'data/airports.json')
+    from default_continuity import inherited_assignment_view
+    formal = inherited_assignment_view(load(ROOT / 'data/airports.json'))
     frozen = load(ROOT / 'test/curated-0.8.0.json')
     for collection, key in [('airports', 'airportId'), ('assignments', 'assignmentId'), ('names', 'nameId'), ('sources', 'sourceId')]:
         current = {r[key]: r for r in formal[collection]}

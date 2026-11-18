@@ -1,27 +1,74 @@
-# Historical code research priorities
+# Historical code exception results
 
-Local dates from 2000-01-01 through the day before
-2026-11-19. The order reflects passenger relevance, evidence maturity,
-potential in-scope coverage, claim authorization and acquisition effort.
+The 0.13.0 production resolver added 122,383,164 distinct
+code/date results over the frozen 0.12.0 release. Reviewed exceptions contributed 409,941.
+[Coverage receipt](../../admissions/0.13.0/coverage.json)
 
-**Actual improvement over the inherited formal data is 0 resolved code/date queries.**
-No case below has an immediate, unblocked gain. Conditional figures refer to
-individual code/date scenarios and can overlap. The TAO and FAA figures were
-replayed through the resolver on temporary proposals.
+The order reflects actual gains for reviewed cases. Evidence, interval bounds and reasons
+for open code associations are recorded by case.
+[Exception register](../../admission/default-continuity-v1/exceptions.json)
 
-| Rank | Case | Readiness | Acquisition effort | Conditional coverage | Next gate |
-| ---: | --- | --- | --- | --- | --- |
-| 1 | TAO — Liuting / Jiaodong | Owner acceptance | Low | 6,073 additional dates in the pending proposal replay. | Review the 1991 China Eastern TAO observation, the Liuting site chronology and the 2021 transfer. The prepared interval retains an unknown original assignment date. Obtain case-specific acceptance. [Evidence 1](../tao-boundary-audit/README.md) |
-| 2 | BLR — HAL / Kempegowda | Evidence and authorization | Low to moderate | 6,727 successor dates if the later IATA bound and continuity are accepted. Up to 3,066 predecessor dates with cutoff evidence. | The MoCA Gazette records the switch at 00:01 on 2008-05-24. Keep that day uncertain. Review a dated successor IATA observation and acquire a HAL IATA observation supporting cutoff coverage. The exact boundary authorization packet is pending and excludes continuity. [Evidence 1](../global-code-next/policy/README.md) [Evidence 2](../global-iata-forensics/candidate-proposals.json) |
-| 3 | IST — Atatürk / Istanbul Airport | Evidence and authorization | Low to moderate | Up to 5,655 predecessor dates with cutoff evidence. | The formal carrier evidence bounds Atatürk use from 2015 and the 2019 transfer day remains uncertain. Find a dated IATA IST observation bound to Atatürk at or before the cutoff and review continuity. The BTS master row supports physical attribution in the USDOT namespace. [Evidence 1](../../../docs/evidence.md) [Evidence 2](../source-lock.json) |
-| 4 | PBI / DJT — Palm Beach | Authorization for bounded KDJT. Evidence and authorization for wider intervals | Low for KDJT. Moderate for the predecessors | 26 dates in the bounded KDJT proposal. 91 DJT dates if carrier and issuing-body continuity is accepted. Up to 9,726 PBI dates with cutoff evidence. | Use the reconciled Palm Beach UUID. Review the FAA pair for bounded KDJT separately from August IATA execution. Find a dated PBI IATA observation and establish KPBI continuity from a dated FAA identifier record independently. The current PBI directory row is metropolitan. The bounded KDJT window is included in the FAA scenario. [Evidence 1](../global-iata-forensics/candidate-proposals.json) [Evidence 2](../global-code-next/policy/README.md) |
-| 5 | LYG / LZO / YBP — China relocations | Evidence and authorization | Moderate | Six formal site identities. Quantify assignment coverage after code-specific bounds are established. | Obtain a carrier cutover circular, IATA transfer notice or other primary code-specific record for each move and observations for the outer bounds. CAAC route pricing and operational notices help locate the cases. The existing China authorization covers the physical identities. [Evidence 1](../../admissions/0.11.0/README.md) [Evidence 2](../markets/assessments.json) |
-| 6 | FRU / BSZ — Manas | Evidence and authorization | Moderate | 463 BSZ dates if the bounded continuity claim is accepted. FRU coverage depends on an earlier IATA observation. | The carrier notice and current IATA rows support a conservative August 2025 switch window. Check UCFM NOTAM A0134/25 and A0140/25 for a tighter switch window and find a dated FRU IATA observation. Confirm the shared permanent Manas UUID and claim authority. [Evidence 1](../global-iata-forensics/candidate-proposals.json) |
-| 7 | Major passenger hub relocations | Evidence and authorization | High | Five in-scope relocation histories and three successor-only histories. Quantify by hub after source review. | CAN, KMG, BKK, ATH and DOH need separately observed predecessor and successor codes with a verified cutover. For KUL, OSL and MUC, seek successor IATA use at the cutoff and a later continuity bound. Start with scheduled passenger hubs in the retained code-link and reuse indexes. [Evidence 1](../global-code-expansion/) |
-| 8 | FAA NASR bounded ICAO batch | Owner scope authorization and identity review | Low for existing evidence. Moderate for passenger selection | 63,908 dates in the full 2,458-code hypothesis. The 584 sites flagged for scheduled service in the pinned directory represent up to 15,184 of those dates. | The matched FAA editions support [2026-10-02, 2026-10-28). Confirm passenger service for the screened sites, reconcile Palm Beach OurAirports 3766 to its canonical UUID and get FAA ICAO batch authorization. The scope covers the short ICAO window. [Evidence 1](../global-public-data/faa-source-lock.json) [Evidence 2](../global-public-data/coverage-report.json) |
-
-The earlier Uzbekistan ICAO prefix and Korean MOLIT cases remain in their
-existing review lanes. Uzbekistan still needs dated outer observations.
-Korean rule activation requires its own authorization.
-[Uzbekistan boundary proposal](../global-code-next/policy/README.md)
-[Korean readiness](../code-dates/korea-readiness/README.md)
+| Rank | Case | Disposition | New resolved days | Open associations |
+| ---: | --- | --- | ---: | ---: |
+| 1 | Nagoya NGO/NKM and RJGG/RJNA | Bounded | 25,731 | 1 |
+| 2 | Bengaluru BLR | Split | 19,661 | 0 |
+| 3 | Palm Beach PBI/DJT and KPBI/KDJT | Split | 19,636 | 0 |
+| 4 | Athens ATH and LGAT/LGAV | Bounded | 19,635 | 0 |
+| 5 | Guangzhou CAN/ZGGG | Bounded | 17,957 | 1 |
+| 6 | Bangkok BKK and DMK | Split | 17,105 | 0 |
+| 7 | Hyderabad HYD, VOHS and Begumpet BPM | Split | 15,186 | 0 |
+| 8 | Ishigaki ISG/ROIG | Bounded | 14,822 | 1 |
+| 9 | Doha DOH and DIA | Bounded | 14,155 | 0 |
+| 10 | Muan MWX/RKJB | Bounded | 13,856 | 0 |
+| 11 | Kunming KMG/ZPPP | Bounded | 12,731 | 0 |
+| 12 | Murcia RMU/LEMI | Bounded | 12,682 | 0 |
+| 13 | Panama City ECP/KECP | Bounded | 10,524 | 0 |
+| 14 | Incheon ICN/RKSI | Bounded | 9,946 | 0 |
+| 15 | Siem Reap REP/SAI and VDSA | Split | 9,842 | 1 |
+| 16 | Manas FRU/BSZ | Split | 9,816 | 0 |
+| 17 | Dazhou DAX/DZH | Bounded | 9,799 | 1 |
+| 18 | Lianyungang LYG/ZSLG | Bounded | 9,226 | 0 |
+| 19 | Chisinau KIV/RMO | Prior boundary retained | 8,779 | 0 |
+| 20 | Phnom Penh PNH/KTI | Prior boundary retained | 8,567 | 0 |
+| 21 | Yibin YBP/ZUYB | Bounded | 8,555 | 0 |
+| 22 | Luzhou LZO/ZULZ | Bounded | 7,697 | 0 |
+| 23 | Berlin SXF/BER | Prior boundary retained | 7,451 | 0 |
+| 24 | Astana TSE/NQZ | Prior boundary retained | 7,427 | 0 |
+| 25 | Ramon ETM/LLER | Bounded | 6,380 | 0 |
+| 26 | Qingdao TAO | Split | 6,098 | 0 |
+| 27 | Islamabad ISB and OPIS | Prior boundary retained | 6,021 | 0 |
+| 28 | Rostov ROV/RVI | Prior boundary retained | 5,948 | 0 |
+| 29 | Istanbul IST and ISL | Split | 5,730 | 0 |
+| 30 | Yantai YNT | Prior boundary retained | 5,452 | 0 |
+| 31 | Durgapur RDP/VEDG | Bounded | 4,975 | 0 |
+| 32 | Williston XWA/KXWA | Bounded | 4,914 | 0 |
+| 33 | Dakar DKR/DSS | Prior boundary retained | 4,887 | 0 |
+| 34 | Yogyakarta YIA/WAHI | Bounded | 4,850 | 0 |
+| 35 | Chengdu TFU/ZUTF | Bounded | 3,940 | 0 |
+| 36 | Shirdi SAG/VASD | Bounded | 3,377 | 0 |
+| 37 | Kannur CNN/VOKN | Bounded | 3,012 | 0 |
+| 38 | Pakyong PYG/VEPY | Bounded | 3,012 | 0 |
+| 39 | Yan’an ENY/ZLYA | Bounded | 2,956 | 2 |
+| 40 | Bohol TAG/RPSP | Bounded | 2,936 | 1 |
+| 41 | Kalaburagi GBI/VOGB | Bounded | 2,647 | 0 |
+| 42 | Beijing Daxing PKX/ZBAD | Bounded | 2,635 | 0 |
+| 43 | Ankang AKA/ZLAK | Bounded | 2,269 | 2 |
+| 44 | Mopa GOX/VOGA | Bounded | 2,053 | 0 |
+| 45 | Kurnool KJB/VOKU | Bounded | 1,916 | 0 |
+| 46 | Kushinagar KBK/VEKI | Bounded | 1,916 | 0 |
+| 47 | Sindhudurg SDW/VOSR | Bounded | 1,916 | 0 |
+| 48 | Hollongi HGI/VEHO | Bounded | 1,551 | 0 |
+| 49 | Bicol LGP/DRP and RPLK | Split | 1,460 | 0 |
+| 50 | Shivamogga RQY/VOSH | Bounded | 1,186 | 0 |
+| 51 | Noida DXN/VIND | Bounded | 1,172 | 0 |
+| 52 | Ayodhya AYJ/VEAY | Bounded | 1,169 | 0 |
+| 53 | Navi Mumbai NMI/VANM | Bounded | 1,062 | 0 |
+| 54 | Gwadar GWD/OPGW | Bounded | 691 | 1 |
+| 55 | Qaqortoq JJU/BGQO | Bounded | 433 | 1 |
+| 56 | Luanda NBJ/FNBJ | Bounded | 419 | 0 |
+| 57 | Denver and Hong Kong pre-cutoff reuse | Prior boundary retained | 75 | 0 |
+| 58 | Western Sydney WSI/YSWS | Bounded | 48 | 0 |
+| 59 | Samarinda AAP | Prior boundary retained | 25 | 0 |
+| 60 | Qingdao ZSQD | Bounded | 24 | 1 |
+| 61 | KUL, OSL and MUC | Transfer before 2000 | 0 | 0 |
+| 62 | Planned airport rows | Held | 0 | 6 |

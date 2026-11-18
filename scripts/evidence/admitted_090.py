@@ -113,7 +113,8 @@ def validate():
         checked(REVIEW / path, sha)
     frozen_path = ROOT / 'test/curated-0.9.0.json'
     checked(frozen_path, manifest['formalDatasetSha256'])
-    frozen, current = load(frozen_path), load(ROOT / 'data/airports.json')
+    from default_continuity import inherited_assignment_view
+    frozen, current = load(frozen_path), inherited_assignment_view(load(ROOT / 'data/airports.json'))
     for collection, key in [('airports', 'airportId'), ('assignments', 'assignmentId'), ('names', 'nameId'), ('sources', 'sourceId')]:
         actual = {r[key]: r for r in current[collection]}
         require(all(actual.get(r[key]) == r for r in frozen[collection]), 'Released 0.9.0 record changed')

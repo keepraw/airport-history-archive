@@ -1,0 +1,64 @@
+{
+  "formatVersion": 1,
+  "policyId": "owner-default-continuity-v1",
+  "dataVersion": "0.13.0",
+  "schemaVersion": "3.0.0",
+  "authorization": {
+    "kind": "explicit-owner-task",
+    "owner": "keepraw",
+    "recordedOn": "2026-11-18",
+    "task": "Keepraw Airport History — Owner Policy Change: Default Historical Continuity Since 2000",
+    "decision": "For an airport code currently assigned to a known physical airport, assume that the same code-to-physical-airport assignment was continuously valid from 2000-01-01 unless affirmative evidence proves otherwise.",
+    "scope": "This task authorizes the global passenger baseline, case-specific rebuttals from verified evidence, and the named Liuting and Jiaodong TAO intervals with both airport IDs preserved."
+  },
+  "baselineCommit": "0eb6c1156b99c00ed7c2cff1dfd145dc01d86bf8",
+  "queryHorizon": {
+    "fromInclusive": "2000-01-01",
+    "toExclusive": "2026-11-19"
+  },
+  "population": {
+    "scheduled": "All scheduled fixed-wing airports and seaplane bases in the pinned current snapshot.",
+    "regional": "Other medium and large airports with a typed IATA code, plus small airports with both typed codes and a same-country BTS site match within 1 km.",
+    "selectionNote": "BTS supports regional relevance and physical corroboration. Its USDOT codes supply neither IATA nor ICAO assignments.",
+    "evidenceExclusions": "Outside the current-passenger denominator, retain the screened rows for documented former passenger sites, duplicate reference bindings and airports still under construction. Historical predecessor assignments remain in scope."
+  },
+  "verification": [
+    "Use the pinned typed IATA and ICAO fields independently and record the licensed physical-site reference.",
+    "Reuse existing airport IDs where the site matches. Confirm both identity and namespace before admitting an assignment.",
+    "Presume continuity from the cutoff for the ordinary current association and bind certain coverage only through the supported horizon.",
+    "Use affirmative evidence and explicit exceptions for former sites, code changes, dates after physical opening and metropolitan-only codes.",
+    "Keep conflicting current rows and materially unknown transitions unresolved. Directory revision timestamps supply no allocation dates.",
+    "Preserve old releases and authorization receipts. Current assignments cite this policy as continuity inference."
+  ],
+  "inputSha256": {
+    "reference/generated/manifest.json": "12b2ba970065b12c793b4d64f8ae25658c703e4d054c24ee6f623d73bf7744f6",
+    "reference/generated/sources.json": "fda2385e56d29fe93dafdb11c5d04b25817add09e149f28f3f239030e609a7b0",
+    "reference/inputs/ourairports.csv.gz": "14bbb17808aac8208152344f7e8dedbc783998e181ce5bf7c213fae11ac17059",
+    "reference/source-lock.json": "33b9a7b4ce39bbe5b59dae30f16ca51776cd654c61432cb6d10d03240dce5646",
+    "research/admission/default-continuity-v1/exceptions.json": "e0e29cb4e4fe1f3fbe2fed5d52f2a2e99b28a65068857183e7ebe091c9589e0b",
+    "research/admissions/0.11.0/rights-basis.json": "373ff28426b0a16a70ed34b59971a65b847e2e88094727b8b3b28441dba7604c",
+    "research/evidence/code-dates/source-lock.json": "ffdb2519b1a8477b84ba717cc1a9721958f11540fa113384d9b02da1739c6efc",
+    "research/evidence/global-batch-5/batch.json": "c26c15e1503aa18225db40fabf5a8276fc5a8cc9ea037c1618923eba29e5db17",
+    "research/evidence/global-batch-5/source-lock.json": "4ddc336454c83e15d925b8f766217f918ce38c82461458babee375b3efeabb6f",
+    "research/evidence/global-code-expansion/europe/source-acquisition.json": "3ce5be20ff255c0423ce6ceaef760fe5eb228931d52f5f5660e76055362fa278",
+    "research/evidence/global-code-expansion/high-value-queue.jsonl.gz": "2ca7cbba3afda33b234244d9416c2a1af36a7a91c36c1126b831de6eb2666c8d",
+    "research/evidence/global-code-expansion/ranked-code-links.jsonl.gz": "fb8b9b1c4b313f4d801e9e529cfa4707f8bab48a363aae211f1baafe141f9fda",
+    "research/evidence/global-code-expansion/ranked-reuse-leads.jsonl.gz": "ab96efc36a94b44db5058abfb696ee70cb4ef79f25fd38a962a7309038563c73",
+    "research/evidence/global-code-expansion/remaining-high-value-queue.jsonl.gz": "4052dde0591e04039cbb14332b81778087ff43c68b1f88079d2b9ed8611fe97c",
+    "research/evidence/global-code-next/americas-africa/source-lock.json": "eba5880eb44dfdd1a7002caa17065330fc9f042ac3060764589a343c0868cc45",
+    "research/evidence/global-code-next/asia/source-lock.json": "382fc3aa399279f50f8cf52b3f86bf06e5a91f9b3413dbe07377b940a3f67a2d",
+    "research/evidence/global-iata-forensics/assessments.json": "d960eb3c05b5a6116f98201d8905e2d8bf059fbd91747a4f73dd3ef490aeddb1",
+    "research/evidence/global-iata-forensics/candidate-proposals.json": "3630a3aec541338edc1020d63d5578270c2a28cbb11e91ce96758d5fa39212d7",
+    "research/evidence/global-iata-forensics/source-lock.json": "30884c42aab4b181f672a67cfd2caddbeb883d6391c91f829bf2648773707cc8",
+    "research/evidence/global/source-lock.json": "7edaecaa997d2cc932e5fd4e4961600cbfa40228749f404981ebc10693ad8185",
+    "research/evidence/inputs/bts-master.csv.gz": "ae7a8cd6d98a57e3167ceb679750b6087f219d3bcd95e390d058aa65b2107fdf",
+    "research/evidence/markets/source-lock.json": "6bb9d3b8ed594064c78db6e9bd4844fd3ede49e091c51e055bf6956b3974932f",
+    "research/evidence/priority-market-batch-6/source-lock.json": "3fae88d999f564f21cbd1f55a88909ff8b0f31532a6383eb21452c85260ad461",
+    "research/evidence/priority-markets/source-lock.json": "7d47e9bc2ab1865aa9f64d574b58886e09fa96a486d2200ee7880f41735e6437",
+    "research/evidence/source-lock.json": "e378fab43aa5552b312f08ba213ca6e7eddd817f48aeb3318afeb43e432dd432",
+    "research/evidence/tao-boundary-audit/admission-proposal.json": "38063fecd4b507b9f11130995964be8f917f299036b09a990d2c555db182658c",
+    "research/evidence/transfers/source-lock.json": "13a52012ad1fbb75229247595eda490625dd2fbe0ff9a191886d2e1d77403d86",
+    "src/query-horizon.json": "c164e0f0a694fb2fef2c1b4e9f9033e4e835c67a44f53f59f13b47329e795764",
+    "test/curated-0.12.0.json": "4573fb7e6fac8e02c8e3f57443599385dffada17b250a29f1a18964f6d6d8cc9"
+  }
+}

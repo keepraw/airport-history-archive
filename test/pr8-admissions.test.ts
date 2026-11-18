@@ -1,12 +1,13 @@
+import type { Dataset } from "../src/types.ts";
 import { describe, expect, it } from "vitest";
-import { loadDataset } from "../scripts/load.ts";
+import frozenRelease from "./curated-0.12.0.json" with { type: "json" };
 import { resolveAirport } from "../src/index.ts";
 import { validateDataset } from "../src/validate.ts";
 import ids from "./pr8-identities.json" with { type: "json" };
 import frozen from "./curated-0.4.0.json" with { type: "json" };
 import frozenPr8 from "./curated-0.5.0.json" with { type: "json" };
 
-const data = await loadDataset();
+const data = frozenRelease as Dataset;
 type Key = keyof typeof ids;
 
 describe("0.4.0 curated facts are preserved unchanged", () => {

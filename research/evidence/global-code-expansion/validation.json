@@ -2,7 +2,6 @@
   "ciAndResolverResults": "See the separately recorded resolver differential, admission bundle and CI receipt; this metadata audit does not assert that unrelated tests or remote CI have run.",
   "formatVersion": 1,
   "inputSha256": {
-    "data/airports.json": "4573fb7e6fac8e02c8e3f57443599385dffada17b250a29f1a18964f6d6d8cc9",
     "research/admissions/0.12.0/coverage.json": "b6826c75d3b1cc95accd770d26b46c33ca1c94c757eb53ccbfbc0613de637947",
     "research/evidence/global-code-expansion/americas-africa/assessments.json": "52db4d9e0a7bfdca2fd80cf07e3ae734fd844dba02e2f385f5322d418ea0a3bb",
     "research/evidence/global-code-expansion/americas-africa/claims.json": "cdf18c4973bc2fa77b7769b13b1b42711fca6acb1a868983c4a4fd0caab23452",
@@ -59,12 +58,13 @@
     "research/evidence/global-code-expansion/europe/summary.json": "c0150464b6e6e968e37abc579f9a99562218e82317475e62078b0852b74cd44e",
     "research/evidence/global-code-expansion/europe/validation.json": "77bbc96b4be9b7ffb83b3fb13bcb987d651f45f4d864acfae08a34f13d32e2f7",
     "research/evidence/global-code-expansion/policy/proposal.json": "c6dfc53ac7ce7b05f9a28be5ff57fed106506152acec5652f80e3ee0fee86b5b",
-    "research/evidence/global-code-expansion/resolver-diff.json": "fc8cc5713e87defe3c538f1d5ee1ac014fd50c7dcfa39bc5823eb98c5ab65185",
+    "research/evidence/global-code-expansion/resolver-diff.json": "bcf4ff24a0ed4bfaacd92493add7a6c20cf68f0f37d3d2f1af4f019fd38ced4a",
     "research/evidence/global-code-expansion/resolver-input.json": "3672507589bb44566c825c8f8ccc0609558c6870751f235eba9d44482e078ea2",
     "research/evidence/global-code-expansion/screening-manifest.json": "0319a17cc715b53508f9aba0698704100b63442a451b226d79045894639f4aa5",
     "research/evidence/global-code-expansion/screening-summary.json": "d3caf237b5887e9ae65a3f165354cc72abbcef04ada8c146c666aa415d2aa2b8",
-    "scripts/evidence/global_code_audit.py": "7420d1e7297fde90431e058459c8396b45261166ede308e50c57ba9ce862ab4f",
-    "test/curated-0.11.0.json": "151d63469f96833b4be54f942940a39df24f485c81e18998053d1dc72f93f778"
+    "scripts/evidence/global_code_audit.py": "4ffcc8f54abc07d1918563c4cea3882a35d25e026f0433f33b3774396c82066e",
+    "test/curated-0.11.0.json": "151d63469f96833b4be54f942940a39df24f485c81e18998053d1dc72f93f778",
+    "test/curated-0.12.0.json": "4573fb7e6fac8e02c8e3f57443599385dffada17b250a29f1a18964f6d6d8cc9"
   },
   "minimum50HighValueEvidenceTargetPassed": true,
   "mode": "offline_metadata_citation_and_integrity_audit",
@@ -90,7 +90,7 @@
     "proposedNewResolvedQueries": 81,
     "proposedNotFoundToResolved": 81,
     "proposedUncertainToResolved": 0,
-    "reportSha256": "fc8cc5713e87defe3c538f1d5ee1ac014fd50c7dcfa39bc5823eb98c5ab65185",
+    "reportSha256": "bcf4ff24a0ed4bfaacd92493add7a6c20cf68f0f37d3d2f1af4f019fd38ced4a",
     "separateIataIcaoCombinedComparisonsComplete": true
   },
   "screeningFingerprintsVerified": 285,

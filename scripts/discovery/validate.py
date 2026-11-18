@@ -8,6 +8,7 @@ reviewed-observations.json are verified instead.
 import hashlib
 import json
 import re
+import sys
 from collections import Counter
 from pathlib import Path
 
@@ -15,6 +16,8 @@ from core import apply_review, read_candidates, read_jsonl, stable_id
 from review import REVIEW_STATUSES as STATUSES, batch_summaries, validate_review_overrides
 
 ROOT = Path(__file__).resolve().parents[2]
+sys.path.insert(0, str(ROOT / 'scripts/evidence'))
+from default_continuity import inherited_assignment_view
 OUT = ROOT / 'research/discovery/generated'
 WORK_OUT = ROOT / 'work/discovery/generated'
 COMPANION_FILES = {'manifest.json', 'reviewed-observations.json'}
@@ -58,17 +61,18 @@ def main():
     require(hashlib.sha256(frozen_path.read_bytes()).hexdigest() == baseline['sha256'], 'Curated historical facts changed')
     frozen = json.loads(frozen_path.read_text())
     dataset = json.loads((ROOT / 'data/airports.json').read_text())
+    preserved = inherited_assignment_view(dataset)
     require(all(baseline[k] == len(frozen[k]) for k in ('airports', 'assignments', 'names', 'sources')) and
             baseline['dataVersion'] == frozen['dataVersion'], 'Curated baseline counts/version are stale')
     for key, id_key in (('airports', 'airportId'), ('assignments', 'assignmentId'), ('names', 'nameId'), ('sources', 'sourceId')):
-        current = {r[id_key]: r for r in dataset[key]}
+        current = {r[id_key]: r for r in preserved[key]}
         require(all(current.get(r[id_key]) == r for r in frozen[key]), f'Frozen research baseline {key} changed')
     for previous in baseline['preservedBaselines']:
         raw = (ROOT / previous['record']).read_bytes()
         require(hashlib.sha256(raw).hexdigest() == previous['sha256'], f"Preserved curated record changed: {previous['record']}")
         frozen = json.loads(raw)
         for key, id_key in (('airports', 'airportId'), ('assignments', 'assignmentId'), ('names', 'nameId'), ('sources', 'sourceId')):
-            current = {r[id_key]: r for r in dataset[key]}
+            current = {r[id_key]: r for r in preserved[key]}
             require(all(current.get(r[id_key]) == r for r in frozen[key]),
                     f"Pre-{dataset['dataVersion']} curated {key} changed or removed (baseline {previous['dataVersion']})")
     airports = {r['airportId'] for r in dataset['airports']}

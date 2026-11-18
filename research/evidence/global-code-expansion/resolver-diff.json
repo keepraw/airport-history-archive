@@ -6,7 +6,7 @@
     "dataVersion": "0.11.0"
   },
   "formal": {
-    "path": "data/airports.json",
+    "path": "test/curated-0.12.0.json",
     "sha256": "4573fb7e6fac8e02c8e3f57443599385dffada17b250a29f1a18964f6d6d8cc9",
     "dataVersion": "0.12.0"
   },

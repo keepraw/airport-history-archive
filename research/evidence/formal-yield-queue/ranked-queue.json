@@ -1,142 +1,846 @@
 {
-  "formatVersion": 2,
+  "formatVersion": 3,
   "reviewedOn": "2026-11-18",
   "queryHorizon": {
     "fromInclusive": "2000-01-01",
     "toExclusive": "2026-11-19"
   },
-  "formalDataVersion": "0.12.0",
-  "actualNewlyResolved": 0,
-  "rankingBasis": "Passenger relevance, evidence maturity, conditional in-scope yield, authorization and acquisition effort",
+  "formalDataVersion": "0.13.0",
+  "formalDatasetSha256": "a834b0153bd897b1f2cc5aaf1300ec5037f4ed43a596848543d84adfb5f99c34",
+  "actualNewlyResolved": 122383164,
+  "actualNewlyResolvedFromExceptions": 409941,
   "rankedCases": [
     {
       "rank": 1,
-      "case": "TAO — Liuting / Jiaodong",
-      "codes": [
-        "IATA:TAO"
+      "case": "Nagoya NGO/NKM and RJGG/RJNA",
+      "status": "bounded",
+      "assignmentIds": [
+        "continuity-iata-ngo-5576",
+        "continuity-icao-rjgg-5576",
+        "continuity-iata-nkm-5581",
+        "continuity-icao-rjnn-5581",
+        "continuity-icao-rjna-5581"
       ],
-      "readiness": "Owner acceptance",
-      "effort": "Low",
-      "coverage": "6,073 additional dates in the pending proposal replay.",
-      "nextGate": "Review the 1991 China Eastern TAO observation, the Liuting site chronology and the 2021 transfer. The prepared interval retains an unknown original assignment date. Obtain case-specific acceptance.",
-      "references": [
-        "../tao-boundary-audit/README.md"
+      "newlyResolvedQueries": 25731,
+      "outstandingClaims": [
+        {
+          "site": "5581",
+          "scheme": "IATA",
+          "code": "NGO",
+          "reason": "dated_komaki_iata_observation_required"
+        }
       ]
     },
     {
       "rank": 2,
-      "case": "BLR — HAL / Kempegowda",
-      "codes": [
-        "IATA:BLR"
+      "case": "Bengaluru BLR",
+      "status": "split",
+      "assignmentIds": [
+        "continuity-iata-blr-26603",
+        "continuity-iata-blr-35145",
+        "continuity-icao-vobl-35145",
+        "continuity-icao-vobg-26603"
       ],
-      "readiness": "Evidence and authorization",
-      "effort": "Low to moderate",
-      "coverage": "6,727 successor dates if the later IATA bound and continuity are accepted. Up to 3,066 predecessor dates with cutoff evidence.",
-      "nextGate": "The MoCA Gazette records the switch at 00:01 on 2008-05-24. Keep that day uncertain. Review a dated successor IATA observation and acquire a HAL IATA observation supporting cutoff coverage. The exact boundary authorization packet is pending and excludes continuity.",
-      "references": [
-        "../global-code-next/policy/README.md",
-        "../global-iata-forensics/candidate-proposals.json"
-      ]
+      "newlyResolvedQueries": 19661,
+      "outstandingClaims": []
     },
     {
       "rank": 3,
-      "case": "IST — Atatürk / Istanbul Airport",
-      "codes": [
-        "IATA:IST"
+      "case": "Palm Beach PBI/DJT and KPBI/KDJT",
+      "status": "split",
+      "assignmentIds": [
+        "continuity-iata-pbi-3766",
+        "continuity-iata-djt-3766",
+        "continuity-icao-kpbi-3766",
+        "continuity-icao-kdjt-3766"
       ],
-      "readiness": "Evidence and authorization",
-      "effort": "Low to moderate",
-      "coverage": "Up to 5,655 predecessor dates with cutoff evidence.",
-      "nextGate": "The formal carrier evidence bounds Atatürk use from 2015 and the 2019 transfer day remains uncertain. Find a dated IATA IST observation bound to Atatürk at or before the cutoff and review continuity. The BTS master row supports physical attribution in the USDOT namespace.",
-      "references": [
-        "../../../docs/evidence.md",
-        "../source-lock.json"
-      ]
+      "newlyResolvedQueries": 19636,
+      "outstandingClaims": []
     },
     {
       "rank": 4,
-      "case": "PBI / DJT — Palm Beach",
-      "codes": [
-        "IATA:PBI",
-        "IATA:DJT",
-        "ICAO:KPBI",
-        "ICAO:KDJT"
+      "case": "Athens ATH and LGAT/LGAV",
+      "status": "bounded",
+      "assignmentIds": [
+        "continuity-iata-ath-29673",
+        "continuity-iata-ath-4251",
+        "continuity-icao-lgav-4251",
+        "continuity-icao-lgat-29673"
       ],
-      "readiness": "Authorization for bounded KDJT. Evidence and authorization for wider intervals",
-      "effort": "Low for KDJT. Moderate for the predecessors",
-      "coverage": "26 dates in the bounded KDJT proposal. 91 DJT dates if carrier and issuing-body continuity is accepted. Up to 9,726 PBI dates with cutoff evidence.",
-      "nextGate": "Use the reconciled Palm Beach UUID. Review the FAA pair for bounded KDJT separately from August IATA execution. Find a dated PBI IATA observation and establish KPBI continuity from a dated FAA identifier record independently. The current PBI directory row is metropolitan. The bounded KDJT window is included in the FAA scenario.",
-      "references": [
-        "../global-iata-forensics/candidate-proposals.json",
-        "../global-code-next/policy/README.md"
-      ]
+      "newlyResolvedQueries": 19635,
+      "outstandingClaims": []
     },
     {
       "rank": 5,
-      "case": "LYG / LZO / YBP — China relocations",
-      "codes": [
-        "IATA:LYG",
-        "IATA:LZO",
-        "IATA:YBP"
+      "case": "Guangzhou CAN/ZGGG",
+      "status": "bounded",
+      "assignmentIds": [
+        "continuity-iata-can-35146",
+        "continuity-iata-can-27194",
+        "continuity-icao-zggg-27194"
       ],
-      "readiness": "Evidence and authorization",
-      "effort": "Moderate",
-      "coverage": "Six formal site identities. Quantify assignment coverage after code-specific bounds are established.",
-      "nextGate": "Obtain a carrier cutover circular, IATA transfer notice or other primary code-specific record for each move and observations for the outer bounds. CAAC route pricing and operational notices help locate the cases. The existing China authorization covers the physical identities.",
-      "references": [
-        "../../admissions/0.11.0/README.md",
-        "../markets/assessments.json"
+      "newlyResolvedQueries": 17957,
+      "outstandingClaims": [
+        {
+          "site": "35146",
+          "scheme": "ICAO",
+          "code": "ZGGG",
+          "reason": "dated_old_baiyun_icao_observation_required"
+        }
       ]
     },
     {
       "rank": 6,
-      "case": "FRU / BSZ — Manas",
-      "codes": [
-        "IATA:FRU",
-        "IATA:BSZ"
+      "case": "Bangkok BKK and DMK",
+      "status": "split",
+      "assignmentIds": [
+        "continuity-iata-bkk-26638",
+        "continuity-iata-bkk-28118",
+        "continuity-iata-dmk-26638",
+        "continuity-icao-vtbs-28118"
       ],
-      "readiness": "Evidence and authorization",
-      "effort": "Moderate",
-      "coverage": "463 BSZ dates if the bounded continuity claim is accepted. FRU coverage depends on an earlier IATA observation.",
-      "nextGate": "The carrier notice and current IATA rows support a conservative August 2025 switch window. Check UCFM NOTAM A0134/25 and A0140/25 for a tighter switch window and find a dated FRU IATA observation. Confirm the shared permanent Manas UUID and claim authority.",
-      "references": [
-        "../global-iata-forensics/candidate-proposals.json"
-      ]
+      "newlyResolvedQueries": 17105,
+      "outstandingClaims": []
     },
     {
       "rank": 7,
-      "case": "Major passenger hub relocations",
-      "codes": [
-        "IATA:CAN",
-        "IATA:KMG",
-        "IATA:BKK",
-        "IATA:ATH",
-        "IATA:DOH",
-        "IATA:KUL",
-        "IATA:OSL",
-        "IATA:MUC"
+      "case": "Hyderabad HYD, VOHS and Begumpet BPM",
+      "status": "split",
+      "assignmentIds": [
+        "continuity-iata-hyd-26615",
+        "continuity-iata-hyd-35141",
+        "continuity-icao-vohs-35141",
+        "continuity-iata-bpm-26615"
       ],
-      "readiness": "Evidence and authorization",
-      "effort": "High",
-      "coverage": "Five in-scope relocation histories and three successor-only histories. Quantify by hub after source review.",
-      "nextGate": "CAN, KMG, BKK, ATH and DOH need separately observed predecessor and successor codes with a verified cutover. For KUL, OSL and MUC, seek successor IATA use at the cutoff and a later continuity bound. Start with scheduled passenger hubs in the retained code-link and reuse indexes.",
-      "references": [
-        "../global-code-expansion/"
-      ]
+      "newlyResolvedQueries": 15186,
+      "outstandingClaims": []
     },
     {
       "rank": 8,
-      "case": "FAA NASR bounded ICAO batch",
-      "codes": [
-        "ICAO:FAA NASR candidates"
+      "case": "Ishigaki ISG/ROIG",
+      "status": "bounded",
+      "assignmentIds": [
+        "continuity-icao-roig-5674",
+        "continuity-icao-roig-327608",
+        "continuity-iata-isg-327608"
       ],
-      "readiness": "Owner scope authorization and identity review",
-      "effort": "Low for existing evidence. Moderate for passenger selection",
-      "coverage": "63,908 dates in the full 2,458-code hypothesis. The 584 sites flagged for scheduled service in the pinned directory represent up to 15,184 of those dates.",
-      "nextGate": "The matched FAA editions support [2026-10-02, 2026-10-28). Confirm passenger service for the screened sites, reconcile Palm Beach OurAirports 3766 to its canonical UUID and get FAA ICAO batch authorization. The scope covers the short ICAO window.",
-      "references": [
-        "../global-public-data/faa-source-lock.json",
-        "../global-public-data/coverage-report.json"
+      "newlyResolvedQueries": 14822,
+      "outstandingClaims": [
+        {
+          "site": "5674",
+          "scheme": "IATA",
+          "code": "ISG",
+          "reason": "dated_old_ishigaki_iata_observation_required"
+        }
+      ]
+    },
+    {
+      "rank": 9,
+      "case": "Doha DOH and DIA",
+      "status": "bounded",
+      "assignmentIds": [
+        "continuity-iata-doh-5308",
+        "continuity-iata-doh-44686",
+        "continuity-iata-dia-5308",
+        "continuity-icao-othh-44686"
+      ],
+      "newlyResolvedQueries": 14155,
+      "outstandingClaims": []
+    },
+    {
+      "rank": 10,
+      "case": "Muan MWX/RKJB",
+      "status": "bounded",
+      "assignmentIds": [
+        "continuity-iata-mwx-302303",
+        "continuity-icao-rkjb-302303"
+      ],
+      "newlyResolvedQueries": 13856,
+      "outstandingClaims": []
+    },
+    {
+      "rank": 11,
+      "case": "Kunming KMG/ZPPP",
+      "status": "bounded",
+      "assignmentIds": [
+        "continuity-iata-kmg-314908",
+        "continuity-iata-kmg-27214",
+        "continuity-icao-zppp-314908",
+        "continuity-icao-zppp-27214"
+      ],
+      "newlyResolvedQueries": 12731,
+      "outstandingClaims": []
+    },
+    {
+      "rank": 12,
+      "case": "Murcia RMU/LEMI",
+      "status": "bounded",
+      "assignmentIds": [
+        "continuity-iata-rmu-308134",
+        "continuity-iata-mjv-4017",
+        "continuity-icao-lemi-308134"
+      ],
+      "newlyResolvedQueries": 12682,
+      "outstandingClaims": []
+    },
+    {
+      "rank": 13,
+      "case": "Panama City ECP/KECP",
+      "status": "bounded",
+      "assignmentIds": [
+        "proposal-icao-ecp",
+        "continuity-iata-ecp-46530"
+      ],
+      "newlyResolvedQueries": 10524,
+      "outstandingClaims": []
+    },
+    {
+      "rank": 14,
+      "case": "Incheon ICN/RKSI",
+      "status": "bounded",
+      "assignmentIds": [
+        "continuity-iata-icn-5653",
+        "continuity-icao-rksi-5653"
+      ],
+      "newlyResolvedQueries": 9946,
+      "outstandingClaims": []
+    },
+    {
+      "rank": 15,
+      "case": "Siem Reap REP/SAI and VDSA",
+      "status": "split",
+      "assignmentIds": [
+        "continuity-iata-rep-26476",
+        "continuity-iata-sai-513482",
+        "continuity-icao-vdsa-513482"
+      ],
+      "newlyResolvedQueries": 9842,
+      "outstandingClaims": [
+        {
+          "site": "26476",
+          "scheme": "ICAO",
+          "code": "VDSR",
+          "reason": "historical_cambodia_icao_record_required"
+        }
+      ]
+    },
+    {
+      "rank": 16,
+      "case": "Manas FRU/BSZ",
+      "status": "split",
+      "assignmentIds": [
+        "continuity-iata-fru-6426",
+        "continuity-iata-bsz-6426"
+      ],
+      "newlyResolvedQueries": 9816,
+      "outstandingClaims": []
+    },
+    {
+      "rank": 17,
+      "case": "Dazhou DAX/DZH",
+      "status": "bounded",
+      "assignmentIds": [
+        "continuity-iata-dax-35307",
+        "continuity-iata-dzh-352223",
+        "continuity-icao-zuda-352223"
+      ],
+      "newlyResolvedQueries": 9799,
+      "outstandingClaims": [
+        {
+          "site": "35307",
+          "scheme": "ICAO",
+          "code": "ZUDX",
+          "reason": "former_civil_airport_operation_ended_icao_withdrawal_unverified"
+        }
+      ]
+    },
+    {
+      "rank": 18,
+      "case": "Lianyungang LYG/ZSLG",
+      "status": "bounded",
+      "assignmentIds": [
+        "continuity-iata-lyg-35312",
+        "continuity-iata-lyg-44167",
+        "continuity-icao-zslg-44167"
+      ],
+      "newlyResolvedQueries": 9226,
+      "outstandingClaims": []
+    },
+    {
+      "rank": 19,
+      "case": "Chisinau KIV/RMO",
+      "status": "retained_boundary",
+      "assignmentIds": [
+        "iata-rmo-chisinau",
+        "iata-kiv-chisinau"
+      ],
+      "newlyResolvedQueries": 8779,
+      "outstandingClaims": []
+    },
+    {
+      "rank": 20,
+      "case": "Phnom Penh PNH/KTI",
+      "status": "retained_boundary",
+      "assignmentIds": [
+        "iata-kti-techo",
+        "icao-vdti-techo",
+        "iata-pnh-pochentong",
+        "icao-vdpp-pochentong"
+      ],
+      "newlyResolvedQueries": 8567,
+      "outstandingClaims": []
+    },
+    {
+      "rank": 21,
+      "case": "Yibin YBP/ZUYB",
+      "status": "bounded",
+      "assignmentIds": [
+        "continuity-iata-ybp-300456",
+        "continuity-iata-ybp-336111",
+        "continuity-icao-zuyb-336111"
+      ],
+      "newlyResolvedQueries": 8555,
+      "outstandingClaims": []
+    },
+    {
+      "rank": 22,
+      "case": "Luzhou LZO/ZULZ",
+      "status": "bounded",
+      "assignmentIds": [
+        "continuity-iata-lzo-35313",
+        "continuity-iata-lzo-336114",
+        "continuity-icao-zulz-336114"
+      ],
+      "newlyResolvedQueries": 7697,
+      "outstandingClaims": []
+    },
+    {
+      "rank": 23,
+      "case": "Berlin SXF/BER",
+      "status": "retained_boundary",
+      "assignmentIds": [
+        "iata-ber-schonefeld-brandenburg",
+        "iata-sxf-schonefeld-brandenburg"
+      ],
+      "newlyResolvedQueries": 7451,
+      "outstandingClaims": []
+    },
+    {
+      "rank": 24,
+      "case": "Astana TSE/NQZ",
+      "status": "retained_boundary",
+      "assignmentIds": [
+        "iata-nqz-astana",
+        "iata-tse-astana"
+      ],
+      "newlyResolvedQueries": 7427,
+      "outstandingClaims": []
+    },
+    {
+      "rank": 25,
+      "case": "Ramon ETM/LLER",
+      "status": "bounded",
+      "assignmentIds": [
+        "continuity-iata-etm-330388",
+        "continuity-icao-ller-330388"
+      ],
+      "newlyResolvedQueries": 6380,
+      "outstandingClaims": []
+    },
+    {
+      "rank": 26,
+      "case": "Qingdao TAO",
+      "status": "split",
+      "assignmentIds": [
+        "iata-tao-liuting",
+        "iata-tao-jiaodong"
+      ],
+      "newlyResolvedQueries": 6098,
+      "outstandingClaims": []
+    },
+    {
+      "rank": 27,
+      "case": "Islamabad ISB and OPIS",
+      "status": "retained_boundary",
+      "assignmentIds": [
+        "iata-isb-islamabad",
+        "icao-opis-islamabad",
+        "iata-isb-benazir-bhutto"
+      ],
+      "newlyResolvedQueries": 6021,
+      "outstandingClaims": []
+    },
+    {
+      "rank": 28,
+      "case": "Rostov ROV/RVI",
+      "status": "retained_boundary",
+      "assignmentIds": [
+        "iata-rov-platov",
+        "iata-rov-rostov-on-don"
+      ],
+      "newlyResolvedQueries": 5948,
+      "outstandingClaims": []
+    },
+    {
+      "rank": 29,
+      "case": "Istanbul IST and ISL",
+      "status": "split",
+      "assignmentIds": [
+        "iata-ist-ataturk",
+        "iata-ist-istanbul",
+        "iata-isl-ataturk",
+        "icao-ltfm-istanbul"
+      ],
+      "newlyResolvedQueries": 5730,
+      "outstandingClaims": []
+    },
+    {
+      "rank": 30,
+      "case": "Yantai YNT",
+      "status": "retained_boundary",
+      "assignmentIds": [
+        "iata-ynt-penglai",
+        "iata-ynt-laishan"
+      ],
+      "newlyResolvedQueries": 5452,
+      "outstandingClaims": []
+    },
+    {
+      "rank": 31,
+      "case": "Durgapur RDP/VEDG",
+      "status": "bounded",
+      "assignmentIds": [
+        "continuity-iata-rdp-317982",
+        "continuity-icao-vedg-317982"
+      ],
+      "newlyResolvedQueries": 4975,
+      "outstandingClaims": []
+    },
+    {
+      "rank": 32,
+      "case": "Williston XWA/KXWA",
+      "status": "bounded",
+      "assignmentIds": [
+        "continuity-iata-xwa-324440",
+        "continuity-icao-kxwa-324440"
+      ],
+      "newlyResolvedQueries": 4914,
+      "outstandingClaims": []
+    },
+    {
+      "rank": 33,
+      "case": "Dakar DKR/DSS",
+      "status": "retained_boundary",
+      "assignmentIds": [
+        "iata-dss-diass",
+        "icao-gobd-diass",
+        "iata-dkr-yoff"
+      ],
+      "newlyResolvedQueries": 4887,
+      "outstandingClaims": []
+    },
+    {
+      "rank": 34,
+      "case": "Yogyakarta YIA/WAHI",
+      "status": "bounded",
+      "assignmentIds": [
+        "continuity-iata-yia-332202",
+        "continuity-icao-wahi-332202"
+      ],
+      "newlyResolvedQueries": 4850,
+      "outstandingClaims": []
+    },
+    {
+      "rank": 35,
+      "case": "Chengdu TFU/ZUTF",
+      "status": "bounded",
+      "assignmentIds": [
+        "continuity-iata-tfu-342095",
+        "continuity-icao-zutf-342095"
+      ],
+      "newlyResolvedQueries": 3940,
+      "outstandingClaims": []
+    },
+    {
+      "rank": 36,
+      "case": "Shirdi SAG/VASD",
+      "status": "bounded",
+      "assignmentIds": [
+        "continuity-iata-sag-327452",
+        "global-proposal-shirdi-icao-vasd"
+      ],
+      "newlyResolvedQueries": 3377,
+      "outstandingClaims": []
+    },
+    {
+      "rank": 37,
+      "case": "Kannur CNN/VOKN",
+      "status": "bounded",
+      "assignmentIds": [
+        "continuity-iata-cnn-329504",
+        "global-proposal-kannur-icao-vokn"
+      ],
+      "newlyResolvedQueries": 3012,
+      "outstandingClaims": []
+    },
+    {
+      "rank": 38,
+      "case": "Pakyong PYG/VEPY",
+      "status": "bounded",
+      "assignmentIds": [
+        "continuity-iata-pyg-44362",
+        "global-proposal-pakyong-icao-vepy"
+      ],
+      "newlyResolvedQueries": 3012,
+      "outstandingClaims": []
+    },
+    {
+      "rank": 39,
+      "case": "Yan’an ENY/ZLYA",
+      "status": "bounded",
+      "assignmentIds": [
+        "continuity-iata-eny-336112",
+        "continuity-icao-zlya-336112"
+      ],
+      "newlyResolvedQueries": 2956,
+      "outstandingClaims": [
+        {
+          "site": "31009",
+          "scheme": "IATA",
+          "code": "ENY",
+          "reason": "dated_predecessor_iata_association_required"
+        },
+        {
+          "site": "31009",
+          "scheme": "ICAO",
+          "code": "ZLYA",
+          "reason": "dated_predecessor_icao_association_required"
+        }
+      ]
+    },
+    {
+      "rank": 40,
+      "case": "Bohol TAG/RPSP",
+      "status": "bounded",
+      "assignmentIds": [
+        "continuity-iata-tag-336116",
+        "continuity-icao-rpsp-336116"
+      ],
+      "newlyResolvedQueries": 2936,
+      "outstandingClaims": [
+        {
+          "site": "5747",
+          "scheme": "IATA",
+          "code": "TAG",
+          "reason": "dated_tagbilaran_iata_record_required"
+        }
+      ]
+    },
+    {
+      "rank": 41,
+      "case": "Kalaburagi GBI/VOGB",
+      "status": "bounded",
+      "assignmentIds": [
+        "continuity-iata-gbi-506610",
+        "global-proposal-kalaburagi-icao-vogb"
+      ],
+      "newlyResolvedQueries": 2647,
+      "outstandingClaims": []
+    },
+    {
+      "rank": 42,
+      "case": "Beijing Daxing PKX/ZBAD",
+      "status": "bounded",
+      "assignmentIds": [
+        "continuity-iata-pkx-330820",
+        "continuity-icao-zbad-330820"
+      ],
+      "newlyResolvedQueries": 2635,
+      "outstandingClaims": []
+    },
+    {
+      "rank": 43,
+      "case": "Ankang AKA/ZLAK",
+      "status": "bounded",
+      "assignmentIds": [
+        "continuity-iata-aka-30632",
+        "continuity-icao-zlak-30632"
+      ],
+      "newlyResolvedQueries": 2269,
+      "outstandingClaims": [
+        {
+          "site": "342663",
+          "scheme": "IATA",
+          "code": "AKA",
+          "reason": "dated_predecessor_iata_association_required"
+        },
+        {
+          "site": "342663",
+          "scheme": "ICAO",
+          "code": "ZLAK",
+          "reason": "dated_predecessor_icao_association_required"
+        }
+      ]
+    },
+    {
+      "rank": 44,
+      "case": "Mopa GOX/VOGA",
+      "status": "bounded",
+      "assignmentIds": [
+        "continuity-iata-gox-342094",
+        "continuity-icao-voga-342094"
+      ],
+      "newlyResolvedQueries": 2053,
+      "outstandingClaims": []
+    },
+    {
+      "rank": 45,
+      "case": "Kurnool KJB/VOKU",
+      "status": "bounded",
+      "assignmentIds": [
+        "continuity-iata-kjb-340146",
+        "global-proposal-kurnool-icao-voku"
+      ],
+      "newlyResolvedQueries": 1916,
+      "outstandingClaims": []
+    },
+    {
+      "rank": 46,
+      "case": "Kushinagar KBK/VEKI",
+      "status": "bounded",
+      "assignmentIds": [
+        "continuity-iata-kbk-350147",
+        "global-proposal-kushinagar-icao-veki"
+      ],
+      "newlyResolvedQueries": 1916,
+      "outstandingClaims": []
+    },
+    {
+      "rank": 47,
+      "case": "Sindhudurg SDW/VOSR",
+      "status": "bounded",
+      "assignmentIds": [
+        "continuity-iata-sdw-331218",
+        "global-proposal-sindhudurg-icao-vosr"
+      ],
+      "newlyResolvedQueries": 1916,
+      "outstandingClaims": []
+    },
+    {
+      "rank": 48,
+      "case": "Hollongi HGI/VEHO",
+      "status": "bounded",
+      "assignmentIds": [
+        "continuity-iata-hgi-354546",
+        "global-proposal-hollongi-icao-veho"
+      ],
+      "newlyResolvedQueries": 1551,
+      "outstandingClaims": []
+    },
+    {
+      "rank": 49,
+      "case": "Bicol LGP/DRP and RPLK",
+      "status": "split",
+      "assignmentIds": [
+        "continuity-iata-lgp-336104",
+        "continuity-iata-drp-336104",
+        "continuity-icao-rplk-336104"
+      ],
+      "newlyResolvedQueries": 1460,
+      "outstandingClaims": []
+    },
+    {
+      "rank": 50,
+      "case": "Shivamogga RQY/VOSH",
+      "status": "bounded",
+      "assignmentIds": [
+        "continuity-iata-rqy-354545",
+        "global-code-expansion-vosh-icao"
+      ],
+      "newlyResolvedQueries": 1186,
+      "outstandingClaims": []
+    },
+    {
+      "rank": 51,
+      "case": "Noida DXN/VIND",
+      "status": "bounded",
+      "assignmentIds": [
+        "continuity-iata-dxn-597786",
+        "continuity-icao-vind-597786"
+      ],
+      "newlyResolvedQueries": 1172,
+      "outstandingClaims": []
+    },
+    {
+      "rank": 52,
+      "case": "Ayodhya AYJ/VEAY",
+      "status": "bounded",
+      "assignmentIds": [
+        "continuity-iata-ayj-46512",
+        "global-code-expansion-veay-icao"
+      ],
+      "newlyResolvedQueries": 1169,
+      "outstandingClaims": []
+    },
+    {
+      "rank": 53,
+      "case": "Navi Mumbai NMI/VANM",
+      "status": "bounded",
+      "assignmentIds": [
+        "continuity-iata-nmi-342093",
+        "global-code-expansion-vanm-icao"
+      ],
+      "newlyResolvedQueries": 1062,
+      "outstandingClaims": []
+    },
+    {
+      "rank": 54,
+      "case": "Gwadar GWD/OPGW",
+      "status": "bounded",
+      "assignmentIds": [
+        "continuity-iata-gwd-342092",
+        "continuity-icao-opgw-342092"
+      ],
+      "newlyResolvedQueries": 691,
+      "outstandingClaims": [
+        {
+          "site": "5252",
+          "scheme": "IATA",
+          "code": "GWD",
+          "reason": "dated_old_gwadar_iata_record_required"
+        }
+      ]
+    },
+    {
+      "rank": 55,
+      "case": "Qaqortoq JJU/BGQO",
+      "status": "bounded",
+      "assignmentIds": [
+        "continuity-iata-jju-429724",
+        "continuity-icao-bgqo-429724"
+      ],
+      "newlyResolvedQueries": 433,
+      "outstandingClaims": [
+        {
+          "site": "35298",
+          "scheme": "IATA",
+          "code": "JJU",
+          "reason": "dated_airport_assignment_distinct_from_city_code_required"
+        }
+      ]
+    },
+    {
+      "rank": 56,
+      "case": "Luanda NBJ/FNBJ",
+      "status": "bounded",
+      "assignmentIds": [
+        "continuity-iata-nbj-312665",
+        "continuity-icao-fnbj-312665"
+      ],
+      "newlyResolvedQueries": 419,
+      "outstandingClaims": []
+    },
+    {
+      "rank": 57,
+      "case": "Denver and Hong Kong pre-cutoff reuse",
+      "status": "retained_boundary",
+      "assignmentIds": [
+        "iata-hkg-chek-lap-kok",
+        "icao-vhhh-chek-lap-kok",
+        "iata-den-denver"
+      ],
+      "newlyResolvedQueries": 75,
+      "outstandingClaims": []
+    },
+    {
+      "rank": 58,
+      "case": "Western Sydney WSI/YSWS",
+      "status": "bounded",
+      "assignmentIds": [
+        "continuity-iata-wsi-507237",
+        "continuity-icao-ysws-507237"
+      ],
+      "newlyResolvedQueries": 48,
+      "outstandingClaims": []
+    },
+    {
+      "rank": 59,
+      "case": "Samarinda AAP",
+      "status": "retained_boundary",
+      "assignmentIds": [
+        "iata-aap-pranoto"
+      ],
+      "newlyResolvedQueries": 25,
+      "outstandingClaims": []
+    },
+    {
+      "rank": 60,
+      "case": "Qingdao ZSQD",
+      "status": "bounded",
+      "assignmentIds": [
+        "continuity-icao-zsqd-342096"
+      ],
+      "newlyResolvedQueries": 24,
+      "outstandingClaims": [
+        {
+          "site": "27224",
+          "scheme": "ICAO",
+          "code": "ZSQD",
+          "reason": "historic_icao_notice_missing"
+        }
+      ]
+    },
+    {
+      "rank": 61,
+      "case": "KUL, OSL and MUC",
+      "status": "pre_cutoff",
+      "assignmentIds": [],
+      "newlyResolvedQueries": 0,
+      "outstandingClaims": []
+    },
+    {
+      "rank": 62,
+      "case": "Planned airport rows",
+      "status": "held",
+      "assignmentIds": [],
+      "newlyResolvedQueries": 0,
+      "outstandingClaims": [
+        {
+          "site": "342100",
+          "scheme": "IATA",
+          "code": "LTH",
+          "reason": "under_construction_in_pinned_reference"
+        },
+        {
+          "site": "342100",
+          "scheme": "ICAO",
+          "code": "VVLT",
+          "reason": "under_construction_in_pinned_reference"
+        },
+        {
+          "site": "525151",
+          "scheme": "IATA",
+          "code": "BZJ",
+          "reason": "under_construction_in_pinned_reference"
+        },
+        {
+          "site": "525151",
+          "scheme": "ICAO",
+          "code": "ZSBO",
+          "reason": "under_construction_in_pinned_reference"
+        },
+        {
+          "site": "600647",
+          "scheme": "IATA",
+          "code": "DEJ",
+          "reason": "under_construction_in_pinned_reference"
+        },
+        {
+          "site": "600647",
+          "scheme": "ICAO",
+          "code": "ZUDJ",
+          "reason": "under_construction_in_pinned_reference"
+        }
       ]
     }
   ]

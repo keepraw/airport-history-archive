@@ -1,170 +1,64 @@
 {
   "formatVersion": 2,
-  "caseId": "qingdao-liuting-tao-cutoff",
-  "auditedOn": "2026-11-18",
   "queryHorizon": {
     "fromInclusive": "2000-01-01",
     "toExclusive": "2026-11-19"
   },
-  "baseline": {
-    "dataVersion": "0.12.0",
-    "sha256": "4573fb7e6fac8e02c8e3f57443599385dffada17b250a29f1a18964f6d6d8cc9"
+  "baselineDataVersion": "0.12.0",
+  "baselineSha256": "4573fb7e6fac8e02c8e3f57443599385dffada17b250a29f1a18964f6d6d8cc9",
+  "formalDataVersion": "0.13.0",
+  "formalSha256": "a834b0153bd897b1f2cc5aaf1300ec5037f4ed43a596848543d84adfb5f99c34",
+  "scheme": "IATA",
+  "code": "TAO",
+  "datesCompared": 9819,
+  "before": {
+    "resolved": 3721,
+    "uncertain": 6098,
+    "conflict": 0,
+    "not_found": 0,
+    "invalid_input": 0
   },
-  "current": {
-    "dataVersion": "0.12.0",
-    "sha256": "4573fb7e6fac8e02c8e3f57443599385dffada17b250a29f1a18964f6d6d8cc9"
+  "after": {
+    "resolved": 9819,
+    "uncertain": 0,
+    "conflict": 0,
+    "not_found": 0,
+    "invalid_input": 0
   },
-  "formalAdditions": {
-    "airports": [],
-    "iataAssignments": [],
-    "icaoAssignments": []
+  "resolvedByAirportId": {
+    "apt_f470ecb5-c6dc-4516-a233-37302da2115b": 7894,
+    "apt_6729d2b2-4b79-48c8-9c42-0d4eeba121b8": 1925
   },
-  "productionComparison": {
-    "localDates": 9819,
-    "distinctCodesByScheme": 46,
-    "queriesPerDataset": 451674,
-    "byScheme": {
-      "IATA": {
-        "baselineResolved": 62087,
-        "currentResolved": 62087,
-        "newlyResolved": 0,
-        "lost": 0,
-        "changedAirport": 0
-      },
-      "ICAO": {
-        "baselineResolved": 52315,
-        "currentResolved": 52315,
-        "newlyResolved": 0,
-        "lost": 0,
-        "changedAirport": 0
-      }
+  "difference": {
+    "newlyResolved": 6098,
+    "lost": 0,
+    "changedAirport": 0
+  },
+  "probes": [
+    {
+      "date": "2000-01-01",
+      "status": "resolved",
+      "airportId": "apt_f470ecb5-c6dc-4516-a233-37302da2115b"
+    },
+    {
+      "date": "2021-08-11",
+      "status": "resolved",
+      "airportId": "apt_f470ecb5-c6dc-4516-a233-37302da2115b"
+    },
+    {
+      "date": "2021-08-12",
+      "status": "resolved",
+      "airportId": "apt_6729d2b2-4b79-48c8-9c42-0d4eeba121b8"
+    },
+    {
+      "date": "2026-11-18",
+      "status": "resolved",
+      "airportId": "apt_6729d2b2-4b79-48c8-9c42-0d4eeba121b8"
+    },
+    {
+      "date": "2026-11-19",
+      "status": "not_found",
+      "airportId": null
     }
-  },
-  "tao": {
-    "assignments": [
-      {
-        "airportId": "apt_f470ecb5-c6dc-4516-a233-37302da2115b",
-        "assignmentId": "iata-tao-liuting",
-        "code": "TAO",
-        "evidenceType": "continuity_inference",
-        "note": "Original assignment date remains unknown; latest start is only an evidence bound. Continuity between the cited code observation and transfer/current corroboration is a reviewed historical inference, not daily observations or an official IATA allocation ledger.",
-        "scheme": "IATA",
-        "sourceIds": [
-          "tao-earlier",
-          "tao-code",
-          "tao-transfer"
-        ],
-        "validFrom": {
-          "earliest": null,
-          "latest": "2016-08-17",
-          "precision": "unknown"
-        },
-        "validTo": {
-          "earliest": "2021-08-12",
-          "latest": "2021-08-12",
-          "precision": "exact"
-        },
-        "verificationStatus": "verified",
-        "verifiedOn": "2026-10-26"
-      },
-      {
-        "airportId": "apt_6729d2b2-4b79-48c8-9c42-0d4eeba121b8",
-        "assignmentId": "iata-tao-jiaodong",
-        "code": "TAO",
-        "evidenceType": "continuity_inference",
-        "note": "Transfer establishes the start, not the airport inauguration. The open end is not guaranteed future validity. Continuity between the cited code observation and transfer/current corroboration is a reviewed historical inference, not daily observations or an official IATA allocation ledger.",
-        "scheme": "IATA",
-        "sourceIds": [
-          "tao-earlier",
-          "tao-code",
-          "tao-transfer",
-          "ourairports-20261025"
-        ],
-        "validFrom": {
-          "earliest": "2021-08-12",
-          "latest": "2021-08-12",
-          "precision": "exact"
-        },
-        "validTo": {
-          "earliest": "2026-10-25",
-          "latest": null,
-          "precision": "unknown"
-        },
-        "verificationStatus": "verified",
-        "verifiedOn": "2026-10-26"
-      }
-    ],
-    "statusCounts": {
-      "resolved": 3721,
-      "uncertain": 6098,
-      "conflict": 0,
-      "not_found": 0,
-      "invalid_input": 0
-    },
-    "resolvedByAirportId": {
-      "apt_f470ecb5-c6dc-4516-a233-37302da2115b": 1821,
-      "apt_6729d2b2-4b79-48c8-9c42-0d4eeba121b8": 1900
-    },
-    "pendingProposalReplay": {
-      "proposalSha256": "38063fecd4b507b9f11130995964be8f917f299036b09a990d2c555db182658c",
-      "formalAdmission": false,
-      "resolved": 9794,
-      "newlyResolved": 6073,
-      "lost": 0,
-      "changedAirport": 0,
-      "conflicts": 0
-    },
-    "probes": [
-      {
-        "date": "1999-12-31",
-        "status": "not_found",
-        "airportId": null
-      },
-      {
-        "date": "2000-01-01",
-        "status": "uncertain",
-        "airportId": null
-      },
-      {
-        "date": "2016-08-16",
-        "status": "uncertain",
-        "airportId": null
-      },
-      {
-        "date": "2016-08-17",
-        "status": "resolved",
-        "airportId": "apt_f470ecb5-c6dc-4516-a233-37302da2115b"
-      },
-      {
-        "date": "2021-08-11",
-        "status": "resolved",
-        "airportId": "apt_f470ecb5-c6dc-4516-a233-37302da2115b"
-      },
-      {
-        "date": "2021-08-12",
-        "status": "resolved",
-        "airportId": "apt_6729d2b2-4b79-48c8-9c42-0d4eeba121b8"
-      },
-      {
-        "date": "2026-10-24",
-        "status": "resolved",
-        "airportId": "apt_6729d2b2-4b79-48c8-9c42-0d4eeba121b8"
-      },
-      {
-        "date": "2026-10-25",
-        "status": "uncertain",
-        "airportId": null
-      },
-      {
-        "date": "2026-11-18",
-        "status": "uncertain",
-        "airportId": null
-      },
-      {
-        "date": "2026-11-19",
-        "status": "not_found",
-        "airportId": null
-      }
-    ]
-  }
+  ]
 }

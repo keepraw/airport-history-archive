@@ -7,6 +7,14 @@ An offline TypeScript historical resolver and a worldwide reference database for
 identify different physical sites over time. This repository preserves those
 sites and the evidence behind their code assignments.
 
+**Formal history 0.13.0** covers the complete eligible population from the pinned
+passenger-airport screen. A current airport-specific code defaults to continuity
+from 2000-01-01. IATA and ICAO have independent evidence. Documented openings,
+transfers and code changes bound the affected intervals. The production resolver
+uses local dates in `[2000-01-01, 2026-11-19)`.
+[Owner policy](research/admission/default-continuity-v1/policy.json) ·
+[Release results](research/admissions/0.13.0/README.md)
+
 **Worldwide reference 1.0.0:** 86,950 queryable OurAirports source records,
 including the entire 86,286-row pinned snapshot and 664 retained historical-only
 records. It preserves 13,643 closed records, typed identifiers, source revisions,
@@ -28,7 +36,7 @@ candidates are mechanically processed into 88,330 relevant review groups and
 explicit excluded/deferred categories. No new upstream history scan is needed.
 See [measured before/after coverage and performance](docs/worldwide-reference-pr11.md).
 
-**Curated scope (0.12.0 proposal):** forty-six physical airports, twenty-eight IATA
+**Frozen 0.12.0 baseline.** It contains forty-six physical airports, twenty-eight IATA
 assignments, twenty-seven ICAO assignments and three official-name intervals, with
 112 evidence sources. The
 original TAO, IST, HKG and DEN examples are joined by five reviewed ISL, ISB,
@@ -55,20 +63,17 @@ AAI ICAO policy: VEHO (Donyi Polo), VASD (Shirdi) and VOKN (Kannur), each certai
 only within `[2026-04-17, 2026-07-09)`. The real formal candidate adds 249 resolved
 code/local-date queries. See the [production admission and measurements](research/admissions/0.10.0/README.md).
 Version 0.11.0 admits six Chinese physical identities (Lianyungang, Yibin and Luzhou old/new sites) and five scoped sources. Code assignments and historical name intervals are unchanged; actual resolved-query growth is zero. See the [China admission and evidence audit](research/admissions/0.11.0/README.md).
-Version 0.12.0 proposes three further bounded ICAO assignments through the unchanged
+Version 0.12.0 adds three further bounded ICAO assignments through the original
 authorized AAI gate: VANM, VEAY and VOSH, each certain only within
 `[2026-06-12, 2026-07-09)`, adding 81 resolved code/local-date queries in the
-production resolver comparison. Published coverage remains unchanged until merge.
+production resolver comparison.
 The [global expansion report](research/evidence/global-code-expansion/README.zh-CN.md)
 contains the complete 88,330-group ranking, 92 canonical research cases,
 64 high-value original/locked-evidence reviews and the consolidated proposal-only
 source-family rules. See the [0.12.0 admission and exact measurements](research/admissions/0.12.0/README.md).
-This remains the authoritative curated history layer. The worldwide reference
-lookup above is separate and never returns resolved historical answers. A separate
-[global discovery research layer](research/discovery/README.md) scans pinned
-source histories and tracks coverage and unverified candidates. No server,
-UI or Keepraw-Fly integration is included. This is not a
-navigation or operational flight-planning dataset.
+The worldwide reference lookup reports directory observations. The
+[global discovery research layer](research/discovery/README.md) tracks unverified
+candidates from pinned source histories.
 
 The [priority-market follow-up](research/evidence/priority-markets/README.md)
 continues 14 existing China, Japan, Korea, US, UK and continental-European cases.
@@ -97,7 +102,7 @@ Initial dependency installation needs network access. All subsequent checks,
 tests, builds and resolution run offline. `pnpm build` writes:
 
 ```text
-dist/v0.12.0/
+dist/v0.13.0/
 ├── airport-history.json
 ├── dataset.schema.json
 ├── manifest.json             # SHA-256 hashes of the five other files
@@ -220,12 +225,10 @@ the distinction between signing and publication, and the later corporate amendme
   physical sites are a confirmed conflict only when both assignments and their
   supporting sources have passed review.
 
-For an assignment with an unknown original start, a dated code observation
-can bound its latest possible start. An observation before the 2000 cutoff can
-establish coverage on the cutoff if continuity is supported. Historical records
-retain their original bounds. For many current assignments the fixed 2026-10-25
-reference snapshot bounds the checked continuity. Later dates within the
-supported range may still be uncertain.
+Ordinary current airport-specific codes use the owner-authorized 2000 cutoff as
+their latest start. The original allocation can remain open. An affirmative
+opening, closure or code-change record can bound the inference. A date during an
+unsettled transfer window can return `uncertain` with its candidate sites.
 
 `verified` records are reviewed historical conclusions, including explicitly
 recorded continuity inferences between observations and the documented transfer.
@@ -279,7 +282,14 @@ unique answer and returns `uncertain`. If a reviewed pair also certainly conflic
 on that date, `conflict` takes precedence and includes the other candidates.
 Nonoverlapping historical reuse is accepted normally.
 
-## Format compatibility: 0.12.0 proposal
+## Format compatibility for 0.13.0
+
+The continuity admission uses schema 3.0.0 and the existing production resolver.
+It preserves permanent IDs and measures resolved local dates against the frozen
+0.12.0 release. Earlier admission gates replay the versions they authorized.
+[Admission and reproduction](research/admissions/0.13.0/README.md)
+
+## Format compatibility for 0.12.0
 
 Three physical reference identities, three bounded ICAO assignments and six source
 records are appended; schema 3.0.0 and production resolution semantics are unchanged.
@@ -437,7 +447,7 @@ src/
   validate.ts                # JSON Schema plus semantic validation
   index.ts                   # dependency-free resolver entry point
 schema/dataset.schema.json   # strict draft-07 schema
-data/airports.json           # 34 sites, 49 assignments, 3 names, 95 sources
+data/airports.json           # versioned formal physical history
 scripts/{load,validate,build}.ts
 test/{resolve,validate,build,evidence,conflicts,batch-1,names}.test.ts
 test/identities.json          # permanent initial ID mapping

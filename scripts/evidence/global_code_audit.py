@@ -17,6 +17,7 @@ import subprocess
 
 ROOT = Path(__file__).resolve().parents[2]
 DIRECTORY = ROOT / 'research/evidence/global-code-expansion'
+FORMAL_SNAPSHOT = ROOT / 'test/curated-0.12.0.json'
 BASE_COMMIT = '7d21ff6762e1569faa1be19c8203e577420cd1f2'
 REGIONS = ('asia', 'europe', 'americas-africa')
 HASH = re.compile(r'^[0-9a-f]{64}$')
@@ -240,12 +241,12 @@ def protected_inputs():
 
 def formal_diff():
     base = load(ROOT / 'test/curated-0.11.0.json')
-    candidate = load(ROOT / 'data/airports.json')
+    candidate = load(FORMAL_SNAPSHOT)
     for collection in ('airports', 'assignments', 'sources', 'names'):
         require(candidate[collection][:len(base[collection])] == base[collection], f'Published {collection} modified')
     additions = {collection: candidate[collection][len(base[collection]):] for collection in ('airports', 'assignments', 'sources', 'names')}
     return {'publishedMainBaseline': {'commit': BASE_COMMIT, 'dataVersion': base['dataVersion'], 'sha256': digest(ROOT / 'test/curated-0.11.0.json')},
-            'reviewableWorkingTreeProposal': {'dataVersion': candidate['dataVersion'], 'sha256': digest(ROOT / 'data/airports.json'),
+            'reviewableWorkingTreeProposal': {'dataVersion': candidate['dataVersion'], 'sha256': digest(FORMAL_SNAPSHOT),
                 'newIataAssignments': sum(a['scheme'] == 'IATA' for a in additions['assignments']),
                 'newIcaoAssignments': sum(a['scheme'] == 'ICAO' for a in additions['assignments']),
                 'newPhysicalAirports': len(additions['airports']), 'newSources': len(additions['sources']),
@@ -261,7 +262,7 @@ def audit_resolver(studied, aliases, ranking):
     matrix = load(path)
     require(matrix['baselinePath'] == 'test/curated-0.11.0.json' and
             matrix['baselineSha256'] == digest(ROOT / matrix['baselinePath']) and
-            matrix['formalSha256'] == digest(ROOT / 'data/airports.json') and
+            matrix['formalSha256'] == digest(FORMAL_SNAPSHOT) and
             matrix['publishedBaselineCommit'] == BASE_COMMIT and
             matrix['publicationState'] == 'unmerged_data_PR_candidate',
             'Resolver input changes baseline or publication state')
@@ -460,7 +461,7 @@ def main():
     proposal = formal_diff()
     resolver = audit_resolver(studied, aliases, ranking)
     proposal['reviewableWorkingTreeProposal']['resolverMeasurement'] = resolver
-    candidate_codes = {a['code'] for a in load(ROOT / 'data/airports.json')['assignments'][len(load(ROOT / 'test/curated-0.11.0.json')['assignments']):]}
+    candidate_codes = {a['code'] for a in load(FORMAL_SNAPSHOT)['assignments'][len(load(ROOT / 'test/curated-0.11.0.json')['assignments']):]}
     queue = []
     for ranked in high:
         gid = ranked['eventGroupId']
@@ -502,7 +503,7 @@ def main():
     require(not disallowed, 'Original/extraction bytes in public research artifacts: ' + ', '.join(disallowed))
     countries = sorted({record['event']['country'] for record in studied.values()})
     evidence_countries = sorted({record['event']['country'] for record in studied.values() if record['evidence']})
-    for path in (DIRECTORY / 'screening-summary.json', DIRECTORY / 'screening-manifest.json', DIRECTORY / 'policy/proposal.json', DIRECTORY / 'resolver-input.json', DIRECTORY / 'resolver-diff.json', ROOT / 'research/admissions/0.12.0/coverage.json', ROOT / 'data/airports.json', ROOT / 'test/curated-0.11.0.json', ROOT / 'scripts/evidence/global_code_audit.py'):
+    for path in (DIRECTORY / 'screening-summary.json', DIRECTORY / 'screening-manifest.json', DIRECTORY / 'policy/proposal.json', DIRECTORY / 'resolver-input.json', DIRECTORY / 'resolver-diff.json', ROOT / 'research/admissions/0.12.0/coverage.json', FORMAL_SNAPSHOT, ROOT / 'test/curated-0.11.0.json', ROOT / 'scripts/evidence/global_code_audit.py'):
         input_fingerprints[path.relative_to(ROOT).as_posix()] = digest(path)
     summary = {'formatVersion': 1, 'reviewedOn': '2026-11-07',
         'screening': {key: screen[key] for key in ('sourceRevisionCandidatesInspected', 'selectedCandidatesJoined', 'eventGroupsRanked',

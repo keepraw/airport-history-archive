@@ -5,13 +5,14 @@ import subprocess
 import tempfile
 import tarfile
 import io
+from default_continuity import inherited_assignment_view
 
 ROOT = Path(__file__).resolve().parents[2]
 COMMIT = 'b201f4a'
 
 def main():
     old = json.loads((ROOT / 'test/curated-0.10.0.json').read_text())
-    current = json.loads((ROOT / 'data/airports.json').read_text())
+    current = inherited_assignment_view(json.loads((ROOT / 'data/airports.json').read_text()))
     for key in ('airports', 'assignments', 'sources', 'names'):
         if current[key][:len(old[key])] != old[key]:
             raise ValueError('Published records changed')

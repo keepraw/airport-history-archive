@@ -1,10 +1,10 @@
 import { describe, expect, it } from "vitest";
-import { loadDataset } from "../scripts/load.ts";
+import frozenRelease from "./curated-0.12.0.json" with { type: "json" };
 import { resolveAirport } from "../src/index.ts";
 import { validateDataset } from "../src/validate.ts";
 import type { Boundary, Dataset, VerificationStatus } from "../src/types.ts";
 
-const data = await loadDataset();
+const data = frozenRelease as Dataset;
 const exact = (date: string): Boundary => ({
   earliest: date,
   latest: date,

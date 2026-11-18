@@ -9,7 +9,9 @@ import type { FlyReference } from '../../scripts/compat/fly-adapter.ts';
 import type { Dataset } from '../../src/types.ts';
 __MAP_IMPORT__
 
-const dataset = JSON.parse(readFileSync('dist/v0.7.0/airport-history.json', 'utf8')) as Dataset;
+const { version } = JSON.parse(readFileSync('package.json', 'utf8')) as { version: string };
+const buildPath = `dist/v${version}/airport-history.json`;
+const dataset = JSON.parse(readFileSync(buildPath, 'utf8')) as Dataset;
 const rows = JSON.parse(readFileSync(__DIRECTORY_PATH__, 'utf8')) as CompactAirportRow[];
 const flight = (date: string): KeeprawFlight => ({ id: date, flightNumber: 'KA123', serviceDate: date,
   airline: { iata: 'KA' }, origin: { iata: 'TAO' }, destination: { iata: 'HKG' },
@@ -52,7 +54,8 @@ describe('actual Fly code against the real historical build', () => {
     expect(ambiguous.referenceFallback?.iata).toBe('IST');
     expect(ambiguous.historicalIdentityVerified).toBe(false);
     expect(resolveEndpoint(dataset, 'HKG', '1997-01-01', airportByIata).canCalculateDistance).toBe(false);
-    expect(resolveEndpoint(dataset, 'JFK', '2020-01-01', airportByIata).referenceFallback).not.toBeNull();
+    expect(resolveEndpoint(dataset, 'JFK', '2000-01-01', airportByIata).historicalIdentityVerified).toBe(true);
+    expect(resolveEndpoint(dataset, 'JFK', '1999-12-31', airportByIata).referenceFallback).not.toBeNull();
     const reference: AirportReference = airportByIata.get('TAO')!;
     expect(reference.timezone).toBe('Asia/Shanghai');
   });
@@ -61,7 +64,7 @@ describe('actual Fly code against the real historical build', () => {
     const start = performance.now();
     for (let i=0; i<10000; i++) resolveEndpoint(dataset, 'TAO', i % 2 ? '2021-08-11' : '2021-08-13', airportByIata);
     const elapsedMs = performance.now() - start;
-    const bytes = readFileSync('dist/v0.7.0/airport-history.json');
+    const bytes = readFileSync(buildPath);
     const directoryBytes = readFileSync(__DIRECTORY_PATH__);
     console.log('PERFORMANCE_MEASUREMENT', JSON.stringify({ iterations: 10000, elapsedMs,
       microsecondsPerResolution: elapsedMs * 1000 / 10000, historyBytes: bytes.length,

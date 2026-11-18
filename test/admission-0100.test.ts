@@ -8,7 +8,7 @@ import type { Dataset } from "../src/types.ts";
 const read = (path: string) => JSON.parse(readFileSync(path, "utf8"));
 const base: Dataset = read("test/curated-0.9.0.json");
 const data: Dataset = read("test/curated-0.10.0.json");
-const current: Dataset = read("data/airports.json");
+const current: Dataset = read("test/curated-0.12.0.json");
 const receipt = read("research/admissions/0.10.0/policy-receipt.json");
 const grant = read("research/policy/authorizations.json").authorizations[0];
 const additions = data.assignments.slice(base.assignments.length);

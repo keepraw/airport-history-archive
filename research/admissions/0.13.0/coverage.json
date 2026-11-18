@@ -1,0 +1,1978 @@
+{
+  "formatVersion": 1,
+  "dataVersion": "0.13.0",
+  "fingerprint": {
+    "baselineSha256": "4573fb7e6fac8e02c8e3f57443599385dffada17b250a29f1a18964f6d6d8cc9",
+    "formalSha256": "a834b0153bd897b1f2cc5aaf1300ec5037f4ed43a596848543d84adfb5f99c34",
+    "policySha256": "ecbea45b429c96d3218e75864be3efdec0355dd631f10dee369574c730f08593",
+    "exceptionRegisterSha256": "e0e29cb4e4fe1f3fbe2fed5d52f2a2e99b28a65068857183e7ebe091c9589e0b"
+  },
+  "queryHorizon": {
+    "fromInclusive": "2000-01-01",
+    "toExclusive": "2026-11-19"
+  },
+  "localDates": 9819,
+  "retainedEvidenceScreen": {
+    "high-value-queue": {
+      "affirmativeRows": 0,
+      "matchingCodes": 728,
+      "matchingReviewedCases": 197,
+      "rows": 1198
+    },
+    "ranked-code-links": {
+      "affirmativeRows": 0,
+      "matchingCodes": 1547,
+      "matchingReviewedCases": 131,
+      "rows": 2484
+    },
+    "ranked-reuse-leads": {
+      "affirmativeRows": 0,
+      "matchingCodes": 206,
+      "matchingReviewedCases": 28,
+      "rows": 493
+    },
+    "remaining-high-value-queue": {
+      "affirmativeRows": 0,
+      "matchingCodes": 728,
+      "matchingReviewedCases": 197,
+      "rows": 1198
+    }
+  },
+  "formalPhysicalAirports": 6510,
+  "newFormalPhysicalAirports": 6464,
+  "historicalPredecessorsProcessed": [
+    {
+      "airportId": "apt_0c5b5608-dce9-4366-9e14-c37d24db9abf",
+      "name": "Gwadar International Airport (Old)"
+    },
+    {
+      "airportId": "apt_0de7c542-0975-48ba-9d24-8de625b994d5",
+      "name": "Dachuan Airport"
+    },
+    {
+      "airportId": "apt_0fd3915b-6dd8-4391-a840-9992db9683cf",
+      "name": "Rostov-on-Don Airport"
+    },
+    {
+      "airportId": "apt_23883ba3-c7b9-4cfa-b090-83a52c61e6b7",
+      "name": "Doha International Airport"
+    },
+    {
+      "airportId": "apt_39d85663-388f-414b-b07c-7357a500116e",
+      "name": "Old Guangzhou Baiyun International Airport"
+    },
+    {
+      "airportId": "apt_40861d22-df0a-4eda-9ec2-f5d492ed81b8",
+      "name": "Kunming Wujiaba International Airport"
+    },
+    {
+      "airportId": "apt_4ab9ebed-54ce-4f4f-9f43-1e58873adc14",
+      "name": "Ishigaki Airport"
+    },
+    {
+      "airportId": "apt_56b57bca-08d5-4b5e-944e-1e9cce968a0a",
+      "name": "Luzhou Lantian Airport"
+    },
+    {
+      "airportId": "apt_6f1a6ff3-98db-4e58-95fc-cc78bd5aa836",
+      "name": "Baitabu Air Base"
+    },
+    {
+      "airportId": "apt_7923bd7d-2855-4d5f-b979-63a5380cd3da",
+      "name": "Yantai Laishan Airport"
+    },
+    {
+      "airportId": "apt_7b4e284f-4573-4de6-bdc1-75805dec20d4",
+      "name": "Léopold Sédar Senghor International Airport"
+    },
+    {
+      "airportId": "apt_7b8a3b15-7625-41e0-a5c0-b59bd185075b",
+      "name": "Nagoya Airport / JASDF Komaki Air Base"
+    },
+    {
+      "airportId": "apt_967383b9-116c-4c3b-a8fb-c67515a3eb83",
+      "name": "Temindung Airport"
+    },
+    {
+      "airportId": "apt_96c471d0-0b47-4d61-a8d6-248d66ae16c5",
+      "name": "Tagbilaran Airport"
+    },
+    {
+      "airportId": "apt_9dd95460-8d1c-4cdd-8ce7-4593cc4129c8",
+      "name": "Ankang Wulipu Airport"
+    },
+    {
+      "airportId": "apt_a456f7d0-80f7-48b2-81b0-0d762d5d4b12",
+      "name": "San Javier Airport"
+    },
+    {
+      "airportId": "apt_ab3830d2-4506-46d5-8ff9-c2d5f46ce268",
+      "name": "HAL Airport"
+    },
+    {
+      "airportId": "apt_ad26b777-d1ea-41da-8309-49fd788d59ba",
+      "name": "Siem Reap International Airport"
+    },
+    {
+      "airportId": "apt_ba119874-1b6e-430f-8e9f-a85ac01c3801",
+      "name": "Athens Ellinikon International Airport"
+    },
+    {
+      "airportId": "apt_bbf9f2c1-fc01-4ed7-a4aa-74e6ed8ca45f",
+      "name": "Yibin Caiba Airport"
+    },
+    {
+      "airportId": "apt_d28173b7-5c8b-4012-8eed-18f96c13a0ce",
+      "name": "PAF Base Nur Khan (Benazir Bhutto International Airport)"
+    },
+    {
+      "airportId": "apt_d3a329f9-73d0-43f5-90c2-0ba0a0a2e5be",
+      "name": "Panama City-Bay County International Airport"
+    },
+    {
+      "airportId": "apt_d3ecca74-939f-4d7b-bdea-29cfcc758379",
+      "name": "Qaqortoq Heliport"
+    },
+    {
+      "airportId": "apt_d8f290d3-11cc-4441-af6d-f4dd52d3b8dc",
+      "name": "İstanbul Atatürk Airport"
+    },
+    {
+      "airportId": "apt_da11976f-3702-4738-8924-aa484af1f1b1",
+      "name": "Yan'an Ershilipu Airport"
+    },
+    {
+      "airportId": "apt_dafb3e33-c7ed-431a-b8e8-22eecf543107",
+      "name": "Phnom Penh International Airport"
+    },
+    {
+      "airportId": "apt_e8a61057-31b5-4851-b659-efe7f1fa9806",
+      "name": "Don Mueang International Airport"
+    },
+    {
+      "airportId": "apt_f015c116-129e-4715-99a7-81386e6c1044",
+      "name": "Begumpet Airport"
+    },
+    {
+      "airportId": "apt_f470ecb5-c6dc-4516-a233-37302da2115b",
+      "name": "Qingdao Liuting International Airport"
+    }
+  ],
+  "formal": {
+    "IATA": {
+      "assignments": 6370,
+      "newAssignments": 6342,
+      "uniqueCodes": 6352,
+      "defaultContinuityAssignments": 6275,
+      "historicalExceptionAssignments": 91,
+      "resolvedQueries": {
+        "before": 62087,
+        "after": 61972031,
+        "new": 61909944,
+        "lost": 0,
+        "changedSite": 0,
+        "conflicts": 0
+      },
+      "newlyResolvedByBasis": {
+        "defaultContinuity": 61614225,
+        "historicalExceptions": 295719
+      }
+    },
+    "ICAO": {
+      "assignments": 6214,
+      "newAssignments": 6187,
+      "uniqueCodes": 6211,
+      "defaultContinuityAssignments": 6149,
+      "historicalExceptionAssignments": 60,
+      "resolvedQueries": {
+        "before": 52315,
+        "after": 60525535,
+        "new": 60473220,
+        "lost": 0,
+        "changedSite": 0,
+        "conflicts": 0
+      },
+      "newlyResolvedByBasis": {
+        "defaultContinuity": 60358998,
+        "historicalExceptions": 114222
+      }
+    }
+  },
+  "distinctSchemeCodeKeys": 12563,
+  "weightedResolverCalls": 25728,
+  "newlyResolvedQueries": 122383164,
+  "currentPassengerCoverage": {
+    "measuredOn": "2026-11-18",
+    "referenceRowsScreened": 6488,
+    "duplicateReferenceRows": {
+      "610367": {
+        "basis": "The pinned Edmonton row explicitly says (Duplicate)YEG, has no typed codes and shares the coordinates of the canonical Edmonton International Airport row.",
+        "canonicalReferenceId": "1717"
+      }
+    },
+    "excludedCurrentReferenceRows": {
+      "26475": {
+        "case": "Phnom Penh PNH/KTI",
+        "name": "Phnom Penh International Airport",
+        "reason": "former_civil_passenger_site",
+        "screenedTier": "regional"
+      },
+      "35307": {
+        "case": "Dazhou DAX/DZH",
+        "name": "Dachuan Airport",
+        "reason": "former_civil_passenger_site",
+        "screenedTier": "scheduled"
+      },
+      "342100": {
+        "case": "Planned airport rows",
+        "name": "Long Thanh International Airport (Under Construction)",
+        "reason": "under_construction",
+        "screenedTier": "regional"
+      },
+      "525151": {
+        "case": "Planned airport rows",
+        "name": "Bozhou Airport (under construction)",
+        "reason": "under_construction",
+        "screenedTier": null
+      },
+      "600647": {
+        "case": "Planned airport rows",
+        "name": "Tongren Dejiang Airport (Under Construction)",
+        "reason": "under_construction",
+        "screenedTier": "regional"
+      }
+    },
+    "processed": 6483,
+    "covered": 6406,
+    "percent": 98.81,
+    "byTier": {
+      "scheduled": {
+        "processed": 4222,
+        "covered": 4145
+      },
+      "regional": {
+        "processed": 2261,
+        "covered": 2261
+      }
+    },
+    "coveredByScheme": {
+      "IATA": 6339,
+      "ICAO": 6201
+    },
+    "missingBothSchemes": 77,
+    "issuesByReason": {
+      "missing_typed_current_code": 425,
+      "dated_komaki_iata_observation_required": 1
+    },
+    "uncoveredByReason": {
+      "missing_typed_current_code": 77
+    },
+    "uncovered": [
+      {
+        "referenceId": "20",
+        "airportId": "apt_fb6610bd-d37b-4160-9fb7-82b47bb6c524",
+        "codes": {
+          "IATA": null,
+          "ICAO": null
+        },
+        "issues": [
+          "IATA missing_typed_current_code",
+          "ICAO missing_typed_current_code"
+        ],
+        "name": "Aeródromo Estancia Don Panos",
+        "tier": "scheduled"
+      },
+      {
+        "referenceId": "626",
+        "airportId": "apt_d5460261-debe-4f5e-a913-f465e9223034",
+        "codes": {
+          "IATA": null,
+          "ICAO": null
+        },
+        "issues": [
+          "IATA missing_typed_current_code",
+          "ICAO missing_typed_current_code"
+        ],
+        "name": "Fort Ware Airport",
+        "tier": "scheduled"
+      },
+      {
+        "referenceId": "659",
+        "airportId": "apt_a0220434-76c5-435d-bc4a-1b3cfb932f7f",
+        "codes": {
+          "IATA": null,
+          "ICAO": null
+        },
+        "issues": [
+          "IATA missing_typed_current_code",
+          "ICAO missing_typed_current_code"
+        ],
+        "name": "Ospika Airport",
+        "tier": "scheduled"
+      },
+      {
+        "referenceId": "703",
+        "airportId": "apt_2a6efe82-0a62-4d7a-b627-dbe2be9e293d",
+        "codes": {
+          "IATA": null,
+          "ICAO": null
+        },
+        "issues": [
+          "IATA missing_typed_current_code",
+          "ICAO missing_typed_current_code"
+        ],
+        "name": "Tsay Keh Airport",
+        "tier": "scheduled"
+      },
+      {
+        "referenceId": "1051",
+        "airportId": "apt_72099983-238e-403f-b1a3-1e1cc199ac97",
+        "codes": {
+          "IATA": null,
+          "ICAO": null
+        },
+        "issues": [
+          "IATA missing_typed_current_code",
+          "ICAO missing_typed_current_code"
+        ],
+        "name": "Gods Lake Airport",
+        "tier": "scheduled"
+      },
+      {
+        "referenceId": "1172",
+        "airportId": "apt_e4aa5711-e1f8-4c4f-9c21-0d00f3696c92",
+        "codes": {
+          "IATA": null,
+          "ICAO": null
+        },
+        "issues": [
+          "IATA missing_typed_current_code",
+          "ICAO missing_typed_current_code"
+        ],
+        "name": "Slate Falls Airport",
+        "tier": "scheduled"
+      },
+      {
+        "referenceId": "4897",
+        "airportId": "apt_c8edf48c-80eb-4732-9c10-41fc68aa37ce",
+        "codes": {
+          "IATA": null,
+          "ICAO": null
+        },
+        "issues": [
+          "IATA missing_typed_current_code",
+          "ICAO missing_typed_current_code"
+        ],
+        "name": "Camaguey-Campo Cuatro Milpas Airport",
+        "tier": "scheduled"
+      },
+      {
+        "referenceId": "6807",
+        "airportId": "apt_44e2be12-622c-4954-b505-b64e4ac3d89a",
+        "codes": {
+          "IATA": null,
+          "ICAO": null
+        },
+        "issues": [
+          "IATA missing_typed_current_code",
+          "ICAO missing_typed_current_code"
+        ],
+        "name": "Wasilla Creek Airpark",
+        "tier": "scheduled"
+      },
+      {
+        "referenceId": "8638",
+        "airportId": "apt_b4e541c2-706c-44bb-af27-54fe7c9ebd2c",
+        "codes": {
+          "IATA": null,
+          "ICAO": null
+        },
+        "issues": [
+          "IATA missing_typed_current_code",
+          "ICAO missing_typed_current_code"
+        ],
+        "name": "Point Roberts Airpark",
+        "tier": "scheduled"
+      },
+      {
+        "referenceId": "9819",
+        "airportId": "apt_16f54333-b1e1-4d10-bada-11a1b5729195",
+        "codes": {
+          "IATA": null,
+          "ICAO": null
+        },
+        "issues": [
+          "IATA missing_typed_current_code",
+          "ICAO missing_typed_current_code"
+        ],
+        "name": "Stanley Airport",
+        "tier": "scheduled"
+      },
+      {
+        "referenceId": "9850",
+        "airportId": "apt_23025342-d91f-4aa4-970a-014f15e50e81",
+        "codes": {
+          "IATA": null,
+          "ICAO": null
+        },
+        "issues": [
+          "IATA missing_typed_current_code",
+          "ICAO missing_typed_current_code"
+        ],
+        "name": "Stuart Island West Airport",
+        "tier": "scheduled"
+      },
+      {
+        "referenceId": "13634",
+        "airportId": "apt_def98c48-14db-41fc-9f43-ac91aa00a21c",
+        "codes": {
+          "IATA": null,
+          "ICAO": null
+        },
+        "issues": [
+          "IATA missing_typed_current_code",
+          "ICAO missing_typed_current_code"
+        ],
+        "name": "Welke Airport",
+        "tier": "scheduled"
+      },
+      {
+        "referenceId": "14820",
+        "airportId": "apt_ccfb957e-deef-4918-ae4b-6f66b632a03f",
+        "codes": {
+          "IATA": null,
+          "ICAO": null
+        },
+        "issues": [
+          "IATA missing_typed_current_code",
+          "ICAO missing_typed_current_code"
+        ],
+        "name": "Kelleys Island Land Field",
+        "tier": "scheduled"
+      },
+      {
+        "referenceId": "14843",
+        "airportId": "apt_680cb312-20d6-49ff-82bf-179d9c00af2b",
+        "codes": {
+          "IATA": null,
+          "ICAO": null
+        },
+        "issues": [
+          "IATA missing_typed_current_code",
+          "ICAO missing_typed_current_code"
+        ],
+        "name": "Lajitas International Airport",
+        "tier": "scheduled"
+      },
+      {
+        "referenceId": "16078",
+        "airportId": "apt_ed17a6d1-bfa6-49ef-b6a7-2133e1d4de19",
+        "codes": {
+          "IATA": null,
+          "ICAO": null
+        },
+        "issues": [
+          "IATA missing_typed_current_code",
+          "ICAO missing_typed_current_code"
+        ],
+        "name": "Sitka Seaplane Base",
+        "tier": "scheduled"
+      },
+      {
+        "referenceId": "24236",
+        "airportId": "apt_4e1ee69e-3290-4c46-b0f6-b2fec00080d0",
+        "codes": {
+          "IATA": null,
+          "ICAO": null
+        },
+        "issues": [
+          "IATA missing_typed_current_code",
+          "ICAO missing_typed_current_code"
+        ],
+        "name": "San Juan Seaplane Base",
+        "tier": "scheduled"
+      },
+      {
+        "referenceId": "25583",
+        "airportId": "apt_e55d29b4-3779-4222-b04f-f3a617b1b27d",
+        "codes": {
+          "IATA": null,
+          "ICAO": null
+        },
+        "issues": [
+          "IATA missing_typed_current_code",
+          "ICAO missing_typed_current_code"
+        ],
+        "name": "Roche Harbor Seaplane Base",
+        "tier": "scheduled"
+      },
+      {
+        "referenceId": "25673",
+        "airportId": "apt_2315b3ac-e486-4658-ae24-3e10d97283af",
+        "codes": {
+          "IATA": null,
+          "ICAO": null
+        },
+        "issues": [
+          "IATA missing_typed_current_code",
+          "ICAO missing_typed_current_code"
+        ],
+        "name": "Fishermans Bay Seaplane Base",
+        "tier": "scheduled"
+      },
+      {
+        "referenceId": "26061",
+        "airportId": "apt_f4a551b2-9bd5-4366-919b-d6059d27caf7",
+        "codes": {
+          "IATA": null,
+          "ICAO": null
+        },
+        "issues": [
+          "IATA missing_typed_current_code",
+          "ICAO missing_typed_current_code"
+        ],
+        "name": "Newtok Seaplane Base",
+        "tier": "scheduled"
+      },
+      {
+        "referenceId": "26747",
+        "airportId": "apt_ebcd5638-6b33-4b1e-b4da-457fab3ca18c",
+        "codes": {
+          "IATA": null,
+          "ICAO": null
+        },
+        "issues": [
+          "IATA missing_typed_current_code",
+          "ICAO missing_typed_current_code"
+        ],
+        "name": "Old Nabire Airport",
+        "tier": "scheduled"
+      },
+      {
+        "referenceId": "26838",
+        "airportId": "apt_5379989e-9ec0-409f-ae94-5257abb1c33f",
+        "codes": {
+          "IATA": null,
+          "ICAO": null
+        },
+        "issues": [
+          "IATA missing_typed_current_code",
+          "ICAO missing_typed_current_code"
+        ],
+        "name": "Tabing Airport",
+        "tier": "scheduled"
+      },
+      {
+        "referenceId": "28200",
+        "airportId": "apt_e1d6630f-9e27-443a-a6bc-252403014aef",
+        "codes": {
+          "IATA": null,
+          "ICAO": null
+        },
+        "issues": [
+          "IATA missing_typed_current_code",
+          "ICAO missing_typed_current_code"
+        ],
+        "name": "Comox Seaplane Base",
+        "tier": "scheduled"
+      },
+      {
+        "referenceId": "28237",
+        "airportId": "apt_0e3e7854-616a-4846-a9f0-4c415e451965",
+        "codes": {
+          "IATA": null,
+          "ICAO": null
+        },
+        "issues": [
+          "IATA missing_typed_current_code",
+          "ICAO missing_typed_current_code"
+        ],
+        "name": "Gilford Island/Echo Bay Seaplane Base",
+        "tier": "scheduled"
+      },
+      {
+        "referenceId": "28319",
+        "airportId": "apt_6d9dc74e-de7c-43cb-8fed-0a93b1a93ed7",
+        "codes": {
+          "IATA": null,
+          "ICAO": null
+        },
+        "issues": [
+          "IATA missing_typed_current_code",
+          "ICAO missing_typed_current_code"
+        ],
+        "name": "Minstrel Island Seaplane Base",
+        "tier": "scheduled"
+      },
+      {
+        "referenceId": "28370",
+        "airportId": "apt_5f0288f3-8ef0-4a01-9dc3-bcd438de91c2",
+        "codes": {
+          "IATA": null,
+          "ICAO": null
+        },
+        "issues": [
+          "IATA missing_typed_current_code",
+          "ICAO missing_typed_current_code"
+        ],
+        "name": "Pitt Meadows Seaplane Base",
+        "tier": "scheduled"
+      },
+      {
+        "referenceId": "28373",
+        "airportId": "apt_9742c9e8-255b-4718-903b-e819b69b338f",
+        "codes": {
+          "IATA": null,
+          "ICAO": null
+        },
+        "issues": [
+          "IATA missing_typed_current_code",
+          "ICAO missing_typed_current_code"
+        ],
+        "name": "Port Alberni Seaplane Base",
+        "tier": "scheduled"
+      },
+      {
+        "referenceId": "28383",
+        "airportId": "apt_be5121b5-a9a1-45b6-933b-e98aff0fec49",
+        "codes": {
+          "IATA": null,
+          "ICAO": null
+        },
+        "issues": [
+          "IATA missing_typed_current_code",
+          "ICAO missing_typed_current_code"
+        ],
+        "name": "Port Washington Seaplane Base",
+        "tier": "scheduled"
+      },
+      {
+        "referenceId": "28450",
+        "airportId": "apt_b28ac477-663b-4060-bc1f-8965b3dd8af0",
+        "codes": {
+          "IATA": null,
+          "ICAO": null
+        },
+        "issues": [
+          "IATA missing_typed_current_code",
+          "ICAO missing_typed_current_code"
+        ],
+        "name": "Ucluelet Seaplane Base",
+        "tier": "scheduled"
+      },
+      {
+        "referenceId": "28454",
+        "airportId": "apt_b5fa4d17-aecf-4bf3-827a-042d3ef2fc8e",
+        "codes": {
+          "IATA": null,
+          "ICAO": null
+        },
+        "issues": [
+          "IATA missing_typed_current_code",
+          "ICAO missing_typed_current_code"
+        ],
+        "name": "Vancouver International Seaplane Base",
+        "tier": "scheduled"
+      },
+      {
+        "referenceId": "28458",
+        "airportId": "apt_6d13cc25-8443-4925-ac1d-cfb6c5d0ff49",
+        "codes": {
+          "IATA": null,
+          "ICAO": null
+        },
+        "issues": [
+          "IATA missing_typed_current_code",
+          "ICAO missing_typed_current_code"
+        ],
+        "name": "Victoria Airport Water Aerodrome",
+        "tier": "scheduled"
+      },
+      {
+        "referenceId": "31750",
+        "airportId": "apt_0f0f7649-4a45-4a5c-be53-adfdde162b14",
+        "codes": {
+          "IATA": null,
+          "ICAO": null
+        },
+        "issues": [
+          "IATA missing_typed_current_code",
+          "ICAO missing_typed_current_code"
+        ],
+        "name": "Salerno South Airport",
+        "tier": "scheduled"
+      },
+      {
+        "referenceId": "32745",
+        "airportId": "apt_cb1fd828-e15f-4a2b-8a7c-5032a5a8662e",
+        "codes": {
+          "IATA": null,
+          "ICAO": null
+        },
+        "issues": [
+          "IATA missing_typed_current_code",
+          "ICAO missing_typed_current_code"
+        ],
+        "name": "Yongxing Dao (Woody Island) Air Base",
+        "tier": "scheduled"
+      },
+      {
+        "referenceId": "43788",
+        "airportId": "apt_ccdb1fef-dd92-4726-9bd7-abff67c0a2fe",
+        "codes": {
+          "IATA": null,
+          "ICAO": null
+        },
+        "issues": [
+          "IATA missing_typed_current_code",
+          "ICAO missing_typed_current_code"
+        ],
+        "name": "K50 Airstrip",
+        "tier": "scheduled"
+      },
+      {
+        "referenceId": "44582",
+        "airportId": "apt_f5ee2d37-4b47-4cee-85e3-d36df1a5cb67",
+        "codes": {
+          "IATA": null,
+          "ICAO": null
+        },
+        "issues": [
+          "IATA missing_typed_current_code",
+          "ICAO missing_typed_current_code"
+        ],
+        "name": "Baljek Airport",
+        "tier": "scheduled"
+      },
+      {
+        "referenceId": "46518",
+        "airportId": "apt_63708d61-5ddf-4dbc-b567-c29a0825ec08",
+        "codes": {
+          "IATA": null,
+          "ICAO": null
+        },
+        "issues": [
+          "IATA missing_typed_current_code",
+          "ICAO missing_typed_current_code"
+        ],
+        "name": "Baramati Airport",
+        "tier": "scheduled"
+      },
+      {
+        "referenceId": "310260",
+        "airportId": "apt_b5680d9d-2f2f-4359-a9ab-5432020ae4b8",
+        "codes": {
+          "IATA": null,
+          "ICAO": null
+        },
+        "issues": [
+          "IATA missing_typed_current_code",
+          "ICAO missing_typed_current_code"
+        ],
+        "name": "Diphikin Airstrip",
+        "tier": "scheduled"
+      },
+      {
+        "referenceId": "310463",
+        "airportId": "apt_a5cafef2-e785-473e-839a-555b1c6805ac",
+        "codes": {
+          "IATA": null,
+          "ICAO": null
+        },
+        "issues": [
+          "IATA missing_typed_current_code",
+          "ICAO missing_typed_current_code"
+        ],
+        "name": "Kiwi Airstrip",
+        "tier": "scheduled"
+      },
+      {
+        "referenceId": "310606",
+        "airportId": "apt_f3cb0cf4-9137-4c44-8e00-b35d48016b77",
+        "codes": {
+          "IATA": null,
+          "ICAO": null
+        },
+        "issues": [
+          "IATA missing_typed_current_code",
+          "ICAO missing_typed_current_code"
+        ],
+        "name": "Oklip Airstrip",
+        "tier": "scheduled"
+      },
+      {
+        "referenceId": "311005",
+        "airportId": "apt_689ad7b5-9c21-45a7-ac4c-82b63d6e1314",
+        "codes": {
+          "IATA": null,
+          "ICAO": null
+        },
+        "issues": [
+          "IATA missing_typed_current_code",
+          "ICAO missing_typed_current_code"
+        ],
+        "name": "Sape Airstrip",
+        "tier": "scheduled"
+      },
+      {
+        "referenceId": "311212",
+        "airportId": "apt_343123c5-22a2-4d85-901c-72c2e9fdba00",
+        "codes": {
+          "IATA": null,
+          "ICAO": null
+        },
+        "issues": [
+          "IATA missing_typed_current_code",
+          "ICAO missing_typed_current_code"
+        ],
+        "name": "Suntamon Airport",
+        "tier": "scheduled"
+      },
+      {
+        "referenceId": "311645",
+        "airportId": "apt_aebc0d1f-b0ef-42af-9ff5-95f616e527b7",
+        "codes": {
+          "IATA": null,
+          "ICAO": null
+        },
+        "issues": [
+          "IATA missing_typed_current_code",
+          "ICAO missing_typed_current_code"
+        ],
+        "name": "Yapil Airstrip",
+        "tier": "scheduled"
+      },
+      {
+        "referenceId": "313091",
+        "airportId": "apt_31f37f13-e709-4dad-871a-f43119ef4b56",
+        "codes": {
+          "IATA": null,
+          "ICAO": null
+        },
+        "issues": [
+          "IATA missing_typed_current_code",
+          "ICAO missing_typed_current_code"
+        ],
+        "name": "Gan Gan Field",
+        "tier": "scheduled"
+      },
+      {
+        "referenceId": "314219",
+        "airportId": "apt_e1d917dd-0020-4e31-8ae9-05d959678c9b",
+        "codes": {
+          "IATA": null,
+          "ICAO": null
+        },
+        "issues": [
+          "IATA missing_typed_current_code",
+          "ICAO missing_typed_current_code"
+        ],
+        "name": "Sechelt/Porpoise Bay Water Aerodrome",
+        "tier": "scheduled"
+      },
+      {
+        "referenceId": "317283",
+        "airportId": "apt_26a82c43-751b-4264-a0e5-4f9a024b8d62",
+        "codes": {
+          "IATA": null,
+          "ICAO": null
+        },
+        "issues": [
+          "IATA missing_typed_current_code",
+          "ICAO missing_typed_current_code"
+        ],
+        "name": "Iranamadu Airport",
+        "tier": "scheduled"
+      },
+      {
+        "referenceId": "318055",
+        "airportId": "apt_f384910c-bf69-43f9-9e6e-356b22a7edea",
+        "codes": {
+          "IATA": null,
+          "ICAO": null
+        },
+        "issues": [
+          "IATA missing_typed_current_code",
+          "ICAO missing_typed_current_code"
+        ],
+        "name": "Omtepe Airport",
+        "tier": "scheduled"
+      },
+      {
+        "referenceId": "319370",
+        "airportId": "apt_8322ec1d-e169-418d-9e22-edce68d13912",
+        "codes": {
+          "IATA": null,
+          "ICAO": null
+        },
+        "issues": [
+          "IATA missing_typed_current_code",
+          "ICAO missing_typed_current_code"
+        ],
+        "name": "Cedros Airport",
+        "tier": "scheduled"
+      },
+      {
+        "referenceId": "325386",
+        "airportId": "apt_7c788581-2114-4916-b12b-b4fe8709e904",
+        "codes": {
+          "IATA": null,
+          "ICAO": null
+        },
+        "issues": [
+          "IATA missing_typed_current_code",
+          "ICAO missing_typed_current_code"
+        ],
+        "name": "Awimbon Airstrip",
+        "tier": "scheduled"
+      },
+      {
+        "referenceId": "326142",
+        "airportId": "apt_49d6ed23-e719-4e21-b8f2-e4456ae93b02",
+        "codes": {
+          "IATA": null,
+          "ICAO": null
+        },
+        "issues": [
+          "IATA missing_typed_current_code",
+          "ICAO missing_typed_current_code"
+        ],
+        "name": "Aarhus Seaplane Terminal",
+        "tier": "scheduled"
+      },
+      {
+        "referenceId": "327976",
+        "airportId": "apt_bde040d7-3e8e-449c-b164-b909ef354dfc",
+        "codes": {
+          "IATA": null,
+          "ICAO": null
+        },
+        "issues": [
+          "IATA missing_typed_current_code",
+          "ICAO missing_typed_current_code"
+        ],
+        "name": "Agricola La Tuxcana Airport",
+        "tier": "scheduled"
+      },
+      {
+        "referenceId": "341397",
+        "airportId": "apt_e77e3cdf-7cdd-4c6e-902b-17d7a4e31d41",
+        "codes": {
+          "IATA": null,
+          "ICAO": null
+        },
+        "issues": [
+          "IATA missing_typed_current_code",
+          "ICAO missing_typed_current_code"
+        ],
+        "name": "Poise Cove Waterdrome",
+        "tier": "scheduled"
+      },
+      {
+        "referenceId": "348750",
+        "airportId": "apt_a6ada1aa-07f4-47c1-91a1-7211b3b938ba",
+        "codes": {
+          "IATA": null,
+          "ICAO": null
+        },
+        "issues": [
+          "IATA missing_typed_current_code",
+          "ICAO missing_typed_current_code"
+        ],
+        "name": "Kubibkop Airport",
+        "tier": "scheduled"
+      },
+      {
+        "referenceId": "350462",
+        "airportId": "apt_344eeba0-7771-4d62-a088-2c1e96d0f790",
+        "codes": {
+          "IATA": null,
+          "ICAO": null
+        },
+        "issues": [
+          "IATA missing_typed_current_code",
+          "ICAO missing_typed_current_code"
+        ],
+        "name": "Okpahik Airstrip",
+        "tier": "scheduled"
+      },
+      {
+        "referenceId": "350463",
+        "airportId": "apt_67158bc9-9a5c-4ddd-9c71-35ff397e4399",
+        "codes": {
+          "IATA": null,
+          "ICAO": null
+        },
+        "issues": [
+          "IATA missing_typed_current_code",
+          "ICAO missing_typed_current_code"
+        ],
+        "name": "Molding Airstrip",
+        "tier": "scheduled"
+      },
+      {
+        "referenceId": "350464",
+        "airportId": "apt_8dd9c573-63c2-4388-8517-7d0cc99328a5",
+        "codes": {
+          "IATA": null,
+          "ICAO": null
+        },
+        "issues": [
+          "IATA missing_typed_current_code",
+          "ICAO missing_typed_current_code"
+        ],
+        "name": "Tarup Airstrip",
+        "tier": "scheduled"
+      },
+      {
+        "referenceId": "350465",
+        "airportId": "apt_9e9b6c49-992a-49b4-9b10-9475babf0e50",
+        "codes": {
+          "IATA": null,
+          "ICAO": null
+        },
+        "issues": [
+          "IATA missing_typed_current_code",
+          "ICAO missing_typed_current_code"
+        ],
+        "name": "Tinibil Airstrip",
+        "tier": "scheduled"
+      },
+      {
+        "referenceId": "350467",
+        "airportId": "apt_00c2fd50-51bd-4c5d-b057-efd07df8496a",
+        "codes": {
+          "IATA": null,
+          "ICAO": null
+        },
+        "issues": [
+          "IATA missing_typed_current_code",
+          "ICAO missing_typed_current_code"
+        ],
+        "name": "Okbab Airstrip",
+        "tier": "scheduled"
+      },
+      {
+        "referenceId": "350468",
+        "airportId": "apt_d3f6bb99-b477-4f5f-833f-1509d69d4d47",
+        "codes": {
+          "IATA": null,
+          "ICAO": null
+        },
+        "issues": [
+          "IATA missing_typed_current_code",
+          "ICAO missing_typed_current_code"
+        ],
+        "name": "Alemson Airstrip",
+        "tier": "scheduled"
+      },
+      {
+        "referenceId": "350485",
+        "airportId": "apt_b73aeb01-a3d2-4920-8f8a-d7c8941b1f76",
+        "codes": {
+          "IATA": null,
+          "ICAO": null
+        },
+        "issues": [
+          "IATA missing_typed_current_code",
+          "ICAO missing_typed_current_code"
+        ],
+        "name": "Kotyobakon Airstrip",
+        "tier": "scheduled"
+      },
+      {
+        "referenceId": "350486",
+        "airportId": "apt_ea01aa5a-6c53-4b61-a7de-e3dec5b9a698",
+        "codes": {
+          "IATA": null,
+          "ICAO": null
+        },
+        "issues": [
+          "IATA missing_typed_current_code",
+          "ICAO missing_typed_current_code"
+        ],
+        "name": "Mipol Airstrip",
+        "tier": "scheduled"
+      },
+      {
+        "referenceId": "350487",
+        "airportId": "apt_bc4dcbcc-e627-4f8a-a6af-277229103e6e",
+        "codes": {
+          "IATA": null,
+          "ICAO": null
+        },
+        "issues": [
+          "IATA missing_typed_current_code",
+          "ICAO missing_typed_current_code"
+        ],
+        "name": "Binban Airstrip",
+        "tier": "scheduled"
+      },
+      {
+        "referenceId": "350488",
+        "airportId": "apt_f6dbe09e-04ab-4d85-abc5-1fa8e760b71f",
+        "codes": {
+          "IATA": null,
+          "ICAO": null
+        },
+        "issues": [
+          "IATA missing_typed_current_code",
+          "ICAO missing_typed_current_code"
+        ],
+        "name": "Kaklup Airstrip",
+        "tier": "scheduled"
+      },
+      {
+        "referenceId": "350489",
+        "airportId": "apt_248a52b5-1423-4599-b584-738da87d659d",
+        "codes": {
+          "IATA": null,
+          "ICAO": null
+        },
+        "issues": [
+          "IATA missing_typed_current_code",
+          "ICAO missing_typed_current_code"
+        ],
+        "name": "Maksum Airstrip",
+        "tier": "scheduled"
+      },
+      {
+        "referenceId": "350498",
+        "airportId": "apt_55d8e120-24e3-440c-bebe-2abf8fef3ffd",
+        "codes": {
+          "IATA": null,
+          "ICAO": null
+        },
+        "issues": [
+          "IATA missing_typed_current_code",
+          "ICAO missing_typed_current_code"
+        ],
+        "name": "Pedam Airstrip",
+        "tier": "scheduled"
+      },
+      {
+        "referenceId": "350517",
+        "airportId": "apt_15e54268-fd8d-4a30-b6db-9ee766c18f1c",
+        "codes": {
+          "IATA": null,
+          "ICAO": null
+        },
+        "issues": [
+          "IATA missing_typed_current_code",
+          "ICAO missing_typed_current_code"
+        ],
+        "name": "Dumpasik Airstrip",
+        "tier": "scheduled"
+      },
+      {
+        "referenceId": "350518",
+        "airportId": "apt_51888089-b2b2-42b8-98b3-ce8eb7f2ffbc",
+        "codes": {
+          "IATA": null,
+          "ICAO": null
+        },
+        "issues": [
+          "IATA missing_typed_current_code",
+          "ICAO missing_typed_current_code"
+        ],
+        "name": "Bordamban Airport",
+        "tier": "scheduled"
+      },
+      {
+        "referenceId": "350520",
+        "airportId": "apt_ceb33367-231f-4cdf-8df8-bf80b5adbb92",
+        "codes": {
+          "IATA": null,
+          "ICAO": null
+        },
+        "issues": [
+          "IATA missing_typed_current_code",
+          "ICAO missing_typed_current_code"
+        ],
+        "name": "Kirimu Airstrip",
+        "tier": "scheduled"
+      },
+      {
+        "referenceId": "350539",
+        "airportId": "apt_aff89d77-2856-4834-9937-3242fd423fe9",
+        "codes": {
+          "IATA": null,
+          "ICAO": null
+        },
+        "issues": [
+          "IATA missing_typed_current_code",
+          "ICAO missing_typed_current_code"
+        ],
+        "name": "Hangmata Airstrip",
+        "tier": "scheduled"
+      },
+      {
+        "referenceId": "351549",
+        "airportId": "apt_636b37f4-7b80-4061-a83b-676a7c287d72",
+        "codes": {
+          "IATA": null,
+          "ICAO": null
+        },
+        "issues": [
+          "IATA missing_typed_current_code",
+          "ICAO missing_typed_current_code"
+        ],
+        "name": "København Vandflyveplads",
+        "tier": "scheduled"
+      },
+      {
+        "referenceId": "355458",
+        "airportId": "apt_f41cf741-c216-4826-9aca-31d7995ce266",
+        "codes": {
+          "IATA": null,
+          "ICAO": null
+        },
+        "issues": [
+          "IATA missing_typed_current_code",
+          "ICAO missing_typed_current_code"
+        ],
+        "name": "Streatham Reef Hueston Airfield",
+        "tier": "scheduled"
+      },
+      {
+        "referenceId": "506052",
+        "airportId": "apt_63e06ea1-c153-481e-973c-606ada9f1e76",
+        "codes": {
+          "IATA": null,
+          "ICAO": null
+        },
+        "issues": [
+          "IATA missing_typed_current_code",
+          "ICAO missing_typed_current_code"
+        ],
+        "name": "Pixvae Airstrip",
+        "tier": "scheduled"
+      },
+      {
+        "referenceId": "569415",
+        "airportId": "apt_17c71f43-cee9-4950-a625-c9da78a3b429",
+        "codes": {
+          "IATA": null,
+          "ICAO": null
+        },
+        "issues": [
+          "IATA missing_typed_current_code",
+          "ICAO missing_typed_current_code"
+        ],
+        "name": "Fazenda Mimosa Airport",
+        "tier": "scheduled"
+      },
+      {
+        "referenceId": "595993",
+        "airportId": "apt_5b38c3a2-23c5-4b39-9b6b-11858119f631",
+        "codes": {
+          "IATA": null,
+          "ICAO": null
+        },
+        "issues": [
+          "IATA missing_typed_current_code",
+          "ICAO missing_typed_current_code"
+        ],
+        "name": "Fazenda Riozinho Airport",
+        "tier": "scheduled"
+      },
+      {
+        "referenceId": "596544",
+        "airportId": "apt_3c8061c5-0c6f-4720-a77c-468c45602683",
+        "codes": {
+          "IATA": null,
+          "ICAO": null
+        },
+        "issues": [
+          "IATA missing_typed_current_code",
+          "ICAO missing_typed_current_code"
+        ],
+        "name": "Aeroestación Yabotí",
+        "tier": "scheduled"
+      },
+      {
+        "referenceId": "608546",
+        "airportId": "apt_f60e0e43-a7b9-4e0f-8ef3-ce11183fa57b",
+        "codes": {
+          "IATA": null,
+          "ICAO": null
+        },
+        "issues": [
+          "IATA missing_typed_current_code",
+          "ICAO missing_typed_current_code"
+        ],
+        "name": "Ulleung Airport",
+        "tier": "scheduled"
+      },
+      {
+        "referenceId": "608547",
+        "airportId": "apt_4d6ef38f-53b4-43f4-918e-0ec4000f5e31",
+        "codes": {
+          "IATA": null,
+          "ICAO": null
+        },
+        "issues": [
+          "IATA missing_typed_current_code",
+          "ICAO missing_typed_current_code"
+        ],
+        "name": "Ulleung Airport",
+        "tier": "scheduled"
+      },
+      {
+        "referenceId": "610368",
+        "airportId": "apt_d865bb24-70e7-494b-a08e-fbdb661b0e47",
+        "codes": {
+          "IATA": null,
+          "ICAO": null
+        },
+        "issues": [
+          "IATA missing_typed_current_code",
+          "ICAO missing_typed_current_code"
+        ],
+        "name": "YEG",
+        "tier": "scheduled"
+      },
+      {
+        "referenceId": "610410",
+        "airportId": "apt_84cb5b55-db2a-4e95-87fb-62359fd69f01",
+        "codes": {
+          "IATA": null,
+          "ICAO": null
+        },
+        "issues": [
+          "IATA missing_typed_current_code",
+          "ICAO missing_typed_current_code"
+        ],
+        "name": "金鸭子国际机场",
+        "tier": "scheduled"
+      }
+    ]
+  },
+  "reviewedExceptions": [
+    {
+      "case": "Qingdao TAO",
+      "status": "split",
+      "assignmentIds": [
+        "iata-tao-liuting",
+        "iata-tao-jiaodong"
+      ],
+      "newlyResolvedQueries": 6098
+    },
+    {
+      "case": "Istanbul IST and ISL",
+      "status": "split",
+      "assignmentIds": [
+        "iata-ist-ataturk",
+        "iata-ist-istanbul",
+        "iata-isl-ataturk",
+        "icao-ltfm-istanbul"
+      ],
+      "newlyResolvedQueries": 5730
+    },
+    {
+      "case": "Bengaluru BLR",
+      "status": "split",
+      "assignmentIds": [
+        "continuity-iata-blr-26603",
+        "continuity-iata-blr-35145",
+        "continuity-icao-vobl-35145",
+        "continuity-icao-vobg-26603"
+      ],
+      "newlyResolvedQueries": 19661
+    },
+    {
+      "case": "Palm Beach PBI/DJT and KPBI/KDJT",
+      "status": "split",
+      "assignmentIds": [
+        "continuity-iata-pbi-3766",
+        "continuity-iata-djt-3766",
+        "continuity-icao-kpbi-3766",
+        "continuity-icao-kdjt-3766"
+      ],
+      "newlyResolvedQueries": 19636
+    },
+    {
+      "case": "Manas FRU/BSZ",
+      "status": "split",
+      "assignmentIds": [
+        "continuity-iata-fru-6426",
+        "continuity-iata-bsz-6426"
+      ],
+      "newlyResolvedQueries": 9816
+    },
+    {
+      "case": "Lianyungang LYG/ZSLG",
+      "status": "bounded",
+      "assignmentIds": [
+        "continuity-iata-lyg-35312",
+        "continuity-iata-lyg-44167",
+        "continuity-icao-zslg-44167"
+      ],
+      "newlyResolvedQueries": 9226
+    },
+    {
+      "case": "Luzhou LZO/ZULZ",
+      "status": "bounded",
+      "assignmentIds": [
+        "continuity-iata-lzo-35313",
+        "continuity-iata-lzo-336114",
+        "continuity-icao-zulz-336114"
+      ],
+      "newlyResolvedQueries": 7697
+    },
+    {
+      "case": "Yibin YBP/ZUYB",
+      "status": "bounded",
+      "assignmentIds": [
+        "continuity-iata-ybp-300456",
+        "continuity-iata-ybp-336111",
+        "continuity-icao-zuyb-336111"
+      ],
+      "newlyResolvedQueries": 8555
+    },
+    {
+      "case": "Guangzhou CAN/ZGGG",
+      "status": "bounded",
+      "assignmentIds": [
+        "continuity-iata-can-35146",
+        "continuity-iata-can-27194",
+        "continuity-icao-zggg-27194"
+      ],
+      "newlyResolvedQueries": 17957
+    },
+    {
+      "case": "Kunming KMG/ZPPP",
+      "status": "bounded",
+      "assignmentIds": [
+        "continuity-iata-kmg-314908",
+        "continuity-iata-kmg-27214",
+        "continuity-icao-zppp-314908",
+        "continuity-icao-zppp-27214"
+      ],
+      "newlyResolvedQueries": 12731
+    },
+    {
+      "case": "KUL, OSL and MUC",
+      "status": "pre_cutoff",
+      "assignmentIds": [],
+      "newlyResolvedQueries": 0
+    },
+    {
+      "case": "Denver and Hong Kong pre-cutoff reuse",
+      "status": "retained_boundary",
+      "assignmentIds": [
+        "iata-hkg-chek-lap-kok",
+        "icao-vhhh-chek-lap-kok",
+        "iata-den-denver"
+      ],
+      "newlyResolvedQueries": 75
+    },
+    {
+      "case": "Islamabad ISB and OPIS",
+      "status": "retained_boundary",
+      "assignmentIds": [
+        "iata-isb-islamabad",
+        "icao-opis-islamabad",
+        "iata-isb-benazir-bhutto"
+      ],
+      "newlyResolvedQueries": 6021
+    },
+    {
+      "case": "Berlin SXF/BER",
+      "status": "retained_boundary",
+      "assignmentIds": [
+        "iata-ber-schonefeld-brandenburg",
+        "iata-sxf-schonefeld-brandenburg"
+      ],
+      "newlyResolvedQueries": 7451
+    },
+    {
+      "case": "Astana TSE/NQZ",
+      "status": "retained_boundary",
+      "assignmentIds": [
+        "iata-nqz-astana",
+        "iata-tse-astana"
+      ],
+      "newlyResolvedQueries": 7427
+    },
+    {
+      "case": "Chisinau KIV/RMO",
+      "status": "retained_boundary",
+      "assignmentIds": [
+        "iata-rmo-chisinau",
+        "iata-kiv-chisinau"
+      ],
+      "newlyResolvedQueries": 8779
+    },
+    {
+      "case": "Rostov ROV/RVI",
+      "status": "retained_boundary",
+      "assignmentIds": [
+        "iata-rov-platov",
+        "iata-rov-rostov-on-don"
+      ],
+      "newlyResolvedQueries": 5948
+    },
+    {
+      "case": "Yantai YNT",
+      "status": "retained_boundary",
+      "assignmentIds": [
+        "iata-ynt-penglai",
+        "iata-ynt-laishan"
+      ],
+      "newlyResolvedQueries": 5452
+    },
+    {
+      "case": "Phnom Penh PNH/KTI",
+      "status": "retained_boundary",
+      "assignmentIds": [
+        "iata-kti-techo",
+        "icao-vdti-techo",
+        "iata-pnh-pochentong",
+        "icao-vdpp-pochentong"
+      ],
+      "newlyResolvedQueries": 8567
+    },
+    {
+      "case": "Dakar DKR/DSS",
+      "status": "retained_boundary",
+      "assignmentIds": [
+        "iata-dss-diass",
+        "icao-gobd-diass",
+        "iata-dkr-yoff"
+      ],
+      "newlyResolvedQueries": 4887
+    },
+    {
+      "case": "Samarinda AAP",
+      "status": "retained_boundary",
+      "assignmentIds": [
+        "iata-aap-pranoto"
+      ],
+      "newlyResolvedQueries": 25
+    },
+    {
+      "case": "Qingdao ZSQD",
+      "status": "bounded",
+      "assignmentIds": [
+        "continuity-icao-zsqd-342096"
+      ],
+      "newlyResolvedQueries": 24
+    },
+    {
+      "case": "Bangkok BKK and DMK",
+      "status": "split",
+      "assignmentIds": [
+        "continuity-iata-bkk-26638",
+        "continuity-iata-bkk-28118",
+        "continuity-iata-dmk-26638",
+        "continuity-icao-vtbs-28118"
+      ],
+      "newlyResolvedQueries": 17105
+    },
+    {
+      "case": "Athens ATH and LGAT/LGAV",
+      "status": "bounded",
+      "assignmentIds": [
+        "continuity-iata-ath-29673",
+        "continuity-iata-ath-4251",
+        "continuity-icao-lgav-4251",
+        "continuity-icao-lgat-29673"
+      ],
+      "newlyResolvedQueries": 19635
+    },
+    {
+      "case": "Doha DOH and DIA",
+      "status": "bounded",
+      "assignmentIds": [
+        "continuity-iata-doh-5308",
+        "continuity-iata-doh-44686",
+        "continuity-iata-dia-5308",
+        "continuity-icao-othh-44686"
+      ],
+      "newlyResolvedQueries": 14155
+    },
+    {
+      "case": "Beijing Daxing PKX/ZBAD",
+      "status": "bounded",
+      "assignmentIds": [
+        "continuity-iata-pkx-330820",
+        "continuity-icao-zbad-330820"
+      ],
+      "newlyResolvedQueries": 2635
+    },
+    {
+      "case": "Incheon ICN/RKSI",
+      "status": "bounded",
+      "assignmentIds": [
+        "continuity-iata-icn-5653",
+        "continuity-icao-rksi-5653"
+      ],
+      "newlyResolvedQueries": 9946
+    },
+    {
+      "case": "Western Sydney WSI/YSWS",
+      "status": "bounded",
+      "assignmentIds": [
+        "continuity-iata-wsi-507237",
+        "continuity-icao-ysws-507237"
+      ],
+      "newlyResolvedQueries": 48
+    },
+    {
+      "case": "Dazhou DAX/DZH",
+      "status": "bounded",
+      "assignmentIds": [
+        "continuity-iata-dax-35307",
+        "continuity-iata-dzh-352223",
+        "continuity-icao-zuda-352223"
+      ],
+      "newlyResolvedQueries": 9799
+    },
+    {
+      "case": "Hyderabad HYD, VOHS and Begumpet BPM",
+      "status": "split",
+      "assignmentIds": [
+        "continuity-iata-hyd-26615",
+        "continuity-iata-hyd-35141",
+        "continuity-icao-vohs-35141",
+        "continuity-iata-bpm-26615"
+      ],
+      "newlyResolvedQueries": 15186
+    },
+    {
+      "case": "Ishigaki ISG/ROIG",
+      "status": "bounded",
+      "assignmentIds": [
+        "continuity-icao-roig-5674",
+        "continuity-icao-roig-327608",
+        "continuity-iata-isg-327608"
+      ],
+      "newlyResolvedQueries": 14822
+    },
+    {
+      "case": "Nagoya NGO/NKM and RJGG/RJNA",
+      "status": "bounded",
+      "assignmentIds": [
+        "continuity-iata-ngo-5576",
+        "continuity-icao-rjgg-5576",
+        "continuity-iata-nkm-5581",
+        "continuity-icao-rjnn-5581",
+        "continuity-icao-rjna-5581"
+      ],
+      "newlyResolvedQueries": 25731
+    },
+    {
+      "case": "Murcia RMU/LEMI",
+      "status": "bounded",
+      "assignmentIds": [
+        "continuity-iata-rmu-308134",
+        "continuity-iata-mjv-4017",
+        "continuity-icao-lemi-308134"
+      ],
+      "newlyResolvedQueries": 12682
+    },
+    {
+      "case": "Panama City ECP/KECP",
+      "status": "bounded",
+      "assignmentIds": [
+        "proposal-icao-ecp",
+        "continuity-iata-ecp-46530"
+      ],
+      "newlyResolvedQueries": 10524
+    },
+    {
+      "case": "Yogyakarta YIA/WAHI",
+      "status": "bounded",
+      "assignmentIds": [
+        "continuity-iata-yia-332202",
+        "continuity-icao-wahi-332202"
+      ],
+      "newlyResolvedQueries": 4850
+    },
+    {
+      "case": "Chengdu TFU/ZUTF",
+      "status": "bounded",
+      "assignmentIds": [
+        "continuity-iata-tfu-342095",
+        "continuity-icao-zutf-342095"
+      ],
+      "newlyResolvedQueries": 3940
+    },
+    {
+      "case": "Sindhudurg SDW/VOSR",
+      "status": "bounded",
+      "assignmentIds": [
+        "continuity-iata-sdw-331218",
+        "global-proposal-sindhudurg-icao-vosr"
+      ],
+      "newlyResolvedQueries": 1916
+    },
+    {
+      "case": "Kalaburagi GBI/VOGB",
+      "status": "bounded",
+      "assignmentIds": [
+        "continuity-iata-gbi-506610",
+        "global-proposal-kalaburagi-icao-vogb"
+      ],
+      "newlyResolvedQueries": 2647
+    },
+    {
+      "case": "Kushinagar KBK/VEKI",
+      "status": "bounded",
+      "assignmentIds": [
+        "continuity-iata-kbk-350147",
+        "global-proposal-kushinagar-icao-veki"
+      ],
+      "newlyResolvedQueries": 1916
+    },
+    {
+      "case": "Pakyong PYG/VEPY",
+      "status": "bounded",
+      "assignmentIds": [
+        "continuity-iata-pyg-44362",
+        "global-proposal-pakyong-icao-vepy"
+      ],
+      "newlyResolvedQueries": 3012
+    },
+    {
+      "case": "Kurnool KJB/VOKU",
+      "status": "bounded",
+      "assignmentIds": [
+        "continuity-iata-kjb-340146",
+        "global-proposal-kurnool-icao-voku"
+      ],
+      "newlyResolvedQueries": 1916
+    },
+    {
+      "case": "Hollongi HGI/VEHO",
+      "status": "bounded",
+      "assignmentIds": [
+        "continuity-iata-hgi-354546",
+        "global-proposal-hollongi-icao-veho"
+      ],
+      "newlyResolvedQueries": 1551
+    },
+    {
+      "case": "Kannur CNN/VOKN",
+      "status": "bounded",
+      "assignmentIds": [
+        "continuity-iata-cnn-329504",
+        "global-proposal-kannur-icao-vokn"
+      ],
+      "newlyResolvedQueries": 3012
+    },
+    {
+      "case": "Shirdi SAG/VASD",
+      "status": "bounded",
+      "assignmentIds": [
+        "continuity-iata-sag-327452",
+        "global-proposal-shirdi-icao-vasd"
+      ],
+      "newlyResolvedQueries": 3377
+    },
+    {
+      "case": "Mopa GOX/VOGA",
+      "status": "bounded",
+      "assignmentIds": [
+        "continuity-iata-gox-342094",
+        "continuity-icao-voga-342094"
+      ],
+      "newlyResolvedQueries": 2053
+    },
+    {
+      "case": "Durgapur RDP/VEDG",
+      "status": "bounded",
+      "assignmentIds": [
+        "continuity-iata-rdp-317982",
+        "continuity-icao-vedg-317982"
+      ],
+      "newlyResolvedQueries": 4975
+    },
+    {
+      "case": "Ayodhya AYJ/VEAY",
+      "status": "bounded",
+      "assignmentIds": [
+        "continuity-iata-ayj-46512",
+        "global-code-expansion-veay-icao"
+      ],
+      "newlyResolvedQueries": 1169
+    },
+    {
+      "case": "Shivamogga RQY/VOSH",
+      "status": "bounded",
+      "assignmentIds": [
+        "continuity-iata-rqy-354545",
+        "global-code-expansion-vosh-icao"
+      ],
+      "newlyResolvedQueries": 1186
+    },
+    {
+      "case": "Noida DXN/VIND",
+      "status": "bounded",
+      "assignmentIds": [
+        "continuity-iata-dxn-597786",
+        "continuity-icao-vind-597786"
+      ],
+      "newlyResolvedQueries": 1172
+    },
+    {
+      "case": "Navi Mumbai NMI/VANM",
+      "status": "bounded",
+      "assignmentIds": [
+        "continuity-iata-nmi-342093",
+        "global-code-expansion-vanm-icao"
+      ],
+      "newlyResolvedQueries": 1062
+    },
+    {
+      "case": "Williston XWA/KXWA",
+      "status": "bounded",
+      "assignmentIds": [
+        "continuity-iata-xwa-324440",
+        "continuity-icao-kxwa-324440"
+      ],
+      "newlyResolvedQueries": 4914
+    },
+    {
+      "case": "Muan MWX/RKJB",
+      "status": "bounded",
+      "assignmentIds": [
+        "continuity-iata-mwx-302303",
+        "continuity-icao-rkjb-302303"
+      ],
+      "newlyResolvedQueries": 13856
+    },
+    {
+      "case": "Ankang AKA/ZLAK",
+      "status": "bounded",
+      "assignmentIds": [
+        "continuity-iata-aka-30632",
+        "continuity-icao-zlak-30632"
+      ],
+      "newlyResolvedQueries": 2269
+    },
+    {
+      "case": "Yan’an ENY/ZLYA",
+      "status": "bounded",
+      "assignmentIds": [
+        "continuity-iata-eny-336112",
+        "continuity-icao-zlya-336112"
+      ],
+      "newlyResolvedQueries": 2956
+    },
+    {
+      "case": "Siem Reap REP/SAI and VDSA",
+      "status": "split",
+      "assignmentIds": [
+        "continuity-iata-rep-26476",
+        "continuity-iata-sai-513482",
+        "continuity-icao-vdsa-513482"
+      ],
+      "newlyResolvedQueries": 9842
+    },
+    {
+      "case": "Bicol LGP/DRP and RPLK",
+      "status": "split",
+      "assignmentIds": [
+        "continuity-iata-lgp-336104",
+        "continuity-iata-drp-336104",
+        "continuity-icao-rplk-336104"
+      ],
+      "newlyResolvedQueries": 1460
+    },
+    {
+      "case": "Bohol TAG/RPSP",
+      "status": "bounded",
+      "assignmentIds": [
+        "continuity-iata-tag-336116",
+        "continuity-icao-rpsp-336116"
+      ],
+      "newlyResolvedQueries": 2936
+    },
+    {
+      "case": "Ramon ETM/LLER",
+      "status": "bounded",
+      "assignmentIds": [
+        "continuity-iata-etm-330388",
+        "continuity-icao-ller-330388"
+      ],
+      "newlyResolvedQueries": 6380
+    },
+    {
+      "case": "Luanda NBJ/FNBJ",
+      "status": "bounded",
+      "assignmentIds": [
+        "continuity-iata-nbj-312665",
+        "continuity-icao-fnbj-312665"
+      ],
+      "newlyResolvedQueries": 419
+    },
+    {
+      "case": "Qaqortoq JJU/BGQO",
+      "status": "bounded",
+      "assignmentIds": [
+        "continuity-iata-jju-429724",
+        "continuity-icao-bgqo-429724"
+      ],
+      "newlyResolvedQueries": 433
+    },
+    {
+      "case": "Gwadar GWD/OPGW",
+      "status": "bounded",
+      "assignmentIds": [
+        "continuity-iata-gwd-342092",
+        "continuity-icao-opgw-342092"
+      ],
+      "newlyResolvedQueries": 691
+    },
+    {
+      "case": "Planned airport rows",
+      "status": "held",
+      "assignmentIds": [],
+      "newlyResolvedQueries": 0
+    }
+  ],
+  "tao": {
+    "probes": [
+      {
+        "date": "1999-12-31",
+        "status": "not_found",
+        "airportId": null
+      },
+      {
+        "date": "2000-01-01",
+        "status": "resolved",
+        "airportId": "apt_f470ecb5-c6dc-4516-a233-37302da2115b"
+      },
+      {
+        "date": "2021-08-11",
+        "status": "resolved",
+        "airportId": "apt_f470ecb5-c6dc-4516-a233-37302da2115b"
+      },
+      {
+        "date": "2021-08-12",
+        "status": "resolved",
+        "airportId": "apt_6729d2b2-4b79-48c8-9c42-0d4eeba121b8"
+      },
+      {
+        "date": "2026-11-18",
+        "status": "resolved",
+        "airportId": "apt_6729d2b2-4b79-48c8-9c42-0d4eeba121b8"
+      },
+      {
+        "date": "2026-11-19",
+        "status": "not_found",
+        "airportId": null
+      }
+    ],
+    "measuredQueries": {
+      "before": 3721,
+      "after": 9819,
+      "new": 6098,
+      "lost": 0,
+      "changedSite": 0,
+      "conflicts": 0
+    }
+  }
+}

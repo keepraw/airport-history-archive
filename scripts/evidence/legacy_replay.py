@@ -64,6 +64,18 @@ PRODUCT_SCOPE_FILES = {
     'test/resolve.test.ts',
 }
 
+# These live tests and validators use the frozen 0.12.0 release when they
+# compare dates or bytes admitted under the earlier policy.
+CONTINUITY_FILES = {
+    'scripts/evidence/admitted_090.py',
+    'test/admission-0100.test.ts',
+    'test/admission-090.test.ts',
+    'test/conflicts.test.ts',
+    'test/pr11-reference-isolation.test.ts',
+    'test/pr8-admissions.test.ts',
+    'test/validate.test.ts',
+}
+
 
 def main():
     command = sys.argv[1]
@@ -71,7 +83,7 @@ def main():
     paths = subprocess.check_output(['git', 'ls-tree', '-r', '--name-only', '-z', BASE,
                                     'scripts', 'src', 'schema', 'test', 'admission', 'research', 'pnpm-lock.yaml'], cwd=ROOT).decode().rstrip('\0').split('\0')
     for path in paths:
-        if (path in SLIMMED_VALIDATORS or path in PRODUCT_SCOPE_FILES or
+        if (path in SLIMMED_VALIDATORS or path in PRODUCT_SCOPE_FILES or path in CONTINUITY_FILES or
                 any(path.startswith(p) for p in SLIMMED_PREFIXES)):
             continue
         expected = subprocess.check_output(['git', 'show', f'{BASE}:{path}'], cwd=ROOT)
