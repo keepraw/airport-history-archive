@@ -1,174 +1,169 @@
 {
-  "formatVersion": 1,
-  "caseId": "qingdao-liuting-tao-regression-audit",
+  "formatVersion": 2,
+  "caseId": "qingdao-liuting-tao-cutoff",
   "auditedOn": "2026-11-18",
-  "formalDataVersion": "0.12.0",
-  "formalDataSha256": "4573fb7e6fac8e02c8e3f57443599385dffada17b250a29f1a18964f6d6d8cc9",
-  "formalDataModified": false,
-  "existingFormalState": {
-    "liutingAirportId": "apt_f470ecb5-c6dc-4516-a233-37302da2115b",
-    "jiaodongAirportId": "apt_6729d2b2-4b79-48c8-9c42-0d4eeba121b8",
-    "liutingAssignmentId": "iata-tao-liuting",
-    "liutingCurrentValidFrom": {
-      "earliest": null,
-      "latest": "2016-08-17",
-      "precision": "unknown"
-    },
-    "liutingCurrentValidTo": {
-      "earliest": "2021-08-12",
-      "latest": "2021-08-12",
-      "precision": "exact"
-    },
-    "jiaodongAssignmentId": "iata-tao-jiaodong",
-    "jiaodongCurrentValidFrom": {
-      "earliest": "2021-08-12",
-      "latest": "2021-08-12",
-      "precision": "exact"
-    },
-    "jiaodongCurrentValidTo": {
-      "earliest": "2026-10-25",
-      "latest": null,
-      "precision": "unknown"
+  "queryHorizon": {
+    "fromInclusive": "2000-01-01",
+    "toExclusive": "2026-11-19"
+  },
+  "baseline": {
+    "dataVersion": "0.12.0",
+    "sha256": "4573fb7e6fac8e02c8e3f57443599385dffada17b250a29f1a18964f6d6d8cc9"
+  },
+  "current": {
+    "dataVersion": "0.12.0",
+    "sha256": "4573fb7e6fac8e02c8e3f57443599385dffada17b250a29f1a18964f6d6d8cc9"
+  },
+  "formalAdditions": {
+    "airports": [],
+    "iataAssignments": [],
+    "icaoAssignments": []
+  },
+  "productionComparison": {
+    "localDates": 9819,
+    "distinctCodesByScheme": 46,
+    "queriesPerDataset": 451674,
+    "byScheme": {
+      "IATA": {
+        "baselineResolved": 62087,
+        "currentResolved": 62087,
+        "newlyResolved": 0,
+        "lost": 0,
+        "changedAirport": 0
+      },
+      "ICAO": {
+        "baselineResolved": 52315,
+        "currentResolved": 52315,
+        "newlyResolved": 0,
+        "lost": 0,
+        "changedAirport": 0
+      }
     }
   },
-  "fourPartEvidenceCheck": {
-    "physicalAirportIdentity": {
-      "proven": true,
-      "status": "already_formal_in_data",
-      "basis": "Permanent ID apt_f470ecb5-c6dc-4516-a233-37302da2115b (Qingdao Liuting International Airport, OurAirports 27224) and successor apt_6729d2b2-4b79-48c8-9c42-0d4eeba121b8 (Qingdao Jiaodong) are already curated in data/airports.json and corroborated by CAAC 2021 statistical bulletin (cn-stat-2021)."
-    },
-    "iataCodeIdentity": {
-      "proven": true,
-      "status": "already_formal_in_data",
-      "basis": "iata-tao-liuting is already verified in data/airports.json from ANA Cargo primary procedures (tao-earlier) and IATA retention/transfer reporting (tao-code, tao-transfer)."
-    },
-    "endBoundary_2021_08_12": {
-      "proven": true,
-      "status": "already_formal_in_data",
-      "basis": "Exact local-midnight boundary 2021-08-12 is already verified in data/airports.json (tao-code reporting 2019-03-21 IATA approval tied to opening midnight + tao-transfer reporting simultaneous 2021-08-12 00:00 closure/opening + cn-stat-2021)."
-    },
-    "startBoundary_1982_08_05": {
-      "proven": false,
-      "status": "pending_missing_code_effective_evidence",
-      "basis": "1982-08-05 is the State Council / CMC approved civil aviation reopening date of CAAC Qingdao Station at Naval Liuting Airport (following earlier 1946-1949 CNAC/CAT and 1958-1961 CAAC civil operations at separate Qingdao Cangkou Airport, when Postal-romanized 'Tsingtao' originated TAO). Available records prove airport civil reopening on 1982-08-05, not an IATA TAO code allocation or cross-site transfer effective date.",
-      "policyBlockers": [
-        "AGENTS.md Rule 9 & README.md: airport opening/reopening dates cannot substitute for code effective dates ('No historic code start was inferred from an airport opening date').",
-        "research/admission/source-claims-v1/policy.json explicitly excludes 'opening_or_licence_as_code_effective' and keeps 'CN-EXPLICIT-CODE-ALLOCATION' inactive.",
-        "scripts/reference/admissions.py::validate_admission requires a reviewed dated primary code observation and explicit Owner claim acceptance."
-      ],
-      "specificMissingEvidence": "Dated 1982 CAAC system timetable (e.g. August/November 1982 issue showing TAO at Qingdao Liuting), original IATA Coding Administration notice, or historical CAAC AIP/AIC explicitly binding TAO to Liuting on or shortly after 1982-08-05."
-    }
-  },
-  "productionResolverMeasurements": {
-    "currentFormalInTargetWindow_1982_08_05_to_2021_08_12": {
-      "fromInclusive": "1982-08-05",
-      "toExclusive": "2021-08-12",
-      "totalDays": 14252,
-      "resolvedLiuting": 1821,
-      "resolvedJiaodong": 0,
-      "totalResolved": 1821,
-      "uncertain": 12431,
-      "conflict": 0,
-      "notFound": 0
-    },
-    "currentFormalAcrossFullHorizon_1980_to_2026_11_18": {
-      "fromInclusive": "1980-01-01",
-      "toExclusive": "2026-11-18",
-      "totalDays": 17123,
-      "resolvedLiuting": 1821,
-      "resolvedJiaodong": 1900,
-      "totalResolved": 3721,
-      "uncertain": 13402,
-      "conflict": 0,
-      "notFound": 0
-    },
-    "counterfactualIf_1982_08_05_Proven": {
-      "fromInclusive": "1982-08-05",
-      "toExclusive": "2021-08-12",
-      "totalDays": 14252,
-      "resolvedLiuting": 14252,
-      "resolvedJiaodong": 0,
-      "totalResolved": 14252,
-      "uncertain": 0,
-      "conflict": 0,
-      "notFound": 0
-    },
-    "counterfactualFullHorizonIf_1982_08_05_Proven": {
-      "fromInclusive": "1980-01-01",
-      "toExclusive": "2026-11-18",
-      "totalDays": 17123,
-      "resolvedLiuting": 14252,
-      "resolvedJiaodong": 1900,
-      "totalResolved": 16152,
-      "uncertain": 971,
-      "conflict": 0,
-      "notFound": 0
-    },
-    "netNewFormalResolvedQueriesWrittenToday": 0,
-    "potentialIncrementalResolvedQueriesAwaitingStartEvidence": 12431,
-    "probeDates": [
+  "tao": {
+    "assignments": [
       {
-        "date": "1982-08-04",
-        "currentStatus": "uncertain",
-        "currentAirportId": null,
-        "counterfactualStatus": "uncertain",
-        "counterfactualAirportId": null
+        "airportId": "apt_f470ecb5-c6dc-4516-a233-37302da2115b",
+        "assignmentId": "iata-tao-liuting",
+        "code": "TAO",
+        "evidenceType": "continuity_inference",
+        "note": "Original assignment date remains unknown; latest start is only an evidence bound. Continuity between the cited code observation and transfer/current corroboration is a reviewed historical inference, not daily observations or an official IATA allocation ledger.",
+        "scheme": "IATA",
+        "sourceIds": [
+          "tao-earlier",
+          "tao-code",
+          "tao-transfer"
+        ],
+        "validFrom": {
+          "earliest": null,
+          "latest": "2016-08-17",
+          "precision": "unknown"
+        },
+        "validTo": {
+          "earliest": "2021-08-12",
+          "latest": "2021-08-12",
+          "precision": "exact"
+        },
+        "verificationStatus": "verified",
+        "verifiedOn": "2026-10-26"
       },
       {
-        "date": "1982-08-05",
-        "currentStatus": "uncertain",
-        "currentAirportId": null,
-        "counterfactualStatus": "resolved",
-        "counterfactualAirportId": "apt_f470ecb5-c6dc-4516-a233-37302da2115b"
+        "airportId": "apt_6729d2b2-4b79-48c8-9c42-0d4eeba121b8",
+        "assignmentId": "iata-tao-jiaodong",
+        "code": "TAO",
+        "evidenceType": "continuity_inference",
+        "note": "Transfer establishes the start, not the airport inauguration. The open end is not guaranteed future validity. Continuity between the cited code observation and transfer/current corroboration is a reviewed historical inference, not daily observations or an official IATA allocation ledger.",
+        "scheme": "IATA",
+        "sourceIds": [
+          "tao-earlier",
+          "tao-code",
+          "tao-transfer",
+          "ourairports-20261025"
+        ],
+        "validFrom": {
+          "earliest": "2021-08-12",
+          "latest": "2021-08-12",
+          "precision": "exact"
+        },
+        "validTo": {
+          "earliest": "2026-10-25",
+          "latest": null,
+          "precision": "unknown"
+        },
+        "verificationStatus": "verified",
+        "verifiedOn": "2026-10-26"
+      }
+    ],
+    "statusCounts": {
+      "resolved": 3721,
+      "uncertain": 6098,
+      "conflict": 0,
+      "not_found": 0,
+      "invalid_input": 0
+    },
+    "resolvedByAirportId": {
+      "apt_f470ecb5-c6dc-4516-a233-37302da2115b": 1821,
+      "apt_6729d2b2-4b79-48c8-9c42-0d4eeba121b8": 1900
+    },
+    "pendingProposalReplay": {
+      "proposalSha256": "38063fecd4b507b9f11130995964be8f917f299036b09a990d2c555db182658c",
+      "formalAdmission": false,
+      "resolved": 9794,
+      "newlyResolved": 6073,
+      "lost": 0,
+      "changedAirport": 0,
+      "conflicts": 0
+    },
+    "probes": [
+      {
+        "date": "1999-12-31",
+        "status": "not_found",
+        "airportId": null
       },
       {
-        "date": "1995-01-01",
-        "currentStatus": "uncertain",
-        "currentAirportId": null,
-        "counterfactualStatus": "resolved",
-        "counterfactualAirportId": "apt_f470ecb5-c6dc-4516-a233-37302da2115b"
+        "date": "2000-01-01",
+        "status": "uncertain",
+        "airportId": null
       },
       {
         "date": "2016-08-16",
-        "currentStatus": "uncertain",
-        "currentAirportId": null,
-        "counterfactualStatus": "resolved",
-        "counterfactualAirportId": "apt_f470ecb5-c6dc-4516-a233-37302da2115b"
+        "status": "uncertain",
+        "airportId": null
       },
       {
         "date": "2016-08-17",
-        "currentStatus": "resolved",
-        "currentAirportId": "apt_f470ecb5-c6dc-4516-a233-37302da2115b",
-        "counterfactualStatus": "resolved",
-        "counterfactualAirportId": "apt_f470ecb5-c6dc-4516-a233-37302da2115b"
+        "status": "resolved",
+        "airportId": "apt_f470ecb5-c6dc-4516-a233-37302da2115b"
       },
       {
         "date": "2021-08-11",
-        "currentStatus": "resolved",
-        "currentAirportId": "apt_f470ecb5-c6dc-4516-a233-37302da2115b",
-        "counterfactualStatus": "resolved",
-        "counterfactualAirportId": "apt_f470ecb5-c6dc-4516-a233-37302da2115b"
+        "status": "resolved",
+        "airportId": "apt_f470ecb5-c6dc-4516-a233-37302da2115b"
       },
       {
         "date": "2021-08-12",
-        "currentStatus": "resolved",
-        "currentAirportId": "apt_6729d2b2-4b79-48c8-9c42-0d4eeba121b8",
-        "counterfactualStatus": "resolved",
-        "counterfactualAirportId": "apt_6729d2b2-4b79-48c8-9c42-0d4eeba121b8"
+        "status": "resolved",
+        "airportId": "apt_6729d2b2-4b79-48c8-9c42-0d4eeba121b8"
       },
       {
-        "date": "2024-06-01",
-        "currentStatus": "resolved",
-        "currentAirportId": "apt_6729d2b2-4b79-48c8-9c42-0d4eeba121b8",
-        "counterfactualStatus": "resolved",
-        "counterfactualAirportId": "apt_6729d2b2-4b79-48c8-9c42-0d4eeba121b8"
+        "date": "2026-10-24",
+        "status": "resolved",
+        "airportId": "apt_6729d2b2-4b79-48c8-9c42-0d4eeba121b8"
       },
       {
         "date": "2026-10-25",
-        "currentStatus": "uncertain",
-        "currentAirportId": null,
-        "counterfactualStatus": "uncertain",
-        "counterfactualAirportId": null
+        "status": "uncertain",
+        "airportId": null
+      },
+      {
+        "date": "2026-11-18",
+        "status": "uncertain",
+        "airportId": null
+      },
+      {
+        "date": "2026-11-19",
+        "status": "not_found",
+        "airportId": null
       }
     ]
   }

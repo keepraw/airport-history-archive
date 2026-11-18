@@ -15,7 +15,7 @@ This audit executes Phases 1–4 in full on the current branch and provides an e
 
 ## Phase 1: Working-Tree Inventory and Script Dependency Audit
 
-All 1,293 tracked files (374,356,374 bytes / 357.01 MiB) at `origin/main` (`f59459a`) were inventoried by role and script dependency:
+All 1,293 tracked files (374,346,609 bytes / 357.01 MiB) at `origin/main` (`f59459a`) were inventoried by role and script dependency:
 
 | Path Group | Size | Tracked Role | Dependent Scripts / Workflows | Disposition |
 | --- | ---: | --- | --- | --- |
@@ -24,9 +24,9 @@ All 1,293 tracked files (374,356,374 bytes / 357.01 MiB) at `origin/main` (`f594
 | `reference/inputs/ourairports.csv.gz`, `reference/source-lock.json` | 3.62 MiB | **Admission-policy locked snapshot** | `research/admission/source-claims-v1/policy.json` (`0.11.0`), `scripts/reference/validate.py` | **Retain in Git** |
 | `research/evidence/inputs/*` + `source-lock.json` | 1.05 MiB | **Locked primary US BTS/FAA originals** | `scripts/evidence/pipeline.py::load_locked`, `validate-schema.ts` | **Retain in Git** |
 | `research/admission/**`, `research/evidence/{first-admission,global-batch,major-markets,market-transfers,priority-markets,policy-pilot,global-iata-forensics,global-code-next,code-dates}/**` | ~31.8 MiB | **Source locks, bounded excerpts, admission grants, and reviewed research conclusions** | `policy_gate.py`, `first_admission.ts`, `global_batch.py`, `major_markets.py`, `market_transfers.py`, `priority_markets.py`, `legacy_replay.py` | **Retain in Git** |
-| `research/discovery/generated/*.jsonl.gz` (144 files) | **193.72 MiB** | Regenerable global directory scan shards (`*.candidates.*`, `*.entities.*`, `*.versions.*`, `*.gaps.*`, `code-links`, `duplicate-groups`) | `scripts/discovery/validate.py`, `scripts/discovery/query.py`, `scripts/reference/validate.py`, `bulk/worldwide.py` | **Remove from Git** (`work/discovery/generated/` on demand; retain `manifest.json`, `*.coverage.json`, `summary.json`, `reviewed-observations.json`) |
+| `research/discovery/generated/*.jsonl.gz` (142 files at the PR base) | **193.72 MiB** | Regenerable global directory scan shards (`*.candidates.*`, `*.entities.*`, `*.versions.*`, `*.gaps.*`, `code-links`, `duplicate-groups`) | `scripts/discovery/validate.py`, `scripts/discovery/query.py`, `scripts/reference/validate.py`, `bulk/worldwide.py` | **Remove from Git** (`work/discovery/generated/` on demand; retain `manifest.json`, `*.coverage.json`, `summary.json`, `reviewed-observations.json`) |
 | `research/evidence/direct/{inputs,texts}/*` (32 files) | **52.03 MiB** | Large raw PDFs/CSVs/HTMLs and full `pdftotext` dumps already hash-locked in `source-lock.json` | `scripts/evidence/direct.py`, `scripts/evidence/admitted.py` | **Remove from Git** (`work/evidence/direct/` on demand; retain `source-lock.json`, `excerpt-lock.json`, `excerpts/*.json`, `assessments.json`) |
-| `research/evidence/global-code-expansion/*.jsonl.gz` (49 files) | **21.78 MiB** | 45 `ranked-events.*.jsonl.gz` shards + mechanical global ranking queues | `scripts/evidence/global_code_screen.py`, `scripts/evidence/global_code_audit.py` | **Remove from Git** (`work/evidence/global-code-expansion/` on demand; retain `manifest.json`, `summary.json`, `studied-ranking-index.json`) |
+| `research/evidence/global-code-expansion/*.jsonl.gz` (51 files at the PR base) | **21.78 MiB** | 47 ranked-event shards and four compact indexes | `scripts/evidence/global_code_screen.py`, `scripts/evidence/global_code_audit.py` | Keep the four [compact indexes](#compact-index-retention) and existing manifests in Git. Stage large ranking shards under `work/global-code-expansion/` on demand. |
 | `research/evidence/global-public-data/*.jsonl.gz` (excl. `faa-admission-candidates.jsonl.gz`) + `proposed-data.json` + `resolver-query-codes.json` (21 files) | **20.07 MiB** | Global Wikidata/OSM entity, revision, crosswalk, and candidate shards + deterministically reconstructible `proposed-data.json` | `scripts/evidence/public_data.py` | **Remove from Git** (retain `source-lock.json`, `faa-source-lock.json`, `faa-admission-candidates.jsonl.gz`, `artifact-manifest.json`, `coverage-report.json`) |
 | `reference/triage/groups.jsonl.gz` (1 file) | **7.66 MiB** | Regenerable 88,330-group mechanical triage index | `scripts/reference/validate.py`, `scripts/evidence/pipeline.py`, `bulk/worldwide.py` | **Remove from Git** (retain `manifest.json`, `metrics.json`, `code-reuse-leads.jsonl.gz`) |
 | `research/evidence/generated/*.jsonl.gz` (5 files) | **6.59 MiB** | Mechanical observation/match/review-packet streams | `scripts/evidence/pipeline.py`, `scripts/evidence/validate-schema.ts` | **Remove from Git** (`observations.jsonl.gz` materializes into `work/evidence/generated/` in ~1s from retained `research/evidence/inputs/*`) |
@@ -50,6 +50,57 @@ To guarantee zero loss of historical evidence provenance while removing 298.85 M
 - **252 tracked files (313,364,751 bytes / 298.85 MiB)** were removed from the Git index and working tree via `git rm`.
 - Validators and build scripts (`scripts/discovery/validate.py`, `scripts/discovery/query.py`, `scripts/reference/validate.py`, `bulk/worldwide.py`, `scripts/evidence/direct.py`, `scripts/evidence/admitted.py`, `scripts/evidence/pipeline.py`, `scripts/evidence/validate-schema.ts`, `scripts/evidence/global_code_screen.py`, `scripts/evidence/global_code_audit.py`, `scripts/evidence/public_data.py`, and `scripts/evidence/legacy_replay.py`) now resolve large streams from ignored `work/` when staged locally and verify cryptographic manifests, retained bounded excerpts, and reconstructed datasets on clean CI checkouts.
 - None of the 20 files fingerprinted by `scripts/evidence/policy_executor.py` were modified.
+
+### Compact index retention
+
+The exact PR base is `f59459ac3e11d7e19b26db9612acf6a10b556309`.
+The four indexes below were restored from that commit. Their combined size is
+932,744 bytes (0.89 MiB). The SHA-256 values cover the compressed bytes in
+`research/evidence/global-code-expansion/`.
+
+| Index | SHA-256 |
+| --- | --- |
+| `high-value-queue.jsonl.gz` | `2ca7cbba3afda33b234244d9416c2a1af36a7a91c36c1126b831de6eb2666c8d` |
+| `remaining-high-value-queue.jsonl.gz` | `4052dde0591e04039cbb14332b81778087ff43c68b1f88079d2b9ed8611fe97c` |
+| `ranked-code-links.jsonl.gz` | `fb8b9b1c4b313f4d801e9e529cfa4707f8bab48a363aae211f1baafe141f9fda` |
+| `ranked-reuse-leads.jsonl.gz` | `ab96efc36a94b44db5058abfb696ee70cb4ef79f25fd38a962a7309038563c73` |
+
+### Assets absent from the follow-up checkout
+
+The ignored repository `work/` directory was absent at handoff. Validation
+created temporary build outputs there. The inherited cache and original
+archives were unavailable. The retained source locks identify each original
+by URL and hash.
+
+- The PR still omits ranked-event shards `ranked-events.000.jsonl.gz`
+  through `ranked-events.046.jsonl.gz` and all 142 discovery JSONL shards
+  present at the base.
+- Direct evidence omits the 16 originals in `research/evidence/direct/inputs/`
+  and the matching 16 extractions in `research/evidence/direct/texts/`.
+  The existing lock records the exact originals and extract paths.
+  [Direct evidence lock](../research/evidence/direct/source-lock.json)
+- The public-data cache lacks both FAA NASR airport ZIPs, dated 2026-10-01
+  and 2026-10-29, including their `APT_BASE.csv` members. The source lock
+  records the archive and member hashes for each edition.
+  [FAA archive lock](../research/evidence/global-public-data/faa-source-lock.json)
+- The remaining base-only files also include the 21 public-data projections
+  and generated outputs, five evidence streams and
+  `reference/triage/groups.jsonl.gz`. The exact list of every base path
+  absent from the branch can be reproduced from Git.
+
+```sh
+git diff --name-only --diff-filter=D f59459ac3e11d7e19b26db9612acf6a10b556309 HEAD
+```
+
+At handoff there were also 604 unavailable private original, extracted-text and
+normalized-text paths explicitly named in the tracked research records.
+The exact paths in those fields can be listed without acquiring any originals.
+
+```sh
+git grep -h -E '"private(Original|ExtractedText|NormalizedText)Path": "work/' -- research |
+  sed -E 's/.*": "(work\/[^"]+)".*/\1/' |
+  sort -u
+```
 
 ---
 
@@ -95,7 +146,8 @@ Per user instructions and `AGENTS.md` (*"does not authorize automatic merges or 
      --path-glob 'research/discovery/generated/*.jsonl.gz' \
      --path-glob 'research/evidence/direct/inputs/*' \
      --path-glob 'research/evidence/direct/texts/*' \
-     --path-glob 'research/evidence/global-code-expansion/*.jsonl.gz' \
+     --path-glob 'research/evidence/global-code-expansion/ranked-events.*.jsonl.gz' \
+     --path 'research/evidence/global-code-expansion/ranked-events.jsonl.gz' \
      --path-glob 'research/evidence/global-public-data/wikidata-*.jsonl.gz' \
      --path-glob 'research/evidence/global-public-data/osm-*.jsonl.gz' \
      --path-glob 'research/evidence/global-public-data/bts-*.jsonl.gz' \

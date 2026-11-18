@@ -528,7 +528,7 @@ if __name__ == '__main__':
                 if p.is_file():
                     assert sha(p) == meta['sha256'] and p.stat().st_size == meta['bytes'], name
                 else:
-                    assert name.endswith('.jsonl.gz'), f'Missing required JSON screening output: {name}'
+                    assert ranked_event_shard(name), f'Missing required screening output: {name}'
             print('Complete global screening manifest & summary determinism verified (JSONL shards omitted from Git).')
     else:
         build(args.output)

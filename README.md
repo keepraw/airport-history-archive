@@ -130,6 +130,12 @@ package dependencies. Validate externally supplied JSON once with
 `assertDataset` from `src/validate.ts` before resolution; Ajv is a development
 validation dependency, not imported by the resolver entry point.
 
+The supported local-date range is **`[2000-01-01, 2026-11-19)`**. The public
+entry point `src/index.ts` exports it as `queryHorizon`. A valid date outside it
+returns `not_found` with the supported range in the reason. The product
+prioritizes roughly 4,000–6,500 commercial passenger airports and their physical
+predecessors. Existing records retain their evidence and boundaries.
+
 The returned object includes `dataVersion`, normalized query, `status`,
 `airport` (only populated for a unique resolved result), `candidates`, evidence
 source records and a reason. Each airport has an ID, display name, WGS84 reference
@@ -141,7 +147,7 @@ Unknown attributes have a null value and `unknown` status.
 | `resolved` | One verified physical identity covers the entire local date |
 | `uncertain` | Possible candidates exist, but a boundary, evidence horizon or verification status prevents a unique answer |
 | `conflict` | Two verified assignments with reviewed evidence certainly overlap for different physical airports on the query date |
-| `not_found` | No curated assignment can apply; no current-directory fallback |
+| `not_found` | The date is outside the supported range or no curated assignment can apply |
 | `invalid_input` | Invalid code, scheme or Gregorian date |
 
 Codes are trimmed and uppercased. Dates must be real `YYYY-MM-DD` calendar dates
@@ -149,7 +155,7 @@ in the airport's local civil calendar. Timestamps, offsets and partial query
 dates are rejected. The resolver does not convert UTC to local time. The curated
 code-transfer pairs are in the same respective local date systems; cross-timezone
 code reuse needs an explicit future policy. ICAO is a separate namespace:
-`resolveAirport(data, "VHHH", "1997-06-01", "ICAO")` returns Kai Tak.
+`resolveAirport(data, "VHHH", "2000-01-01", "ICAO")` returns Chek Lap Kok.
 
 ## Resolve a historical name
 
@@ -172,7 +178,7 @@ It never changes code resolution, physical identity, coordinates, or the static
 | `uncertain` | A possible official-name claim exists, but boundaries, review or evidence coverage prevent selection; `name: null` |
 | `conflict` | Different reviewed canonical official names certainly overlap on this date; `name: null` |
 | `reference` | No official-name interval can apply; `name` is the static label and **is not historically verified for this date** |
-| `not_found` | The permanent airport ID is absent |
+| `not_found` | The date is outside the supported range or the permanent airport ID is absent |
 | `invalid_input` | Empty ID or invalid Gregorian date |
 
 Every `names[]` record has a stable `nameId`, `airportId`, text, canonical language
@@ -214,12 +220,12 @@ the distinction between signing and publication, and the later corporate amendme
   physical sites are a confirmed conflict only when both assignments and their
   supporting sources have passed review.
 
-An old airport's original code-assignment date is unknown. Its latest-start bound
-comes from an earlier dated code observation. This is **not** a claim that the
-code began on that observation date. Dates before that evidence remain uncertain;
-we do not truncate the actual historical interval to the MVP window. New airports'
-end dates are unknown; the fixed 2026-10-25 reference snapshot bounds the checked
-continuity horizon. Later queries are uncertain rather than silently extrapolated.
+For an assignment with an unknown original start, a dated code observation
+can bound its latest possible start. An observation before the 2000 cutoff can
+establish coverage on the cutoff if continuity is supported. Historical records
+retain their original bounds. For many current assignments the fixed 2026-10-25
+reference snapshot bounds the checked continuity. Later dates within the
+supported range may still be uncertain.
 
 `verified` records are reviewed historical conclusions, including explicitly
 recorded continuity inferences between observations and the documented transfer.

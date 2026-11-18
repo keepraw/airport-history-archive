@@ -19,6 +19,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[1] / 'scripts/reference'
 from common import ROOT, OUTPUT, DISCOVERY, canonical, checked, digest, read_jsonl, stable_id
 
 TRIAGE = ROOT / 'reference/triage'
+QUERY_HORIZON = json.loads((ROOT / 'src/query-horizon.json').read_text())
 SCHEMES = {'IATA': re.compile(r'[A-Z]{3}'), 'ICAO': re.compile(r'[A-Z]{4}'),
            'GPS': re.compile(r'[^\s]+'), 'LOCAL': re.compile(r'[^\s]+'),
            'IDENT': re.compile(r'[^\s]+')}
@@ -313,6 +314,9 @@ def lookup(database,code,scheme='IATA',at=None,limit=50,offset=0):
                 raise ValueError()
         except ValueError:
             raise ValueError('Date must be YYYY-MM-DD') from None
+        start, end = QUERY_HORIZON['fromInclusive'], QUERY_HORIZON['toExclusive']
+        if not start <= at < end:
+            raise ValueError(f'Local date is outside the supported range [{start}, {end}).')
     conn = sqlite3.connect(f'{Path(database).resolve().as_uri()}?mode=ro',uri=True)
     conn.row_factory = sqlite3.Row
     try:

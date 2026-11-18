@@ -112,8 +112,12 @@ class WorldBulkHistoryTests(unittest.TestCase):
         self.assertEqual(old['status'],'resolved')
         self.assertEqual(old['resolvedAirportId'],'apt_old')
         self.assertEqual(lookup(self.db,'TAO',at='2021-08-12')['status'],'resolved')
-        latest=lookup(self.db,'TAO',at='2027-01-01')
+        latest=lookup(self.db,'TAO',at='2026-11-18')
         self.assertEqual(latest['status'],'uncertain')
+        self.assertEqual(lookup(self.db,'TAO',at='2000-01-01')['status'],'uncertain')
+        for outside in ('1999-12-31','2026-11-19'):
+            with self.assertRaisesRegex(ValueError, 'outside the supported range'):
+                lookup(self.db,'TAO',at=outside)
         rep=lookup(self.db,'KTI',at='2020-01-01')
         self.assertEqual(rep['status'],'historical_observations_only')
         self.assertEqual(rep['referenceObservationCount'],2)

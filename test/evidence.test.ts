@@ -85,7 +85,7 @@ it("keeps first-party opening histories separate from code-assignment evidence",
     expect(data.sources.find((s) => s.sourceId === sourceId)?.sourceType).toBe(
       "secondary",
     );
-  const result = resolveAirport(data, "HKG", "1997-06-01");
+  const result = resolveAirport(data, "HKG", "2000-01-01");
   expect(result.status).toBe("resolved");
   expect(result.candidates[0]!.assignment.evidenceType).toBe(
     "continuity_inference",

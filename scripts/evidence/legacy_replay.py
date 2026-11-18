@@ -48,6 +48,22 @@ SLIMMED_VALIDATORS = {
     'test/evidence/test_evidence.py',
 }
 
+# The product date range is applied at the public entry point. Frozen replays
+# execute these paths from BASE with the historical query behavior.
+PRODUCT_SCOPE_FILES = {
+    'src/index.ts',
+    'scripts/compat/cross-fly.test.template',
+    'test/batch-1.test.ts',
+    'test/build.test.ts',
+    'test/compat/fly-adapter.test.ts',
+    'test/evidence.test.ts',
+    'test/names.test.ts',
+    'test/pr10-admissions.test.ts',
+    'test/pr9-admissions.test.ts',
+    'test/reference/test_bulk_history.py',
+    'test/resolve.test.ts',
+}
+
 
 def main():
     command = sys.argv[1]
@@ -55,7 +71,8 @@ def main():
     paths = subprocess.check_output(['git', 'ls-tree', '-r', '--name-only', '-z', BASE,
                                     'scripts', 'src', 'schema', 'test', 'admission', 'research', 'pnpm-lock.yaml'], cwd=ROOT).decode().rstrip('\0').split('\0')
     for path in paths:
-        if path in SLIMMED_VALIDATORS or any(path.startswith(p) for p in SLIMMED_PREFIXES):
+        if (path in SLIMMED_VALIDATORS or path in PRODUCT_SCOPE_FILES or
+                any(path.startswith(p) for p in SLIMMED_PREFIXES)):
             continue
         expected = subprocess.check_output(['git', 'show', f'{BASE}:{path}'], cwd=ROOT)
         if not (ROOT / path).is_file() or (ROOT / path).read_bytes() != expected:

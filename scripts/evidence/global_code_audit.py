@@ -10,7 +10,6 @@ import argparse
 from collections import Counter, defaultdict
 import gzip
 import hashlib
-import io
 import json
 from pathlib import Path
 import re
@@ -21,7 +20,8 @@ DIRECTORY = ROOT / 'research/evidence/global-code-expansion'
 BASE_COMMIT = '7d21ff6762e1569faa1be19c8203e577420cd1f2'
 REGIONS = ('asia', 'europe', 'americas-africa')
 HASH = re.compile(r'^[0-9a-f]{64}$')
-OUTPUTS = ('research-summary.json', 'remaining-high-value-queue.jsonl.gz', 'validation.json')
+REMAINING_QUEUE = DIRECTORY / 'remaining-high-value-queue.jsonl.gz'
+REMAINING_QUEUE_BASE_SHA256 = '4052dde0591e04039cbb14332b81778087ff43c68b1f88079d2b9ed8611fe97c'
 
 
 def require(condition, message):
@@ -462,7 +462,6 @@ def main():
     proposal['reviewableWorkingTreeProposal']['resolverMeasurement'] = resolver
     candidate_codes = {a['code'] for a in load(ROOT / 'data/airports.json')['assignments'][len(load(ROOT / 'test/curated-0.11.0.json')['assignments']):]}
     queue = []
-    states = Counter()
     for ranked in high:
         gid = ranked['eventGroupId']
         record = studied.get(gid)
@@ -482,7 +481,6 @@ def main():
             state = 'not_yet_evidence_researched'
             next_action = 'Acquire the ranked missing originals by issuer/source cluster; establish physical site and independent namespace timing, then apply the applicable source-family policy.'
             canonical_groups = []
-        states[state] += 1
         queue.append({'rank': ranked['rank'], 'eventGroupId': gid, 'candidateId': ranked['candidateId'],
             'country': ranked['country'], 'airport': ranked['airport'], 'researchClusterKey': ranked['researchClusterKey'],
             'IATA': ranked['IATA'], 'ICAO': ranked['ICAO'], 'priorityScore': ranked['priorityScore'],
@@ -490,14 +488,14 @@ def main():
             'missingOriginals': ranked['missingOriginals'], 'officialSourceDiscoveryUrls': ranked['officialSourceDiscoveryUrls'],
             'nextAction': next_action, 'formalCoverageClaimed': False})
     total_high_groups = screen['highValueGroups']
+    require(REMAINING_QUEUE.is_file() and digest(REMAINING_QUEUE) == REMAINING_QUEUE_BASE_SHA256,
+            'Retained high-value queue differs from the PR base')
+    retained_queue = list(rows(REMAINING_QUEUE))
+    queue_event_groups = len(retained_queue)
+    queue_states = dict(sorted(Counter(row['queueState'] for row in retained_queue).items()))
+    require(queue_event_groups == total_high_groups, 'Incomplete retained high-value queue')
     if full_stream_present:
-        queue_states = dict(sorted(states.items()))
-        queue_event_groups = len(queue)
-    else:
-        prior_summary = load(DIRECTORY / 'research-summary.json')
-        queue_states = prior_summary['remainingHighValueQueue']['states']
-        queue_event_groups = prior_summary['remainingHighValueQueue']['eventGroups']
-        require(queue_event_groups == total_high_groups == sum(queue_states.values()), 'Invalid retained high-value queue state counts')
+        require(queue == retained_queue, 'Full ranking replay differs from retained high-value queue')
     protected = protected_inputs()
     public_paths = [p for p in DIRECTORY.rglob('*') if p.is_file()]
     disallowed = [str(p.relative_to(ROOT)) for p in public_paths if p.suffix.lower() in {'.pdf', '.html', '.htm', '.txt', '.xml', '.png', '.jpg'}]
@@ -529,9 +527,10 @@ def main():
             'issuerFamilyCountCaveat': 'Family keys preserve regional registries and are not a count of independent corroborating publishers. Different editions/URLs of one issuer remain one source family.',
             'newOriginalCountExcludesPreviouslyLockedByteSequences': True, 'duplicateRetrievalIncidents': duplicate_incidents,
             'originalCustody': 'Complete originals and extractions remain only in ignored work/. Offline CI checks receipts and citations without claiming fresh original retrieval.'},
-        'formalData': proposal, 'remainingHighValueQueue': {'path': 'work/global-code-expansion/remaining-high-value-queue.jsonl.gz', 'eventGroups': queue_event_groups,
+        'formalData': proposal, 'remainingHighValueQueue': {'path': REMAINING_QUEUE.name, 'eventGroups': queue_event_groups,
             'states': queue_states,
-            'meaning': 'All high-value groups remain visible via work/ or re-ranked formal-yield queue without keeping regenerable JSONL dumps in Git.'},
+            'sha256': REMAINING_QUEUE_BASE_SHA256,
+            'meaning': 'Compact snapshot of the high-value research progress at the PR base.'},
         'rightsAndPolicy': {'proposalPath': 'research/evidence/global-code-expansion/policy/proposal.json',
             'globalCodeAuthorityActivated': False, 'chinaPhysicalIdentityAuthorityUsedAsCodeAuthority': False,
             'aaiAndKoreanScopeExpanded': False, 'blanketThirdPartyRedistributionPermissionClaimed': False}}

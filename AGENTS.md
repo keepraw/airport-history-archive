@@ -78,7 +78,15 @@ permanent operating rules without exception:
     stay in gitignored `work/` (or external archives) rather than accumulating
     in the main Git repository. Retain formal `data/`, source-lock provenance
     and SHA-256 hashes, minimal attributed citations/excerpts, reproducibility
-    manifests, and reviewed conclusions in Git.
+    manifests, reviewed conclusions, and the four compact
+    [targeted research indexes](docs/repository-slimming-and-history-plan.md#compact-index-retention)
+    in Git.
+15. **Historical scope:** Support local dates in `[2000-01-01, 2026-11-19)`.
+    Prioritize roughly 4,000–6,500 commercial passenger airports and their
+    physical predecessors. For an assignment already in use at the cutoff,
+    verify that use at the cutoff. Research earlier dates only when needed
+    for that verification. For changes since 2000, verify the actual code
+    boundaries. Store intervals and keep unknown boundaries explicit.
 
 ## Mandatory closed-loop workflow
 

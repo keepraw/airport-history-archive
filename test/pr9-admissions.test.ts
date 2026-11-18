@@ -94,7 +94,7 @@ describe("conservative code history", () => {
     ["GOBD", "2017-10-12", "ICAO", "uncertain", null],
     ["GOBD", "2017-12-06", "ICAO", "uncertain", null],
     ["GOBD", "2017-12-07", "ICAO", "resolved", "diass"],
-    ["AAP", "1997-01-01", "IATA", "uncertain", null],
+    ["AAP", "2000-01-01", "IATA", "uncertain", null],
     ["AAP", "2017-07-28", "IATA", "uncertain", null],
     ["AAP", "2018-05-24", "IATA", "uncertain", null],
     ["AAP", "2018-10-25", "IATA", "uncertain", null],

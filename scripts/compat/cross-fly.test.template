@@ -45,12 +45,13 @@ describe('actual Fly code against the real historical build', () => {
   });
   it('runs Fly calculations with nullable historical projection guarded by capability', () => {
     installAirportDirectory(rows);
-    const resolved = resolveEndpoint(dataset, 'HKG', '1997-01-01', airportByIata);
-    const ambiguous = resolveEndpoint(dataset, 'HKG', '1998-07-06', airportByIata);
+    const resolved = resolveEndpoint(dataset, 'HKG', '2000-01-01', airportByIata);
+    const ambiguous = resolveEndpoint(dataset, 'IST', '2019-04-06', airportByIata);
     expect(resolved.canCalculateDistance).toBe(true);
     expect(ambiguous.canCalculateDistance).toBe(false);
-    expect(ambiguous.referenceFallback?.iata).toBe('HKG');
+    expect(ambiguous.referenceFallback?.iata).toBe('IST');
     expect(ambiguous.historicalIdentityVerified).toBe(false);
+    expect(resolveEndpoint(dataset, 'HKG', '1997-01-01', airportByIata).canCalculateDistance).toBe(false);
     expect(resolveEndpoint(dataset, 'JFK', '2020-01-01', airportByIata).referenceFallback).not.toBeNull();
     const reference: AirportReference = airportByIata.get('TAO')!;
     expect(reference.timezone).toBe('Asia/Shanghai');

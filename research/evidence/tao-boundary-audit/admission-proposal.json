@@ -1,0 +1,127 @@
+{
+  "formatVersion": 1,
+  "preparedOn": "2026-11-18",
+  "status": "pending_owner_claim_acceptance",
+  "baselineDataVersion": "0.12.0",
+  "baselineSha256": "4573fb7e6fac8e02c8e3f57443599385dffada17b250a29f1a18964f6d6d8cc9",
+  "extendsAssignmentId": "iata-tao-liuting",
+  "assignment": {
+    "assignmentId": "iata-tao-liuting-cutoff-continuity",
+    "scheme": "IATA",
+    "code": "TAO",
+    "airportId": "apt_f470ecb5-c6dc-4516-a233-37302da2115b",
+    "validFrom": { "earliest": null, "latest": "2000-01-01", "precision": "unknown" },
+    "validTo": { "earliest": "2021-08-12", "latest": "2021-08-12", "precision": "exact" },
+    "verificationStatus": "pending",
+    "verifiedOn": null,
+    "evidenceType": "continuity_inference",
+    "sourceIds": [
+      "cn-mu-timetable-199104",
+      "cn-wh-timetable-199703",
+      "cn-bandao-liuting-history-2021",
+      "tao-earlier",
+      "tao-code",
+      "tao-transfer"
+    ],
+    "note": "The 1991 carrier timetable records Qingdao TAO. Site records distinguish Liuting from military Cangkou and trace civil service at Liuting across the cutoff. Later carrier use and the documented Jiaodong transfer support continuity to local midnight on 2021-08-12. The original allocation date remains unknown."
+  },
+  "sources": [
+    {
+      "sourceId": "cn-mu-timetable-199104",
+      "title": "China Eastern Airlines Flight Time Table, April–October 1991",
+      "url": "https://www.timetableimages.com/ttimages/mu/mu9104/mu9104.pdf",
+      "accessedOn": "2026-11-18",
+      "verificationStatus": "pending",
+      "sourceType": "primary",
+      "license": {
+        "id": "LicenseRef-Copyrighted-Facts-Only",
+        "url": null,
+        "note": "The timetable reserves copyright. Retained evidence is limited to bibliographic details, page locators and atomic code and date facts."
+      },
+      "note": "The airline timetable lists Qingdao TAO in scheduled passenger service. PDF page 3 gives the effective period. PDF page 10, printed page 16, shows Qingdao TAO in the Hefei departure table."
+    },
+    {
+      "sourceId": "cn-wh-timetable-199703",
+      "title": "China Northwest Airlines Timetable, March–October 1997",
+      "url": "https://www.timetableimages.com/ttimages/wh/wh9703/wh9703.pdf",
+      "accessedOn": "2026-11-18",
+      "verificationStatus": "pending",
+      "sourceType": "primary",
+      "license": {
+        "id": "LicenseRef-Copyrighted-Facts-Only",
+        "url": null,
+        "note": "Retained evidence is limited to bibliographic details, page locators and atomic schedule facts."
+      },
+      "note": "The dated cover and Qingdao departure table corroborate scheduled passenger service. The table labels the city and provides no TAO code observation."
+    },
+    {
+      "sourceId": "cn-bandao-liuting-history-2021",
+      "title": "Bandao News, history of Qingdao Liuting and Cangkou airports",
+      "url": "https://news.bandao.cn/a/533446.html",
+      "accessedOn": "2026-11-18",
+      "verificationStatus": "pending",
+      "sourceType": "secondary",
+      "license": {
+        "id": "LicenseRef-Copyrighted-Facts-Only",
+        "url": null,
+        "note": "Retained evidence is limited to factual site chronology and an article locator."
+      },
+      "note": "The 2021 retrospective places Qingdao civil service at Liuting after Cangkou became military-only. It documents the same Liuting site at the 1999 military departure and 2000 expansion."
+    }
+  ],
+  "originals": [
+    {
+      "sourceId": "cn-mu-timetable-199104",
+      "publisher": "China Eastern Aviation Advertising and Services Co.",
+      "originalBytes": 4486658,
+      "originalSha256": "7d480ca5bb571ad7e5a30949fa3c5ee26ec6b1771d886501055975d463a3eb9b",
+      "effectiveFrom": "1991-04-01",
+      "effectiveThrough": "1991-10-31",
+      "locator": "PDF pages 3 and 10, printed pages 2 and 16",
+      "codeObservation": "Qingdao TAO"
+    },
+    {
+      "sourceId": "cn-wh-timetable-199703",
+      "publisher": "China Northwest Airlines",
+      "originalBytes": 5105048,
+      "originalSha256": "2f2b650766c8337074a6406aa7c72d0b9240796905a05a4c2aa30c38921265b5",
+      "effectiveFrom": "1997-03-30",
+      "effectiveThrough": "1997-10-25",
+      "locator": "PDF page 1 and PDF page 13, printed page 27, Qingdao departures"
+    },
+    {
+      "sourceId": "cn-bandao-liuting-history-2021",
+      "publisher": "Bandao News",
+      "originalBytes": 27669,
+      "originalSha256": "95085c34d4c610ab5f3b669e5c03011fcfba3f879bbaae888562d08260a54e15",
+      "publishedOn": "2021-08-10",
+      "locator": "Civil service and terminal construction chronology, including the 1999 and 2000 entries"
+    }
+  ],
+  "dossier": {
+    "recordId": "iata-tao-liuting-cutoff-continuity",
+    "decision": "pending_review",
+    "reviewer": null,
+    "reviewedOn": null,
+    "observations": [
+      {
+        "sourceId": "cn-mu-timetable-199104",
+        "observedOn": "1991-04-01",
+        "sourceFamily": "china-eastern-airlines",
+        "independentOriginal": true,
+        "claimScope": "Qingdao TAO in the airline's 1991 published schedule",
+        "basis": "Effective-period statement and Qingdao TAO row visually checked in the publisher's scanned timetable."
+      }
+    ],
+    "boundaryAssessment": "The proposed latest start is the product cutoff. The actual allocation date is unknown. The 2021 transfer provides the exact end.",
+    "continuityAssessment": "The 1991 code observation and 1997 scheduled service are consistent with the same physical site's operating chronology across 2000 and the later ANA Cargo code observation. The documented transfer changed the site on 2021-08-12.",
+    "additionalCorroboration": [
+      {
+        "sourceId": "bts-master-coordinate",
+        "lock": "../source-lock.json",
+        "locator": "AIRPORT_SEQ_ID=1512701, Liuting, 36.26611111 N 120.37444444 E",
+        "limitation": "USDOT statistical code and attribute interval. Used for the physical-site cross-check only."
+      }
+    ]
+  }
+}

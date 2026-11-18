@@ -76,7 +76,7 @@ it("builds identical bytes twice and ships a parseable, independently checked ar
   expect(
     dataset.assignments.every((a) => a.evidenceType === "continuity_inference"),
   ).toBe(true);
-  expect(resolveAirport(dataset, "HKG", "1997-06-01").status).toBe("resolved");
+  expect(resolveAirport(dataset, "HKG", "2000-01-01").status).toBe("resolved");
   expect(resolveAirport(dataset, "ISB", "2018-05-03").status).toBe("uncertain");
   expect(resolveAirport(dataset, "BER", "2020-10-26").status).toBe("resolved");
   expect(resolveAirport(dataset, "KIV", "2024-01-19").status).toBe("not_found");
