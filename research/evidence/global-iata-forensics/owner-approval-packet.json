@@ -1,0 +1,37 @@
+{
+  "formalAdmissionExecuted": false,
+  "formatVersion": 1,
+  "linkedArtifacts": {
+    "assessmentsPath": "research/evidence/global-iata-forensics/assessments.json",
+    "assessmentsSha256": "d960eb3c05b5a6116f98201d8905e2d8bf059fbd91747a4f73dd3ef490aeddb1",
+    "candidateProposalsPath": "research/evidence/global-iata-forensics/candidate-proposals.json",
+    "candidateProposalsSha256": "3630a3aec541338edc1020d63d5578270c2a28cbb11e91ce96758d5fa39212d7",
+    "resolverDiffPath": "research/evidence/global-iata-forensics/resolver-diff.json",
+    "resolverDiffSha256": "1bc8c1d5655e2efec6ca45456b5ba8fc8087e2a45386d93c77b1662eea3b7b33",
+    "reusedEvidencePath": "research/evidence/global-iata-forensics/reused-evidence.json",
+    "reusedEvidenceSha256": "34d21be1db1502e4410dee730b49ed94b1755face035738788b2f7dd7d33002b",
+    "sourceLockPath": "research/evidence/global-iata-forensics/source-lock.json",
+    "sourceLockSha256": "30884c42aab4b181f672a67cfd2caddbeb883d6391c91f829bf2648773707cc8"
+  },
+  "ownerApprovalRecorded": false,
+  "packetId": "global-iata-forensics-owner-review-2026-11-18",
+  "preparedOn": "2026-11-18",
+  "purpose": "Consolidated Owner review packet for newly corroborated IATA/ICAO boundary candidates, cross-batch West Palm Beach UUID reconciliation, and formal airport IATA identity bindings.",
+  "summaryOfRecommendations": [
+    {
+      "actionId": "reconcile-west-palm-beach-uuid-3766",
+      "recommendation": "Unify OurAirports 3766 (FAA site 03555.*A, West Palm Beach) onto canonical airportId apt_eb176a20-e0e3-438d-a330-a7b81185232d across both global-code-next and global-public-data (replacing apt_f12cc00a-7d95-478e-bc87-a67c836379a3).",
+      "resolverImpact": "Prevents validateDataset() duplicate OurAirports error and prevents proposal-pbi-icao-kdjt from downgrading the 26 resolved days [2026-10-02, 2026-10-28) of KDJT to uncertain."
+    },
+    {
+      "actionId": "review-strengthened-pbi-djt-and-blr-boundary-tuples",
+      "recommendation": "Review the source-amended Palm Beach tuples (proposal-pbi-iata-pbi, proposal-pbi-iata-djt, proposal-pbi-icao-kpbi, proposal-pbi-icao-kdjt, proposal-pbi-icao-kdjt-nasr-20261002-20261028) and Bengaluru BLR tuples (b5-proposal-hal-iata-blr, b5-proposal-kempegowda-iata-blr) under the existing human claim review path (scripts/reference/admissions.py::validate_admission).",
+      "resolverImpact": "26 new not_found -> resolved queries on ICAO KDJT (2026-10-02..2026-10-27); boundary-only tuples on PBI/DJT/KPBI/BLR shift not_found -> uncertain on their respective half-planes while preserving 100% of existing formal resolved answers and producing 0 cross-airport conflicts."
+    },
+    {
+      "actionId": "retain-manas-fru-bsz-and-13-formal-airport-iata-observations-as-pending",
+      "recommendation": "Keep Manas (proposal-manas-iata-fru, proposal-manas-iata-bsz) and the 13 formal airport IATA observations (NMI, AYJ, RQY, SAG, CNN, HGI, SDW, GBI, KBK, PYG, KJB, ECP, RMU) in pending status until UCFM NOTAM A0134/25 & A0140/25 verbatim texts and dated IATA allocation instruments are obtained.",
+      "resolverImpact": "0 premature resolved claims; preserves strict separation between ICAO continuity grants and IATA evidence."
+    }
+  ]
+}

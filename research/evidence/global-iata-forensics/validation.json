@@ -1,0 +1,59 @@
+{
+  "artifactHashes": {
+    "README.zh-CN.md": "a51917253bf8803bc029bd28d1b4b3dadd64fdb7fac6406fb4b99e0b64208e21",
+    "assessments.json": "d960eb3c05b5a6116f98201d8905e2d8bf059fbd91747a4f73dd3ef490aeddb1",
+    "candidate-proposals.json": "3630a3aec541338edc1020d63d5578270c2a28cbb11e91ce96758d5fa39212d7",
+    "owner-approval-packet.json": "40d2cd8ff5a459b54d1c13cde365c091b4ad6d5d235aaef6cfb7d7e6c9fd6bef",
+    "resolver-diff.json": "1bc8c1d5655e2efec6ca45456b5ba8fc8087e2a45386d93c77b1662eea3b7b33",
+    "reused-evidence.json": "34d21be1db1502e4410dee730b49ed94b1755face035738788b2f7dd7d33002b",
+    "source-lock.json": "30884c42aab4b181f672a67cfd2caddbeb883d6391c91f829bf2648773707cc8"
+  },
+  "baselineChecks": {
+    "dataAirportsJsonSha256": "4573fb7e6fac8e02c8e3f57443599385dffada17b250a29f1a18964f6d6d8cc9",
+    "expectedDataAirportsJsonSha256": "4573fb7e6fac8e02c8e3f57443599385dffada17b250a29f1a18964f6d6d8cc9",
+    "mainCommit": "d2e92ea35709e5c7d0697c71eee680bb6be37a30",
+    "matchesExpected": true
+  },
+  "checks": [
+    {
+      "check": "no_locked_url_refetched",
+      "passed": true
+    },
+    {
+      "check": "all_33_new_originals_triple_hashed_in_ignored_work",
+      "passed": true
+    },
+    {
+      "check": "all_citations_verified_by_character_offsets_and_quote_sha256",
+      "passed": true
+    },
+    {
+      "check": "all_24_reused_receipts_verified_against_committed_locks",
+      "passed": true
+    },
+    {
+      "check": "candidate_proposals_native_schema_3_0_0_valid",
+      "passed": true
+    },
+    {
+      "check": "production_resolveAirport_differential_measured",
+      "passed": true
+    },
+    {
+      "check": "existing_formal_resolved_answers_preserved_100_percent",
+      "passed": true
+    },
+    {
+      "check": "cross_batch_west_palm_beach_uuid_collision_documented_and_reconciled",
+      "passed": true
+    },
+    {
+      "check": "no_private_originals_or_full_extractions_in_tracked_files",
+      "passed": true
+    }
+  ],
+  "formalDataUnchanged": true,
+  "formatVersion": 1,
+  "result": "passed",
+  "validatedOn": "2026-11-18"
+}
