@@ -84,7 +84,7 @@ def changed_load(path):
     return document
 admission.load = changed_load
 try:
-    admission.check_inputs(Path('data/airports.json'))
+    admission.check_inputs(Path('test/curated-0.12.0.json'))
 except ValueError as error:
     assert ${JSON.stringify(expected)} in str(error), str(error)
     print('rejected')

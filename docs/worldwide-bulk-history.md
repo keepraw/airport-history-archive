@@ -22,6 +22,8 @@ known verified historic code against an ambiguous reference code, and uploads
 build artifact. The generated database can also be rebuilt locally at any time.
 The builder writes a temporary database, checks referential/integrity constraints,
 then atomically replaces the output; repeated builds are deterministic.
+Dated lookups accept local dates in `[2000-01-01, 2026-11-19)`. Undated
+research lookups continue to expose the pinned reference and transition records.
 
 The database has three explicit evidence layers:
 

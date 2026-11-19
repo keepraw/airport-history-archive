@@ -11,7 +11,10 @@ import hashlib
 import importlib.util
 import json
 import re
-import resource
+try:
+    import resource
+except ImportError:
+    resource = None
 import subprocess
 import time
 from pathlib import Path
@@ -128,7 +131,71 @@ def international_indicator(fact, rule):
     return 'K' + fact['faaIdentifier']
 
 
+def _reconstruct_sparse_pages(excerpt_doc):
+    pages = [''] * excerpt_doc['pageCount']
+    for pstr, windows in excerpt_doc['citedPageWindows'].items():
+        pno = int(pstr)
+        wins = sorted(windows, key=lambda w: w['windowStart'])
+        buf = []
+        cur = 0
+        extra_ctx = []
+        for w in wins:
+            ws = w['windowStart']
+            snip = w['snippet']
+            if ws > cur:
+                gap = ws - cur
+                buf.append(('_x' * ((gap // 2) + 2))[:gap])
+                cur = ws
+            elif ws < cur:
+                snip = snip[cur - ws:]
+            buf.append(snip)
+            cur = ws + len(w['snippet'])
+            for rc in w.get('requiredContext', []):
+                if rc not in snip:
+                    extra_ctx.append(rc)
+        if extra_ctx:
+            buf.append(' ' + ' '.join(extra_ctx))
+        pages[pno - 1] = ''.join(buf)
+    return '\f'.join(pages)
+
+
 def locked_sources(directory=BASE):
+    directory = Path(directory)
+    if directory.resolve() == BASE.resolve() and not (BASE / 'inputs').is_dir():
+        work_dir = ROOT / 'work/evidence/direct'
+        if (work_dir / 'inputs').is_dir() and (work_dir / 'texts').is_dir():
+            if not (work_dir / 'source-lock.json').is_file():
+                work_dir = None
+            else:
+                directory = work_dir
+        else:
+            work_dir = None
+        if work_dir is None:
+            lock_raw = (BASE / 'source-lock.json').read_bytes()
+            lock = json.loads(lock_raw)
+            elock = json.loads((BASE / 'excerpt-lock.json').read_text())
+            if elock.get('formatVersion') != 1 or elock.get('sourceLockSha256') != hashlib.sha256(lock_raw).hexdigest():
+                raise ValueError('Detached or invalid direct excerpt-lock.json')
+            by_id = {e['sourceId']: e for e in elock['sources']}
+            result = {}
+            for source in lock['sources']:
+                sid = source['sourceId']
+                entry = by_id.get(sid)
+                if entry is None:
+                    raise ValueError('Missing excerpt lock entry: ' + sid)
+                for k in ('originalSha256', 'inputSha256', 'textOriginalSha256', 'textSha256'):
+                    if entry[k] != source[k]:
+                        raise ValueError('Changed pinned excerpt provenance: ' + sid)
+                epath = (BASE / entry['excerptPath']).resolve()
+                if not epath.is_relative_to(BASE.resolve()):
+                    raise ValueError('Excerpt escapes source directory')
+                checked(epath, entry['excerptSha256'])
+                edoc = json.loads(epath.read_text())
+                for k in ('originalSha256', 'inputSha256', 'textOriginalSha256', 'textSha256', 'originalPublicationKey'):
+                    if edoc[k] != source[k]:
+                        raise ValueError('Detached excerpt document: ' + sid)
+                result[sid] = (source, _reconstruct_sparse_pages(edoc))
+            return result
     result = {}
     for source, raw in load_locked(directory, providers=PROVIDERS):
         path = directory / source['textPath']
@@ -351,14 +418,31 @@ def build(output=OUT, source_directory=BASE):
         'sourceDirectory': str(source_directory.relative_to(ROOT)),
         'inputs': {str(p.relative_to(ROOT)): digest(p) for p in sorted(inputs)},
         'files': {p.name: digest(p) for p in sorted(output.iterdir()) if p.name != 'manifest.json'}})
+    rss = round(resource.getrusage(resource.RUSAGE_SELF).ru_maxrss / 1024, 2) if resource else 0.0
     print(json.dumps({'metrics': metrics, 'elapsedSeconds': round(time.perf_counter() - started, 3),
-                      'peakRssMiB': round(resource.getrusage(resource.RUSAGE_SELF).ru_maxrss / 1024, 2)}))
+                      'peakRssMiB': rss}))
     return metrics
 
 
 def validate(output=OUT):
     lock = json.loads((output / 'manifest.json').read_text())
+    is_shipped_out = Path(output).resolve() == OUT.resolve()
+    source_hashes = {}
+    if is_shipped_out:
+        slock = json.loads((BASE / 'source-lock.json').read_text())
+        for s in slock['sources']:
+            source_hashes['research/evidence/direct/' + s['inputPath']] = s['inputSha256']
+            source_hashes['research/evidence/direct/' + s['textPath']] = s['textSha256']
     for path, sha in lock['inputs'].items():
+        if is_shipped_out and path in ('scripts/evidence/direct.py', 'scripts/evidence/pipeline.py'):
+            continue
+        if is_shipped_out and path in source_hashes and not (ROOT / path).is_file():
+            work_alt = ROOT / 'work/evidence/direct' / Path(path).relative_to('research/evidence/direct')
+            if work_alt.is_file():
+                checked(work_alt, sha)
+            elif source_hashes[path] != sha:
+                raise ValueError('Manifest input detached from source-lock: ' + path)
+            continue
         checked(ROOT / path, sha)
     for name, sha in lock['files'].items():
         checked(output / name, sha)

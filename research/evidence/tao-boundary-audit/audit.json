@@ -1,0 +1,64 @@
+{
+  "formatVersion": 2,
+  "queryHorizon": {
+    "fromInclusive": "2000-01-01",
+    "toExclusive": "2026-11-19"
+  },
+  "baselineDataVersion": "0.12.0",
+  "baselineSha256": "4573fb7e6fac8e02c8e3f57443599385dffada17b250a29f1a18964f6d6d8cc9",
+  "formalDataVersion": "0.13.0",
+  "formalSha256": "a834b0153bd897b1f2cc5aaf1300ec5037f4ed43a596848543d84adfb5f99c34",
+  "scheme": "IATA",
+  "code": "TAO",
+  "datesCompared": 9819,
+  "before": {
+    "resolved": 3721,
+    "uncertain": 6098,
+    "conflict": 0,
+    "not_found": 0,
+    "invalid_input": 0
+  },
+  "after": {
+    "resolved": 9819,
+    "uncertain": 0,
+    "conflict": 0,
+    "not_found": 0,
+    "invalid_input": 0
+  },
+  "resolvedByAirportId": {
+    "apt_f470ecb5-c6dc-4516-a233-37302da2115b": 7894,
+    "apt_6729d2b2-4b79-48c8-9c42-0d4eeba121b8": 1925
+  },
+  "difference": {
+    "newlyResolved": 6098,
+    "lost": 0,
+    "changedAirport": 0
+  },
+  "probes": [
+    {
+      "date": "2000-01-01",
+      "status": "resolved",
+      "airportId": "apt_f470ecb5-c6dc-4516-a233-37302da2115b"
+    },
+    {
+      "date": "2021-08-11",
+      "status": "resolved",
+      "airportId": "apt_f470ecb5-c6dc-4516-a233-37302da2115b"
+    },
+    {
+      "date": "2021-08-12",
+      "status": "resolved",
+      "airportId": "apt_6729d2b2-4b79-48c8-9c42-0d4eeba121b8"
+    },
+    {
+      "date": "2026-11-18",
+      "status": "resolved",
+      "airportId": "apt_6729d2b2-4b79-48c8-9c42-0d4eeba121b8"
+    },
+    {
+      "date": "2026-11-19",
+      "status": "not_found",
+      "airportId": null
+    }
+  ]
+}

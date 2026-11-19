@@ -1,0 +1,52 @@
+{
+  "admitted080Citations": [
+    {
+      "anchor": "lat. 30°21'28'' N., long. 85°47'56'' W.",
+      "extractedPage": 294,
+      "extractionTool": "pdftotext 25.03.0 -layout"
+    }
+  ],
+  "citedPageWindows": {
+    "294": [
+      {
+        "expectedCitation": {
+          "anchor": "lat. 30°21'28'' N., long. 85°47'56'' W.",
+          "context": " FR 68503 (Added) ASO FL D Panama City, FL Northwest Florida-Panama City International Airport, FL (lat. 30°21'28'' N., long. 85°47'56'' W.) That airspace extending upward from the surface up to and including 2,500 feet MSL within a 4.7-mile radius of the Northwest Florida-Panam",
+          "extractedPage": 294,
+          "normalizedOffset": 589
+        },
+        "factId": "ecp-location",
+        "pageLength": 2118,
+        "requiredContext": [],
+        "snippet": "s effective during the specific days and times established in advance by a Notice to Airmen. The effective days and times will thereafter be continuously published in the Airport/Facility Directory. AMENDMENTS 2/19/04 68 FR 68503 (Added) ASO FL D Panama City, FL Northwest Florida-Panama City International Airport, FL (lat. 30°21'28'' N., long. 85°47'56'' W.) That airspace extending upward from the surface up to and including 2,500 feet MSL within a 4.7-mile radius of the Northwest Florida-Panama City International Airport. This Class",
+        "windowEnd": 808,
+        "windowStart": 269
+      }
+    ],
+    "454": [
+      {
+        "expectedCitation": {
+          "anchor": "lat. 37°02'11'' N., long. 113°30'37'' W.",
+          "context": "9/15/14 JO 7400.9Y ANM UT E2 St. George, UT St. George Municipal Airport, UT (lat. 37°02'11'' N., long. 113°30'37'' W.) Within a 4.5-mile radius of St. George Municipal Airport. AMENDMENTS 12/12/2013 78 FR 63380 (Amended) ANM UT E2 Vernal, UT Vernal Airport,",
+          "extractedPage": 454,
+          "normalizedOffset": 78
+        },
+        "factId": "sgu-new-location",
+        "pageLength": 1666,
+        "requiredContext": [],
+        "snippet": "9/15/14 JO 7400.9Y ANM UT E2 St. George, UT St. George Municipal Airport, UT (lat. 37°02'11'' N., long. 113°30'37'' W.) Within a 4.5-mile radius of St. George Municipal Airport. AMENDMENTS 12/12/2013 78 FR 63380 (Amended) ANM UT E2 Vernal, UT Vernal Airport, UT (lat. 40°26'28\"N., long. 109°30'35\"W",
+        "windowEnd": 298,
+        "windowStart": 0
+      }
+    ]
+  },
+  "formatVersion": 1,
+  "inputSha256": "066fe5210452615916fbcbf6cca2e1e166016c0c8988176480b4a0979a6d842c",
+  "originalPublicationKey": "usdot-faa:JO7400.9Y:2014-09-15",
+  "originalSha256": "3b021d8b244b90c50de7c92b19eeb339c30e52a4227f8d24c3a9d87492227605",
+  "pageCount": 1522,
+  "sourceId": "airspace-2014",
+  "textOriginalSha256": "3248311d99972c4d19c8058b71c4c5b906c4bff9fc6f9f409930f7bc2d66e8b3",
+  "textSha256": "d70bba4cd81938202f1abcf03fd6cde8b3d7a767d3b3b1631a592b69bbba37bf",
+  "url": "https://www.faa.gov/documentlibrary/media/order/jo_7400.9y.pdf"
+}

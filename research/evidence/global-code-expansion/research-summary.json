@@ -427,7 +427,7 @@
         "proposedNewResolvedQueries": 81,
         "proposedNotFoundToResolved": 81,
         "proposedUncertainToResolved": 0,
-        "reportSha256": "fc8cc5713e87defe3c538f1d5ee1ac014fd50c7dcfa39bc5823eb98c5ab65185",
+        "reportSha256": "bcf4ff24a0ed4bfaacd92493add7a6c20cf68f0f37d3d2f1af4f019fd38ced4a",
         "separateIataIcaoCombinedComparisonsComplete": true
       },
       "sha256": "4573fb7e6fac8e02c8e3f57443599385dffada17b250a29f1a18964f6d6d8cc9"
@@ -436,8 +436,9 @@
   "formatVersion": 1,
   "remainingHighValueQueue": {
     "eventGroups": 1198,
-    "meaning": "All high-value groups remain visible until formal production coverage is admitted and merged. Pending proposals, completed evidence reviews, aliases and unresearched groups have distinct progress states.",
+    "meaning": "Compact snapshot of the high-value research progress at the PR base.",
     "path": "remaining-high-value-queue.jsonl.gz",
+    "sha256": "4052dde0591e04039cbb14332b81778087ff43c68b1f88079d2b9ed8611fe97c",
     "states": {
       "access_directory_or_discovery_blocked": 5,
       "authorized_formal_data_proposal_pending_merge": 2,

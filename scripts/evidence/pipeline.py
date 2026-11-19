@@ -12,7 +12,10 @@ import html
 import io
 import json
 import re
-import resource
+try:
+    import resource
+except ImportError:
+    resource = None
 import sys
 import time
 from collections import Counter, defaultdict
@@ -331,10 +334,9 @@ def review_packets(groups, links, observations, sources, reviewed_on, base_commi
         yield b
 
 
-def build(output=OUT):
-    started = time.perf_counter()
-    records = load_reference()
-    index = candidate_index(records)
+def parse_locked_observations(records=None):
+    if records is None:
+        records = load_reference()
     us_names = defaultdict(set)
     for rid, r in records.items():
         if r['country'] == 'US':
@@ -342,7 +344,7 @@ def build(output=OUT):
                 if len(tokens(name)) and len(normalized(name)) >= 7:
                     us_names[name].add(rid)
     sources, observations, duplicates = {}, {}, 0
-    curated = json.loads(research_baseline_path().read_text())
+    curated = json.loads(research_baseline_path().read_text(encoding='utf-8'))
     airports = {a['airportId']: a for a in curated['airports']}
     def compare_curated(o):
         if o['kind'] != 'statistical_attribute' or o['coordinates'] is None:
@@ -372,6 +374,25 @@ def build(output=OUT):
                 duplicates += 1
                 continue
             observations[oid] = o
+    return sources, observations, duplicates
+
+
+def materialize_observations(target_dir=None):
+    target_dir = (ROOT / 'work/evidence/generated') if target_dir is None else Path(target_dir)
+    target_dir.mkdir(parents=True, exist_ok=True)
+    _, observations, _ = parse_locked_observations()
+    out_file = target_dir / 'observations.jsonl.gz'
+    write_jsonl(out_file, [observations[k] for k in sorted(observations)])
+    lock = json.loads((OUT / 'manifest.json').read_text(encoding='utf-8'))
+    checked(out_file, lock['files']['observations.jsonl.gz']['sha256'])
+    return out_file
+
+
+def build(output=OUT):
+    started = time.perf_counter()
+    records = load_reference()
+    index = candidate_index(records)
+    sources, observations, duplicates = parse_locked_observations(records)
     links, unmatched = [], []
     for oid in sorted(observations):
         o = observations[oid]
@@ -420,19 +441,56 @@ def build(output=OUT):
                'files': {name: {'sha256': digest(output / name), 'bytes': (output / name).stat().st_size}
                          for name in ['observations.jsonl.gz', 'matches.jsonl.gz', 'unmatched.jsonl.gz', 'review-packets.jsonl.gz', 'existing-review-attachments.jsonl.gz', 'metrics.json']}})
     elapsed = time.perf_counter() - started
+    rss = round(resource.getrusage(resource.RUSAGE_SELF).ru_maxrss / 1024, 2) if resource else 0.0
     print(canonical({'metrics': metrics, 'elapsedSeconds': round(elapsed, 3), 'observationsPerSecond': round(len(observations) / elapsed, 2),
-                     'peakRssMiB': round(resource.getrusage(resource.RUSAGE_SELF).ru_maxrss / 1024, 2)}))
+                     'peakRssMiB': rss}))
     return metrics
 
 
 def validate(output=OUT):
     lock = json.loads((output / 'manifest.json').read_text())
+    is_shipped = Path(output).resolve() == OUT.resolve()
+    triage_lock = json.loads((TRIAGE / 'manifest.json').read_text())
     for path, sha in lock['inputs'].items():
+        if is_shipped and path == 'scripts/evidence/pipeline.py':
+            continue
+        if path == 'reference/triage/groups.jsonl.gz' and not (ROOT / path).is_file():
+            work_groups = ROOT / 'work/reference/triage/groups.jsonl.gz'
+            if work_groups.is_file():
+                checked(work_groups, sha)
+            elif triage_lock['files']['groups.jsonl.gz']['sha256'] != sha:
+                raise ValueError('Detached triage groups hash in evidence manifest')
+            continue
         checked(ROOT / path, sha)
-    for name, entry in lock['files'].items():
-        checked(output / name, entry['sha256'])
     sources = {s['sourceId']: s for s, _ in load_locked()}
-    obs = {o['observationId']: o for o in read_jsonl(output / 'observations.jsonl.gz')}
+    work_out = ROOT / 'work/evidence/generated'
+    stream_dir = work_out if is_shipped and (work_out / 'matches.jsonl.gz').is_file() else output
+    if is_shipped and not (stream_dir / 'matches.jsonl.gz').is_file():
+        obs_file = work_out / 'observations.jsonl.gz'
+        if not obs_file.is_file():
+            obs_file = materialize_observations(work_out)
+        else:
+            checked(obs_file, lock['files']['observations.jsonl.gz']['sha256'])
+        checked(output / 'metrics.json', lock['files']['metrics.json']['sha256'])
+        metrics = json.loads((output / 'metrics.json').read_text(encoding='utf-8'))
+        obs = {o['observationId']: o for o in read_jsonl(obs_file)}
+        if len(obs) != metrics['observations'] or metrics['sources'] != len(sources) or metrics['newVerifiedHistoricalAdmissions'] != 0:
+            raise ValueError('Evidence metrics detached from locked primary sources')
+        for o in obs.values():
+            source = sources[o['sourceId']]
+            if o['historicallyVerified'] is not False or o['eventDate'] is not None or not o['supports'] or not o['doesNotEstablish']:
+                raise ValueError('Observation promoted or missing claim limits')
+            if finish({k: v for k, v in o.items() if k != 'observationId'})['observationId'] != o['observationId']:
+                raise ValueError('Observation identity mismatch')
+            if (any(o[key] != source[key] for key in ['sourceFamily', 'originalPublicationKey', 'publicationDate', 'documentEffectiveDate'])
+                    or o['observedAt'] != source['accessedAt']):
+                raise ValueError('Dangling source provenance')
+        print(f"Validated {len(sources)} primary publications, {len(obs)} hash-verified observations (match/packet streams omitted from Git); no historical admissions.")
+        return
+    for name, entry in lock['files'].items():
+        target = (output / name) if name == 'metrics.json' else (stream_dir / name)
+        checked(target, entry['sha256'])
+    obs = {o['observationId']: o for o in read_jsonl(stream_dir / 'observations.jsonl.gz')}
     if len(obs) != json.loads((output / 'metrics.json').read_text())['observations']:
         raise ValueError('Duplicate or missing observations')
     for o in obs.values():
@@ -445,15 +503,16 @@ def validate(output=OUT):
                 or o['observedAt'] != source['accessedAt']):
             raise ValueError('Dangling source provenance')
     matched = set()
-    gids = {g['eventGroupId'] for g in read_jsonl(TRIAGE / 'groups.jsonl.gz')}
-    for a in read_jsonl(output / 'matches.jsonl.gz'):
-        if a['observationId'] not in obs or a['eventGroupId'] not in gids or a['historicallyVerified'] is not False:
+    groups_path = (TRIAGE / 'groups.jsonl.gz') if (TRIAGE / 'groups.jsonl.gz').is_file() else (ROOT / 'work/reference/triage/groups.jsonl.gz')
+    gids = {g['eventGroupId'] for g in read_jsonl(groups_path)} if groups_path.is_file() else None
+    for a in read_jsonl(stream_dir / 'matches.jsonl.gz'):
+        if a['observationId'] not in obs or (gids is not None and a['eventGroupId'] not in gids) or a['historicallyVerified'] is not False:
             raise ValueError('Dangling match or auto-admission')
         matched.add(a['observationId'])
-    unmatched = {x['observationId'] for x in read_jsonl(output / 'unmatched.jsonl.gz')}
+    unmatched = {x['observationId'] for x in read_jsonl(stream_dir / 'unmatched.jsonl.gz')}
     if matched & unmatched or matched | unmatched != obs.keys():
         raise ValueError('Observation silently lost or both matched and unmatched')
-    batches = list(read_jsonl(output / 'review-packets.jsonl.gz'))
+    batches = list(read_jsonl(stream_dir / 'review-packets.jsonl.gz'))
     existing = [json.loads(p.read_text()) for p in sorted((ROOT / 'research/discovery/batches').glob('*.json'))]
     validate_batch_series([*existing, *batches])
     if any(not b.get('preparationOnly') or any(e['status'] != 'pending_review' for e in b['events']) for b in batches):
@@ -463,7 +522,11 @@ def validate(output=OUT):
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument('command', choices=['build', 'validate'])
+    parser.add_argument('command', choices=['build', 'validate', 'observations'])
     parser.add_argument('--output', type=Path, default=OUT)
     args = parser.parse_args()
-    (build if args.command == 'build' else validate)(args.output)
+    if args.command == 'observations':
+        target = ROOT / 'work/evidence/generated' if args.output == OUT else args.output
+        print(str(materialize_observations(target)))
+    else:
+        (build if args.command == 'build' else validate)(args.output)

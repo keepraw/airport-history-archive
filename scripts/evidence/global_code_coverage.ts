@@ -18,11 +18,12 @@ type Batch = { batchId: string; eventGroupIds: string[]; codes: Code[]; claimsPa
 type Input = { baselinePath: string; baselineSha256: string; formalSha256: string;
   publishedBaselineCommit: string; publicationState: "unmerged_data_PR_candidate";
   from: string; toExclusive: string; reviewedOn: string; batches: Batch[] };
+const formalSnapshot = "test/curated-0.12.0.json";
 const input = read<Input>(`${directory}/resolver-input.json`);
-if (hash(input.baselinePath) !== input.baselineSha256 || hash("data/airports.json") !== input.formalSha256)
+if (hash(input.baselinePath) !== input.baselineSha256 || hash(formalSnapshot) !== input.formalSha256)
   throw new Error("Baseline or formal input fingerprint changed");
 const baseline = read<Dataset>(input.baselinePath);
-const formal = read<Dataset>("data/airports.json");
+const formal = read<Dataset>(formalSnapshot);
 assertDataset(baseline); assertDataset(formal);
 for (const collection of ["airports", "assignments", "names", "sources"] as const) {
   if (!isDeepStrictEqual(formal[collection].slice(0, baseline[collection].length), baseline[collection]))
@@ -185,7 +186,7 @@ const allCodes = [...input.batches.flatMap(b => b.codes), ...baseline.assignment
 const formalComparison = measure(baseline, formal, allCodes);
 if (formalComparison.changedResolvedAnswers || formalComparison.newConflicts) throw new Error("Published resolution changed");
 const report = { formatVersion: 1, baseline: { path: input.baselinePath, sha256: input.baselineSha256, dataVersion: baseline.dataVersion },
-  formal: { path: "data/airports.json", sha256: input.formalSha256, dataVersion: formal.dataVersion },
+  formal: { path: formalSnapshot, sha256: input.formalSha256, dataVersion: formal.dataVersion },
   publication: { state: input.publicationState, publishedBaselineCommit: input.publishedBaselineCommit,
     actualPublishedNewResolvedQueries: 0,
     meaning: "The serialized 0.12.0 data PR is measured with the production resolver. It remains unmerged; these gains are not yet published production coverage." },

@@ -4,6 +4,7 @@ on:
   pull_request:
     paths:
       - 'bulk/worldwide.py'
+      - 'src/query-horizon.json'
       - 'test/reference/test_bulk_history.py'
       - 'docs/worldwide-bulk-history.md'
       - '.github/workflows/bulk-history.yml'
@@ -15,6 +16,7 @@ on:
     branches: [main]
     paths:
       - 'bulk/worldwide.py'
+      - 'src/query-horizon.json'
       - 'test/reference/test_bulk_history.py'
       - 'docs/worldwide-bulk-history.md'
       - '.github/workflows/bulk-history.yml'

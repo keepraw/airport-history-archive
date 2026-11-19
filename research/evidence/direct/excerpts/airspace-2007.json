@@ -1,0 +1,68 @@
+{
+  "admitted080Citations": [
+    {
+      "anchor": "lat. 30°12'44\"N, long. 85°40'58\"W",
+      "extractedPage": 161,
+      "extractionTool": "pdftotext 25.03.0 -layout"
+    }
+  ],
+  "citedPageWindows": {
+    "161": [
+      {
+        "expectedCitation": {
+          "anchor": "lat. 30°12'44\"N, long. 85°40'58\"W",
+          "context": "O FL D Panama City, FL Panama City-Bay County Airport, FL AMENDMENTS 8/03/06 71 FR 32822 (Revised) (lat. 30°12'44\"N, long. 85°40'58\"W) That airspace extending upward from the surface to ASO FL D St. Augustine, FL and including 2,500 feet MSL within a 4.6-mile St. Augustine",
+          "extractedPage": 161,
+          "normalizedOffset": 2417
+        },
+        "factId": "pfn-location",
+        "pageLength": 3796,
+        "requiredContext": [],
+        "snippet": "he specific days and times established in advance by a Notice to AMENDMENTS 2/19/04 68 FR 68503 (Added) Airmen. The effective days and times will thereafter be continuously published in the Airport/Facility Directory. ASO FL D Panama City, FL Panama City-Bay County Airport, FL AMENDMENTS 8/03/06 71 FR 32822 (Revised) (lat. 30°12'44\"N, long. 85°40'58\"W) That airspace extending upward from the surface to ASO FL D St. Augustine, FL and including 2,500 feet MSL within a 4.6-mile St. Augustine Airport, FL radius of Panama City-Bay C",
+        "windowEnd": 2630,
+        "windowStart": 2097
+      }
+    ],
+    "241": [
+      {
+        "expectedCitation": {
+          "anchor": "lat. 37°05'26\"N., long. 113°35'35\"W.",
+          "context": "ished in ANM UT E2 St. George, UT the Airport/Facility Directory. St. George Municipal Airport, UT (lat. 37°05'26\"N., long. 113°35'35\"W.) AMENDMENTS 5/22/97 62 FR 15825 (Revised) Within a 4.5-mile radius of St. George Municipal Airport. This Class E airspace is effective duri",
+          "extractedPage": 241,
+          "normalizedOffset": 2010
+        },
+        "factId": "sgu-old-location",
+        "pageLength": 3532,
+        "requiredContext": [],
+        "snippet": "ass E airspace area is effective AMENDMENTS 9/28/06 71 FR 51097 (Amended) during the specific dates and times established in advance by a Notice to Airmen. The effective date and time will thereafter be continuously published in ANM UT E2 St. George, UT the Airport/Facility Directory. St. George Municipal Airport, UT (lat. 37°05'26\"N., long. 113°35'35\"W.) AMENDMENTS 5/22/97 62 FR 15825 (Revised) Within a 4.5-mile radius of St. George Municipal Airport. This Class E airspace is effective during ANM OR E2 Salem, OR specific dates an",
+        "windowEnd": 2226,
+        "windowStart": 1690
+      }
+    ],
+    "586": [
+      {
+        "expectedCitation": {
+          "anchor": "lat. 35°13''12'N, long. 84°49''57'W",
+          "context": "52'W) Centerville Municipal Airport, TN Hardwick Field Airport (lat. 35°50'15\"N, long. 87°26'43\"W) (lat. 35°13''12'N, long. 84°49''57'W) Hardwick NDB That airspace extending upward from 700 feet above (lat. 35°09''13'N, long. 84°54''21'W) the surface within a 7-mile radius o",
+          "extractedPage": 586,
+          "normalizedOffset": 2383
+        },
+        "factId": "hdi-location",
+        "pageLength": 2948,
+        "requiredContext": [],
+        "snippet": "g upward from 700 feet above 12.2 miles south. the surface within a 6.3-mile radius of Benton County Airport. ASO TN E5 Dayton, TN Dayton, Mark Anton Airport, TN ASO TN E5 Centerville, TN (lat. 35°29''10'N, long. 84°55''52'W) Centerville Municipal Airport, TN Hardwick Field Airport (lat. 35°50'15\"N, long. 87°26'43\"W) (lat. 35°13''12'N, long. 84°49''57'W) Hardwick NDB That airspace extending upward from 700 feet above (lat. 35°09''13'N, long. 84°54''21'W) the surface within a 7-mile radius of Centerville Bledsoe County Hospital, P",
+        "windowEnd": 2598,
+        "windowStart": 2063
+      }
+    ]
+  },
+  "formatVersion": 1,
+  "inputSha256": "ef50c29dc3b559e0d6800e042f6ab25ca1a24ab919f3431634c5d0e6a6ac04df",
+  "originalPublicationKey": "usdot-faa:JO7400.9R:2007-09-15",
+  "originalSha256": "9e6b81cd4f29fb858a2bb8a197ed1dfcab872f2b6c3c44e76d0a2e10faa24457",
+  "pageCount": 769,
+  "sourceId": "airspace-2007",
+  "textOriginalSha256": "a2e2b4200c7065724d3295fa3bbe6f8d9f970496f5c1600ae53cfe5c26391cd0",
+  "textSha256": "217c0e07f70c0ca4215ba1ae50fa81751b671845e825c53e4d089c8f899a9d31",
+  "url": "https://www.faa.gov/documentLibrary/media/Order/ND/7400.9R.pdf"
+}

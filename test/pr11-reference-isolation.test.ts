@@ -5,7 +5,7 @@ import { resolveAirport } from "../src/index.ts";
 import type { Dataset } from "../src/types.ts";
 
 const load = (path: string) => JSON.parse(readFileSync(new URL(path, import.meta.url), "utf8")) as Dataset;
-const current = load("../data/airports.json");
+const current = load("./curated-0.12.0.json");
 const frozen = load("./curated-0.7.0.json");
 
 test("reference import preserves every reviewed 0.7.0 record and historical result", () => {

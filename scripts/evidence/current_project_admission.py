@@ -4,7 +4,15 @@ from pathlib import Path
 import subprocess
 ROOT = Path(__file__).resolve().parents[2]
 data = json.loads((ROOT / 'data/airports.json').read_text())
-if data['dataVersion'] == '0.12.0':
+if data['dataVersion'] == '0.13.0':
+    subprocess.run(['python3', 'scripts/evidence/default_continuity.py', 'validate'], cwd=ROOT, check=True)
+    subprocess.run(['node', 'scripts/evidence/tao_boundary_audit.ts', '--check'], cwd=ROOT, check=True)
+    subprocess.run(['python3', 'scripts/evidence/rank_by_formal_yield.py', '--check'], cwd=ROOT, check=True)
+    subprocess.run(['python3', 'scripts/evidence/global_code_admission.py',
+                    '--candidate', 'test/curated-0.12.0.json'], cwd=ROOT, check=True)
+    subprocess.run(['node', 'scripts/evidence/admission_0120_coverage.ts',
+                    'validate', 'test/curated-0.12.0.json'], cwd=ROOT, check=True)
+elif data['dataVersion'] == '0.12.0':
     subprocess.run(['python3', 'scripts/evidence/global_code_admission.py'], cwd=ROOT, check=True)
 elif data['dataVersion'] == '0.11.0':
     subprocess.run(['python3', 'scripts/evidence/project_admission.py'], cwd=ROOT, check=True)

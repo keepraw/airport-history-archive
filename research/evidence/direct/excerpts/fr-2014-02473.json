@@ -1,0 +1,44 @@
+{
+  "admitted080Citations": [],
+  "citedPageWindows": {
+    "1": [
+      {
+        "expectedCitation": {
+          "anchor": "The permanent closure date of the airport is effective as of March 14, 2014",
+          "context": "sure of Cleveland Hardwick Field Airport in accordance with U.S.C. 46319(b). DATES: Effective Date: The permanent closure date of the airport is effective as of March 14, 2014. FOR FURTHER INFORMATION CONTACT: Stephen Wilson, Community Planner, Federal Aviation Administration, Memphis Airports District Office, 260",
+          "extractedPage": 1,
+          "normalizedOffset": 1186
+        },
+        "factId": "cleveland-statutory-closure",
+        "pageLength": 3301,
+        "requiredContext": [],
+        "snippet": "sure of Cleveland Hardwick Field (HDI). The notice was in excess of 30 days before the closure in accordance with 49 U.S.C. 46319(a). The FAA hereby publishes the intent of the City of Cleveland's notice of permanent closure of Cleveland Hardwick Field Airport in accordance with U.S.C. 46319(b). DATES: Effective Date: The permanent closure date of the airport is effective as of March 14, 2014. FOR FURTHER INFORMATION CONTACT: Stephen Wilson, Community Planner, Federal Aviation Administration, Memphis Airports District Office, 2600 Thousand Oaks Boulevard, Suite 2250, M",
+        "windowEnd": 1441,
+        "windowStart": 866
+      },
+      {
+        "expectedCitation": {
+          "anchor": "All flight operations and tenants have been relocated to the newly opened Cleveland Regional Jetport (RZR).",
+          "context": "miles from HDI. The closed facility, comprised of approximately 62 acres will be parceled and sold. All flight operations and tenants have been relocated to the newly opened Cleveland Regional Jetport (RZR). Per U.S.C. 46319(a), a public agency may not permanently close an airport listed in the National Plan of Integrated Airports Systems (NPIAS",
+          "extractedPage": 1,
+          "normalizedOffset": 2486
+        },
+        "factId": "cleveland-replacement",
+        "pageLength": 3301,
+        "requiredContext": [],
+        "snippet": " with a 5,500 ft. runway able to accept larger category aircraft types. The City of Cleveland, Tennessee subsequently developed a replacement airport known as the Cleveland Regional Jetport (RZR) located approximately 5 miles from HDI. The closed facility, comprised of approximately 62 acres will be parceled and sold. All flight operations and tenants have been relocated to the newly opened Cleveland Regional Jetport (RZR). Per U.S.C. 46319(a), a public agency may not permanently close an airport listed in the National Plan of Integrated Airports Systems (NPIAS) under section 47103 without providing ",
+        "windowEnd": 2773,
+        "windowStart": 2166
+      }
+    ]
+  },
+  "formatVersion": 1,
+  "inputSha256": "0acee6dde65d34239c551df3ed8ce728cef35a2c02d5e45ca68e3c79c7fdea18",
+  "originalPublicationKey": "usdot-faa:FR:2014-02473",
+  "originalSha256": "ee935cadfb2fa436674a8300016eb2580531568830947417a7aa155962caa3fd",
+  "pageCount": 1,
+  "sourceId": "fr-2014-02473",
+  "textOriginalSha256": "6798dcc95ca9c9bdad5830ba6778dca7bb80c0bdd32bcc998e3ac95d84507e98",
+  "textSha256": "14cfc91a756990dbbb5c96590dd9fbd8df399a1c8ebd4f857fc9fef4d61b36c0",
+  "url": "https://www.govinfo.gov/content/pkg/FR-2014-02-05/html/2014-02473.htm"
+}

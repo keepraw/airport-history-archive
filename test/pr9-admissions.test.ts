@@ -1,7 +1,7 @@
 import { createHash } from "node:crypto";
 import { readFile } from "node:fs/promises";
 import { describe, expect, it } from "vitest";
-import { loadDataset } from "../scripts/load.ts";
+import frozenRelease from "./curated-0.12.0.json" with { type: "json" };
 import { resolveAirport, resolveAirportName } from "../src/index.ts";
 import type { Dataset } from "../src/types.ts";
 import { validateDataset } from "../src/validate.ts";
@@ -12,7 +12,7 @@ import frozen04 from "./curated-0.4.0.json" with { type: "json" };
 import frozen05 from "./curated-0.5.0.json" with { type: "json" };
 import frozen06 from "./curated-0.6.0.json" with { type: "json" };
 
-const data = await loadDataset();
+const data = frozenRelease as Dataset;
 const previous = frozen05 as Dataset;
 type Site = keyof typeof ids;
 const nextDate = (date: string, delta = 1) => {
@@ -94,7 +94,7 @@ describe("conservative code history", () => {
     ["GOBD", "2017-10-12", "ICAO", "uncertain", null],
     ["GOBD", "2017-12-06", "ICAO", "uncertain", null],
     ["GOBD", "2017-12-07", "ICAO", "resolved", "diass"],
-    ["AAP", "1997-01-01", "IATA", "uncertain", null],
+    ["AAP", "2000-01-01", "IATA", "uncertain", null],
     ["AAP", "2017-07-28", "IATA", "uncertain", null],
     ["AAP", "2018-05-24", "IATA", "uncertain", null],
     ["AAP", "2018-10-25", "IATA", "uncertain", null],

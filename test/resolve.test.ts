@@ -1,6 +1,7 @@
 import { describe, expect, it } from "vitest";
 import { loadDataset } from "../scripts/load.ts";
 import { resolveAirport } from "../src/index.ts";
+import { resolveAirport as resolveRecordedAssignment } from "../src/resolve.ts";
 import ids from "./identities.json" with { type: "json" };
 import type { Boundary, CodeAssignment, Dataset } from "../src/types.ts";
 const data = await loadDataset();
@@ -22,7 +23,7 @@ function synthetic(): Dataset {
   ];
   return copy;
 }
-describe("curated historical regressions", () => {
+describe("recorded assignment regressions, including archived dates", () => {
   it.each([
     ["TAO", "2017-01-01", "liuting"],
     ["TAO", "2024-12-31", "jiaodong"],
@@ -33,7 +34,7 @@ describe("curated historical regressions", () => {
     ["DEN", "1994-01-01", "stapleton"],
     ["DEN", "2024-12-31", "denver"],
   ] as const)("%s on %s resolves to %s", (code, date, key) => {
-    const r = resolveAirport(data, code, date);
+    const r = resolveRecordedAssignment(data, code, date);
     expect(r.status).toBe("resolved");
     expect(r.airport?.airportId).toBe(ids[key].airportId);
     expect(r.airport?.coordinates.value).not.toBeNull();
@@ -58,7 +59,7 @@ describe("curated historical regressions", () => {
   ] as const)(
     "%s on transfer-adjacent date %s: %s",
     (code, date, status, key) => {
-      const r = resolveAirport(data, code, date);
+      const r = resolveRecordedAssignment(data, code, date);
       expect(r.status).toBe(status);
       expect(r.airport?.airportId ?? null).toBe(
         key ? ids[key].airportId : null,
@@ -78,13 +79,39 @@ describe("curated historical regressions", () => {
   it.each(["TAO", "IST", "HKG", "DEN"])(
     "%s does not extrapolate beyond evidence",
     (code) => {
-      expect(resolveAirport(data, code, "1800-01-01").status).toBe("uncertain");
-      expect(resolveAirport(data, code, "2030-01-01").status).toBe("uncertain");
+      expect(resolveRecordedAssignment(data, code, "1800-01-01").status).toBe("uncertain");
+      expect(resolveRecordedAssignment(data, code, "2030-01-01").status).toBe("uncertain");
     },
   );
 });
 
 describe("offline resolver contract", () => {
+  it.each([["IATA", "TAO"], ["ICAO", "TEST"]] as const)(
+    "enforces the public date range for %s",
+    (scheme, code) => {
+      const d = synthetic();
+      const assignment = d.assignments[0]!;
+      Object.assign(assignment, {
+        scheme,
+        code,
+        validFrom: exact("1999-12-31"),
+        validTo: exact("2026-11-20"),
+      });
+      for (const date of ["1999-12-31", "2026-11-19"]) {
+        expect(resolveRecordedAssignment(d, code, date, scheme).status).toBe("resolved");
+        expect(resolveAirport(d, code, date, scheme)).toMatchObject({
+          status: "not_found",
+          query: { code, date, scheme },
+          airport: null,
+          candidates: [],
+          evidence: [],
+          reason: "Local date is outside the supported range [2000-01-01, 2026-11-19).",
+        });
+      }
+      for (const date of ["2000-01-01", "2026-11-18"])
+        expect(resolveAirport(d, code, date, scheme).status).toBe("resolved");
+    },
+  );
   it("normalizes code whitespace/case and leaves caller data untouched", () => {
     const before = JSON.stringify(data);
     expect(resolveAirport(data, " tao ", "2017-06-01").airport?.airportId).toBe(
@@ -106,10 +133,37 @@ describe("offline resolver contract", () => {
   });
   it("accepts Gregorian leap day", () =>
     expect(resolveAirport(data, "TAO", "2024-02-29").status).toBe("resolved"));
+  it("resolves independently sourced Heathrow codes from the cutoff", () => {
+    const iata = resolveAirport(data, "LHR", "2000-01-01", "IATA");
+    const icao = resolveAirport(data, "EGLL", "2000-01-01", "ICAO");
+    expect(iata.status).toBe("resolved");
+    expect(icao.status).toBe("resolved");
+    expect(iata.airport?.externalIds.ourAirports).toBe("2434");
+    expect(icao.airport?.airportId).toBe(iata.airport?.airportId);
+    for (const result of [iata, icao]) {
+      expect(result.candidates[0]?.assignment.evidenceType).toBe("continuity_inference");
+      expect(result.candidates[0]?.assignment.sourceIds).toContain("owner-default-continuity-v1");
+    }
+  });
+  it.each([
+    ["BLR", "2008-05-24", "2008-05-23", "2008-05-25", "26603", "35145"],
+    ["CAN", "2004-08-05", "2004-08-03", "2004-08-06", "35146", "27194"],
+    ["ATH", "2001-03-29", "2001-03-27", "2001-03-30", "29673", "4251"],
+  ])("preserves distinct sites around the %s transfer on %s", (code, transition, before, after, formerSite, currentSite) => {
+    const boundary = resolveAirport(data, code, transition);
+    expect(boundary.status).toBe("uncertain");
+    expect(boundary.airport).toBeNull();
+    expect(boundary.candidates).toHaveLength(2);
+    expect(resolveAirport(data, code, before).airport?.externalIds.ourAirports).toBe(formerSite);
+    expect(resolveAirport(data, code, after).airport?.externalIds.ourAirports).toBe(currentSite);
+  });
   it("does not use any fallback for missing codes", () =>
-    expect(resolveAirport(data, "LHR", "2024-01-01").status).toBe("not_found"));
+    expect(resolveAirport(data, "NYC", "2024-01-01").status).toBe("not_found"));
   it("rejects malformed codes and schemes", () => {
     expect(resolveAirport(data, "T4O", "2024-01-01").status).toBe(
+      "invalid_input",
+    );
+    expect(resolveAirport(data, "T4O", "1999-12-31").status).toBe(
       "invalid_input",
     );
     expect(
@@ -132,9 +186,9 @@ describe("offline resolver contract", () => {
     );
     expect(resolveAirport(d, "TAO", "2000-06-01").status).toBe("not_found");
     expect(
-      resolveAirport(data, "VHHH", "1997-01-01", "ICAO").airport?.airportId,
+      resolveRecordedAssignment(data, "VHHH", "1997-01-01", "ICAO").airport?.airportId,
     ).toBe(ids["kai-tak"].airportId);
-    expect(resolveAirport(data, "VHHH", "1998-07-06", "ICAO").status).toBe(
+    expect(resolveRecordedAssignment(data, "VHHH", "1998-07-06", "ICAO").status).toBe(
       "uncertain",
     );
     expect(

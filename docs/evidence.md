@@ -1,5 +1,9 @@
 # Evidence review: bootstrap and provenance update (0.2.0)
 
+The [0.13.0 owner continuity admission](../research/admissions/0.13.0/README.md)
+records the active policy and changed TAO and IST bounds. The records below
+describe the original bootstrap review.
+
 Version 0.3.0 adds five events, five physical identities, ten assignments and
 thirteen sources. See the [batch-1 evidence review](batch-1-evidence.md) and
 [candidate register](batch-1-candidates.md). The bootstrap records and their

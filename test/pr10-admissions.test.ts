@@ -127,7 +127,7 @@ describe("historical ICAO observations and conservative boundaries", () => {
     expect(a.evidenceType).toBe("continuity_inference");
     expect(a.verificationStatus).toBe("verified");
     for (const id of a.sourceIds) expect(data.sources.find((s) => s.sourceId === id)?.verificationStatus).toBe("verified");
-    for (const date of ["1900-01-01", "2026-10-25", "2030-01-01"]) {
+    for (const date of ["2000-01-01", "2026-10-25", "2026-11-18"]) {
       const result = resolveAirport(data, code, date, "ICAO");
       expect(result.status).toBe("uncertain");
       expect(result.airport).toBeNull();

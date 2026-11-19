@@ -1,0 +1,3254 @@
+{
+  "formatVersion": 1,
+  "manifestSha256": "b588949a16ada7ae787f0a40286288d3f2fccbcce1e4fe62d6113c71792659d7",
+  "matchedFormalIds": {
+    "airportIds": [
+      "apt_6729d2b2-4b79-48c8-9c42-0d4eeba121b8",
+      "apt_67f7542e-c336-4ba7-b23a-beaf1b4c1e38",
+      "apt_7a7e34d3-dbfa-4cce-ad24-818709177bfd",
+      "apt_86460159-a072-4a18-afcc-ab376cda7047",
+      "apt_896e8191-7c0b-4a94-bc14-9dcd7e35feac",
+      "apt_8d89722f-007c-4eb4-aaa0-ec1c61007a09",
+      "apt_92a92544-1808-487a-85e0-0fa995e1de82",
+      "apt_99f19660-7609-49c5-b221-ed4a37046566",
+      "apt_ce3d25d8-99db-48ae-b824-33cea4de0919",
+      "apt_d28173b7-5c8b-4012-8eed-18f96c13a0ce",
+      "apt_d8f290d3-11cc-4441-af6d-f4dd52d3b8dc",
+      "apt_f470ecb5-c6dc-4516-a233-37302da2115b",
+      "apt_f642eef8-1864-43c4-8944-47aaa7ac35ce"
+    ],
+    "assignmentIds": [
+      "iata-ber-schonefeld-brandenburg",
+      "iata-den-denver",
+      "iata-den-stapleton",
+      "iata-hkg-chek-lap-kok",
+      "iata-hkg-kai-tak",
+      "iata-isb-benazir-bhutto",
+      "iata-isb-islamabad",
+      "iata-isl-ataturk",
+      "iata-isl-istanbul",
+      "iata-ist-ataturk",
+      "iata-ist-istanbul",
+      "iata-kiv-chisinau",
+      "iata-nqz-astana",
+      "iata-rmo-chisinau",
+      "iata-sxf-schonefeld-brandenburg",
+      "iata-tao-jiaodong",
+      "iata-tao-liuting",
+      "iata-tse-astana",
+      "icao-vhhh-chek-lap-kok",
+      "icao-vhhh-kai-tak"
+    ],
+    "nameIds": [
+      "name-astana-before-2017",
+      "name-astana-nazarbayev-2017"
+    ]
+  },
+  "meaning": "Bounded retention of reviewed candidate rows and batch membership proofs from the hash-locked discovery corpus, allowing offline validation without shipping 194 MiB of regenerable JSONL shards in Git.",
+  "reviewedCandidates": {
+    "cand_025ed86a58c3d799fd1028e1": {
+      "candidateId": "cand_025ed86a58c3d799fd1028e1",
+      "changes": {
+        "iata": [
+          "",
+          "LMH"
+        ],
+        "lat": [
+          "15.863332748413",
+          "15.856066"
+        ],
+        "lon": [
+          "-85.498611450195",
+          "-85.443978"
+        ],
+        "type": [
+          "closed",
+          "small_airport"
+        ]
+      },
+      "context": {
+        "airport": "Limon Airport",
+        "city": "Limón",
+        "codes": [
+          "LMH",
+          "MHLN"
+        ],
+        "continent": "NA",
+        "country": "HN",
+        "region": "HN-CL"
+      },
+      "distanceKm": 5.899,
+      "evidence": {
+        "evidenceType": "indirect",
+        "sourceType": "secondary",
+        "sourceUrl": "https://github.com/datasets/airport-codes",
+        "verificationStatus": "pending"
+      },
+      "matches": {
+        "airportIds": [],
+        "assignmentIds": [],
+        "codeOnlyPossibleAirportIds": [],
+        "codeOnlyPossibleAssignmentIds": [],
+        "nameIds": []
+      },
+      "observations": [
+        {
+          "action": "M",
+          "afterBlob": "260a09188d2cff992739de75c2162096a43ed76c",
+          "beforeBlob": "4ed7260e184984d234c4cb9c0c1d080ade4827f0",
+          "commit": "09ab66f23778cd5c577c96d09a600dcac15bb82b",
+          "observedAt": "2024-10-01T11:30:59Z",
+          "parents": [
+            "51c43e6610742d5162452d3e5229dda197eaf238"
+          ]
+        },
+        {
+          "action": "M",
+          "afterBlob": "260a09188d2cff992739de75c2162096a43ed76c",
+          "beforeBlob": "4ed7260e184984d234c4cb9c0c1d080ade4827f0",
+          "commit": "63f6278fd0de9ad80af2835dcd1bc8558176aa1c",
+          "observedAt": "2024-10-01T17:34:37+05:00",
+          "parents": [
+            "68f702aa6eebf14ed5f7e3bf9be609f9fb8a5663",
+            "7eb67666b64fba95e8036882d81f9948fceec4d9"
+          ]
+        }
+      ],
+      "possibleEvent": "Unverified source revision; may be correction, label edit, allocation, closure or physical change.",
+      "review": {
+        "conflicts": [],
+        "eventGroupId": null,
+        "evidenceGaps": [
+          "Primary event and code-specific effective boundaries not reviewed."
+        ],
+        "exclusionReason": null,
+        "nextAction": "Review source correction vs real event; obtain dated primary notices independently for identity, codes and official name.",
+        "relatedLegacyIds": [],
+        "status": "pending_investigation"
+      },
+      "sourceEntityId": "42090",
+      "sourceId": "airport-codes-raw",
+      "time": {
+        "eventDate": null,
+        "eventDatePrecision": "unknown",
+        "firstObservedRevisionAt": "2024-10-01T11:30:59Z",
+        "lastObservedRevisionAt": "2024-10-01T17:34:37+05:00",
+        "meaning": "Repository observation times, not event validity bounds; earlier real-world dates remain possible."
+      },
+      "types": [
+        "coordinate_revision",
+        "iata_change",
+        "possible_relocation",
+        "possible_reopening"
+      ]
+    },
+    "cand_07f311536256078e1803e39f": {
+      "candidateId": "cand_07f311536256078e1803e39f",
+      "changes": {
+        "iata": [
+          "SGS",
+          "TWT"
+        ],
+        "keywords": [
+          "",
+          "SGS"
+        ],
+        "lat": [
+          "5.046989917755127",
+          "5.046991"
+        ],
+        "lon": [
+          "119.74299621582031",
+          "119.742996"
+        ]
+      },
+      "context": {
+        "airport": "Sanga Sanga Airport",
+        "city": null,
+        "codes": [
+          "RPMN",
+          "SGS",
+          "TWT"
+        ],
+        "continent": "AS",
+        "country": "PH",
+        "region": "PH-TAW"
+      },
+      "distanceKm": 0.0,
+      "evidence": {
+        "evidenceType": "indirect",
+        "sourceType": "secondary",
+        "sourceUrl": "https://github.com/datasets/airport-codes",
+        "verificationStatus": "pending"
+      },
+      "matches": {
+        "airportIds": [],
+        "assignmentIds": [],
+        "codeOnlyPossibleAirportIds": [],
+        "codeOnlyPossibleAssignmentIds": [],
+        "nameIds": []
+      },
+      "observations": [
+        {
+          "action": "M",
+          "afterBlob": "4ed7260e184984d234c4cb9c0c1d080ade4827f0",
+          "beforeBlob": "8304e1616f9918c3f97118a37e5565fde7c7cd25",
+          "commit": "4dfc3ac15e8e1d0889a114b268e28f3477a65d8b",
+          "observedAt": "2019-06-13T16:48:28+02:00",
+          "parents": [
+            "69723c25deeeae7ebaa37f914c8ff3bec9ce7ed3"
+          ]
+        }
+      ],
+      "possibleEvent": "Unverified source revision; may be correction, label edit, allocation, closure or physical change.",
+      "review": {
+        "conflicts": [],
+        "eventGroupId": null,
+        "evidenceGaps": [
+          "Primary event and code-specific effective boundaries not reviewed."
+        ],
+        "exclusionReason": null,
+        "nextAction": "Review source correction vs real event; obtain dated primary notices independently for identity, codes and official name.",
+        "relatedLegacyIds": [],
+        "status": "pending_investigation"
+      },
+      "sourceEntityId": "5705",
+      "sourceId": "airport-codes-raw",
+      "time": {
+        "eventDate": null,
+        "eventDatePrecision": "unknown",
+        "firstObservedRevisionAt": "2019-06-13T16:48:28+02:00",
+        "lastObservedRevisionAt": "2019-06-13T16:48:28+02:00",
+        "meaning": "Repository observation times, not event validity bounds; earlier real-world dates remain possible."
+      },
+      "types": [
+        "coordinate_revision",
+        "iata_change"
+      ]
+    },
+    "cand_0b3be5f183608a0f8d8463fe": {
+      "candidateId": "cand_0b3be5f183608a0f8d8463fe",
+      "changes": {
+        "elevation": [
+          "924",
+          "1378"
+        ],
+        "lat": [
+          "28.8005555556",
+          "28.858"
+        ],
+        "lon": [
+          "104.545",
+          "104.525"
+        ],
+        "name": [
+          "Yibin Caiba Airport",
+          "Yibin Wuliangye Airport"
+        ]
+      },
+      "context": {
+        "airport": "Yibin Wuliangye Airport",
+        "city": "Yibin",
+        "codes": [
+          "YBP",
+          "ZUYB"
+        ],
+        "continent": "unknown",
+        "country": "CN",
+        "region": "Sichuan"
+      },
+      "distanceKm": 6.678,
+      "evidence": {
+        "evidenceType": "indirect",
+        "sourceType": "secondary",
+        "sourceUrl": "https://github.com/mwgg/Airports",
+        "verificationStatus": "pending"
+      },
+      "matches": {
+        "airportIds": [],
+        "assignmentIds": [],
+        "codeOnlyPossibleAirportIds": [],
+        "codeOnlyPossibleAssignmentIds": [],
+        "nameIds": []
+      },
+      "observations": [
+        {
+          "action": "M",
+          "afterBlob": "868c8ad818fcb90ba91f88cbd0155d946c4a2be4",
+          "beforeBlob": "aeee6bf071f9fa1dab4993ca048de0c02db06539",
+          "commit": "071a7d9927fb468ce340e4db15ac862a3b19e16e",
+          "observedAt": "2024-08-24T17:33:42+02:00",
+          "parents": [
+            "f104702e6120400991cc90ab9ac7114bbe832cf0"
+          ]
+        },
+        {
+          "action": "M",
+          "afterBlob": "868c8ad818fcb90ba91f88cbd0155d946c4a2be4",
+          "beforeBlob": "9b49e16c4193e629dd5941c9787efa8f2de71445",
+          "commit": "af0c8282b1ef3de17e36f926c95ee357738f04bb",
+          "observedAt": "2024-08-24T17:47:01+02:00",
+          "parents": [
+            "821e573a6903aeef60389f5aa0accf07a3cfc3de",
+            "071a7d9927fb468ce340e4db15ac862a3b19e16e"
+          ]
+        },
+        {
+          "action": "M",
+          "afterBlob": "8668c0e928393e83f37137cc25b3442297489e9b",
+          "beforeBlob": "322cd45c91b9df7dfbe50d15623fc2215065e6c1",
+          "commit": "55eeae4d8dd73f6f567c3b4f931d5efc1c7bc449",
+          "observedAt": "2024-08-24T22:13:14+02:00",
+          "parents": [
+            "8553beb99ba07149668ce527ea1ca5ab96ec4312",
+            "577e9024902c09b8981f63f9f62355c36cc0a13b"
+          ]
+        },
+        {
+          "action": "M",
+          "afterBlob": "58c6e08960fa2696124f3260722c30fb5a9f8410",
+          "beforeBlob": "ffc7a18e5b0fe4edef71dab6fca7b59901f600f4",
+          "commit": "a09b4f8ff079b9225c7acba42e3d509968899006",
+          "observedAt": "2024-08-26T08:57:11+03:00",
+          "parents": [
+            "fc29ff6a8943dc47b267512f32cfc84c4be64f0a",
+            "a7507b65cfe2a93a28b97a8f3a4fb266e2d3fc8b"
+          ]
+        }
+      ],
+      "possibleEvent": "Unverified source revision; may be correction, label edit, allocation, closure or physical change.",
+      "review": {
+        "conflicts": [],
+        "eventGroupId": null,
+        "evidenceGaps": [
+          "Primary event and code-specific effective boundaries not reviewed."
+        ],
+        "exclusionReason": null,
+        "nextAction": "Review source correction vs real event; obtain dated primary notices independently for identity, codes and official name.",
+        "relatedLegacyIds": [],
+        "status": "pending_investigation"
+      },
+      "sourceEntityId": "ZUYB",
+      "sourceId": "mwgg",
+      "time": {
+        "eventDate": null,
+        "eventDatePrecision": "unknown",
+        "firstObservedRevisionAt": "2024-08-24T17:33:42+02:00",
+        "lastObservedRevisionAt": "2024-08-26T08:57:11+03:00",
+        "meaning": "Repository observation times, not event validity bounds; earlier real-world dates remain possible."
+      },
+      "types": [
+        "coordinate_revision",
+        "possible_relocation",
+        "possible_rename"
+      ]
+    },
+    "cand_27f8e5c4d6f78bb8d11e7629": {
+      "candidateId": "cand_27f8e5c4d6f78bb8d11e7629",
+      "changes": {
+        "city": [
+          "Calamocha",
+          "Castellón de la Plana"
+        ],
+        "elevation": [
+          "2936",
+          "1145"
+        ],
+        "gps_code": [
+          "",
+          "LECH"
+        ],
+        "home_link": [
+          "",
+          "http://www.aeropuerto-castellon.com/"
+        ],
+        "iata": [
+          "",
+          "CDT"
+        ],
+        "lat": [
+          "40.900002",
+          "40.213889"
+        ],
+        "lon": [
+          "-1.30412",
+          "0.073333"
+        ],
+        "name": [
+          "Calamocha Air Base",
+          "Castellón-Costa Azahar Airport"
+        ],
+        "region": [
+          "ES-AR",
+          "ES-CS"
+        ],
+        "scheduled_service": [
+          "no",
+          "yes"
+        ],
+        "type": [
+          "closed",
+          "medium_airport"
+        ],
+        "wikipedia_link": [
+          "",
+          "http://en.wikipedia.org/wiki/Castell%C3%B3n-Costa_Azahar_Airport"
+        ]
+      },
+      "context": {
+        "airport": "Castellón-Costa Azahar Airport",
+        "city": "Castellón de la Plana",
+        "codes": [
+          "CDT",
+          "LECH"
+        ],
+        "continent": "EU",
+        "country": "ES",
+        "region": "ES-CS"
+      },
+      "distanceKm": 139.146,
+      "evidence": {
+        "evidenceType": "indirect",
+        "sourceType": "secondary",
+        "sourceUrl": "https://github.com/datasets/airport-codes",
+        "verificationStatus": "pending"
+      },
+      "matches": {
+        "airportIds": [],
+        "assignmentIds": [],
+        "codeOnlyPossibleAirportIds": [],
+        "codeOnlyPossibleAssignmentIds": [],
+        "nameIds": []
+      },
+      "observations": [
+        {
+          "action": "M",
+          "afterBlob": "4ed7260e184984d234c4cb9c0c1d080ade4827f0",
+          "beforeBlob": "8304e1616f9918c3f97118a37e5565fde7c7cd25",
+          "commit": "4dfc3ac15e8e1d0889a114b268e28f3477a65d8b",
+          "observedAt": "2019-06-13T16:48:28+02:00",
+          "parents": [
+            "69723c25deeeae7ebaa37f914c8ff3bec9ce7ed3"
+          ]
+        }
+      ],
+      "possibleEvent": "Unverified source revision; may be correction, label edit, allocation, closure or physical change.",
+      "review": {
+        "conflicts": [],
+        "eventGroupId": null,
+        "evidenceGaps": [
+          "Primary event and code-specific effective boundaries not reviewed."
+        ],
+        "exclusionReason": null,
+        "nextAction": "Review source correction vs real event; obtain dated primary notices independently for identity, codes and official name.",
+        "relatedLegacyIds": [],
+        "status": "pending_investigation"
+      },
+      "sourceEntityId": "29410",
+      "sourceId": "airport-codes-raw",
+      "time": {
+        "eventDate": null,
+        "eventDatePrecision": "unknown",
+        "firstObservedRevisionAt": "2019-06-13T16:48:28+02:00",
+        "lastObservedRevisionAt": "2019-06-13T16:48:28+02:00",
+        "meaning": "Repository observation times, not event validity bounds; earlier real-world dates remain possible."
+      },
+      "types": [
+        "city_label_change",
+        "coordinate_revision",
+        "gps_code_change",
+        "iata_change",
+        "possible_relocation",
+        "possible_rename",
+        "possible_reopening"
+      ]
+    },
+    "cand_319a76a6d0b81db2843a9ca4": {
+      "candidateId": "cand_319a76a6d0b81db2843a9ca4",
+      "changes": {
+        "gps_code": [
+          "OPSW",
+          ""
+        ],
+        "iata": [
+          "SWN",
+          ""
+        ],
+        "ident": [
+          "OPSW",
+          "PK-0052"
+        ],
+        "keywords": [
+          "",
+          "OPSW, SWN"
+        ],
+        "lat": [
+          "31.88944435119629",
+          "31.88959"
+        ],
+        "lon": [
+          "72.39167022705078",
+          "72.309345"
+        ],
+        "type": [
+          "small_airport",
+          "closed"
+        ]
+      },
+      "context": {
+        "airport": "Sahiwal Airport",
+        "city": "Sahiwal",
+        "codes": [
+          "OPSW",
+          "PK-0052",
+          "SWN"
+        ],
+        "continent": "AS",
+        "country": "PK",
+        "region": "PK-PB"
+      },
+      "distanceKm": 7.773,
+      "evidence": {
+        "evidenceType": "indirect",
+        "sourceType": "secondary",
+        "sourceUrl": "https://github.com/datasets/airport-codes",
+        "verificationStatus": "pending"
+      },
+      "matches": {
+        "airportIds": [],
+        "assignmentIds": [],
+        "codeOnlyPossibleAirportIds": [],
+        "codeOnlyPossibleAssignmentIds": [],
+        "nameIds": []
+      },
+      "observations": [
+        {
+          "action": "M",
+          "afterBlob": "260a09188d2cff992739de75c2162096a43ed76c",
+          "beforeBlob": "4ed7260e184984d234c4cb9c0c1d080ade4827f0",
+          "commit": "09ab66f23778cd5c577c96d09a600dcac15bb82b",
+          "observedAt": "2024-10-01T11:30:59Z",
+          "parents": [
+            "51c43e6610742d5162452d3e5229dda197eaf238"
+          ]
+        },
+        {
+          "action": "M",
+          "afterBlob": "260a09188d2cff992739de75c2162096a43ed76c",
+          "beforeBlob": "4ed7260e184984d234c4cb9c0c1d080ade4827f0",
+          "commit": "63f6278fd0de9ad80af2835dcd1bc8558176aa1c",
+          "observedAt": "2024-10-01T17:34:37+05:00",
+          "parents": [
+            "68f702aa6eebf14ed5f7e3bf9be609f9fb8a5663",
+            "7eb67666b64fba95e8036882d81f9948fceec4d9"
+          ]
+        }
+      ],
+      "possibleEvent": "Unverified source revision; may be correction, label edit, allocation, closure or physical change.",
+      "review": {
+        "conflicts": [],
+        "eventGroupId": null,
+        "evidenceGaps": [
+          "Primary event and code-specific effective boundaries not reviewed."
+        ],
+        "exclusionReason": null,
+        "nextAction": "Review source correction vs real event; obtain dated primary notices independently for identity, codes and official name.",
+        "relatedLegacyIds": [],
+        "status": "pending_investigation"
+      },
+      "sourceEntityId": "41625",
+      "sourceId": "airport-codes-raw",
+      "time": {
+        "eventDate": null,
+        "eventDatePrecision": "unknown",
+        "firstObservedRevisionAt": "2024-10-01T11:30:59Z",
+        "lastObservedRevisionAt": "2024-10-01T17:34:37+05:00",
+        "meaning": "Repository observation times, not event validity bounds; earlier real-world dates remain possible."
+      },
+      "types": [
+        "coordinate_revision",
+        "gps_code_change",
+        "iata_change",
+        "identifier_change",
+        "possible_closure",
+        "possible_relocation"
+      ]
+    },
+    "cand_3788d9d4f8b213d5d1c24425": {
+      "candidateId": "cand_3788d9d4f8b213d5d1c24425",
+      "changes": {
+        "city": [
+          "Nargana",
+          "Narganá"
+        ],
+        "elevation": [
+          "1305",
+          "7"
+        ],
+        "iata": [
+          "",
+          "NGN"
+        ],
+        "keywords": [
+          "",
+          "NGN, Corazón de Jesús"
+        ],
+        "lat": [
+          "9.064220428466797",
+          "9.444659"
+        ],
+        "lon": [
+          "-78.0165023803711",
+          "-78.588896"
+        ],
+        "name": [
+          "Nargana Airport",
+          "Narganá Airport"
+        ],
+        "type": [
+          "small_airport",
+          "closed"
+        ]
+      },
+      "context": {
+        "airport": "Narganá Airport",
+        "city": "Narganá",
+        "codes": [
+          "NGN",
+          "PA-0012"
+        ],
+        "continent": "NA",
+        "country": "PA",
+        "region": "PA-KY"
+      },
+      "distanceKm": 75.735,
+      "evidence": {
+        "evidenceType": "indirect",
+        "sourceType": "secondary",
+        "sourceUrl": "https://github.com/davidmegginson/ourairports-data",
+        "verificationStatus": "pending"
+      },
+      "matches": {
+        "airportIds": [],
+        "assignmentIds": [],
+        "codeOnlyPossibleAirportIds": [],
+        "codeOnlyPossibleAssignmentIds": [],
+        "nameIds": []
+      },
+      "observations": [
+        {
+          "action": "M",
+          "afterBlob": "9280cfa35b4bedcea4cc10ba475257e55bd56367",
+          "beforeBlob": "6629de6896752ca00dcbc5c3480813860a1dd187",
+          "commit": "9fac99787b64a93dd8f16e646b7bca24b89c141e",
+          "observedAt": "2022-08-19T03:53:40-04:00",
+          "parents": [
+            "d9e14e0bda13572c98a0c1af045070abb98a1281"
+          ]
+        }
+      ],
+      "possibleEvent": "Unverified source revision; may be correction, label edit, allocation, closure or physical change.",
+      "review": {
+        "conflicts": [],
+        "eventGroupId": null,
+        "evidenceGaps": [
+          "Primary event and code-specific effective boundaries not reviewed."
+        ],
+        "exclusionReason": null,
+        "nextAction": "Review source correction vs real event; obtain dated primary notices independently for identity, codes and official name.",
+        "relatedLegacyIds": [],
+        "status": "pending_investigation"
+      },
+      "sourceEntityId": "42195",
+      "sourceId": "ourairports",
+      "time": {
+        "eventDate": null,
+        "eventDatePrecision": "unknown",
+        "firstObservedRevisionAt": "2022-08-19T03:53:40-04:00",
+        "lastObservedRevisionAt": "2022-08-19T03:53:40-04:00",
+        "meaning": "Repository observation times, not event validity bounds; earlier real-world dates remain possible."
+      },
+      "types": [
+        "city_label_change",
+        "coordinate_revision",
+        "iata_change",
+        "possible_closure",
+        "possible_relocation",
+        "possible_rename"
+      ]
+    },
+    "cand_3aba472425775e4a29a4d63b": {
+      "candidateId": "cand_3aba472425775e4a29a4d63b",
+      "changes": {
+        "elevation": [
+          "33",
+          "82"
+        ],
+        "iata": [
+          "SRI",
+          "AAP"
+        ],
+        "keywords": [
+          "WRLS",
+          "Sungai Siring Airport"
+        ],
+        "lat": [
+          "-0.484530985355",
+          "-0.374478"
+        ],
+        "lon": [
+          "117.156997681",
+          "117.250128"
+        ],
+        "name": [
+          "Temindung Airport",
+          "Aji Pangeran Tumenggung Pranoto International Airport"
+        ],
+        "wikipedia_link": [
+          "http://en.wikipedia.org/wiki/Temindung_Airport",
+          "https://en.wikipedia.org/wiki/Aji_Pangeran_Tumenggung_Pranoto_International_Airport"
+        ]
+      },
+      "context": {
+        "airport": "Aji Pangeran Tumenggung Pranoto International Airport",
+        "city": "Samarinda",
+        "codes": [
+          "AAP",
+          "SRI",
+          "WALS"
+        ],
+        "continent": "AS",
+        "country": "ID",
+        "region": "ID-KI"
+      },
+      "distanceKm": 16.031,
+      "evidence": {
+        "evidenceType": "indirect",
+        "sourceType": "secondary",
+        "sourceUrl": "https://github.com/datasets/airport-codes",
+        "verificationStatus": "pending"
+      },
+      "matches": {
+        "airportIds": [],
+        "assignmentIds": [],
+        "codeOnlyPossibleAirportIds": [],
+        "codeOnlyPossibleAssignmentIds": [],
+        "nameIds": []
+      },
+      "observations": [
+        {
+          "action": "M",
+          "afterBlob": "260a09188d2cff992739de75c2162096a43ed76c",
+          "beforeBlob": "4ed7260e184984d234c4cb9c0c1d080ade4827f0",
+          "commit": "09ab66f23778cd5c577c96d09a600dcac15bb82b",
+          "observedAt": "2024-10-01T11:30:59Z",
+          "parents": [
+            "51c43e6610742d5162452d3e5229dda197eaf238"
+          ]
+        },
+        {
+          "action": "M",
+          "afterBlob": "260a09188d2cff992739de75c2162096a43ed76c",
+          "beforeBlob": "4ed7260e184984d234c4cb9c0c1d080ade4827f0",
+          "commit": "63f6278fd0de9ad80af2835dcd1bc8558176aa1c",
+          "observedAt": "2024-10-01T17:34:37+05:00",
+          "parents": [
+            "68f702aa6eebf14ed5f7e3bf9be609f9fb8a5663",
+            "7eb67666b64fba95e8036882d81f9948fceec4d9"
+          ]
+        }
+      ],
+      "possibleEvent": "Unverified source revision; may be correction, label edit, allocation, closure or physical change.",
+      "review": {
+        "conflicts": [],
+        "eventGroupId": null,
+        "evidenceGaps": [
+          "Primary event and code-specific effective boundaries not reviewed."
+        ],
+        "exclusionReason": null,
+        "nextAction": "Review source correction vs real event; obtain dated primary notices independently for identity, codes and official name.",
+        "relatedLegacyIds": [],
+        "status": "pending_investigation"
+      },
+      "sourceEntityId": "26763",
+      "sourceId": "airport-codes-raw",
+      "time": {
+        "eventDate": null,
+        "eventDatePrecision": "unknown",
+        "firstObservedRevisionAt": "2024-10-01T11:30:59Z",
+        "lastObservedRevisionAt": "2024-10-01T17:34:37+05:00",
+        "meaning": "Repository observation times, not event validity bounds; earlier real-world dates remain possible."
+      },
+      "types": [
+        "coordinate_revision",
+        "iata_change",
+        "possible_relocation",
+        "possible_rename"
+      ]
+    },
+    "cand_410d7e6a2202857176507e0f": {
+      "candidateId": "cand_410d7e6a2202857176507e0f",
+      "changes": {
+        "city": [
+          "Hoedspruit",
+          ""
+        ],
+        "country": [
+          "ZA",
+          "ZZ"
+        ],
+        "gps_code": [
+          "FAHS",
+          ""
+        ],
+        "iata": [
+          "HDS",
+          ""
+        ],
+        "icao": [
+          "FAHS",
+          ""
+        ],
+        "lat": [
+          "-24.368600845299998",
+          "-46.181902"
+        ],
+        "lon": [
+          "31.0487003326",
+          "-12.114796"
+        ],
+        "name": [
+          "Hoedspruit Air Force Base Airport",
+          "Non-Existent Airport"
+        ],
+        "region": [
+          "ZA-NP",
+          "ZZ-U-A"
+        ],
+        "scheduled_service": [
+          "yes",
+          "no"
+        ],
+        "type": [
+          "small_airport",
+          "closed"
+        ],
+        "wikipedia_link": [
+          "https://en.wikipedia.org/wiki/Hoedspruit_Airport#Eastgate_Airport",
+          ""
+        ]
+      },
+      "context": {
+        "airport": "Non-Existent Airport",
+        "city": "Hoedspruit",
+        "codes": [
+          "FAHS",
+          "HDS"
+        ],
+        "continent": "AF",
+        "country": "ZZ",
+        "region": "ZZ-U-A"
+      },
+      "distanceKm": 4529.5,
+      "evidence": {
+        "evidenceType": "indirect",
+        "sourceType": "secondary",
+        "sourceUrl": "https://github.com/davidmegginson/ourairports-data",
+        "verificationStatus": "pending"
+      },
+      "matches": {
+        "airportIds": [],
+        "assignmentIds": [],
+        "codeOnlyPossibleAirportIds": [],
+        "codeOnlyPossibleAssignmentIds": [],
+        "nameIds": []
+      },
+      "observations": [
+        {
+          "action": "M",
+          "afterBlob": "6b3930272cb6efb2ae721fac3df636e8229c5974",
+          "beforeBlob": "2f50a77b9606d854b01d6ff4e3805e0940afd073",
+          "commit": "85971b678ebe0999387f1ab7de5984d8c34dd7e0",
+          "observedAt": "2026-01-16T03:53:12+01:00",
+          "parents": [
+            "12dea92aac5e5ab90c034075bb3dc77906165552"
+          ]
+        }
+      ],
+      "possibleEvent": "Unverified source revision; may be correction, label edit, allocation, closure or physical change.",
+      "review": {
+        "conflicts": [],
+        "eventGroupId": null,
+        "evidenceGaps": [
+          "Primary event and code-specific effective boundaries not reviewed."
+        ],
+        "exclusionReason": null,
+        "nextAction": "Review source correction vs real event; obtain dated primary notices independently for identity, codes and official name.",
+        "relatedLegacyIds": [],
+        "status": "pending_investigation"
+      },
+      "sourceEntityId": "2790",
+      "sourceId": "ourairports",
+      "time": {
+        "eventDate": null,
+        "eventDatePrecision": "unknown",
+        "firstObservedRevisionAt": "2026-01-16T03:53:12+01:00",
+        "lastObservedRevisionAt": "2026-01-16T03:53:12+01:00",
+        "meaning": "Repository observation times, not event validity bounds; earlier real-world dates remain possible."
+      },
+      "types": [
+        "city_label_change",
+        "coordinate_revision",
+        "gps_code_change",
+        "iata_change",
+        "icao_change",
+        "possible_closure",
+        "possible_relocation",
+        "possible_rename"
+      ]
+    },
+    "cand_46c26d3137b3b9648b30b005": {
+      "candidateId": "cand_46c26d3137b3b9648b30b005",
+      "changes": {
+        "coordinates": [
+          "119.74299621582031, 5.046989917755127",
+          "119.742996, 5.046991"
+        ],
+        "iata": [
+          "SGS",
+          "TWT"
+        ]
+      },
+      "context": {
+        "airport": "Sanga Sanga Airport",
+        "city": null,
+        "codes": [
+          "RPMN",
+          "SGS",
+          "TWT"
+        ],
+        "continent": "AS",
+        "country": "PH",
+        "region": "PH-TAW"
+      },
+      "distanceKm": null,
+      "evidence": {
+        "evidenceType": "indirect",
+        "sourceType": "secondary",
+        "sourceUrl": "https://github.com/datasets/airport-codes",
+        "verificationStatus": "pending"
+      },
+      "matches": {
+        "airportIds": [],
+        "assignmentIds": [],
+        "codeOnlyPossibleAirportIds": [],
+        "codeOnlyPossibleAssignmentIds": [],
+        "nameIds": []
+      },
+      "observations": [
+        {
+          "action": "M",
+          "afterBlob": "1ad68933eb9db4acb197852ed2224c7f2d70758b",
+          "beforeBlob": "0aca690fe107e692c451b5e32d2bdcf2b578b4e1",
+          "commit": "7de4a69dac5d1f794e3f59ccb0893da4146faeb4",
+          "observedAt": "2018-10-09T15:23:42+04:00",
+          "parents": [
+            "aa0b635a5ca63efdecfbe879da6ad9185f5932cc"
+          ]
+        },
+        {
+          "action": "M",
+          "afterBlob": "1ad68933eb9db4acb197852ed2224c7f2d70758b",
+          "beforeBlob": "0aca690fe107e692c451b5e32d2bdcf2b578b4e1",
+          "commit": "a65ffa5e9cf450ec4f3623e39bd8753f61f7457b",
+          "observedAt": "2018-10-09T22:07:09+02:00",
+          "parents": [
+            "aa0b635a5ca63efdecfbe879da6ad9185f5932cc",
+            "7de4a69dac5d1f794e3f59ccb0893da4146faeb4"
+          ]
+        }
+      ],
+      "possibleEvent": "Unverified source revision; may be correction, label edit, allocation, closure or physical change.",
+      "review": {
+        "conflicts": [],
+        "eventGroupId": null,
+        "evidenceGaps": [
+          "Primary event and code-specific effective boundaries not reviewed."
+        ],
+        "exclusionReason": null,
+        "nextAction": "Review source correction vs real event; obtain dated primary notices independently for identity, codes and official name.",
+        "relatedLegacyIds": [],
+        "status": "pending_investigation"
+      },
+      "sourceEntityId": "RPMN",
+      "sourceId": "airport-codes",
+      "time": {
+        "eventDate": null,
+        "eventDatePrecision": "unknown",
+        "firstObservedRevisionAt": "2018-10-09T15:23:42+04:00",
+        "lastObservedRevisionAt": "2018-10-09T22:07:09+02:00",
+        "meaning": "Repository observation times, not event validity bounds; earlier real-world dates remain possible."
+      },
+      "types": [
+        "coordinate_revision",
+        "iata_change"
+      ]
+    },
+    "cand_49910068effcfc485afc3f68": {
+      "candidateId": "cand_49910068effcfc485afc3f68",
+      "changes": {
+        "iata": [
+          "CAT",
+          "TBI"
+        ]
+      },
+      "context": {
+        "airport": "New Bight Airport",
+        "city": "Cat Island",
+        "codes": [
+          "CAT",
+          "MYCB",
+          "TBI"
+        ],
+        "continent": "unknown",
+        "country": "BS",
+        "region": "Cat-Island"
+      },
+      "distanceKm": 0.0,
+      "evidence": {
+        "evidenceType": "indirect",
+        "sourceType": "secondary",
+        "sourceUrl": "https://github.com/mwgg/Airports",
+        "verificationStatus": "pending"
+      },
+      "matches": {
+        "airportIds": [],
+        "assignmentIds": [],
+        "codeOnlyPossibleAirportIds": [],
+        "codeOnlyPossibleAssignmentIds": [],
+        "nameIds": []
+      },
+      "observations": [
+        {
+          "action": "M",
+          "afterBlob": "d99a1f2a43c535f1b870187902e7259a63f1afc7",
+          "beforeBlob": "519dd8dd762c31ad92d6bbec42cc073f8ba7f971",
+          "commit": "bf7e59ad75ffe09e1189726863ce385f3102049a",
+          "observedAt": "2025-08-13T02:59:10+02:00",
+          "parents": [
+            "eb33350acee4d418ecdde816377c27ac8a65a0cf"
+          ]
+        },
+        {
+          "action": "M",
+          "afterBlob": "d99a1f2a43c535f1b870187902e7259a63f1afc7",
+          "beforeBlob": "519dd8dd762c31ad92d6bbec42cc073f8ba7f971",
+          "commit": "6775e8a88e94ca6423b9bab7e02ad1469eb5d28f",
+          "observedAt": "2025-08-13T03:03:36+02:00",
+          "parents": [
+            "2f59e838f5a061dfb44e4134cc97defb603e7e9f",
+            "bf7e59ad75ffe09e1189726863ce385f3102049a"
+          ]
+        },
+        {
+          "action": "M",
+          "afterBlob": "c4b67b26cc54cf8d4a7f3fb8a5d52b43d182a7ed",
+          "beforeBlob": "519dd8dd762c31ad92d6bbec42cc073f8ba7f971",
+          "commit": "af86f0804a37cfa2477c141b3dbaf3bbc5a1bc02",
+          "observedAt": "2025-08-13T03:45:00+02:00",
+          "parents": [
+            "eb33350acee4d418ecdde816377c27ac8a65a0cf",
+            "0ec110a82340c61c77c7377263f4d54d716af769"
+          ]
+        },
+        {
+          "action": "M",
+          "afterBlob": "67f0d0cdb1d06a7f7a67fec83789cde2083ce514",
+          "beforeBlob": "46e4b8a1adbdecc1be0b91576f22fbf9500ff4d0",
+          "commit": "e41a4e44577c6182987ef03bc1ee71dc1c3db54e",
+          "observedAt": "2025-08-13T04:03:42+02:00",
+          "parents": [
+            "8095e2a754eb29e68ce97615f2d1673b8ea7d959",
+            "fe7b3f947c8dc6de2f51a4075d37956c9f8939b3"
+          ]
+        },
+        {
+          "action": "M",
+          "afterBlob": "3ed332db99677228b9f9480c0f1c753ca130f079",
+          "beforeBlob": "8326ed9e8dec7be7f5e6c613df368c54a8efa24e",
+          "commit": "a54c7007c09076ffdfde823f48684483a285bf44",
+          "observedAt": "2025-09-23T14:46:07+02:00",
+          "parents": [
+            "24f6372442c8523d2647e9dfa5902aeda23058db",
+            "6604100ef3b5dfbc6fc93500eba19ffd8627dc69"
+          ]
+        }
+      ],
+      "possibleEvent": "Unverified source revision; may be correction, label edit, allocation, closure or physical change.",
+      "review": {
+        "conflicts": [],
+        "eventGroupId": null,
+        "evidenceGaps": [
+          "Primary event and code-specific effective boundaries not reviewed."
+        ],
+        "exclusionReason": null,
+        "nextAction": "Review source correction vs real event; obtain dated primary notices independently for identity, codes and official name.",
+        "relatedLegacyIds": [],
+        "status": "pending_investigation"
+      },
+      "sourceEntityId": "MYCB",
+      "sourceId": "mwgg",
+      "time": {
+        "eventDate": null,
+        "eventDatePrecision": "unknown",
+        "firstObservedRevisionAt": "2025-08-13T02:59:10+02:00",
+        "lastObservedRevisionAt": "2025-09-23T14:46:07+02:00",
+        "meaning": "Repository observation times, not event validity bounds; earlier real-world dates remain possible."
+      },
+      "types": [
+        "iata_change"
+      ]
+    },
+    "cand_4ecbdc43aaa5a0a46a3c5e78": {
+      "candidateId": "cand_4ecbdc43aaa5a0a46a3c5e78",
+      "changes": {
+        "city": [
+          "Chaiten",
+          "Chaitén"
+        ],
+        "elevation": [
+          "95",
+          "13"
+        ],
+        "gps_code": [
+          "SCTN",
+          ""
+        ],
+        "iata": [
+          "WCH",
+          ""
+        ],
+        "keywords": [
+          "",
+          "WCH, SCTN"
+        ],
+        "lat": [
+          "-42.781943",
+          "-42.9328"
+        ],
+        "lon": [
+          "-72.834999",
+          "-72.6991"
+        ],
+        "name": [
+          "Nuevo Chaitén Airport",
+          "Chaitén Airfield"
+        ],
+        "type": [
+          "medium_airport",
+          "closed"
+        ],
+        "wikipedia_link": [
+          "",
+          "https://en.wikipedia.org/wiki/Chait%C3%A9n_Airfield"
+        ]
+      },
+      "context": {
+        "airport": "Chaitén Airfield",
+        "city": "Chaitén",
+        "codes": [
+          "SCTN",
+          "WCH"
+        ],
+        "continent": "SA",
+        "country": "CL",
+        "region": "CL-LL"
+      },
+      "distanceKm": 20.102,
+      "evidence": {
+        "evidenceType": "indirect",
+        "sourceType": "secondary",
+        "sourceUrl": "https://github.com/davidmegginson/ourairports-data",
+        "verificationStatus": "pending"
+      },
+      "matches": {
+        "airportIds": [],
+        "assignmentIds": [],
+        "codeOnlyPossibleAirportIds": [],
+        "codeOnlyPossibleAssignmentIds": [],
+        "nameIds": []
+      },
+      "observations": [
+        {
+          "action": "M",
+          "afterBlob": "8e04b0e0c763568b60476446c6bf8742af718c12",
+          "beforeBlob": "e6c3c4daee14e232634ee6d1ae1c916462c1f7fe",
+          "commit": "c0fa74aea4626a09c050e171b0f602ba5cad2204",
+          "observedAt": "2022-12-17T03:53:27-05:00",
+          "parents": [
+            "25fb7fd3bf9e57a6fe4dce45fbe5b361e694fa9e"
+          ]
+        }
+      ],
+      "possibleEvent": "Unverified source revision; may be correction, label edit, allocation, closure or physical change.",
+      "review": {
+        "conflicts": [],
+        "eventGroupId": null,
+        "evidenceGaps": [
+          "Primary event and code-specific effective boundaries not reviewed."
+        ],
+        "exclusionReason": null,
+        "nextAction": "Review source correction vs real event; obtain dated primary notices independently for identity, codes and official name.",
+        "relatedLegacyIds": [],
+        "status": "pending_investigation"
+      },
+      "sourceEntityId": "6045",
+      "sourceId": "ourairports",
+      "time": {
+        "eventDate": null,
+        "eventDatePrecision": "unknown",
+        "firstObservedRevisionAt": "2022-12-17T03:53:27-05:00",
+        "lastObservedRevisionAt": "2022-12-17T03:53:27-05:00",
+        "meaning": "Repository observation times, not event validity bounds; earlier real-world dates remain possible."
+      },
+      "types": [
+        "city_label_change",
+        "coordinate_revision",
+        "gps_code_change",
+        "iata_change",
+        "possible_closure",
+        "possible_relocation",
+        "possible_rename"
+      ]
+    },
+    "cand_51b7f16fdc1dd9b60af605a7": {
+      "candidateId": "cand_51b7f16fdc1dd9b60af605a7",
+      "changes": {
+        "elevation": [
+          "1233",
+          "1267"
+        ],
+        "gps_code": [
+          "GUXD",
+          ""
+        ],
+        "iata": [
+          "KNN",
+          ""
+        ],
+        "keywords": [
+          "",
+          "KNN, GUXN"
+        ],
+        "lat": [
+          "10.448438",
+          "10.394"
+        ],
+        "lon": [
+          "-9.228757",
+          "-9.3038"
+        ],
+        "type": [
+          "small_airport",
+          "closed"
+        ],
+        "wikipedia_link": [
+          "https://en.wikipedia.org/wiki/Kankan_Airport",
+          ""
+        ]
+      },
+      "context": {
+        "airport": "Kankan Airport",
+        "city": "Kankan",
+        "codes": [
+          "GUXD",
+          "GUXN",
+          "KNN"
+        ],
+        "continent": "AF",
+        "country": "GN",
+        "region": "GN-K"
+      },
+      "distanceKm": 10.198,
+      "evidence": {
+        "evidenceType": "indirect",
+        "sourceType": "secondary",
+        "sourceUrl": "https://github.com/datasets/airport-codes",
+        "verificationStatus": "pending"
+      },
+      "matches": {
+        "airportIds": [],
+        "assignmentIds": [],
+        "codeOnlyPossibleAirportIds": [],
+        "codeOnlyPossibleAssignmentIds": [],
+        "nameIds": []
+      },
+      "observations": [
+        {
+          "action": "M",
+          "afterBlob": "0260c9cfac0d40d59ce8c0cd0f8ea73bc70a51f1",
+          "beforeBlob": "96444ddda680f2c4a56b52aea9c7ab7bcdf85c02",
+          "commit": "59ba8803a4a124f98421a0975ed59af2837ff581",
+          "observedAt": "2026-03-03T20:29:19-03:00",
+          "parents": [
+            "388fe3e58435058bb8a1ee025402334db539f3c7"
+          ]
+        },
+        {
+          "action": "M",
+          "afterBlob": "0260c9cfac0d40d59ce8c0cd0f8ea73bc70a51f1",
+          "beforeBlob": "96444ddda680f2c4a56b52aea9c7ab7bcdf85c02",
+          "commit": "1c94e6374f7b794564dc9c96cb50267cba8443ce",
+          "observedAt": "2026-03-04T09:50:16-03:00",
+          "parents": [
+            "388fe3e58435058bb8a1ee025402334db539f3c7",
+            "59ba8803a4a124f98421a0975ed59af2837ff581"
+          ]
+        }
+      ],
+      "possibleEvent": "Unverified source revision; may be correction, label edit, allocation, closure or physical change.",
+      "review": {
+        "conflicts": [],
+        "eventGroupId": null,
+        "evidenceGaps": [
+          "Primary event and code-specific effective boundaries not reviewed."
+        ],
+        "exclusionReason": null,
+        "nextAction": "Review source correction vs real event; obtain dated primary notices independently for identity, codes and official name.",
+        "relatedLegacyIds": [],
+        "status": "pending_investigation"
+      },
+      "sourceEntityId": "44577",
+      "sourceId": "airport-codes-raw",
+      "time": {
+        "eventDate": null,
+        "eventDatePrecision": "unknown",
+        "firstObservedRevisionAt": "2026-03-03T20:29:19-03:00",
+        "lastObservedRevisionAt": "2026-03-04T09:50:16-03:00",
+        "meaning": "Repository observation times, not event validity bounds; earlier real-world dates remain possible."
+      },
+      "types": [
+        "coordinate_revision",
+        "gps_code_change",
+        "iata_change",
+        "possible_closure",
+        "possible_relocation"
+      ]
+    },
+    "cand_5ebbfdbcea7f1b2aa138be41": {
+      "candidateId": "cand_5ebbfdbcea7f1b2aa138be41",
+      "changes": {
+        "elevation": [
+          "380",
+          "364"
+        ],
+        "iata": [
+          "JNJ",
+          "DQM"
+        ],
+        "lat": [
+          "19.5",
+          "19.501944"
+        ],
+        "lon": [
+          "57.6428",
+          "57.634167"
+        ],
+        "name": [
+          "Duqm Jaaluni Airport",
+          "Duqm International Airport"
+        ]
+      },
+      "context": {
+        "airport": "Duqm International Airport",
+        "city": "Duqm",
+        "codes": [
+          "DQM",
+          "JNJ",
+          "OM-0003",
+          "OODQ"
+        ],
+        "continent": "AS",
+        "country": "OM",
+        "region": "OM-WU"
+      },
+      "distanceKm": 0.93,
+      "evidence": {
+        "evidenceType": "indirect",
+        "sourceType": "secondary",
+        "sourceUrl": "https://github.com/datasets/airport-codes",
+        "verificationStatus": "pending"
+      },
+      "matches": {
+        "airportIds": [],
+        "assignmentIds": [],
+        "codeOnlyPossibleAirportIds": [],
+        "codeOnlyPossibleAssignmentIds": [],
+        "nameIds": []
+      },
+      "observations": [
+        {
+          "action": "M",
+          "afterBlob": "4ed7260e184984d234c4cb9c0c1d080ade4827f0",
+          "beforeBlob": "8304e1616f9918c3f97118a37e5565fde7c7cd25",
+          "commit": "4dfc3ac15e8e1d0889a114b268e28f3477a65d8b",
+          "observedAt": "2019-06-13T16:48:28+02:00",
+          "parents": [
+            "69723c25deeeae7ebaa37f914c8ff3bec9ce7ed3"
+          ]
+        }
+      ],
+      "possibleEvent": "Unverified source revision; may be correction, label edit, allocation, closure or physical change.",
+      "review": {
+        "conflicts": [],
+        "eventGroupId": null,
+        "evidenceGaps": [
+          "Primary event and code-specific effective boundaries not reviewed."
+        ],
+        "exclusionReason": null,
+        "nextAction": "Review source correction vs real event; obtain dated primary notices independently for identity, codes and official name.",
+        "relatedLegacyIds": [],
+        "status": "pending_investigation"
+      },
+      "sourceEntityId": "299738",
+      "sourceId": "airport-codes-raw",
+      "time": {
+        "eventDate": null,
+        "eventDatePrecision": "unknown",
+        "firstObservedRevisionAt": "2019-06-13T16:48:28+02:00",
+        "lastObservedRevisionAt": "2019-06-13T16:48:28+02:00",
+        "meaning": "Repository observation times, not event validity bounds; earlier real-world dates remain possible."
+      },
+      "types": [
+        "coordinate_revision",
+        "iata_change",
+        "possible_rename"
+      ]
+    },
+    "cand_6bdbc1b60cf1a50fd06abd88": {
+      "candidateId": "cand_6bdbc1b60cf1a50fd06abd88",
+      "changes": {
+        "city": [
+          "Luzhou",
+          "Luzhou (Jiangyang)"
+        ],
+        "gps_code": [
+          "ZULZ",
+          ""
+        ],
+        "iata": [
+          "LZO",
+          ""
+        ],
+        "ident": [
+          "ZULZ",
+          "CN-0011"
+        ],
+        "keywords": [
+          "",
+          "LZO, ZULZ"
+        ],
+        "lat": [
+          "28.85219955444336",
+          "28.852577"
+        ],
+        "lon": [
+          "105.39299774169922",
+          "105.392579"
+        ],
+        "name": [
+          "Luzhou Airport",
+          "Luzhou Lantian Airport"
+        ],
+        "scheduled_service": [
+          "yes",
+          "no"
+        ],
+        "type": [
+          "small_airport",
+          "closed"
+        ],
+        "wikipedia_link": [
+          "http://en.wikipedia.org/wiki/Luzhou_Airport",
+          "https://en.wikipedia.org/wiki/Luzhou_Lantian_Airport"
+        ]
+      },
+      "context": {
+        "airport": "Luzhou Lantian Airport",
+        "city": "Luzhou (Jiangyang)",
+        "codes": [
+          "CN-0011",
+          "LZO",
+          "ZULZ"
+        ],
+        "continent": "AS",
+        "country": "CN",
+        "region": "CN-51"
+      },
+      "distanceKm": 0.059,
+      "evidence": {
+        "evidenceType": "indirect",
+        "sourceType": "secondary",
+        "sourceUrl": "https://github.com/datasets/airport-codes",
+        "verificationStatus": "pending"
+      },
+      "matches": {
+        "airportIds": [],
+        "assignmentIds": [],
+        "codeOnlyPossibleAirportIds": [],
+        "codeOnlyPossibleAssignmentIds": [],
+        "nameIds": []
+      },
+      "observations": [
+        {
+          "action": "M",
+          "afterBlob": "260a09188d2cff992739de75c2162096a43ed76c",
+          "beforeBlob": "4ed7260e184984d234c4cb9c0c1d080ade4827f0",
+          "commit": "09ab66f23778cd5c577c96d09a600dcac15bb82b",
+          "observedAt": "2024-10-01T11:30:59Z",
+          "parents": [
+            "51c43e6610742d5162452d3e5229dda197eaf238"
+          ]
+        },
+        {
+          "action": "M",
+          "afterBlob": "260a09188d2cff992739de75c2162096a43ed76c",
+          "beforeBlob": "4ed7260e184984d234c4cb9c0c1d080ade4827f0",
+          "commit": "63f6278fd0de9ad80af2835dcd1bc8558176aa1c",
+          "observedAt": "2024-10-01T17:34:37+05:00",
+          "parents": [
+            "68f702aa6eebf14ed5f7e3bf9be609f9fb8a5663",
+            "7eb67666b64fba95e8036882d81f9948fceec4d9"
+          ]
+        }
+      ],
+      "possibleEvent": "Unverified source revision; may be correction, label edit, allocation, closure or physical change.",
+      "review": {
+        "conflicts": [],
+        "eventGroupId": null,
+        "evidenceGaps": [
+          "Primary event and code-specific effective boundaries not reviewed."
+        ],
+        "exclusionReason": null,
+        "nextAction": "Review source correction vs real event; obtain dated primary notices independently for identity, codes and official name.",
+        "relatedLegacyIds": [],
+        "status": "pending_investigation"
+      },
+      "sourceEntityId": "35313",
+      "sourceId": "airport-codes-raw",
+      "time": {
+        "eventDate": null,
+        "eventDatePrecision": "unknown",
+        "firstObservedRevisionAt": "2024-10-01T11:30:59Z",
+        "lastObservedRevisionAt": "2024-10-01T17:34:37+05:00",
+        "meaning": "Repository observation times, not event validity bounds; earlier real-world dates remain possible."
+      },
+      "types": [
+        "city_label_change",
+        "coordinate_revision",
+        "gps_code_change",
+        "iata_change",
+        "identifier_change",
+        "possible_closure",
+        "possible_rename"
+      ]
+    },
+    "cand_7c7e49cc4bff8eff387e6c44": {
+      "candidateId": "cand_7c7e49cc4bff8eff387e6c44",
+      "changes": {
+        "gps_code": [
+          "VTPU",
+          ""
+        ],
+        "iata": [
+          "UTR",
+          ""
+        ],
+        "icao": [
+          "VTPU",
+          ""
+        ],
+        "keywords": [
+          "",
+          "VTPU, UTR"
+        ],
+        "lat": [
+          "17.617000579833984",
+          "17.67371"
+        ],
+        "lon": [
+          "100.0999984741211",
+          "100.235267"
+        ],
+        "type": [
+          "small_airport",
+          "closed"
+        ],
+        "wikipedia_link": [
+          "",
+          "https://en.wikipedia.org/wiki/Uttaradit_Airport"
+        ]
+      },
+      "context": {
+        "airport": "Uttaradit Airport",
+        "city": "Uttaradit",
+        "codes": [
+          "UTR",
+          "VTPU"
+        ],
+        "continent": "AS",
+        "country": "TH",
+        "region": "TH-53"
+      },
+      "distanceKm": 15.659,
+      "evidence": {
+        "evidenceType": "indirect",
+        "sourceType": "secondary",
+        "sourceUrl": "https://github.com/datasets/airport-codes",
+        "verificationStatus": "pending"
+      },
+      "matches": {
+        "airportIds": [],
+        "assignmentIds": [],
+        "codeOnlyPossibleAirportIds": [],
+        "codeOnlyPossibleAssignmentIds": [],
+        "nameIds": []
+      },
+      "observations": [
+        {
+          "action": "M",
+          "afterBlob": "0260c9cfac0d40d59ce8c0cd0f8ea73bc70a51f1",
+          "beforeBlob": "96444ddda680f2c4a56b52aea9c7ab7bcdf85c02",
+          "commit": "59ba8803a4a124f98421a0975ed59af2837ff581",
+          "observedAt": "2026-03-03T20:29:19-03:00",
+          "parents": [
+            "388fe3e58435058bb8a1ee025402334db539f3c7"
+          ]
+        },
+        {
+          "action": "M",
+          "afterBlob": "0260c9cfac0d40d59ce8c0cd0f8ea73bc70a51f1",
+          "beforeBlob": "96444ddda680f2c4a56b52aea9c7ab7bcdf85c02",
+          "commit": "1c94e6374f7b794564dc9c96cb50267cba8443ce",
+          "observedAt": "2026-03-04T09:50:16-03:00",
+          "parents": [
+            "388fe3e58435058bb8a1ee025402334db539f3c7",
+            "59ba8803a4a124f98421a0975ed59af2837ff581"
+          ]
+        }
+      ],
+      "possibleEvent": "Unverified source revision; may be correction, label edit, allocation, closure or physical change.",
+      "review": {
+        "conflicts": [],
+        "eventGroupId": null,
+        "evidenceGaps": [
+          "Primary event and code-specific effective boundaries not reviewed."
+        ],
+        "exclusionReason": null,
+        "nextAction": "Review source correction vs real event; obtain dated primary notices independently for identity, codes and official name.",
+        "relatedLegacyIds": [],
+        "status": "pending_investigation"
+      },
+      "sourceEntityId": "32560",
+      "sourceId": "airport-codes-raw",
+      "time": {
+        "eventDate": null,
+        "eventDatePrecision": "unknown",
+        "firstObservedRevisionAt": "2026-03-03T20:29:19-03:00",
+        "lastObservedRevisionAt": "2026-03-04T09:50:16-03:00",
+        "meaning": "Repository observation times, not event validity bounds; earlier real-world dates remain possible."
+      },
+      "types": [
+        "coordinate_revision",
+        "gps_code_change",
+        "iata_change",
+        "icao_change",
+        "possible_closure",
+        "possible_relocation"
+      ]
+    },
+    "cand_7fc9b08615e93efbdffdc2a8": {
+      "candidateId": "cand_7fc9b08615e93efbdffdc2a8",
+      "changes": {
+        "iata": [
+          "ROV",
+          "RVI"
+        ],
+        "keywords": [
+          "Аэропорт Ростов-на-Дону, Rostov-na-Donu Airport",
+          "ROV, Аэропорт Ростов-на-Дону, Rostov-na-Donu Airport"
+        ],
+        "lat": [
+          "47.2582015991",
+          "47.258203"
+        ],
+        "lon": [
+          "39.8180999756",
+          "39.8181"
+        ],
+        "scheduled_service": [
+          "yes",
+          "no"
+        ],
+        "type": [
+          "large_airport",
+          "closed"
+        ]
+      },
+      "context": {
+        "airport": "Rostov-on-Don Airport",
+        "city": "Rostov-on-Don",
+        "codes": [
+          "ROV",
+          "RVI",
+          "URRR"
+        ],
+        "continent": "EU",
+        "country": "RU",
+        "region": "RU-ROS"
+      },
+      "distanceKm": 0.0,
+      "evidence": {
+        "evidenceType": "indirect",
+        "sourceType": "secondary",
+        "sourceUrl": "https://github.com/datasets/airport-codes",
+        "verificationStatus": "pending"
+      },
+      "matches": {
+        "airportIds": [],
+        "assignmentIds": [],
+        "codeOnlyPossibleAirportIds": [],
+        "codeOnlyPossibleAssignmentIds": [],
+        "nameIds": []
+      },
+      "observations": [
+        {
+          "action": "M",
+          "afterBlob": "4ed7260e184984d234c4cb9c0c1d080ade4827f0",
+          "beforeBlob": "8304e1616f9918c3f97118a37e5565fde7c7cd25",
+          "commit": "4dfc3ac15e8e1d0889a114b268e28f3477a65d8b",
+          "observedAt": "2019-06-13T16:48:28+02:00",
+          "parents": [
+            "69723c25deeeae7ebaa37f914c8ff3bec9ce7ed3"
+          ]
+        }
+      ],
+      "possibleEvent": "Unverified source revision; may be correction, label edit, allocation, closure or physical change.",
+      "review": {
+        "conflicts": [],
+        "eventGroupId": null,
+        "evidenceGaps": [
+          "Primary event and code-specific effective boundaries not reviewed."
+        ],
+        "exclusionReason": null,
+        "nextAction": "Review source correction vs real event; obtain dated primary notices independently for identity, codes and official name.",
+        "relatedLegacyIds": [],
+        "status": "pending_investigation"
+      },
+      "sourceEntityId": "6518",
+      "sourceId": "airport-codes-raw",
+      "time": {
+        "eventDate": null,
+        "eventDatePrecision": "unknown",
+        "firstObservedRevisionAt": "2019-06-13T16:48:28+02:00",
+        "lastObservedRevisionAt": "2019-06-13T16:48:28+02:00",
+        "meaning": "Repository observation times, not event validity bounds; earlier real-world dates remain possible."
+      },
+      "types": [
+        "coordinate_revision",
+        "iata_change",
+        "possible_closure"
+      ]
+    },
+    "cand_8244804dd590e3ec97a2a7f7": {
+      "candidateId": "cand_8244804dd590e3ec97a2a7f7",
+      "changes": {
+        "coordinates": [
+          "57.6428, 19.5",
+          "57.634167, 19.501944"
+        ],
+        "elevation": [
+          "380",
+          "364"
+        ],
+        "iata": [
+          "JNJ",
+          "DQM"
+        ],
+        "name": [
+          "Duqm Jaaluni Airport",
+          "Duqm International Airport"
+        ]
+      },
+      "context": {
+        "airport": "Duqm International Airport",
+        "city": "Duqm",
+        "codes": [
+          "DQM",
+          "JNJ",
+          "OM-0003",
+          "OODQ"
+        ],
+        "continent": "AS",
+        "country": "OM",
+        "region": "OM-WU"
+      },
+      "distanceKm": null,
+      "evidence": {
+        "evidenceType": "indirect",
+        "sourceType": "secondary",
+        "sourceUrl": "https://github.com/datasets/airport-codes",
+        "verificationStatus": "pending"
+      },
+      "matches": {
+        "airportIds": [],
+        "assignmentIds": [],
+        "codeOnlyPossibleAirportIds": [],
+        "codeOnlyPossibleAssignmentIds": [],
+        "nameIds": []
+      },
+      "observations": [
+        {
+          "action": "M",
+          "afterBlob": "1ad68933eb9db4acb197852ed2224c7f2d70758b",
+          "beforeBlob": "0aca690fe107e692c451b5e32d2bdcf2b578b4e1",
+          "commit": "7de4a69dac5d1f794e3f59ccb0893da4146faeb4",
+          "observedAt": "2018-10-09T15:23:42+04:00",
+          "parents": [
+            "aa0b635a5ca63efdecfbe879da6ad9185f5932cc"
+          ]
+        },
+        {
+          "action": "M",
+          "afterBlob": "1ad68933eb9db4acb197852ed2224c7f2d70758b",
+          "beforeBlob": "0aca690fe107e692c451b5e32d2bdcf2b578b4e1",
+          "commit": "a65ffa5e9cf450ec4f3623e39bd8753f61f7457b",
+          "observedAt": "2018-10-09T22:07:09+02:00",
+          "parents": [
+            "aa0b635a5ca63efdecfbe879da6ad9185f5932cc",
+            "7de4a69dac5d1f794e3f59ccb0893da4146faeb4"
+          ]
+        }
+      ],
+      "possibleEvent": "Unverified source revision; may be correction, label edit, allocation, closure or physical change.",
+      "review": {
+        "conflicts": [],
+        "eventGroupId": null,
+        "evidenceGaps": [
+          "Primary event and code-specific effective boundaries not reviewed."
+        ],
+        "exclusionReason": null,
+        "nextAction": "Review source correction vs real event; obtain dated primary notices independently for identity, codes and official name.",
+        "relatedLegacyIds": [],
+        "status": "pending_investigation"
+      },
+      "sourceEntityId": "OM-0003",
+      "sourceId": "airport-codes",
+      "time": {
+        "eventDate": null,
+        "eventDatePrecision": "unknown",
+        "firstObservedRevisionAt": "2018-10-09T15:23:42+04:00",
+        "lastObservedRevisionAt": "2018-10-09T22:07:09+02:00",
+        "meaning": "Repository observation times, not event validity bounds; earlier real-world dates remain possible."
+      },
+      "types": [
+        "coordinate_revision",
+        "iata_change",
+        "possible_rename"
+      ]
+    },
+    "cand_8ac1b12707d7c441ce708d32": {
+      "candidateId": "cand_8ac1b12707d7c441ce708d32",
+      "changes": {
+        "elevation": [
+          "59",
+          "154"
+        ],
+        "lat": [
+          "37.4016990662",
+          "37.657222"
+        ],
+        "lon": [
+          "121.3720016479",
+          "120.987222"
+        ],
+        "name": [
+          "Yantai Laishan Airport",
+          "Penglai Intl"
+        ]
+      },
+      "context": {
+        "airport": "Penglai Intl",
+        "city": "Yantai",
+        "codes": [
+          "YNT",
+          "ZSYT"
+        ],
+        "continent": "unknown",
+        "country": "CN",
+        "region": "Shandong"
+      },
+      "distanceKm": 44.256,
+      "evidence": {
+        "evidenceType": "indirect",
+        "sourceType": "secondary",
+        "sourceUrl": "https://github.com/mborsetti/airportsdata",
+        "verificationStatus": "pending"
+      },
+      "matches": {
+        "airportIds": [],
+        "assignmentIds": [],
+        "codeOnlyPossibleAirportIds": [],
+        "codeOnlyPossibleAssignmentIds": [],
+        "nameIds": []
+      },
+      "observations": [
+        {
+          "action": "M",
+          "afterBlob": "73d432236f07112f0e746c9202f4988a62fbe6e0",
+          "beforeBlob": "3e7f410e51c81dbf91ed2879a117756110ad5244",
+          "commit": "0c8ac0d24e22a9f174dec04c5fd5102dcdd0d3ad",
+          "observedAt": "2024-04-01T19:12:39+08:00",
+          "parents": [
+            "f94e5d608a63685ba9f7e82b7c1bbe8de2692e9c"
+          ]
+        }
+      ],
+      "possibleEvent": "Unverified source revision; may be correction, label edit, allocation, closure or physical change.",
+      "review": {
+        "conflicts": [],
+        "eventGroupId": null,
+        "evidenceGaps": [
+          "Primary event and code-specific effective boundaries not reviewed."
+        ],
+        "exclusionReason": null,
+        "nextAction": "Review source correction vs real event; obtain dated primary notices independently for identity, codes and official name.",
+        "relatedLegacyIds": [],
+        "status": "pending_investigation"
+      },
+      "sourceEntityId": "ZSYT",
+      "sourceId": "airportsdata",
+      "time": {
+        "eventDate": null,
+        "eventDatePrecision": "unknown",
+        "firstObservedRevisionAt": "2024-04-01T19:12:39+08:00",
+        "lastObservedRevisionAt": "2024-04-01T19:12:39+08:00",
+        "meaning": "Repository observation times, not event validity bounds; earlier real-world dates remain possible."
+      },
+      "types": [
+        "coordinate_revision",
+        "possible_relocation",
+        "possible_rename"
+      ]
+    },
+    "cand_9d7392c0e4b31d86219d6e71": {
+      "candidateId": "cand_9d7392c0e4b31d86219d6e71",
+      "changes": {
+        "coordinates": [
+          "85.53279876708984, 38.14939880371094",
+          "85.465556, 38.233611"
+        ],
+        "elevation": [
+          "4108",
+          ""
+        ],
+        "name": [
+          "Qiemo Airport",
+          "Qiemo Yudu Airport"
+        ]
+      },
+      "context": {
+        "airport": "Qiemo Yudu Airport",
+        "city": "Qiemo",
+        "codes": [
+          "IQM",
+          "ZWCM"
+        ],
+        "continent": "AS",
+        "country": "CN",
+        "region": "CN-65"
+      },
+      "distanceKm": null,
+      "evidence": {
+        "evidenceType": "indirect",
+        "sourceType": "secondary",
+        "sourceUrl": "https://github.com/datasets/airport-codes",
+        "verificationStatus": "pending"
+      },
+      "matches": {
+        "airportIds": [],
+        "assignmentIds": [],
+        "codeOnlyPossibleAirportIds": [],
+        "codeOnlyPossibleAssignmentIds": [],
+        "nameIds": []
+      },
+      "observations": [
+        {
+          "action": "M",
+          "afterBlob": "1ad68933eb9db4acb197852ed2224c7f2d70758b",
+          "beforeBlob": "0aca690fe107e692c451b5e32d2bdcf2b578b4e1",
+          "commit": "7de4a69dac5d1f794e3f59ccb0893da4146faeb4",
+          "observedAt": "2018-10-09T15:23:42+04:00",
+          "parents": [
+            "aa0b635a5ca63efdecfbe879da6ad9185f5932cc"
+          ]
+        },
+        {
+          "action": "M",
+          "afterBlob": "1ad68933eb9db4acb197852ed2224c7f2d70758b",
+          "beforeBlob": "0aca690fe107e692c451b5e32d2bdcf2b578b4e1",
+          "commit": "a65ffa5e9cf450ec4f3623e39bd8753f61f7457b",
+          "observedAt": "2018-10-09T22:07:09+02:00",
+          "parents": [
+            "aa0b635a5ca63efdecfbe879da6ad9185f5932cc",
+            "7de4a69dac5d1f794e3f59ccb0893da4146faeb4"
+          ]
+        }
+      ],
+      "possibleEvent": "Unverified source revision; may be correction, label edit, allocation, closure or physical change.",
+      "review": {
+        "conflicts": [],
+        "eventGroupId": null,
+        "evidenceGaps": [
+          "Primary event and code-specific effective boundaries not reviewed."
+        ],
+        "exclusionReason": null,
+        "nextAction": "Review source correction vs real event; obtain dated primary notices independently for identity, codes and official name.",
+        "relatedLegacyIds": [],
+        "status": "pending_investigation"
+      },
+      "sourceEntityId": "ZWCM",
+      "sourceId": "airport-codes",
+      "time": {
+        "eventDate": null,
+        "eventDatePrecision": "unknown",
+        "firstObservedRevisionAt": "2018-10-09T15:23:42+04:00",
+        "lastObservedRevisionAt": "2018-10-09T22:07:09+02:00",
+        "meaning": "Repository observation times, not event validity bounds; earlier real-world dates remain possible."
+      },
+      "types": [
+        "coordinate_revision",
+        "possible_rename"
+      ]
+    },
+    "cand_b96e3d61e795c440a6f2c5a0": {
+      "candidateId": "cand_b96e3d61e795c440a6f2c5a0",
+      "changes": {
+        "iata": [
+          "CAT",
+          "TBI"
+        ]
+      },
+      "context": {
+        "airport": "New Bight Airport",
+        "city": "Cat Island",
+        "codes": [
+          "CAT",
+          "MYCB",
+          "TBI"
+        ],
+        "continent": "unknown",
+        "country": "BS",
+        "region": "Cat-Island"
+      },
+      "distanceKm": 0.0,
+      "evidence": {
+        "evidenceType": "indirect",
+        "sourceType": "secondary",
+        "sourceUrl": "https://github.com/mborsetti/airportsdata",
+        "verificationStatus": "pending"
+      },
+      "matches": {
+        "airportIds": [],
+        "assignmentIds": [],
+        "codeOnlyPossibleAirportIds": [],
+        "codeOnlyPossibleAssignmentIds": [],
+        "nameIds": []
+      },
+      "observations": [
+        {
+          "action": "M",
+          "afterBlob": "9d13696eaf7f15ec68ba8637a0f8ae4191b10678",
+          "beforeBlob": "1dafadeef6b6ce23dcd5534f360912beafc154d2",
+          "commit": "b7ac5cb46cb9f1def398aa6ec37d5dc4cb98904a",
+          "observedAt": "2023-06-30T09:42:50-07:00",
+          "parents": [
+            "8ce548c8c89e616bb157e3e658cf8127c2a61d8b"
+          ]
+        }
+      ],
+      "possibleEvent": "Unverified source revision; may be correction, label edit, allocation, closure or physical change.",
+      "review": {
+        "conflicts": [],
+        "eventGroupId": null,
+        "evidenceGaps": [
+          "Primary event and code-specific effective boundaries not reviewed."
+        ],
+        "exclusionReason": null,
+        "nextAction": "Review source correction vs real event; obtain dated primary notices independently for identity, codes and official name.",
+        "relatedLegacyIds": [],
+        "status": "pending_investigation"
+      },
+      "sourceEntityId": "MYCB",
+      "sourceId": "airportsdata",
+      "time": {
+        "eventDate": null,
+        "eventDatePrecision": "unknown",
+        "firstObservedRevisionAt": "2023-06-30T09:42:50-07:00",
+        "lastObservedRevisionAt": "2023-06-30T09:42:50-07:00",
+        "meaning": "Repository observation times, not event validity bounds; earlier real-world dates remain possible."
+      },
+      "types": [
+        "iata_change"
+      ]
+    },
+    "cand_ba1d95c1c6212eaafe0407f3": {
+      "candidateId": "cand_ba1d95c1c6212eaafe0407f3",
+      "changes": {
+        "city": [
+          "St Dizier",
+          "Brive la Gaillarde"
+        ],
+        "elevation": [
+          "936",
+          "1016"
+        ],
+        "gps_code": [
+          "",
+          "LFSL"
+        ],
+        "home_link": [
+          "",
+          "http://www.aeroport-brive-vallee-dordogne.fr"
+        ],
+        "iata": [
+          "",
+          "BVE"
+        ],
+        "lat": [
+          "48.780001",
+          "45.039722"
+        ],
+        "lon": [
+          "5.980003",
+          "1.485556"
+        ],
+        "name": [
+          "Toul Rosières Air Base",
+          "Brive-Souillac"
+        ],
+        "region": [
+          "FR-M",
+          "FR-NAQ"
+        ],
+        "scheduled_service": [
+          "no",
+          "yes"
+        ],
+        "type": [
+          "closed",
+          "medium_airport"
+        ],
+        "wikipedia_link": [
+          "",
+          "https://fr.wikipedia.org/wiki/Aéroport_de_Brive-Souillac"
+        ]
+      },
+      "context": {
+        "airport": "Brive-Souillac",
+        "city": "Brive la Gaillarde",
+        "codes": [
+          "BVE",
+          "LFSL"
+        ],
+        "continent": "EU",
+        "country": "FR",
+        "region": "FR-NAQ"
+      },
+      "distanceKm": 537.883,
+      "evidence": {
+        "evidenceType": "indirect",
+        "sourceType": "secondary",
+        "sourceUrl": "https://github.com/datasets/airport-codes",
+        "verificationStatus": "pending"
+      },
+      "matches": {
+        "airportIds": [],
+        "assignmentIds": [],
+        "codeOnlyPossibleAirportIds": [],
+        "codeOnlyPossibleAssignmentIds": [],
+        "nameIds": []
+      },
+      "observations": [
+        {
+          "action": "M",
+          "afterBlob": "260a09188d2cff992739de75c2162096a43ed76c",
+          "beforeBlob": "4ed7260e184984d234c4cb9c0c1d080ade4827f0",
+          "commit": "09ab66f23778cd5c577c96d09a600dcac15bb82b",
+          "observedAt": "2024-10-01T11:30:59Z",
+          "parents": [
+            "51c43e6610742d5162452d3e5229dda197eaf238"
+          ]
+        },
+        {
+          "action": "M",
+          "afterBlob": "260a09188d2cff992739de75c2162096a43ed76c",
+          "beforeBlob": "4ed7260e184984d234c4cb9c0c1d080ade4827f0",
+          "commit": "63f6278fd0de9ad80af2835dcd1bc8558176aa1c",
+          "observedAt": "2024-10-01T17:34:37+05:00",
+          "parents": [
+            "68f702aa6eebf14ed5f7e3bf9be609f9fb8a5663",
+            "7eb67666b64fba95e8036882d81f9948fceec4d9"
+          ]
+        }
+      ],
+      "possibleEvent": "Unverified source revision; may be correction, label edit, allocation, closure or physical change.",
+      "review": {
+        "conflicts": [],
+        "eventGroupId": null,
+        "evidenceGaps": [
+          "Primary event and code-specific effective boundaries not reviewed."
+        ],
+        "exclusionReason": null,
+        "nextAction": "Review source correction vs real event; obtain dated primary notices independently for identity, codes and official name.",
+        "relatedLegacyIds": [],
+        "status": "pending_investigation"
+      },
+      "sourceEntityId": "29001",
+      "sourceId": "airport-codes-raw",
+      "time": {
+        "eventDate": null,
+        "eventDatePrecision": "unknown",
+        "firstObservedRevisionAt": "2024-10-01T11:30:59Z",
+        "lastObservedRevisionAt": "2024-10-01T17:34:37+05:00",
+        "meaning": "Repository observation times, not event validity bounds; earlier real-world dates remain possible."
+      },
+      "types": [
+        "city_label_change",
+        "coordinate_revision",
+        "gps_code_change",
+        "iata_change",
+        "possible_relocation",
+        "possible_rename",
+        "possible_reopening"
+      ]
+    },
+    "cand_cb20612a6a4f6d8542872ae1": {
+      "candidateId": "cand_cb20612a6a4f6d8542872ae1",
+      "changes": {
+        "iata": [
+          "CAT",
+          "TBI"
+        ],
+        "lat": [
+          "24.31529998779297",
+          "24.3153"
+        ],
+        "lon": [
+          "-75.45230102539062",
+          "-75.452301"
+        ]
+      },
+      "context": {
+        "airport": "New Bight Airport",
+        "city": "Cat Island",
+        "codes": [
+          "CAT",
+          "MYCB",
+          "TBI"
+        ],
+        "continent": "NA",
+        "country": "BS",
+        "region": "BS-CI"
+      },
+      "distanceKm": 0.0,
+      "evidence": {
+        "evidenceType": "indirect",
+        "sourceType": "secondary",
+        "sourceUrl": "https://github.com/datasets/airport-codes",
+        "verificationStatus": "pending"
+      },
+      "matches": {
+        "airportIds": [],
+        "assignmentIds": [],
+        "codeOnlyPossibleAirportIds": [],
+        "codeOnlyPossibleAssignmentIds": [],
+        "nameIds": []
+      },
+      "observations": [
+        {
+          "action": "M",
+          "afterBlob": "4ed7260e184984d234c4cb9c0c1d080ade4827f0",
+          "beforeBlob": "8304e1616f9918c3f97118a37e5565fde7c7cd25",
+          "commit": "4dfc3ac15e8e1d0889a114b268e28f3477a65d8b",
+          "observedAt": "2019-06-13T16:48:28+02:00",
+          "parents": [
+            "69723c25deeeae7ebaa37f914c8ff3bec9ce7ed3"
+          ]
+        }
+      ],
+      "possibleEvent": "Unverified source revision; may be correction, label edit, allocation, closure or physical change.",
+      "review": {
+        "conflicts": [],
+        "eventGroupId": null,
+        "evidenceGaps": [
+          "Primary event and code-specific effective boundaries not reviewed."
+        ],
+        "exclusionReason": null,
+        "nextAction": "Review source correction vs real event; obtain dated primary notices independently for identity, codes and official name.",
+        "relatedLegacyIds": [],
+        "status": "pending_investigation"
+      },
+      "sourceEntityId": "4937",
+      "sourceId": "airport-codes-raw",
+      "time": {
+        "eventDate": null,
+        "eventDatePrecision": "unknown",
+        "firstObservedRevisionAt": "2019-06-13T16:48:28+02:00",
+        "lastObservedRevisionAt": "2019-06-13T16:48:28+02:00",
+        "meaning": "Repository observation times, not event validity bounds; earlier real-world dates remain possible."
+      },
+      "types": [
+        "coordinate_revision",
+        "iata_change"
+      ]
+    },
+    "cand_ccacc72d759fb5541765fb3c": {
+      "candidateId": "cand_ccacc72d759fb5541765fb3c",
+      "changes": {
+        "coordinates": [
+          "-75.45230102539062, 24.31529998779297",
+          "-75.452301, 24.3153"
+        ],
+        "iata": [
+          "CAT",
+          "TBI"
+        ]
+      },
+      "context": {
+        "airport": "New Bight Airport",
+        "city": "Cat Island",
+        "codes": [
+          "CAT",
+          "MYCB",
+          "TBI"
+        ],
+        "continent": "NA",
+        "country": "BS",
+        "region": "BS-CI"
+      },
+      "distanceKm": null,
+      "evidence": {
+        "evidenceType": "indirect",
+        "sourceType": "secondary",
+        "sourceUrl": "https://github.com/datasets/airport-codes",
+        "verificationStatus": "pending"
+      },
+      "matches": {
+        "airportIds": [],
+        "assignmentIds": [],
+        "codeOnlyPossibleAirportIds": [],
+        "codeOnlyPossibleAssignmentIds": [],
+        "nameIds": []
+      },
+      "observations": [
+        {
+          "action": "M",
+          "afterBlob": "1ad68933eb9db4acb197852ed2224c7f2d70758b",
+          "beforeBlob": "0aca690fe107e692c451b5e32d2bdcf2b578b4e1",
+          "commit": "7de4a69dac5d1f794e3f59ccb0893da4146faeb4",
+          "observedAt": "2018-10-09T15:23:42+04:00",
+          "parents": [
+            "aa0b635a5ca63efdecfbe879da6ad9185f5932cc"
+          ]
+        },
+        {
+          "action": "M",
+          "afterBlob": "1ad68933eb9db4acb197852ed2224c7f2d70758b",
+          "beforeBlob": "0aca690fe107e692c451b5e32d2bdcf2b578b4e1",
+          "commit": "a65ffa5e9cf450ec4f3623e39bd8753f61f7457b",
+          "observedAt": "2018-10-09T22:07:09+02:00",
+          "parents": [
+            "aa0b635a5ca63efdecfbe879da6ad9185f5932cc",
+            "7de4a69dac5d1f794e3f59ccb0893da4146faeb4"
+          ]
+        }
+      ],
+      "possibleEvent": "Unverified source revision; may be correction, label edit, allocation, closure or physical change.",
+      "review": {
+        "conflicts": [],
+        "eventGroupId": null,
+        "evidenceGaps": [
+          "Primary event and code-specific effective boundaries not reviewed."
+        ],
+        "exclusionReason": null,
+        "nextAction": "Review source correction vs real event; obtain dated primary notices independently for identity, codes and official name.",
+        "relatedLegacyIds": [],
+        "status": "pending_investigation"
+      },
+      "sourceEntityId": "MYCB",
+      "sourceId": "airport-codes",
+      "time": {
+        "eventDate": null,
+        "eventDatePrecision": "unknown",
+        "firstObservedRevisionAt": "2018-10-09T15:23:42+04:00",
+        "lastObservedRevisionAt": "2018-10-09T22:07:09+02:00",
+        "meaning": "Repository observation times, not event validity bounds; earlier real-world dates remain possible."
+      },
+      "types": [
+        "coordinate_revision",
+        "iata_change"
+      ]
+    },
+    "cand_d143eee2e286e0dfbbaa2339": {
+      "candidateId": "cand_d143eee2e286e0dfbbaa2339",
+      "changes": {
+        "elevation": [
+          "1233",
+          "1267"
+        ],
+        "gps_code": [
+          "GUXD",
+          ""
+        ],
+        "iata": [
+          "KNN",
+          ""
+        ],
+        "keywords": [
+          "",
+          "KNN, GUXN"
+        ],
+        "lat": [
+          "10.448438",
+          "10.394"
+        ],
+        "lon": [
+          "-9.228757",
+          "-9.3038"
+        ],
+        "type": [
+          "small_airport",
+          "closed"
+        ],
+        "wikipedia_link": [
+          "https://en.wikipedia.org/wiki/Kankan_Airport",
+          ""
+        ]
+      },
+      "context": {
+        "airport": "Kankan Airport",
+        "city": "Kankan",
+        "codes": [
+          "GUXD",
+          "GUXN",
+          "KNN"
+        ],
+        "continent": "AF",
+        "country": "GN",
+        "region": "GN-K"
+      },
+      "distanceKm": 10.198,
+      "evidence": {
+        "evidenceType": "indirect",
+        "sourceType": "secondary",
+        "sourceUrl": "https://github.com/davidmegginson/ourairports-data",
+        "verificationStatus": "pending"
+      },
+      "matches": {
+        "airportIds": [],
+        "assignmentIds": [],
+        "codeOnlyPossibleAirportIds": [],
+        "codeOnlyPossibleAssignmentIds": [],
+        "nameIds": []
+      },
+      "observations": [
+        {
+          "action": "M",
+          "afterBlob": "78e09a17f5187b855f644ec3bec5af1a02c0126b",
+          "beforeBlob": "c553c9dc6cc1fccf789c55f551994dc1f97c9b33",
+          "commit": "8c2de8936ac134519c76581226c9d67e6f56ca88",
+          "observedAt": "2025-06-07T03:53:11+02:00",
+          "parents": [
+            "59766634522957034516dd78336f833103ff2d61"
+          ]
+        }
+      ],
+      "possibleEvent": "Unverified source revision; may be correction, label edit, allocation, closure or physical change.",
+      "review": {
+        "conflicts": [],
+        "eventGroupId": null,
+        "evidenceGaps": [
+          "Primary event and code-specific effective boundaries not reviewed."
+        ],
+        "exclusionReason": null,
+        "nextAction": "Review source correction vs real event; obtain dated primary notices independently for identity, codes and official name.",
+        "relatedLegacyIds": [],
+        "status": "pending_investigation"
+      },
+      "sourceEntityId": "44577",
+      "sourceId": "ourairports",
+      "time": {
+        "eventDate": null,
+        "eventDatePrecision": "unknown",
+        "firstObservedRevisionAt": "2025-06-07T03:53:11+02:00",
+        "lastObservedRevisionAt": "2025-06-07T03:53:11+02:00",
+        "meaning": "Repository observation times, not event validity bounds; earlier real-world dates remain possible."
+      },
+      "types": [
+        "coordinate_revision",
+        "gps_code_change",
+        "iata_change",
+        "possible_closure",
+        "possible_relocation"
+      ]
+    },
+    "cand_dbe848d5c843e4ffc5270e26": {
+      "candidateId": "cand_dbe848d5c843e4ffc5270e26",
+      "changes": {
+        "elevation": [
+          "4108",
+          ""
+        ],
+        "lat": [
+          "38.14939880371094",
+          "38.233611"
+        ],
+        "lon": [
+          "85.53279876708984",
+          "85.465556"
+        ],
+        "name": [
+          "Qiemo Airport",
+          "Qiemo Yudu Airport"
+        ],
+        "wikipedia_link": [
+          "http://en.wikipedia.org/wiki/Qiemo_Airport",
+          "https://en.wikipedia.org/wiki/Qiemo_Yudu_Airport"
+        ]
+      },
+      "context": {
+        "airport": "Qiemo Yudu Airport",
+        "city": "Qiemo",
+        "codes": [
+          "IQM",
+          "ZWCM"
+        ],
+        "continent": "AS",
+        "country": "CN",
+        "region": "CN-65"
+      },
+      "distanceKm": 11.055,
+      "evidence": {
+        "evidenceType": "indirect",
+        "sourceType": "secondary",
+        "sourceUrl": "https://github.com/datasets/airport-codes",
+        "verificationStatus": "pending"
+      },
+      "matches": {
+        "airportIds": [],
+        "assignmentIds": [],
+        "codeOnlyPossibleAirportIds": [],
+        "codeOnlyPossibleAssignmentIds": [],
+        "nameIds": []
+      },
+      "observations": [
+        {
+          "action": "M",
+          "afterBlob": "4ed7260e184984d234c4cb9c0c1d080ade4827f0",
+          "beforeBlob": "8304e1616f9918c3f97118a37e5565fde7c7cd25",
+          "commit": "4dfc3ac15e8e1d0889a114b268e28f3477a65d8b",
+          "observedAt": "2019-06-13T16:48:28+02:00",
+          "parents": [
+            "69723c25deeeae7ebaa37f914c8ff3bec9ce7ed3"
+          ]
+        }
+      ],
+      "possibleEvent": "Unverified source revision; may be correction, label edit, allocation, closure or physical change.",
+      "review": {
+        "conflicts": [],
+        "eventGroupId": null,
+        "evidenceGaps": [
+          "Primary event and code-specific effective boundaries not reviewed."
+        ],
+        "exclusionReason": null,
+        "nextAction": "Review source correction vs real event; obtain dated primary notices independently for identity, codes and official name.",
+        "relatedLegacyIds": [],
+        "status": "pending_investigation"
+      },
+      "sourceEntityId": "31684",
+      "sourceId": "airport-codes-raw",
+      "time": {
+        "eventDate": null,
+        "eventDatePrecision": "unknown",
+        "firstObservedRevisionAt": "2019-06-13T16:48:28+02:00",
+        "lastObservedRevisionAt": "2019-06-13T16:48:28+02:00",
+        "meaning": "Repository observation times, not event validity bounds; earlier real-world dates remain possible."
+      },
+      "types": [
+        "coordinate_revision",
+        "possible_relocation",
+        "possible_rename"
+      ]
+    },
+    "cand_e1f96c81b10b8a30ef076ffa": {
+      "candidateId": "cand_e1f96c81b10b8a30ef076ffa",
+      "changes": {
+        "gps_code": [
+          "ZSJG",
+          ""
+        ],
+        "iata": [
+          "JNG",
+          ""
+        ],
+        "keywords": [
+          "",
+          "JNG, ZSJG"
+        ]
+      },
+      "context": {
+        "airport": "Jining Qufu Airport",
+        "city": "Jining",
+        "codes": [
+          "JNG",
+          "ZLJN",
+          "ZSJG"
+        ],
+        "continent": "AS",
+        "country": "CN",
+        "region": "CN-37"
+      },
+      "distanceKm": 0.0,
+      "evidence": {
+        "evidenceType": "indirect",
+        "sourceType": "secondary",
+        "sourceUrl": "https://github.com/davidmegginson/ourairports-data",
+        "verificationStatus": "pending"
+      },
+      "matches": {
+        "airportIds": [],
+        "assignmentIds": [],
+        "codeOnlyPossibleAirportIds": [],
+        "codeOnlyPossibleAssignmentIds": [],
+        "nameIds": []
+      },
+      "observations": [
+        {
+          "action": "M",
+          "afterBlob": "4efc990ba46915d57f38ca957c888cd6c19daae9",
+          "beforeBlob": "fd0ecc3799dc7e413af79564ef14be2649e9521a",
+          "commit": "3cb3ef9b4289873aa694b503093d0535b097b334",
+          "observedAt": "2024-09-23T03:53:31-04:00",
+          "parents": [
+            "28f7a4711d1359e9e05f1e8e47732079c0ffc059"
+          ]
+        }
+      ],
+      "possibleEvent": "Unverified source revision; may be correction, label edit, allocation, closure or physical change.",
+      "review": {
+        "conflicts": [],
+        "eventGroupId": null,
+        "evidenceGaps": [
+          "Primary event and code-specific effective boundaries not reviewed."
+        ],
+        "exclusionReason": null,
+        "nextAction": "Review source correction vs real event; obtain dated primary notices independently for identity, codes and official name.",
+        "relatedLegacyIds": [],
+        "status": "pending_investigation"
+      },
+      "sourceEntityId": "300515",
+      "sourceId": "ourairports",
+      "time": {
+        "eventDate": null,
+        "eventDatePrecision": "unknown",
+        "firstObservedRevisionAt": "2024-09-23T03:53:31-04:00",
+        "lastObservedRevisionAt": "2024-09-23T03:53:31-04:00",
+        "meaning": "Repository observation times, not event validity bounds; earlier real-world dates remain possible."
+      },
+      "types": [
+        "gps_code_change",
+        "iata_change"
+      ]
+    },
+    "cand_e2f8f10d49342c01a7e4c0ec": {
+      "candidateId": "cand_e2f8f10d49342c01a7e4c0ec",
+      "changes": {
+        "lat": [
+          "14.295633",
+          "14.383451"
+        ],
+        "lon": [
+          "33.547271",
+          "33.526679"
+        ],
+        "type": [
+          "small_airport",
+          "closed"
+        ]
+      },
+      "context": {
+        "airport": "Wad Medani Airport",
+        "city": "Wad Medani",
+        "codes": [
+          "DNI",
+          "HSWD"
+        ],
+        "continent": "AF",
+        "country": "SD",
+        "region": "SD-07"
+      },
+      "distanceKm": 10.014,
+      "evidence": {
+        "evidenceType": "indirect",
+        "sourceType": "secondary",
+        "sourceUrl": "https://github.com/davidmegginson/ourairports-data",
+        "verificationStatus": "pending"
+      },
+      "matches": {
+        "airportIds": [],
+        "assignmentIds": [],
+        "codeOnlyPossibleAirportIds": [],
+        "codeOnlyPossibleAssignmentIds": [],
+        "nameIds": []
+      },
+      "observations": [
+        {
+          "action": "M",
+          "afterBlob": "5e6ae7be8ae4c17ff4db64592eda499f18924954",
+          "beforeBlob": "b77ffb2b106c1b07c59d6aba591c452bdb3aee63",
+          "commit": "9348f63dbdfe2a37c4390de2972d4ef64bb84db0",
+          "observedAt": "2022-08-13T03:53:41-04:00",
+          "parents": [
+            "ba7a63e649445db13cf4004cf1b3f79a86216a48"
+          ]
+        }
+      ],
+      "possibleEvent": "Unverified source revision; may be correction, label edit, allocation, closure or physical change.",
+      "review": {
+        "conflicts": [],
+        "eventGroupId": null,
+        "evidenceGaps": [
+          "Primary event and code-specific effective boundaries not reviewed."
+        ],
+        "exclusionReason": null,
+        "nextAction": "Review source correction vs real event; obtain dated primary notices independently for identity, codes and official name.",
+        "relatedLegacyIds": [],
+        "status": "pending_investigation"
+      },
+      "sourceEntityId": "318069",
+      "sourceId": "ourairports",
+      "time": {
+        "eventDate": null,
+        "eventDatePrecision": "unknown",
+        "firstObservedRevisionAt": "2022-08-13T03:53:41-04:00",
+        "lastObservedRevisionAt": "2022-08-13T03:53:41-04:00",
+        "meaning": "Repository observation times, not event validity bounds; earlier real-world dates remain possible."
+      },
+      "types": [
+        "coordinate_revision",
+        "possible_closure",
+        "possible_relocation"
+      ]
+    },
+    "cand_ec671992f93700beb8d14848": {
+      "candidateId": "cand_ec671992f93700beb8d14848",
+      "changes": {
+        "gps_code": [
+          "VTPU",
+          ""
+        ],
+        "iata": [
+          "UTR",
+          ""
+        ],
+        "icao": [
+          "VTPU",
+          ""
+        ],
+        "keywords": [
+          "",
+          "VTPU, UTR"
+        ],
+        "lat": [
+          "17.617000579833984",
+          "17.67371"
+        ],
+        "lon": [
+          "100.0999984741211",
+          "100.235267"
+        ],
+        "type": [
+          "small_airport",
+          "closed"
+        ],
+        "wikipedia_link": [
+          "",
+          "https://en.wikipedia.org/wiki/Uttaradit_Airport"
+        ]
+      },
+      "context": {
+        "airport": "Uttaradit Airport",
+        "city": "Uttaradit",
+        "codes": [
+          "UTR",
+          "VTPU"
+        ],
+        "continent": "AS",
+        "country": "TH",
+        "region": "TH-53"
+      },
+      "distanceKm": 15.659,
+      "evidence": {
+        "evidenceType": "indirect",
+        "sourceType": "secondary",
+        "sourceUrl": "https://github.com/davidmegginson/ourairports-data",
+        "verificationStatus": "pending"
+      },
+      "matches": {
+        "airportIds": [],
+        "assignmentIds": [],
+        "codeOnlyPossibleAirportIds": [],
+        "codeOnlyPossibleAssignmentIds": [],
+        "nameIds": []
+      },
+      "observations": [
+        {
+          "action": "M",
+          "afterBlob": "e45d5ec0424a6f19a586106d37226fe7dba31f59",
+          "beforeBlob": "17f32cdd381d16318fa30fd226d948449e5c1106",
+          "commit": "72f73c4011ef3f9e58eb0ccb09c4fc8a4bdc30f5",
+          "observedAt": "2025-09-30T03:53:11+02:00",
+          "parents": [
+            "2f770ade275b01eb1f2f51d57c432c544bc4d766"
+          ]
+        }
+      ],
+      "possibleEvent": "Unverified source revision; may be correction, label edit, allocation, closure or physical change.",
+      "review": {
+        "conflicts": [],
+        "eventGroupId": null,
+        "evidenceGaps": [
+          "Primary event and code-specific effective boundaries not reviewed."
+        ],
+        "exclusionReason": null,
+        "nextAction": "Review source correction vs real event; obtain dated primary notices independently for identity, codes and official name.",
+        "relatedLegacyIds": [],
+        "status": "pending_investigation"
+      },
+      "sourceEntityId": "32560",
+      "sourceId": "ourairports",
+      "time": {
+        "eventDate": null,
+        "eventDatePrecision": "unknown",
+        "firstObservedRevisionAt": "2025-09-30T03:53:11+02:00",
+        "lastObservedRevisionAt": "2025-09-30T03:53:11+02:00",
+        "meaning": "Repository observation times, not event validity bounds; earlier real-world dates remain possible."
+      },
+      "types": [
+        "coordinate_revision",
+        "gps_code_change",
+        "iata_change",
+        "icao_change",
+        "possible_closure",
+        "possible_relocation"
+      ]
+    },
+    "cand_ee28c2f36941d4b62ff604b2": {
+      "candidateId": "cand_ee28c2f36941d4b62ff604b2",
+      "changes": {
+        "city": [
+          "",
+          "Lianyungang"
+        ],
+        "gps_code": [
+          "",
+          "ZSLG"
+        ],
+        "iata": [
+          "",
+          "LYG"
+        ],
+        "lat": [
+          "34.5713996887207",
+          "34.41406"
+        ],
+        "lon": [
+          "118.875",
+          "119.17899"
+        ],
+        "name": [
+          "Baitabu Air Base",
+          "Lianyungang Huaguoshan International Airport"
+        ],
+        "scheduled_service": [
+          "no",
+          "yes"
+        ],
+        "wikipedia_link": [
+          "",
+          "https://en.wikipedia.org/wiki/Lianyungang_Huaguoshan_International_Airport"
+        ]
+      },
+      "context": {
+        "airport": "Lianyungang Huaguoshan International Airport",
+        "city": "Lianyungang",
+        "codes": [
+          "CN-0089",
+          "LYG",
+          "ZSLG"
+        ],
+        "continent": "AS",
+        "country": "CN",
+        "region": "CN-32"
+      },
+      "distanceKm": 32.898,
+      "evidence": {
+        "evidenceType": "indirect",
+        "sourceType": "secondary",
+        "sourceUrl": "https://github.com/datasets/airport-codes",
+        "verificationStatus": "pending"
+      },
+      "matches": {
+        "airportIds": [],
+        "assignmentIds": [],
+        "codeOnlyPossibleAirportIds": [],
+        "codeOnlyPossibleAssignmentIds": [],
+        "nameIds": []
+      },
+      "observations": [
+        {
+          "action": "M",
+          "afterBlob": "260a09188d2cff992739de75c2162096a43ed76c",
+          "beforeBlob": "4ed7260e184984d234c4cb9c0c1d080ade4827f0",
+          "commit": "09ab66f23778cd5c577c96d09a600dcac15bb82b",
+          "observedAt": "2024-10-01T11:30:59Z",
+          "parents": [
+            "51c43e6610742d5162452d3e5229dda197eaf238"
+          ]
+        },
+        {
+          "action": "M",
+          "afterBlob": "260a09188d2cff992739de75c2162096a43ed76c",
+          "beforeBlob": "4ed7260e184984d234c4cb9c0c1d080ade4827f0",
+          "commit": "63f6278fd0de9ad80af2835dcd1bc8558176aa1c",
+          "observedAt": "2024-10-01T17:34:37+05:00",
+          "parents": [
+            "68f702aa6eebf14ed5f7e3bf9be609f9fb8a5663",
+            "7eb67666b64fba95e8036882d81f9948fceec4d9"
+          ]
+        }
+      ],
+      "possibleEvent": "Unverified source revision; may be correction, label edit, allocation, closure or physical change.",
+      "review": {
+        "conflicts": [],
+        "eventGroupId": null,
+        "evidenceGaps": [
+          "Primary event and code-specific effective boundaries not reviewed."
+        ],
+        "exclusionReason": null,
+        "nextAction": "Review source correction vs real event; obtain dated primary notices independently for identity, codes and official name.",
+        "relatedLegacyIds": [],
+        "status": "pending_investigation"
+      },
+      "sourceEntityId": "44167",
+      "sourceId": "airport-codes-raw",
+      "time": {
+        "eventDate": null,
+        "eventDatePrecision": "unknown",
+        "firstObservedRevisionAt": "2024-10-01T11:30:59Z",
+        "lastObservedRevisionAt": "2024-10-01T17:34:37+05:00",
+        "meaning": "Repository observation times, not event validity bounds; earlier real-world dates remain possible."
+      },
+      "types": [
+        "city_label_change",
+        "coordinate_revision",
+        "gps_code_change",
+        "iata_change",
+        "possible_relocation",
+        "possible_rename"
+      ]
+    },
+    "cand_eeff9be4c0a1e52a3ffff2d9": {
+      "candidateId": "cand_eeff9be4c0a1e52a3ffff2d9",
+      "changes": {
+        "city": [
+          "Hoedspruit",
+          ""
+        ],
+        "country": [
+          "ZA",
+          "ZZ"
+        ],
+        "gps_code": [
+          "FAHS",
+          ""
+        ],
+        "iata": [
+          "HDS",
+          ""
+        ],
+        "icao": [
+          "FAHS",
+          ""
+        ],
+        "lat": [
+          "-24.368600845299998",
+          "-46.181902"
+        ],
+        "lon": [
+          "31.0487003326",
+          "-12.114796"
+        ],
+        "name": [
+          "Hoedspruit Air Force Base Airport",
+          "Non-Existent Airport"
+        ],
+        "region": [
+          "ZA-NP",
+          "ZZ-U-A"
+        ],
+        "scheduled_service": [
+          "yes",
+          "no"
+        ],
+        "type": [
+          "small_airport",
+          "closed"
+        ],
+        "wikipedia_link": [
+          "https://en.wikipedia.org/wiki/Hoedspruit_Airport#Eastgate_Airport",
+          ""
+        ]
+      },
+      "context": {
+        "airport": "Non-Existent Airport",
+        "city": "Hoedspruit",
+        "codes": [
+          "FAHS",
+          "HDS"
+        ],
+        "continent": "AF",
+        "country": "ZZ",
+        "region": "ZZ-U-A"
+      },
+      "distanceKm": 4529.5,
+      "evidence": {
+        "evidenceType": "indirect",
+        "sourceType": "secondary",
+        "sourceUrl": "https://github.com/datasets/airport-codes",
+        "verificationStatus": "pending"
+      },
+      "matches": {
+        "airportIds": [],
+        "assignmentIds": [],
+        "codeOnlyPossibleAirportIds": [],
+        "codeOnlyPossibleAssignmentIds": [],
+        "nameIds": []
+      },
+      "observations": [
+        {
+          "action": "M",
+          "afterBlob": "0260c9cfac0d40d59ce8c0cd0f8ea73bc70a51f1",
+          "beforeBlob": "96444ddda680f2c4a56b52aea9c7ab7bcdf85c02",
+          "commit": "59ba8803a4a124f98421a0975ed59af2837ff581",
+          "observedAt": "2026-03-03T20:29:19-03:00",
+          "parents": [
+            "388fe3e58435058bb8a1ee025402334db539f3c7"
+          ]
+        },
+        {
+          "action": "M",
+          "afterBlob": "0260c9cfac0d40d59ce8c0cd0f8ea73bc70a51f1",
+          "beforeBlob": "96444ddda680f2c4a56b52aea9c7ab7bcdf85c02",
+          "commit": "1c94e6374f7b794564dc9c96cb50267cba8443ce",
+          "observedAt": "2026-03-04T09:50:16-03:00",
+          "parents": [
+            "388fe3e58435058bb8a1ee025402334db539f3c7",
+            "59ba8803a4a124f98421a0975ed59af2837ff581"
+          ]
+        }
+      ],
+      "possibleEvent": "Unverified source revision; may be correction, label edit, allocation, closure or physical change.",
+      "review": {
+        "conflicts": [],
+        "eventGroupId": null,
+        "evidenceGaps": [
+          "Primary event and code-specific effective boundaries not reviewed."
+        ],
+        "exclusionReason": null,
+        "nextAction": "Review source correction vs real event; obtain dated primary notices independently for identity, codes and official name.",
+        "relatedLegacyIds": [],
+        "status": "pending_investigation"
+      },
+      "sourceEntityId": "2790",
+      "sourceId": "airport-codes-raw",
+      "time": {
+        "eventDate": null,
+        "eventDatePrecision": "unknown",
+        "firstObservedRevisionAt": "2026-03-03T20:29:19-03:00",
+        "lastObservedRevisionAt": "2026-03-04T09:50:16-03:00",
+        "meaning": "Repository observation times, not event validity bounds; earlier real-world dates remain possible."
+      },
+      "types": [
+        "city_label_change",
+        "coordinate_revision",
+        "gps_code_change",
+        "iata_change",
+        "icao_change",
+        "possible_closure",
+        "possible_relocation",
+        "possible_rename"
+      ]
+    },
+    "cand_fd2a5e00b9b3f58536c0433e": {
+      "candidateId": "cand_fd2a5e00b9b3f58536c0433e",
+      "changes": {
+        "elevation": [
+          "",
+          "102"
+        ],
+        "gps_code": [
+          "VDKT",
+          ""
+        ],
+        "iata": [
+          "KTI",
+          ""
+        ],
+        "keywords": [
+          "",
+          "KTI, VDKT"
+        ],
+        "lat": [
+          "12.48799991607666",
+          "12.489017"
+        ],
+        "lon": [
+          "106.05500030517578",
+          "106.05469"
+        ],
+        "type": [
+          "small_airport",
+          "closed"
+        ],
+        "wikipedia_link": [
+          "",
+          "https://en.wikipedia.org/wiki/Krati%C3%A9_Airport"
+        ]
+      },
+      "context": {
+        "airport": "Kratie Airport",
+        "city": "Kratie",
+        "codes": [
+          "KTI",
+          "VDKT"
+        ],
+        "continent": "AS",
+        "country": "KH",
+        "region": "KH-10"
+      },
+      "distanceKm": 0.118,
+      "evidence": {
+        "evidenceType": "indirect",
+        "sourceType": "secondary",
+        "sourceUrl": "https://github.com/datasets/airport-codes",
+        "verificationStatus": "pending"
+      },
+      "matches": {
+        "airportIds": [],
+        "assignmentIds": [],
+        "codeOnlyPossibleAirportIds": [],
+        "codeOnlyPossibleAssignmentIds": [],
+        "nameIds": []
+      },
+      "observations": [
+        {
+          "action": "M",
+          "afterBlob": "260a09188d2cff992739de75c2162096a43ed76c",
+          "beforeBlob": "4ed7260e184984d234c4cb9c0c1d080ade4827f0",
+          "commit": "09ab66f23778cd5c577c96d09a600dcac15bb82b",
+          "observedAt": "2024-10-01T11:30:59Z",
+          "parents": [
+            "51c43e6610742d5162452d3e5229dda197eaf238"
+          ]
+        },
+        {
+          "action": "M",
+          "afterBlob": "260a09188d2cff992739de75c2162096a43ed76c",
+          "beforeBlob": "4ed7260e184984d234c4cb9c0c1d080ade4827f0",
+          "commit": "63f6278fd0de9ad80af2835dcd1bc8558176aa1c",
+          "observedAt": "2024-10-01T17:34:37+05:00",
+          "parents": [
+            "68f702aa6eebf14ed5f7e3bf9be609f9fb8a5663",
+            "7eb67666b64fba95e8036882d81f9948fceec4d9"
+          ]
+        }
+      ],
+      "possibleEvent": "Unverified source revision; may be correction, label edit, allocation, closure or physical change.",
+      "review": {
+        "conflicts": [],
+        "eventGroupId": null,
+        "evidenceGaps": [
+          "Primary event and code-specific effective boundaries not reviewed."
+        ],
+        "exclusionReason": null,
+        "nextAction": "Review source correction vs real event; obtain dated primary notices independently for identity, codes and official name.",
+        "relatedLegacyIds": [],
+        "status": "pending_investigation"
+      },
+      "sourceEntityId": "31781",
+      "sourceId": "airport-codes-raw",
+      "time": {
+        "eventDate": null,
+        "eventDatePrecision": "unknown",
+        "firstObservedRevisionAt": "2024-10-01T11:30:59Z",
+        "lastObservedRevisionAt": "2024-10-01T17:34:37+05:00",
+        "meaning": "Repository observation times, not event validity bounds; earlier real-world dates remain possible."
+      },
+      "types": [
+        "coordinate_revision",
+        "gps_code_change",
+        "iata_change",
+        "possible_closure"
+      ]
+    }
+  },
+  "verifiedBatchCandidateIds": [
+    "cand_025ed86a58c3d799fd1028e1",
+    "cand_07f311536256078e1803e39f",
+    "cand_0b3be5f183608a0f8d8463fe",
+    "cand_0f1090007b759bcd27d87eb5",
+    "cand_27f8e5c4d6f78bb8d11e7629",
+    "cand_319a76a6d0b81db2843a9ca4",
+    "cand_3788d9d4f8b213d5d1c24425",
+    "cand_3aba472425775e4a29a4d63b",
+    "cand_410d7e6a2202857176507e0f",
+    "cand_46c26d3137b3b9648b30b005",
+    "cand_49910068effcfc485afc3f68",
+    "cand_4ecbdc43aaa5a0a46a3c5e78",
+    "cand_51b7f16fdc1dd9b60af605a7",
+    "cand_5ebbfdbcea7f1b2aa138be41",
+    "cand_6bdbc1b60cf1a50fd06abd88",
+    "cand_7c7e49cc4bff8eff387e6c44",
+    "cand_7fc9b08615e93efbdffdc2a8",
+    "cand_8244804dd590e3ec97a2a7f7",
+    "cand_8ac1b12707d7c441ce708d32",
+    "cand_9d7392c0e4b31d86219d6e71",
+    "cand_a2170692e28ea4506cc3d35c",
+    "cand_b96e3d61e795c440a6f2c5a0",
+    "cand_ba1d95c1c6212eaafe0407f3",
+    "cand_c16c53f63535b6ce914aeff9",
+    "cand_cb20612a6a4f6d8542872ae1",
+    "cand_ccacc72d759fb5541765fb3c",
+    "cand_d143eee2e286e0dfbbaa2339",
+    "cand_d44c034a2d3d45bb51c2c0da",
+    "cand_dbe848d5c843e4ffc5270e26",
+    "cand_e1f96c81b10b8a30ef076ffa",
+    "cand_e2f8f10d49342c01a7e4c0ec",
+    "cand_ec671992f93700beb8d14848",
+    "cand_ee28c2f36941d4b62ff604b2",
+    "cand_eeff9be4c0a1e52a3ffff2d9",
+    "cand_fd2a5e00b9b3f58536c0433e"
+  ]
+}

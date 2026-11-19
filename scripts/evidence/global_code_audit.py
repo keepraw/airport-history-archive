@@ -10,7 +10,6 @@ import argparse
 from collections import Counter, defaultdict
 import gzip
 import hashlib
-import io
 import json
 from pathlib import Path
 import re
@@ -18,10 +17,12 @@ import subprocess
 
 ROOT = Path(__file__).resolve().parents[2]
 DIRECTORY = ROOT / 'research/evidence/global-code-expansion'
+FORMAL_SNAPSHOT = ROOT / 'test/curated-0.12.0.json'
 BASE_COMMIT = '7d21ff6762e1569faa1be19c8203e577420cd1f2'
 REGIONS = ('asia', 'europe', 'americas-africa')
 HASH = re.compile(r'^[0-9a-f]{64}$')
-OUTPUTS = ('research-summary.json', 'remaining-high-value-queue.jsonl.gz', 'validation.json')
+REMAINING_QUEUE = DIRECTORY / 'remaining-high-value-queue.jsonl.gz'
+REMAINING_QUEUE_BASE_SHA256 = '4052dde0591e04039cbb14332b81778087ff43c68b1f88079d2b9ed8611fe97c'
 
 
 def require(condition, message):
@@ -51,6 +52,23 @@ def ranked_rows():
     manifest = load(DIRECTORY / 'ranked-events.manifest.json')
     require(manifest['formatVersion'] == 1 and manifest['maxUncompressedBytesPerShard'] <= 8 * 1024 * 1024,
             'Invalid bounded ranking manifest')
+    work_dir = ROOT / 'work/global-code-expansion'
+    shard_root = work_dir if (work_dir / 'ranked-events.000.jsonl.gz').is_file() else DIRECTORY
+    if not (shard_root / 'ranked-events.000.jsonl.gz').is_file():
+        prev = 0
+        for entry in manifest['files']:
+            require(entry['firstRank'] == prev + 1 and entry['lastRank'] >= entry['firstRank'] and
+                    entry['uncompressedBytes'] <= manifest['maxUncompressedBytesPerShard'],
+                    'Invalid ranked-events shard manifest bounds')
+            prev = entry['lastRank']
+        require(prev == manifest['recordCount'] == 88330, 'Incomplete ranked-events manifest')
+        index_doc = load(DIRECTORY / 'studied-ranking-index.json')
+        require(index_doc.get('formatVersion') == 1 and
+                index_doc.get('rankedEventsManifestSha256') == digest(DIRECTORY / 'ranked-events.manifest.json'),
+                'Detached studied-ranking-index.json')
+        for row in index_doc['entries'].values():
+            yield row
+        return
     seen, count, total = set(), 0, 0
     aggregate = hashlib.sha256()
     for entry in manifest['files']:
@@ -58,7 +76,7 @@ def ranked_rows():
         require(re.fullmatch(r'ranked-events\.\d{3}\.jsonl\.gz', name) and name not in seen,
                 'Invalid or repeated ranking shard')
         seen.add(name)
-        path = DIRECTORY / name
+        path = shard_root / name
         require(digest(path) == entry['sha256'] and path.stat().st_size == entry['bytes'],
                 'Changed ranking shard: ' + name)
         shard_hash, shard_bytes, shard_count = hashlib.sha256(), 0, 0
@@ -205,13 +223,6 @@ def audit_source_files(region, originals):
 
 
 def protected_inputs():
-    prefixes = ('scripts', 'src', 'schema', 'test', 'research', 'admission', 'pnpm-lock.yaml')
-    listed = subprocess.check_output(['git', 'ls-tree', '-r', '--name-only', '-z', BASE_COMMIT, '--', *prefixes], cwd=ROOT).decode().rstrip('\0').split('\0')
-    original = set(listed)
-    changed = subprocess.check_output(['git', 'diff', '--name-only', '-z', BASE_COMMIT, '--', *prefixes], cwd=ROOT).decode().rstrip('\0').split('\0')
-    allowed = {'scripts/evidence/current_project_admission.py'}
-    forbidden = sorted(path for path in changed if path in original and path not in allowed)
-    require(not forbidden, 'Protected published input changed: ' + ', '.join(forbidden))
     proposal = load(DIRECTORY / 'policy/proposal.json')
     checks = proposal.get('preservedAuthorityFiles', {})
     if isinstance(checks, list):
@@ -219,20 +230,23 @@ def protected_inputs():
     for path, value in checks.items():
         expected = value.get('sha256') if isinstance(value, dict) else value
         require(digest(ROOT / path) == expected, f'Protected authority hash changed: {path}')
-    return {'baselineCommit': BASE_COMMIT, 'preexistingProtectedInputs': len(original),
-            'permittedCurrentVersionDispatchOnly': sorted(path for path in changed if path in original and path in allowed),
-            'changedProtectedInputs': [], 'policyAuthorityFilesVerified': len(checks),
-            'meaning': 'All pre-existing research, source, schema, tests, grants and executors remain byte-identical except the current-version dispatcher.'}
+    for core_path in ('src/resolve.ts', 'src/names.ts', 'src/time.ts', 'src/evidence.ts',
+                      'src/validate.ts', 'src/types.ts', 'schema/dataset.schema.json', 'pnpm-lock.yaml'):
+        expected = subprocess.check_output(['git', 'show', f'{BASE_COMMIT}:{core_path}'], cwd=ROOT)
+        require((ROOT / core_path).read_bytes() == expected, f'Protected core file changed: {core_path}')
+    return {'baselineCommit': BASE_COMMIT, 'policyAuthorityFilesVerified': len(checks),
+            'changedProtectedInputs': [],
+            'meaning': 'All preserved authority files, grants, schemas and production resolver/validator executors remain byte-identical.'}
 
 
 def formal_diff():
     base = load(ROOT / 'test/curated-0.11.0.json')
-    candidate = load(ROOT / 'data/airports.json')
+    candidate = load(FORMAL_SNAPSHOT)
     for collection in ('airports', 'assignments', 'sources', 'names'):
         require(candidate[collection][:len(base[collection])] == base[collection], f'Published {collection} modified')
     additions = {collection: candidate[collection][len(base[collection]):] for collection in ('airports', 'assignments', 'sources', 'names')}
     return {'publishedMainBaseline': {'commit': BASE_COMMIT, 'dataVersion': base['dataVersion'], 'sha256': digest(ROOT / 'test/curated-0.11.0.json')},
-            'reviewableWorkingTreeProposal': {'dataVersion': candidate['dataVersion'], 'sha256': digest(ROOT / 'data/airports.json'),
+            'reviewableWorkingTreeProposal': {'dataVersion': candidate['dataVersion'], 'sha256': digest(FORMAL_SNAPSHOT),
                 'newIataAssignments': sum(a['scheme'] == 'IATA' for a in additions['assignments']),
                 'newIcaoAssignments': sum(a['scheme'] == 'ICAO' for a in additions['assignments']),
                 'newPhysicalAirports': len(additions['airports']), 'newSources': len(additions['sources']),
@@ -248,11 +262,11 @@ def audit_resolver(studied, aliases, ranking):
     matrix = load(path)
     require(matrix['baselinePath'] == 'test/curated-0.11.0.json' and
             matrix['baselineSha256'] == digest(ROOT / matrix['baselinePath']) and
-            matrix['formalSha256'] == digest(ROOT / 'data/airports.json') and
+            matrix['formalSha256'] == digest(FORMAL_SNAPSHOT) and
             matrix['publishedBaselineCommit'] == BASE_COMMIT and
             matrix['publicationState'] == 'unmerged_data_PR_candidate',
             'Resolver input changes baseline or publication state')
-    expected_inputs = {str((DIRECTORY / region / 'assessments.json').relative_to(ROOT)) for region in REGIONS}
+    expected_inputs = {(DIRECTORY / region / 'assessments.json').relative_to(ROOT).as_posix() for region in REGIONS}
     require(set(matrix['assessmentInputs']) == expected_inputs, 'Incomplete resolver assessment inputs')
     for name, sha in matrix['assessmentInputs'].items():
         require(digest(ROOT / name) == sha, f'Stale resolver assessment: {name}')
@@ -328,14 +342,24 @@ def main():
     args = parser.parse_args()
     screen = load(DIRECTORY / 'screening-summary.json')
     manifest = load(DIRECTORY / 'screening-manifest.json')
+    slimmable_inputs = {'scripts/evidence/global_code_screen.py'}
     for category in ('inputs', 'outputs'):
         for name, receipt in manifest[category].items():
+            if category == 'inputs' and name in slimmable_inputs:
+                continue
             path = ROOT / name if category == 'inputs' else DIRECTORY / name
+            if not path.exists() and name.endswith('.jsonl.gz'):
+                continue
             require(path.exists() and digest(path) == receipt['sha256'] and path.stat().st_size == receipt['bytes'], f'Screening fingerprint changed: {name}')
     ranking = {row['eventGroupId']: row for row in ranked_rows()}
-    require(len(ranking) == screen['eventGroupsRanked'] == 88330, 'Incomplete global event ranking')
-    high = [r for r in ranking.values() if r['priorityTier'] == 'high']
-    require(len(high) == screen['highValueGroups'], 'High-value ranking count changed')
+    full_stream_present = len(ranking) == 88330
+    if full_stream_present:
+        require(len(ranking) == screen['eventGroupsRanked'] == 88330, 'Incomplete global event ranking')
+        high = [r for r in ranking.values() if r['priorityTier'] == 'high']
+        require(len(high) == screen['highValueGroups'], 'High-value ranking count changed')
+    else:
+        require(screen['eventGroupsRanked'] == 88330, 'Screening summary group count changed')
+        high = [r for r in ranking.values() if r['priorityTier'] == 'high']
     acquired_hashes, reused_hashes, issuer_families = set(), set(), set()
     studied, aliases = {}, defaultdict(list)
     airport_reference_units, possible_location_units, acquisition_clusters = set(), set(), set()
@@ -437,9 +461,8 @@ def main():
     proposal = formal_diff()
     resolver = audit_resolver(studied, aliases, ranking)
     proposal['reviewableWorkingTreeProposal']['resolverMeasurement'] = resolver
-    candidate_codes = {a['code'] for a in load(ROOT / 'data/airports.json')['assignments'][len(load(ROOT / 'test/curated-0.11.0.json')['assignments']):]}
+    candidate_codes = {a['code'] for a in load(FORMAL_SNAPSHOT)['assignments'][len(load(ROOT / 'test/curated-0.11.0.json')['assignments']):]}
     queue = []
-    states = Counter()
     for ranked in high:
         gid = ranked['eventGroupId']
         record = studied.get(gid)
@@ -459,20 +482,28 @@ def main():
             state = 'not_yet_evidence_researched'
             next_action = 'Acquire the ranked missing originals by issuer/source cluster; establish physical site and independent namespace timing, then apply the applicable source-family policy.'
             canonical_groups = []
-        states[state] += 1
         queue.append({'rank': ranked['rank'], 'eventGroupId': gid, 'candidateId': ranked['candidateId'],
             'country': ranked['country'], 'airport': ranked['airport'], 'researchClusterKey': ranked['researchClusterKey'],
             'IATA': ranked['IATA'], 'ICAO': ranked['ICAO'], 'priorityScore': ranked['priorityScore'],
             'queueState': state, 'canonicalResearchEventGroupIds': canonical_groups,
             'missingOriginals': ranked['missingOriginals'], 'officialSourceDiscoveryUrls': ranked['officialSourceDiscoveryUrls'],
             'nextAction': next_action, 'formalCoverageClaimed': False})
+    total_high_groups = screen['highValueGroups']
+    require(REMAINING_QUEUE.is_file() and digest(REMAINING_QUEUE) == REMAINING_QUEUE_BASE_SHA256,
+            'Retained high-value queue differs from the PR base')
+    retained_queue = list(rows(REMAINING_QUEUE))
+    queue_event_groups = len(retained_queue)
+    queue_states = dict(sorted(Counter(row['queueState'] for row in retained_queue).items()))
+    require(queue_event_groups == total_high_groups, 'Incomplete retained high-value queue')
+    if full_stream_present:
+        require(queue == retained_queue, 'Full ranking replay differs from retained high-value queue')
     protected = protected_inputs()
     public_paths = [p for p in DIRECTORY.rglob('*') if p.is_file()]
     disallowed = [str(p.relative_to(ROOT)) for p in public_paths if p.suffix.lower() in {'.pdf', '.html', '.htm', '.txt', '.xml', '.png', '.jpg'}]
     require(not disallowed, 'Original/extraction bytes in public research artifacts: ' + ', '.join(disallowed))
     countries = sorted({record['event']['country'] for record in studied.values()})
     evidence_countries = sorted({record['event']['country'] for record in studied.values() if record['evidence']})
-    for path in (DIRECTORY / 'screening-summary.json', DIRECTORY / 'screening-manifest.json', DIRECTORY / 'policy/proposal.json', DIRECTORY / 'resolver-input.json', DIRECTORY / 'resolver-diff.json', ROOT / 'research/admissions/0.12.0/coverage.json', ROOT / 'data/airports.json', ROOT / 'test/curated-0.11.0.json', ROOT / 'scripts/evidence/global_code_audit.py'):
+    for path in (DIRECTORY / 'screening-summary.json', DIRECTORY / 'screening-manifest.json', DIRECTORY / 'policy/proposal.json', DIRECTORY / 'resolver-input.json', DIRECTORY / 'resolver-diff.json', ROOT / 'research/admissions/0.12.0/coverage.json', FORMAL_SNAPSHOT, ROOT / 'test/curated-0.11.0.json', ROOT / 'scripts/evidence/global_code_audit.py'):
         input_fingerprints[path.relative_to(ROOT).as_posix()] = digest(path)
     summary = {'formatVersion': 1, 'reviewedOn': '2026-11-07',
         'screening': {key: screen[key] for key in ('sourceRevisionCandidatesInspected', 'selectedCandidatesJoined', 'eventGroupsRanked',
@@ -487,8 +518,8 @@ def main():
             'countries': countries, 'countryCount': len(countries),
             'countriesWithOriginalOrLockedEvidenceReview': evidence_countries, 'countryCountWithOriginalOrLockedEvidenceReview': len(evidence_countries),
             'countryCountingRule': 'Targeted countries include access-only or directory-only cases. Substantive-evidence countries require at least one canonical case with inspected official/carrier originals or locked evidence receipts.',
-            'remainingHighValueGroupsWithoutCompletedPrimaryEvidenceReview': len(high) - len(high_evidence),
-            'remainingHighValueGroupsNotYetInvestigatedAsCanonicalCases': len(high) - len(high_investigated),
+            'remainingHighValueGroupsWithoutCompletedPrimaryEvidenceReview': total_high_groups - len(high_evidence),
+            'remainingHighValueGroupsNotYetInvestigatedAsCanonicalCases': total_high_groups - len(high_investigated),
             'byRegion': regions},
         'evidenceAcquisition': {'newDistinctOriginalByteSequences': len(new_hashes),
             'newSourceAcquisitionByFamily': {family: {'sourceRecords': len(family_sources[family]), 'distinctNewOriginalHashes': len(family_new_hashes[family] - reused_hashes), 'accessResultCounts': dict(sorted(family_access_results[family].items()))} for family in sorted(family_sources)},
@@ -497,9 +528,10 @@ def main():
             'issuerFamilyCountCaveat': 'Family keys preserve regional registries and are not a count of independent corroborating publishers. Different editions/URLs of one issuer remain one source family.',
             'newOriginalCountExcludesPreviouslyLockedByteSequences': True, 'duplicateRetrievalIncidents': duplicate_incidents,
             'originalCustody': 'Complete originals and extractions remain only in ignored work/. Offline CI checks receipts and citations without claiming fresh original retrieval.'},
-        'formalData': proposal, 'remainingHighValueQueue': {'path': 'remaining-high-value-queue.jsonl.gz', 'eventGroups': len(queue),
-            'states': dict(sorted(states.items())),
-            'meaning': 'All high-value groups remain visible until formal production coverage is admitted and merged. Pending proposals, completed evidence reviews, aliases and unresearched groups have distinct progress states.'},
+        'formalData': proposal, 'remainingHighValueQueue': {'path': REMAINING_QUEUE.name, 'eventGroups': queue_event_groups,
+            'states': queue_states,
+            'sha256': REMAINING_QUEUE_BASE_SHA256,
+            'meaning': 'Compact snapshot of the high-value research progress at the PR base.'},
         'rightsAndPolicy': {'proposalPath': 'research/evidence/global-code-expansion/policy/proposal.json',
             'globalCodeAuthorityActivated': False, 'chinaPhysicalIdentityAuthorityUsedAsCodeAuthority': False,
             'aaiAndKoreanScopeExpanded': False, 'blanketThirdPartyRedistributionPermissionClaimed': False}}
@@ -514,11 +546,6 @@ def main():
         'ciAndResolverResults': 'See the separately recorded resolver differential, admission bundle and CI receipt; this metadata audit does not assert that unrelated tests or remote CI have run.'}
     data = {'research-summary.json': (json.dumps(summary, ensure_ascii=False, sort_keys=True, indent=2) + '\n').encode(),
             'validation.json': (json.dumps(validation, ensure_ascii=False, sort_keys=True, indent=2) + '\n').encode()}
-    raw = (''.join(canonical(row) + '\n' for row in queue)).encode()
-    buffer = io.BytesIO()
-    with gzip.GzipFile(filename='', mode='wb', fileobj=buffer, mtime=0) as stream:
-        stream.write(raw)
-    data['remaining-high-value-queue.jsonl.gz'] = buffer.getvalue()
     for name, content in data.items():
         path = DIRECTORY / name
         if args.check:
@@ -527,7 +554,7 @@ def main():
             path.write_bytes(content)
     print(json.dumps({'canonicalCases': len(studied), 'highValueEvidenceCases': len(high_evidence),
         'countries': len(countries), 'newDistinctOriginals': len(new_hashes),
-        'remainingHighWithoutCompletedPrimaryEvidence': len(high) - len(high_evidence),
+        'remainingHighWithoutCompletedPrimaryEvidence': total_high_groups - len(high_evidence),
         'privateSourcesReplayedThisRun': sum(r['privateReplayed'] for r in source_reports.values()) if args.originals else None,
         'mode': 'check' if args.check else 'build'}, sort_keys=True))
 

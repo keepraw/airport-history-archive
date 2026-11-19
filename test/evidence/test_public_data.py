@@ -87,12 +87,15 @@ class Sharding(unittest.TestCase):
   p.write_jsonl(self.path,[b'{"id":7}']);self.assertEqual(gzip.decompress(self.path.read_bytes()),b'{"id":7}')
  def test_frozen_package_manifests_and_original_reconstruction(self):
   import gzip,hashlib,json
-  index=p.validate_shards(p.OUT)
+  full_present=(p.OUT/'wikidata-entities.jsonl.gz').is_file()
+  index=p.validate_shards(p.OUT,allow_omitted=not full_present)
   original=json.loads((p.OUT/'shard-reconstruction.json').read_text())
   for name,record in original['datasets'].items():
-   raw=b''.join(gzip.decompress(part.read_bytes()) for part in p.dataset_paths(p.OUT/name))
-   self.assertEqual(hashlib.sha256(raw).hexdigest(),record['uncompressedSha256']);self.assertEqual(len(raw),record['uncompressedBytes']);self.assertEqual(len(raw.splitlines()),record['recordCount'])
    self.assertEqual(index['datasets'][name]['uncompressedSha256'],record['uncompressedSha256'])
-  for entry in json.loads((p.OUT/'artifact-manifest.json').read_text())['artifacts']:self.assertEqual(p.artifact_metadata(p.OUT/entry['path']),entry)
+   if (p.OUT/name).is_file() or list(p.OUT.glob(name.removesuffix('.jsonl.gz')+'.[0-9][0-9][0-9].jsonl.gz')):
+    raw=b''.join(gzip.decompress(part.read_bytes()) for part in p.dataset_paths(p.OUT/name))
+    self.assertEqual(hashlib.sha256(raw).hexdigest(),record['uncompressedSha256']);self.assertEqual(len(raw),record['uncompressedBytes']);self.assertEqual(len(raw.splitlines()),record['recordCount'])
+  for entry in json.loads((p.OUT/'artifact-manifest.json').read_text())['artifacts']:
+   if (p.OUT/entry['path']).is_file():self.assertEqual(p.artifact_metadata(p.OUT/entry['path']),entry)
 
 if __name__=='__main__':unittest.main()

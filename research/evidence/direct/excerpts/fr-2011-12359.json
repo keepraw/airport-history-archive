@@ -1,0 +1,36 @@
+{
+  "admitted080Citations": [
+    {
+      "anchor": "began operations at the new site in May 2010",
+      "extractedPage": 1,
+      "extractionTool": "PR12 pipeline.plain_text"
+    }
+  ],
+  "citedPageWindows": {
+    "1": [
+      {
+        "expectedCitation": {
+          "anchor": "began operations at the new site in May 2010",
+          "context": "t approved in the 2006 ROD was named the Northwest Florida Beaches International Airport (ECP), and began operations at the new site in May 2010. The FAA noted in the 2006 FEIS that further federal action would be necessary to decommission and dispose of the existing airport property",
+          "extractedPage": 1,
+          "normalizedOffset": 1350
+        },
+        "factId": "panama-actual",
+        "pageLength": 3397,
+        "requiredContext": [],
+        "snippet": " proposed relocation of the Panama City- Bay County International Airport (PFN) in Bay County, Florida. The FAA's ROD was based on information and analysis contained in the FAA's 2006 FEIS for the project. The new airport approved in the 2006 ROD was named the Northwest Florida Beaches International Airport (ECP), and began operations at the new site in May 2010. The FAA noted in the 2006 FEIS that further federal action would be necessary to decommission and dispose of the existing airport property from aeronautical use, and that additio",
+        "windowEnd": 1574,
+        "windowStart": 1030
+      }
+    ]
+  },
+  "formatVersion": 1,
+  "inputSha256": "f1cca96e42038eae23231571914dc14dcf0520246363fb4ab9b35693592ecc28",
+  "originalPublicationKey": "usdot-faa:FR:2011-12359",
+  "originalSha256": "53478a7ff54a77a3084dc7693a669840e2541291fee7f849e59ddd06be6d8cb9",
+  "pageCount": 1,
+  "sourceId": "fr-2011-12359",
+  "textOriginalSha256": "79a4198fb44d52716acd5bc53abf852c6603b94dc42f03f8669087304d245f5c",
+  "textSha256": "3d3f90711a574a5cd3ffcc51ff360dac0e822b209c404e5d65ab11358059c4e3",
+  "url": "https://www.govinfo.gov/content/pkg/FR-2011-05-19/html/2011-12359.htm"
+}

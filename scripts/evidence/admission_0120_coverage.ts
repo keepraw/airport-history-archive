@@ -10,11 +10,12 @@ const directory = "research/admissions/0.12.0";
 const read = <T>(path: string): T => JSON.parse(readFileSync(path, "utf8"));
 const hash = (path: string) => createHash("sha256").update(readFileSync(path)).digest("hex");
 const base = read<Dataset>("test/curated-0.11.0.json");
-const candidate = read<Dataset>("data/airports.json");
+const candidatePath = process.argv[3] ?? "data/airports.json";
+const candidate = read<Dataset>(candidatePath);
 const receipt = read<{ authorizationSource: string; executorSha256: string;
   originalVerification: unknown }>(`${directory}/policy-receipt.json`);
 if (base.dataVersion !== "0.11.0" || candidate.dataVersion !== "0.12.0" ||
-    hash("data/airports.json") !== hash("test/curated-0.12.0.json") ||
+    hash(candidatePath) !== hash("test/curated-0.12.0.json") ||
     !isDeepStrictEqual(candidate, read<Dataset>(`${directory}/proposed-data.json`)))
   throw new Error("Exact admitted proposal, candidate and immutable snapshot differ");
 const measured = measure(base, candidate);
@@ -51,7 +52,7 @@ const report = { ...measured, mode: "authorized_formal_data_proposal_not_merged"
   publishedMainDataVersion: "0.11.0", publishedMainGrowth: 0,
   measurement: "Unchanged policy_coverage.measure() enumerates the daily corpus and additional boundaries through production resolveAirport(). The exact 0.12.0 bytes are a PR proposal until human merge.",
   baselinePath: "test/curated-0.11.0.json", baselineFileSha256: hash("test/curated-0.11.0.json"),
-  candidateFileSha256: hash("data/airports.json"), resolverSha256: hash("src/resolve.ts"),
+  candidateFileSha256: hash(candidatePath), resolverSha256: hash("src/resolve.ts"),
   policyReceiptSha256: hash(`${directory}/policy-receipt.json`),
   originalVerificationSha256: hash(`${directory}/original-verification.json`),
   beforeCounts: counts(base), afterCounts: counts(candidate), newResolvedQueries: newResolved,

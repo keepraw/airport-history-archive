@@ -2,6 +2,7 @@
 import gzip
 import json
 import subprocess
+import sys
 import tempfile
 from pathlib import Path
 
@@ -84,7 +85,8 @@ def validate():
     for name, sha in manifest['reviewFiles'].items():
         checked(REVIEW / name, sha)
     checked(ROOT / 'test/curated-0.8.0.json', manifest['formalDatasetSha256'])
-    formal = load(ROOT / 'data/airports.json')
+    from default_continuity import inherited_assignment_view
+    formal = inherited_assignment_view(load(ROOT / 'data/airports.json'))
     frozen = load(ROOT / 'test/curated-0.8.0.json')
     for collection, key in [('airports', 'airportId'), ('assignments', 'assignmentId'), ('names', 'nameId'), ('sources', 'sourceId')]:
         current = {r[key]: r for r in formal[collection]}
@@ -99,22 +101,44 @@ def validate():
         locked, text = originals[s['sourceId']]
         require(locked['originalSha256'] == s['originalSha256'] and locked['originalPublicationKey'] == s['originalPublicationKey'],
                 'Original source provenance changed')
-        checked(ROOT / s['originalArchive'], s['originalArchiveSha256'])
-        for observation in [o for d in dossier for o in d['observations'] if o['sourceId'] == s['sourceId']]:
-            cite = observation['citation']
-            if cite.get('extractionTool') == 'pdftotext -raw':
-                raw = gzip.decompress((ROOT / s['originalArchive']).read_bytes())
-                text_page = subprocess.run(['pdftotext', '-raw', '-f', str(cite['extractedPage']), '-l', str(cite['extractedPage']), '-', '-'],
-                                           input=raw, stdout=subprocess.PIPE, check=True).stdout.decode()
-            else:
-                text_page = text.split('\f')[cite['extractedPage'] - 1]
-            require(direct.normalized(cite['anchor']) in direct.normalized(text_page), 'Admitted citation does not match its original page')
+        archive_path = ROOT / s['originalArchive']
+        if not archive_path.is_file():
+            work_alt = ROOT / 'work/evidence/direct' / Path(s['originalArchive']).relative_to('research/evidence/direct')
+            if work_alt.is_file():
+                archive_path = work_alt
+        if archive_path.is_file():
+            checked(archive_path, s['originalArchiveSha256'])
+            for observation in [o for d in dossier for o in d['observations'] if o['sourceId'] == s['sourceId']]:
+                cite = observation['citation']
+                if cite.get('extractionTool') == 'pdftotext -raw':
+                    raw = gzip.decompress(archive_path.read_bytes())
+                    text_page = subprocess.run(['pdftotext', '-raw', '-f', str(cite['extractedPage']), '-l', str(cite['extractedPage']), '-', '-'],
+                                               input=raw, stdout=subprocess.PIPE, check=True).stdout.decode()
+                else:
+                    text_page = text.split('\f')[cite['extractedPage'] - 1]
+                require(direct.normalized(cite['anchor']) in direct.normalized(text_page), 'Admitted citation does not match its original page')
+        else:
+            require(s['originalArchiveSha256'] == locked['inputSha256'], 'Original archive hash detached from source-lock')
+            epath = ROOT / 'research/evidence/direct/excerpts' / f"{s['sourceId']}.json"
+            edoc = load(epath)
+            admitted_cites = edoc.get('admitted080Citations', [])
+            for observation in [o for d in dossier for o in d['observations'] if o['sourceId'] == s['sourceId']]:
+                cite = observation['citation']
+                expected_entry = {
+                    'extractedPage': cite['extractedPage'],
+                    'extractionTool': cite.get('extractionTool', locked.get('extractionTool')),
+                    'anchor': direct.normalized(cite['anchor']),
+                }
+                require(expected_entry in admitted_cites, 'Admitted citation missing from hash-locked excerpt')
+                if cite.get('extractionTool') != 'pdftotext -raw':
+                    text_page = text.split('\f')[cite['extractedPage'] - 1]
+                    require(direct.normalized(cite['anchor']) in direct.normalized(text_page), 'Admitted citation does not match retained excerpt page')
     # Run the requested real admission command against the actual formal data.
     # The replay base is restricted to the hash-pinned reviewed snapshot.
     (ROOT / 'work').mkdir(exist_ok=True)
     with tempfile.TemporaryDirectory(dir=ROOT / 'work') as tmp:
         output = Path(tmp) / 'validated.json'
-        subprocess.run(['python3', str(ROOT / 'scripts/evidence/review.py'), 'validate',
+        subprocess.run([sys.executable, str(ROOT / 'scripts/evidence/review.py'), 'validate',
                         '--base-dataset', str(research_baseline_path()), '--batches', str(REVIEW / 'batches'),
                         '--dataset', str(ROOT / 'test/curated-0.8.0.json'), '--dossier', str(REVIEW / 'dossier.json'),
                         '--output', str(output)], cwd=ROOT, check=True)

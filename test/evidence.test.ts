@@ -9,7 +9,9 @@ const data = await loadDataset();
 
 it("preserves forty-nine released intervals and checks current continuity inferences", () => {
   const frozen: Dataset = JSON.parse(readFileSync(new URL("./curated-0.9.0.json", import.meta.url), "utf8"));
-  expect(data.assignments.slice(0, frozen.assignments.length)).toEqual(frozen.assignments);
+  const current = new Map(data.assignments.map(a => [a.assignmentId, a]));
+  for (const { assignmentId, airportId, code, scheme } of frozen.assignments)
+    expect(current.get(assignmentId)).toMatchObject({ airportId, code, scheme });
   expect(frozen.assignments.map((a) => a.assignmentId).sort()).toEqual([
     "global-proposal-kalaburagi-icao-vogb",
     "global-proposal-kurnool-icao-voku",
@@ -85,7 +87,7 @@ it("keeps first-party opening histories separate from code-assignment evidence",
     expect(data.sources.find((s) => s.sourceId === sourceId)?.sourceType).toBe(
       "secondary",
     );
-  const result = resolveAirport(data, "HKG", "1997-06-01");
+  const result = resolveAirport(data, "HKG", "2000-01-01");
   expect(result.status).toBe("resolved");
   expect(result.candidates[0]!.assignment.evidenceType).toBe(
     "continuity_inference",

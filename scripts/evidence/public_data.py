@@ -12,7 +12,7 @@ HORIZON=['1970-01-01','2026-11-10']
 REQUEST_LOCK=threading.Lock()
 NEXT_REQUEST=0.0
 def dump(path,obj):
- path.parent.mkdir(parents=True,exist_ok=True);path.write_text(json.dumps(obj,ensure_ascii=False,indent=2,sort_keys=True)+'\n')
+ path.parent.mkdir(parents=True,exist_ok=True);path.write_bytes((json.dumps(obj,ensure_ascii=False,indent=2,sort_keys=True)+'\n').encode('utf-8'))
 MAX_SHARD_BYTES=8*1024*1024
 
 def dataset_paths(path):
@@ -84,10 +84,14 @@ def shard_existing():
  for name in names:
   with gzip.open(OUT/name,'rb') as f:write_jsonl(OUT/name,f)
 
-def validate_shards(directory=None):
+def validate_shards(directory=None, *, allow_omitted=False):
  directory=OUT if directory is None else Path(directory);index=json.loads((directory/'jsonl-shards.json').read_text());registered=set()
  if index['maxUncompressedShardBytes']!=MAX_SHARD_BYTES:raise ValueError('Changed shard limit')
  for name,dataset in index['datasets'].items():
+  if allow_omitted and not (directory/name).exists() and not list(directory.glob(name.removesuffix('.jsonl.gz')+'.[0-9][0-9][0-9].jsonl.gz')):
+   for metadata in dataset['shards']:
+    assert metadata['uncompressedBytes']<=MAX_SHARD_BYTES
+   continue
   parts=dataset_paths(directory/name)
   if [p.name for p in parts]!=[m['path'] for m in dataset['shards']]:raise ValueError('Shard manifest ordering mismatch')
   digest=hashlib.sha256();size=0;count=0
@@ -100,7 +104,11 @@ def validate_shards(directory=None):
    for line in content.splitlines():json.loads(line)
    digest.update(content);size+=len(content);count+=len(content.splitlines());registered.add(part.name)
   if (digest.hexdigest(),size,count)!=(dataset['uncompressedSha256'],dataset['uncompressedBytes'],dataset['recordCount']):raise ValueError('Dataset reconstruction mismatch')
- if registered!={p.name for p in directory.glob('*.jsonl.gz')}:raise ValueError('Unregistered or missing JSONL artifact')
+ present={p.name for p in directory.glob('*.jsonl.gz')}
+ if allow_omitted:
+  if not present<=registered:raise ValueError('Unregistered JSONL artifact: '+str(present-registered))
+ else:
+  if registered!=present:raise ValueError('Unregistered or missing JSONL artifact')
  return index
 
 def sha(path):return hashlib.sha256(path.read_bytes()).hexdigest()
@@ -274,7 +282,7 @@ def build():
  refs,cross=crosswalk();cross_by_qid={c['sourceEntityId']:c for c in cross if c['sourceFamily']=='wikidata'};refmap={r['referenceId']:r for r in refs};external=defaultdict(list)
  for c in cross:
   for m in c['matches']:external[m['referenceId']].append({'sourceFamily':c['sourceFamily'],'sourceEntityId':c['sourceEntityId'],'distanceKm':m['distanceKm'],'license':c['license']})
- formal=json.loads((ROOT/'data/airports.json').read_text());assert formal['dataVersion']=='0.12.0' and formal['schemaVersion']=='3.0.0'
+ formal=json.loads((ROOT/'test/curated-0.12.0.json').read_text());assert formal['dataVersion']=='0.12.0' and formal['schemaVersion']=='3.0.0'
  groups=Counter();countries=Counter();regions=Counter();classes=Counter();candidates=[];high=0;matched_groups=0;transition_obs=0
  high_ids={e['eventGroupId'] for e in rows(ROOT/'research/evidence/global-code-expansion/high-value-queue.jsonl.gz')}
  remaining_ids={e['eventGroupId'] for e in rows(ROOT/'research/evidence/global-code-next/remaining-high-value-queue.jsonl.gz')}
@@ -451,7 +459,7 @@ def faa():
   if r['country']=='US' and r.get('presentAtSnapshot'):
    for scheme in ['ICAO','GPS','LOCAL']:
     if r['identifiers'].get(scheme):idx[r['identifiers'][scheme]].append(r)
- formal=json.loads((ROOT/'data/airports.json').read_text());proposed=json.loads(json.dumps(formal));byoa={a['externalIds'].get('ourAirports'):a for a in formal['airports']};exclusions=Counter();claims=[];newairports={};seen_codes=Counter();review=[]
+ formal=json.loads((ROOT/'test/curated-0.12.0.json').read_text());proposed=json.loads(json.dumps(formal));byoa={a['externalIds'].get('ourAirports'):a for a in formal['airports']};exclusions=Counter();claims=[];newairports={};seen_codes=Counter();review=[]
  existing_assignments={(a['airportId'],a['scheme'],a['code']) for a in formal['assignments']}
  for site,old in editions[0].items():
   new=editions[1].get(site)
@@ -611,27 +619,55 @@ Validation: native schema validation of pending and simulated datasets; producti
  dump(OUT/'artifact-manifest.json',{'formatVersion':2,'maxUncompressedShardBytes':MAX_SHARD_BYTES,'artifacts':[artifact_metadata(p) for p in sorted(OUT.iterdir()) if p.is_file() and p.name not in ['artifact-manifest.json','validation.json']]})
  print('finalized',r['globallyMatchedWikidataEntities'],r['globallyMatchedOsmEntities'],d['newResolvedCodeDateQueries'],flush=True)
 
+def reconstruct_proposed_data(directory=None):
+ directory=OUT if directory is None else Path(directory)
+ formal=json.loads((ROOT/'test/curated-0.12.0.json').read_text(encoding='utf-8'))
+ proposed=json.loads(json.dumps(formal))
+ refs_by_id={r['referenceId']:r for r in references()}
+ source_ids=['public-faa-nasr-20261001','public-faa-nasr-20261029']
+ locks=json.loads((directory/'faa-source-lock.json').read_text(encoding='utf-8'))
+ claims=list(rows(directory/'faa-admission-candidates.jsonl.gz'))
+ newairports={}
+ for c in claims:
+  aid=c['assignment']['airportId']
+  if c['newPhysicalAirport']:
+   r=refs_by_id[c['referenceId']]
+   new=c['editionRows'][1]
+   b={'latitude':float(new['LAT_DECIMAL']),'longitude':float(new['LONG_DECIMAL'])}
+   newairports[aid]={'airportId':aid,'externalIds':{'ourAirports':r['sourceEntityId']},'name':{'value':r['name'],'status':'reference','sourceIds':['public-ourairports-snapshot'],'note':'Reference display name; no historical official-name claim.'},'coordinates':{'value':b,'status':'reference','sourceIds':source_ids,'note':'FAA reference position, stable within 100 m across the two effective editions.'},'timezone':{'value':r['timezone'],'status':'reference','sourceIds':['public-airportsdata-timezones'],'note':'Reused pinned reference timezone; not an allocation date or fixed UTC offset.'}}
+ proposed['airports'].extend(a for _,a in sorted(newairports.items()))
+ proposed['assignments'].extend(c['assignment'] for c in claims)
+ for date,sid,lock in zip(['2026-10-01','2026-10-29'],source_ids,locks):
+  proposed['sources'].append({'sourceId':sid,'title':'FAA NASR airport base, effective '+date,'url':lock['url'],'accessedOn':'2026-11-10','sourceType':'primary','verificationStatus':'pending','license':{'id':'LicenseRef-US-Government-Facts','url':'https://www.copyright.gov/title17/92chap1.html#105','note':'Selected factual FAA government data; no third-party charts/contact information redistributed.'},'note':'Scope: listed US site/ICAO observations in this edition only. Archive and member hashes in FAA source lock. Pending new Owner authorization; no legacy grant reused.'})
+ reflock=json.loads((ROOT/'reference/source-lock.json').read_text(encoding='utf-8'));tz=json.loads((ROOT/'reference/generated/sources.json').read_text(encoding='utf-8'))['airportsdata']
+ proposed['sources'].extend([{'sourceId':'public-ourairports-snapshot','title':'Existing pinned OurAirports reference','url':reflock['downloadUrl'],'accessedOn':'2026-11-10','sourceType':'secondary','verificationStatus':'pending','license':{'id':'Public-Domain','url':reflock['licenseUrl'],'note':'Existing public-domain snapshot, reused for site identity only.'},'note':'Reference label, coordinates and stable numeric ID only; no code allocation date inferred.'},{'sourceId':'public-airportsdata-timezones','title':'Existing pinned airportsdata timezone references','url':'https://github.com/mborsetti/airportsdata/blob/'+tz['revision']+'/airportsdata/airports.csv','accessedOn':'2026-11-10','sourceType':'secondary','verificationStatus':'pending','license':{'id':'MIT','url':'https://github.com/mborsetti/airportsdata/blob/'+tz['revision']+'/LICENSE','note':'Existing reference/LICENSE-airportsdata notice retained.'},'note':'Timezone reference only; no independent historical code confirmation.'}])
+ return proposed
+
 def validate():
  import subprocess
  expected={'referenceRecords':86950,'historicalEventGroups':88330,'codeLinkedCandidates':2484,'existingGeographicReuseLeads':493,'highValueEventGroups':1198}
  report=json.loads((OUT/'coverage-report.json').read_text())
  for k,v in expected.items():assert report['processing'][k]==v,(k,report['processing'][k])
- validate_shards()
+ full_present=(OUT/'wikidata-entities.jsonl.gz').is_file()
+ validate_shards(OUT,allow_omitted=not full_present)
  manifest=json.loads((OUT/'artifact-manifest.json').read_text())
- expected_files={p.name for p in OUT.iterdir() if p.is_file() and p.name not in ['artifact-manifest.json','validation.json']}
- assert expected_files=={a['path'] for a in manifest['artifacts']},'Artifact manifest inventory mismatch'
- for a in manifest['artifacts']:
-  assert artifact_metadata(OUT/a['path'])==a,a['path']
- original=subprocess.check_output(['git','show','bb1046455e949c6c0bf3a18769464cb232bec19e:data/airports.json'],cwd=ROOT);assert original==(ROOT/'data/airports.json').read_bytes()
- required=['source-catalog.json','source-lock.json','wikidata-entities.jsonl.gz','wikidata-history.jsonl.gz','osm-airport-entities.jsonl.gz','osm-history.jsonl.gz','global-crosswalk.jsonl.gz','historical-code-candidates.jsonl.gz','physical-reuse-candidates.jsonl.gz','coverage-report.json','summary.md']
- for name in required:
-  if name.endswith('.jsonl.gz'):dataset_paths(OUT/name)
-  else:assert (OUT/name).is_file(),name
+ manifest_by_name={a['path']:a for a in manifest['artifacts']}
+ present_files={p.name for p in OUT.iterdir() if p.is_file() and p.name not in ['artifact-manifest.json','validation.json']}
+ assert present_files<=set(manifest_by_name),'Unmanifested artifact in global-public-data'
+ for name in sorted(present_files):
+  assert artifact_metadata(OUT/name)==manifest_by_name[name],name
+ original=subprocess.check_output(['git','show','bb1046455e949c6c0bf3a18769464cb232bec19e:data/airports.json'],cwd=ROOT);assert original==(ROOT/'test/curated-0.12.0.json').read_bytes()
+ always_required=['source-catalog.json','source-lock.json','faa-source-lock.json','faa-admission-candidates.jsonl.gz','faa-admission-summary.json','admission-proposal.json','proposed-airport-id-bindings.json','coverage-report.json','summary.md','jsonl-shards.json','shard-reconstruction.json']
+ for name in always_required:assert (OUT/name).is_file(),name
+ if full_present:
+  for name in ['wikidata-entities.jsonl.gz','wikidata-history.jsonl.gz','osm-airport-entities.jsonl.gz','osm-history.jsonl.gz','global-crosswalk.jsonl.gz','historical-code-candidates.jsonl.gz','physical-reuse-candidates.jsonl.gz']:dataset_paths(OUT/name)
  for c in rows(OUT/'faa-admission-candidates.jsonl.gz'):
   a,b=c['editionRows'];assert a['SITE_NO']==b['SITE_NO']==c['faaSiteNo'];assert a['ICAO_ID']==b['ICAO_ID']==c['assignment']['code'];assert a['EFF_DATE']=='2026/10/01' and b['EFF_DATE']=='2026/10/29';assert c['assignment']['verificationStatus']=='pending' and c['assignment']['verifiedOn'] is None;assert c['assignment']['validFrom']['earliest'] is None and c['assignment']['validTo']['latest'] is None
   assert c['rowSha256']==[hashlib.sha256(json.dumps(v,sort_keys=True).encode()).hexdigest() for v in [a,b]]
  d=report['productionResolver'];assert d['existingResolvedAnswersChanged']==d['newConflicts']==0;assert d['newResolvedCodeDateQueries']==26*len(list(rows(OUT/'faa-admission-candidates.jsonl.gz')))
- dump(OUT/'validation.json',{'status':'passed','checks':['required artifacts present','complete fixed candidate-universe counts','all frozen artifact hashes and size/record metadata','ordered deterministic JSONL shards at most 8 MiB','byte-identical decompressed dataset reconstruction','formal data byte-identical to specified base','FAA site/code/edition/row-hash consistency','all proposed assignments pending','unknown outer code-allocation bounds preserved','actual resolver gain matches 26-day cores','no existing resolved answer changes or new conflicts']})
+ validation_doc={'status':'passed','checks':['required artifacts present','complete fixed candidate-universe counts','all frozen artifact hashes and size/record metadata','ordered deterministic JSONL shards at most 8 MiB','byte-identical decompressed dataset reconstruction','formal data byte-identical to specified base','FAA site/code/edition/row-hash consistency','all proposed assignments pending','unknown outer code-allocation bounds preserved','actual resolver gain matches 26-day cores','no existing resolved answer changes or new conflicts']}
+ if not (OUT/'validation.json').is_file() or json.loads((OUT/'validation.json').read_text())!=validation_doc:
+  dump(OUT/'validation.json',validation_doc)
  print('Public data package integrity passed',flush=True)
 
 def reproduce():
@@ -640,20 +676,31 @@ def reproduce():
  global OUT,CACHE
  original_out,original_cache=OUT,CACHE
  before={p.name:sha(p) for p in OUT.iterdir() if p.is_file()}
+ (ROOT/'work').mkdir(exist_ok=True)
  with tempfile.TemporaryDirectory(prefix='public-data-replay-',dir=ROOT/'work') as directory:
   scratch=Path(directory)
   try:
    OUT=scratch/'package';CACHE=scratch/'empty-cache';shutil.copytree(original_out,OUT)
-   with contextlib.redirect_stdout(io.StringIO()):
-    build();faa()
-    subprocess.run(['node','scripts/evidence/public_data_coverage.ts',str(OUT)],cwd=ROOT,check=True,stdout=subprocess.PIPE)
-    finalize();validate()
-   after={p.name:sha(p) for p in OUT.iterdir() if p.is_file()}
-   changed=[p for p in before.keys()|after.keys() if before.get(p)!=after.get(p)]
-   if changed:raise ValueError('Offline reproduction changed: '+', '.join(sorted(changed)))
+   if (OUT/'wikidata-entities.jsonl.gz').is_file():
+    with contextlib.redirect_stdout(io.StringIO()):
+     build();faa()
+     subprocess.run(['node','scripts/evidence/public_data_coverage.ts',str(OUT)],cwd=ROOT,check=True,stdout=subprocess.PIPE)
+     finalize();validate()
+    after={p.name:sha(p) for p in OUT.iterdir() if p.is_file()}
+    changed=[p for p in before.keys()|after.keys() if before.get(p)!=after.get(p)]
+    if changed:raise ValueError('Offline reproduction changed: '+', '.join(sorted(changed)))
+   else:
+    manifest=json.loads((OUT/'artifact-manifest.json').read_text())
+    expected_proposed=next(a for a in manifest['artifacts'] if a['path']=='proposed-data.json')
+    rebuilt_path=scratch/'rebuilt-proposed-data.json'
+    dump(rebuilt_path,reconstruct_proposed_data(OUT))
+    if artifact_metadata(rebuilt_path)!={**expected_proposed,'path':'rebuilt-proposed-data.json'}:
+     raise ValueError('Reconstructed proposed-data.json differs from locked artifact-manifest.json')
+    subprocess.run(['node','--input-type=module','-e','import {readFileSync} from "node:fs"; import {assertDataset} from "./src/validate.ts"; assertDataset(JSON.parse(readFileSync(process.argv[1],"utf8")));',str(rebuilt_path)],cwd=ROOT,check=True)
+    validate()
    if CACHE.exists():raise ValueError('Offline reproduction used acquisition cache')
   finally:OUT,CACHE=original_out,original_cache
- print('Byte-identical offline reproduction passed:',len(before),'artifacts; no acquisition cache or global history scan')
+ print('Byte-identical offline reproduction passed:',len(before),'retained artifacts; proposed-data.json reconstructed & verified without acquisition cache or global history scan')
 
 if __name__=='__main__':
  p=argparse.ArgumentParser();p.add_argument('command',choices=['acquire','history','crosswalk','statements','build','osm_acquire','bts','complete_entities','faa','osm_history','finalize','validate','shard_existing','reproduce']);a=p.parse_args();globals()[a.command]()

@@ -1,0 +1,118 @@
+{
+  "admitted080Citations": [
+    {
+      "anchor": "NORTHWEST FLORIDA BEACHES INTL ARPT, PANAMA CITY, FL ECP GNV ZJX",
+      "extractedPage": 307,
+      "extractionTool": "pdftotext -raw"
+    },
+    {
+      "anchor": "United States is the three-letter identifier preceded by “K”.",
+      "extractedPage": 19,
+      "extractionTool": "pdftotext 25.03.0 -layout"
+    },
+    {
+      "anchor": "SLOULIN FLD INTL ARPT, WILLISTON, ND ISN GFK ZLC",
+      "extractedPage": 388,
+      "extractionTool": "pdftotext 25.03.0 -layout"
+    },
+    {
+      "anchor": "United States is the three-letter identifier preceded by “K”.",
+      "extractedPage": 19,
+      "extractionTool": "pdftotext 25.03.0 -layout"
+    }
+  ],
+  "citedPageWindows": {
+    "19": [
+      {
+        "expectedCitation": {
+          "anchor": "United States is the three-letter identifier preceded by “K”.",
+          "context": "tional location indicator location indicator for airports in the contiguous assignments as follows: United States is the three-letter identifier preceded by “K”. For other non-contiguous United States a. Within the United States and its jurisdictions to: airports, the following two letter prefix will",
+          "extractedPage": 19,
+          "normalizedOffset": 381
+        },
+        "factId": "icao-rule-2014",
+        "pageLength": 974,
+        "requiredContext": [
+          "location indicator for airports in the contiguous",
+          "International Location Identifiers"
+        ],
+        "snippet": "rs 1−4−1. USE OF LOCATION INDICATORS 1−4−2. REQUESTS OR ASSIGNMENTS OF LOCATION INDICATORS An international location indicator is a four-letter code used in international telecommunications. The Send requests for international location indicator location indicator for airports in the contiguous assignments as follows: United States is the three-letter identifier preceded by “K”. For other non-contiguous United States a. Within the United States and its jurisdictions to: airports, the following two letter prefix will be used: Aeronautical Information Manag",
+        "windowEnd": 622,
+        "windowStart": 61
+      }
+    ],
+    "307": [
+      {
+        "expectedCitation": {
+          "anchor": "NORTHWEST FLORIDA BEACHES INTL ECP GNV ZJX NOTTINGHAM, MD, ARPT, PANAMA CITY, FL",
+          "context": "F ZAU SONS PRIVATE-COMMERCIAL ARPT 47MN PNM ZMP GARY, IN NORWOOD HELIPORT, ELKHART, IN IN75 HUF ZAU NORTHWEST FLORIDA BEACHES INTL ECP GNV ZJX NOTTINGHAM, MD, ARPT, PANAMA CITY, FL NOTTINGHAM RCO OTT DCA NORTHWEST FLORIDA COMMUNITY 8ØFL GNV ZJX NOTTINGHAM VORTAC OTT DCA HOSPITAL HELIPORT, CHIPLEY, FL NOTTINGHAM, NH, NO",
+          "extractedPage": 307,
+          "normalizedOffset": 2796
+        },
+        "factId": "ecp-code",
+        "pageLength": 4588,
+        "requiredContext": [],
+        "snippet": "OD MEMORIAL ARPT OWD BDR ZBW FAYETTEVILLE/SPRINGDALE/, AR NORWOOD MEMORIAL LOC/DME OWD NORTHWEST COMMUNITY HOSPITAL 7IL4 IKK ZAU RWY 35 HELIPORT, ARLINGTON HEIGHTS, IL NORWOOD, MN, NORTHWEST FAMILY HOSP HELIPORT, IN79 HUF ZAU SONS PRIVATE-COMMERCIAL ARPT 47MN PNM ZMP GARY, IN NORWOOD HELIPORT, ELKHART, IN IN75 HUF ZAU NORTHWEST FLORIDA BEACHES INTL ECP GNV ZJX NOTTINGHAM, MD, ARPT, PANAMA CITY, FL NOTTINGHAM RCO OTT DCA NORTHWEST FLORIDA COMMUNITY 8ØFL GNV ZJX NOTTINGHAM VORTAC OTT DCA HOSPITAL HELIPORT, CHIPLEY, FL NOTTINGHAM, NH, NORTHWEST HELICOPTERS HELIPORT, WN7Ø SEA Z",
+        "windowEnd": 3056,
+        "windowStart": 2476
+      }
+    ],
+    "367": [
+      {
+        "expectedCitation": {
+          "anchor": "ST GEORGE MUNI ARPT SGU CDC ZLA",
+          "context": " ST GEORGE, UT, FAIRBANKS MUSEUM AMOS 1V4 DIXIE MEDICAL CENTER HELIPORT UT52 CDC ZLA ST JOSEPH, IL, ST GEORGE MUNI ARPT SGU CDC ZLA BUSBOOM RLA ARPT ØLL5 STL ZAU ST GEORGE MUNI ILS/DME RWY 19 SGU ROUTH ARPT 9IL2 STL ZAU ST GEORGE RCO SGU CDC ST JOSEPH, LA, VOR/DME SGU TE",
+          "extractedPage": 367,
+          "normalizedOffset": 2694
+        },
+        "factId": "sgu-new-code",
+        "pageLength": 4905,
+        "requiredContext": [],
+        "snippet": "ES ARPT 3S5 LAN ZOB ST GEORGE ARPT PBV ENA ZAP TRIPP CREEK ARPT 39T LAN ZOB ST GEORGE LOC/GS RWY 11 PBV ST JOHNS HOSPITAL HELIPORT, 97IS STL ZKC ST GEORGE, SC, SPRINGFIELD, IL ST GEORGE ARPT 6J2 AND ZJX ST JOHNSBURY, VT, ST GEORGE, UT, FAIRBANKS MUSEUM AMOS 1V4 DIXIE MEDICAL CENTER HELIPORT UT52 CDC ZLA ST JOSEPH, IL, ST GEORGE MUNI ARPT SGU CDC ZLA BUSBOOM RLA ARPT ØLL5 STL ZAU ST GEORGE MUNI ILS/DME RWY 19 SGU ROUTH ARPT 9IL2 STL ZAU ST GEORGE RCO SGU CDC ST JOSEPH, LA, VOR/DME SGU TENSAS PARISH ARPT L33 DRI ZME ST GEORGE I",
+        "windowEnd": 2905,
+        "windowStart": 2374
+      }
+    ],
+    "388": [
+      {
+        "expectedCitation": {
+          "anchor": "SLOULIN FLD INTL ARPT, WILLISTON, ND ISN GFK ZLC",
+          "context": "41 ANB ZJX SMITHFIELD, NC, SLOOP ARPT, KANNAPOLIS, NC 41NC RDU ZTL JOHNSTON COUNTY ARPT JNX RDU ZDC SLOULIN FLD INTL ARPT, WILLISTON, ND ISN GFK ZLC JOHNSTON COUNTY ILS/DME RWY Ø3 JNX SLOVER NDB, JESUP, GA JES MCN JOHNSTON MEMORIAL HOSPITAL NC23 RDU ZDC SLUDER AIRSTRIP ARPT, BELLEVUE, ID",
+          "extractedPage": 388,
+          "normalizedOffset": 4061
+        },
+        "factId": "isn-code-2014",
+        "pageLength": 5344,
+        "requiredContext": [],
+        "snippet": "T FIELD ARPT, VIENNA, OH 79OH CLE ZOB SLOBOVIA OUTERNATIONAL ARPT, MS71 GWO ZME SMITHER FIELD ARPT, DENTON, TX TE81 FTW ZFW POCAHONTAS, MS SMITHFIELD, KY, SLOCOMB, AL, JAKE'S FIELD ARPT 5KY6 LOU ZID FREEDOM FIELD ARPT AL41 ANB ZJX SMITHFIELD, NC, SLOOP ARPT, KANNAPOLIS, NC 41NC RDU ZTL JOHNSTON COUNTY ARPT JNX RDU ZDC SLOULIN FLD INTL ARPT, WILLISTON, ND ISN GFK ZLC JOHNSTON COUNTY ILS/DME RWY Ø3 JNX SLOVER NDB, JESUP, GA JES MCN JOHNSTON MEMORIAL HOSPITAL NC23 RDU ZDC SLUDER AIRSTRIP ARPT, BELLEVUE, ID ID16 BOI ZLC HELIPORT SLY PIG'S BASE SP",
+        "windowEnd": 4289,
+        "windowStart": 3741
+      }
+    ],
+    "99": [
+      {
+        "expectedCitation": {
+          "anchor": "CLEVELAND RGNL JETPORT ARPT RZR BNA ZTL",
+          "context": "INTON, KY, BRADLEY MEMORIAL HOSPITAL 33TN BNA ZME HELIPORT CLINTON-HICKMAN COUNTY ARPT ØKY7 LOU ZME CLEVELAND RGNL JETPORT ARPT RZR BNA ZTL CLINTON, LA, HARDWICK FIELD ARPT HDI BNA ZTL MC CUTCHEON FIELD ARPT LA83 DRI ZHU CLEVELAND, TX, OVERTON PRIVATE ARPT 4LA8 DRI ZHU CAVOK AIR",
+          "extractedPage": 99,
+          "normalizedOffset": 2008
+        },
+        "factId": "rzr-code",
+        "pageLength": 4292,
+        "requiredContext": [],
+        "snippet": "C ZKC HELIPORT MARTIN RLA ARPT IL82 STL ZAU CLEVELAND MUNI ARPT 95F MLC ZKC CLINTON, IN, CLEVELAND, SC, CLINTON ARPT 1I7 HUF ZID KING FIELD ARPT SC78 AND ZTL UNION HOSPITAL CLINTON 2II8 HUF ZID HELIPORT CLEVELAND, TN, CLINTON, KY, BRADLEY MEMORIAL HOSPITAL 33TN BNA ZME HELIPORT CLINTON-HICKMAN COUNTY ARPT ØKY7 LOU ZME CLEVELAND RGNL JETPORT ARPT RZR BNA ZTL CLINTON, LA, HARDWICK FIELD ARPT HDI BNA ZTL MC CUTCHEON FIELD ARPT LA83 DRI ZHU CLEVELAND, TX, OVERTON PRIVATE ARPT 4LA8 DRI ZHU CAVOK AIRPARK ARPT Ø6TE CXO ZHU CLINTON, MA, CLEV",
+        "windowEnd": 2227,
+        "windowStart": 1688
+      }
+    ]
+  },
+  "formatVersion": 1,
+  "inputSha256": "b21e49ea5f9e2bf9abbedf28c014c28029e1489fe275bf30991f6c6a15afa7b7",
+  "originalPublicationKey": "usdot-faa:JO7350.9:2014-07-24",
+  "originalSha256": "d25ceac462f7f1f5e0b6d09339a15120e86a99d523228365a711e7e9edd78b15",
+  "pageCount": 1291,
+  "sourceId": "faa-2014",
+  "textOriginalSha256": "e7d8bbccf05263567b55c140be0dd829a955c7c714905d388e5cfc5f966c977f",
+  "textSha256": "2a3b81e5b71c780e4ae33929fe0b6eb4687c4d6a2af0276fccc467f397720414",
+  "url": "https://www.faa.gov/documentLibrary/media/Order/LID_7-24-14.pdf"
+}

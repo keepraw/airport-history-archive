@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { loadDataset } from "../scripts/load.ts";
+import frozenRelease from "./curated-0.12.0.json" with { type: "json" };
 import { resolveAirport, resolveAirportName } from "../src/index.ts";
 import { validateDataset } from "../src/validate.ts";
 import type {
@@ -9,7 +9,7 @@ import type {
   VerificationStatus,
 } from "../src/types.ts";
 
-const data = await loadDataset();
+const data = frozenRelease as Dataset;
 const astanaId = "apt_99f19660-7609-49c5-b221-ed4a37046566";
 const oldName = "Международный аэропорт Астана";
 const newName = "Международный аэропорт Нурсултан Назарбаев";
@@ -80,7 +80,7 @@ describe("Astana's formal name history", () => {
     ]);
   });
 
-  it.each(["1931-01-01", "2006-11-20", "2026-10-25", "2030-01-01"])(
+  it.each(["2000-01-01", "2006-11-20", "2026-10-25", "2026-11-18"])(
     "does not extrapolate verified history to %s",
     (date) => {
       const r = resolveAirportName(data, astanaId, date);
@@ -125,12 +125,31 @@ describe("Astana's formal name history", () => {
 });
 
 describe("name resolution policies", () => {
+  it("applies the same public date range to official names", () => {
+    const d = synthetic();
+    d.names.pop();
+    d.names[0]!.validFrom = exact("1999-12-31");
+    d.names[0]!.validTo = exact("2026-11-20");
+    for (const date of ["2000-01-01", "2026-11-18"])
+      expect(resolveAirportName(d, astanaId, date).status).toBe("resolved");
+    for (const date of ["1999-12-31", "2026-11-19"])
+      expect(resolveAirportName(d, astanaId, date)).toMatchObject({
+        status: "not_found",
+        airport: null,
+        name: null,
+        historicallyVerified: false,
+        candidates: [],
+        evidence: [],
+        reason: "Local date is outside the supported range [2000-01-01, 2026-11-19).",
+      });
+  });
+
   it("returns an explicitly unverified reference when a timeline is absent", () => {
     const d = structuredClone(data);
     const airport = d.airports[0]!;
     // Even a verified static fact says nothing about this historical date.
     airport.name.status = "verified";
-    const r = resolveAirportName(d, airport.airportId, "1900-01-01");
+    const r = resolveAirportName(d, airport.airportId, "2000-01-01");
     expect(r.status).toBe("reference");
     expect(r.name).toBe(airport.name.value);
     expect(r.historicallyVerified).toBe(false);

@@ -1,0 +1,71 @@
+{
+  "admitted080Citations": [
+    {
+      "anchor": "Lat. 48°10′41″ N, long. 103°38′32″ W",
+      "extractedPage": 2,
+      "extractionTool": "pdftotext 25.03.0 -raw"
+    },
+    {
+      "anchor": "Lat. 48°15′39″ N, long. 103°45′04″ W",
+      "extractedPage": 2,
+      "extractionTool": "pdftotext 25.03.0 -raw"
+    }
+  ],
+  "citedPageWindows": {
+    "1": [
+      {
+        "expectedCitation": {
+          "anchor": "ND, due to the airport’s closure.",
+          "context": "e. SUMMARY: This action revokes Class E airspace at Sloulin Field International Airport, Williston, ND, due to the airport’s closure. This action also amends Class E airspace at Williston Basin International Airport, Williston, ND. The action establishes Class E airspace d",
+          "extractedPage": 1,
+          "normalizedOffset": 467
+        },
+        "factId": "williston-actual",
+        "pageLength": 7066,
+        "requiredContext": [],
+        "snippet": "ion 14 CFR Part 71 [Docket No. FAA–2019–1061; Airspace Docket No. 20–AGL–06] RIN 2120–AA66 Revocation and Amendment of Class E Airspace; Williston, ND AGENCY: Federal Aviation Administration (FAA), DOT. ACTION: Final rule. SUMMARY: This action revokes Class E airspace at Sloulin Field International Airport, Williston, ND, due to the airport’s closure. This action also amends Class E airspace at Williston Basin International Airport, Williston, ND. The action establishes Class E airspace designated as a surface area. Additionall",
+        "windowEnd": 680,
+        "windowStart": 147
+      }
+    ],
+    "2": [
+      {
+        "expectedCitation": {
+          "anchor": "Lat. 48°10′41″ N, long. 103°38′32″ W",
+          "context": "as. * * * * * AGL ND E2 Williston, ND [Revoked] Williston, Sloulin Field International Airport, ND (Lat. 48°10′41″ N, long. 103°38′32″ W) AGL ND E2 Williston, ND [New] Williston Basin International Airport, ND (Lat. 48°15′39″ N, long. 103°45′04″ W) That airspace extending upw",
+          "extractedPage": 2,
+          "normalizedOffset": 2385
+        },
+        "factId": "isn-location",
+        "pageLength": 6798,
+        "requiredContext": [],
+        "snippet": "4 CFR 71.1 of FAA Order 7400.11D, Airspace Designations and Reporting Points, dated August 8, 2019, and effective September 15, 2019, is amended as follows: Paragraph 6002 Class E Airspace Areas Designated as Surface Areas. * * * * * AGL ND E2 Williston, ND [Revoked] Williston, Sloulin Field International Airport, ND (Lat. 48°10′41″ N, long. 103°38′32″ W) AGL ND E2 Williston, ND [New] Williston Basin International Airport, ND (Lat. 48°15′39″ N, long. 103°45′04″ W) That airspace extending upward from the surface within a 4.2-mile r",
+        "windowEnd": 2601,
+        "windowStart": 2065
+      },
+      {
+        "expectedCitation": {
+          "anchor": "Lat. 48°15′39″ N, long. 103°45′04″ W",
+          "context": "41″ N, long. 103°38′32″ W) AGL ND E2 Williston, ND [New] Williston Basin International Airport, ND (Lat. 48°15′39″ N, long. 103°45′04″ W) That airspace extending upward from the surface within a 4.2-mile radius of the airport, and within 1.3 miles each side of the 135° bearin",
+          "extractedPage": 2,
+          "normalizedOffset": 2496
+        },
+        "factId": "xwa-location",
+        "pageLength": 6798,
+        "requiredContext": [],
+        "snippet": "ve September 15, 2019, is amended as follows: Paragraph 6002 Class E Airspace Areas Designated as Surface Areas. * * * * * AGL ND E2 Williston, ND [Revoked] Williston, Sloulin Field International Airport, ND (Lat. 48°10′41″ N, long. 103°38′32″ W) AGL ND E2 Williston, ND [New] Williston Basin International Airport, ND (Lat. 48°15′39″ N, long. 103°45′04″ W) That airspace extending upward from the surface within a 4.2-mile radius of the airport, and within 1.3 miles each side of the 135° bearing from the airport, extending from the 4",
+        "windowEnd": 2712,
+        "windowStart": 2176
+      }
+    ]
+  },
+  "formatVersion": 1,
+  "inputSha256": "478aa300dfe8ff74e750eb2577248b4c425e6156bbf76deaf40cc50b79d00da8",
+  "originalPublicationKey": "usdot-faa:FR:2020-09591",
+  "originalSha256": "cbe2e5ab7db779a2041f81241f88a9658f1d323a7f87f695d1e854eaf36b226f",
+  "pageCount": 3,
+  "sourceId": "fr-2020-09591",
+  "textOriginalSha256": "57e7c9196317f911083ef2bbb5fa73d40a79dc0954aefe1a20f2e6682d3d830c",
+  "textSha256": "71a5d0ea9465d60a8123a94e9b3c886c412c3397455287d4b1daa65715407811",
+  "url": "https://www.govinfo.gov/content/pkg/FR-2020-05-06/html/2020-09591.htm"
+}

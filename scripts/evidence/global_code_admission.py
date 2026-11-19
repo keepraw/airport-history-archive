@@ -90,11 +90,14 @@ def validate(candidate=None):
     (ROOT / 'work').mkdir(exist_ok=True)
     with tempfile.TemporaryDirectory(prefix='aai-data-replay-', dir=ROOT / 'work') as name:
         checkout = Path(name)
-        subprocess.run(['git', 'clone', '--quiet', '--shared', '--no-checkout', str(ROOT), name], check=True)
+        subprocess.run(['git', 'clone', '-c', 'core.autocrlf=false', '--quiet', '--shared', '--no-checkout', str(ROOT), name], check=True)
         subprocess.run(['git', 'checkout', '--quiet', '--detach', BASE], cwd=checkout, check=True)
         subprocess.run(['git', 'update-ref', 'refs/remotes/origin/main', BASE], cwd=checkout, check=True)
         (checkout / 'work').mkdir(exist_ok=True)
-        (checkout / 'node_modules').symlink_to(ROOT / 'node_modules', target_is_directory=True)
+        try:
+            (checkout / 'node_modules').symlink_to(ROOT / 'node_modules', target_is_directory=True)
+        except OSError:
+            subprocess.run(['cmd', '/c', 'mklink', '/J', str(checkout / 'node_modules'), str(ROOT / 'node_modules')], check=True, stdout=subprocess.DEVNULL)
         with (checkout / '.git/info/exclude').open('a') as exclude:
             exclude.write('\n/node_modules\n')
         # Keep the previous China identity-only gate and measurements on their exact

@@ -1,8 +1,8 @@
 import { expect, it } from "vitest";
-import { loadDataset } from "../scripts/load.ts";
+import frozenRelease from "./curated-0.12.0.json" with { type: "json" };
 import { validateDataset } from "../src/validate.ts";
 import type { Dataset } from "../src/types.ts";
-const data = await loadDataset();
+const data = frozenRelease as Dataset;
 const rejected = (mutate: (d: Dataset) => void, message?: string) => {
   const d = structuredClone(data);
   mutate(d);

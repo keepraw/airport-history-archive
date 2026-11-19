@@ -20,15 +20,23 @@ describe("Fly adapter on real curated history", () => {
     expect(before.coordinates?.status).toBe("reference");
     expect(before.city).toBeNull();
   });
-  it("retains HKG uncertain boundary, known old site, and absent coverage", () => {
-    expect(resolveEndpoint(dataset, "HKG", "1997-01-01", directory).result.status).toBe("resolved");
-    const boundary = resolveEndpoint(dataset, "HKG", "1998-07-06", directory);
+  it("projects out-of-scope dates, uncertain transfers, and absent coverage", () => {
+    const archived = resolveEndpoint(dataset, "HKG", "1997-01-01", directory);
+    expect(archived.result.status).toBe("not_found");
+    expect(archived.canCalculateDistance).toBe(false);
+    expect(archived.referenceFallback?.iata).toBe("HKG");
+    expect(resolveEndpoint(dataset, "HKG", "2000-01-01", directory).result.status).toBe("resolved");
+    const boundary = resolveEndpoint(dataset, "IST", "2019-04-06", directory);
     expect(boundary.result.status).toBe("uncertain");
     expect(boundary.airportId).toBeNull();
     expect(boundary.canCalculateDistance).toBe(false);
     expect(boundary.result.candidates).toHaveLength(2);
-    expect(resolveEndpoint(dataset, "JFK", "2020-01-01", directory).result.status).toBe("not_found");
-    expect(resolveEndpoint(dataset, "JFK", "2020-01-01", directory).referenceFallback?.iata).toBe("JFK");
+    const kennedy = resolveEndpoint(dataset, "JFK", "2020-01-01", directory);
+    expect(kennedy.result.status).toBe("resolved");
+    expect(kennedy.historicalIdentityVerified).toBe(true);
+    const outOfRange = resolveEndpoint(dataset, "JFK", "2026-11-19", directory);
+    expect(outOfRange.result.status).toBe("not_found");
+    expect(outOfRange.referenceFallback?.iata).toBe("JFK");
     expect(resolveEndpoint(dataset, "KTI", "2025-09-09", directory).historicalIdentityVerified).toBe(false);
   });
   it("defines conflict policy without inventing assignments in production history", () => {

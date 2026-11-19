@@ -19,6 +19,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[1] / 'scripts/reference'
 from common import ROOT, OUTPUT, DISCOVERY, canonical, checked, digest, read_jsonl, stable_id
 
 TRIAGE = ROOT / 'reference/triage'
+QUERY_HORIZON = json.loads((ROOT / 'src/query-horizon.json').read_text())
 SCHEMES = {'IATA': re.compile(r'[A-Z]{3}'), 'ICAO': re.compile(r'[A-Z]{4}'),
            'GPS': re.compile(r'[^\s]+'), 'LOCAL': re.compile(r'[^\s]+'),
            'IDENT': re.compile(r'[^\s]+')}
@@ -73,6 +74,14 @@ def _load_manifest(path):
     return json.loads(Path(path).read_text(encoding='utf-8'))
 
 
+def _resolve_optional(folder, work_folder, name):
+    if (Path(folder) / name).is_file():
+        return Path(folder) / name
+    if work_folder is not None and (Path(work_folder) / name).is_file():
+        return Path(work_folder) / name
+    return None
+
+
 def _iter_inputs(reference_dir, triage_dir, discovery_dir, strict):
     reference_dir, triage_dir, discovery_dir = map(Path, (reference_dir,triage_dir,discovery_dir))
     r = _load_manifest(reference_dir / 'manifest.json')
@@ -86,14 +95,27 @@ def _iter_inputs(reference_dir, triage_dir, discovery_dir, strict):
     if not shards or not candidate_files:
         raise ValueError('Incomplete historical input population')
     required = [(reference_dir,n,r['files'][n]['sha256']) for n in shards]
-    required += [(triage_dir,n,t['files'][n]['sha256']) for n in ('groups.jsonl.gz',)]
-    required += [(discovery_dir,n,d['files'][n]['sha256']) for n in candidate_files]
     for folder,name,sha in required:
         if strict:
             checked(folder / name,sha)
         elif not (folder / name).is_file():
             raise FileNotFoundError(folder / name)
-    return shards, candidate_files, required
+    is_default_slim = (triage_dir.resolve() == TRIAGE.resolve() and discovery_dir.resolve() == DISCOVERY.resolve())
+    work_triage = ROOT / 'work/reference/triage' if is_default_slim else None
+    work_disc = ROOT / 'work/discovery/generated' if is_default_slim else None
+    groups_path = _resolve_optional(triage_dir, work_triage, 'groups.jsonl.gz')
+    cand_paths = [_resolve_optional(discovery_dir, work_disc, n) for n in candidate_files]
+    if groups_path is not None and all(p is not None for p in cand_paths):
+        if strict:
+            checked(groups_path, t['files']['groups.jsonl.gz']['sha256'])
+            for p, n in zip(cand_paths, candidate_files):
+                checked(p, d['files'][n]['sha256'])
+        required += [(triage_dir, 'groups.jsonl.gz', t['files']['groups.jsonl.gz']['sha256'])]
+        required += [(discovery_dir, n, d['files'][n]['sha256']) for n in candidate_files]
+        return shards, list(zip(candidate_files, cand_paths)), groups_path, required
+    if not is_default_slim:
+        raise FileNotFoundError(triage_dir / 'groups.jsonl.gz')
+    return shards, [], None, required
 
 
 def _code(scheme, value):
@@ -173,8 +195,15 @@ def _formal(db, curated, stats):
         stats['formalCodeAssignments'] += 1
 
 
-def _leads(db, triage_dir, discovery_dir, candidate_files, stats):
-    for group in read_jsonl(triage_dir / 'groups.jsonl.gz'):
+def _leads(db, triage_dir, discovery_dir, candidate_files, groups_path, stats):
+    if groups_path is None:
+        metrics_file = Path(triage_dir) / 'metrics.json'
+        if metrics_file.is_file():
+            m = _load_manifest(metrics_file)
+            stats['indexedEventGroups'] = m['eventGroups']
+            stats['indexedLeadMembers'] = m['selectedCandidates']
+        return
+    for group in read_jsonl(groups_path):
         match = group.get('physicalMatch') or {}
         db.execute('INSERT INTO lead_groups VALUES (?,?,?,?,?,?,?)',
                    (group['eventGroupId'],match.get('referenceId'),group.get('country'),group.get('name'),
@@ -189,8 +218,8 @@ def _leads(db, triage_dir, discovery_dir, candidate_files, stats):
     # Only selected candidates enter the code index. The source scanner remains
     # full-corpus and is not reduced to a handpicked airport list.
     query = db.execute
-    for filename in candidate_files:
-        for item in read_jsonl(discovery_dir / filename):
+    for _, cand_path in candidate_files:
+        for item in read_jsonl(cand_path):
             row = query('SELECT group_id FROM lead_members WHERE candidate_id=?',
                         (item['candidateId'],)).fetchone()
             if row is None:
@@ -215,7 +244,7 @@ def build(output, reference_dir=OUTPUT, triage_dir=TRIAGE, discovery_dir=DISCOVE
     """Atomic full-corpus SQLite rebuild. All source files are consumed, not sampled."""
     output = Path(output).resolve()
     output.parent.mkdir(parents=True,exist_ok=True)
-    shards,candidate_files,inputs = _iter_inputs(reference_dir,triage_dir,discovery_dir,strict)
+    shards,candidate_files,groups_path,inputs = _iter_inputs(reference_dir,triage_dir,discovery_dir,strict)
     curated = _load_manifest(curated_path)
     fd, temp_name = tempfile.mkstemp(prefix='bulk-history-', suffix='.sqlite',dir=output.parent)
     os.close(fd)
@@ -223,7 +252,8 @@ def build(output, reference_dir=OUTPUT, triage_dir=TRIAGE, discovery_dir=DISCOVE
                          'formalCodeAssignments','indexedLeadMembers','indexedEventGroups',
                          'indexedTransitionCodeObservations')}
     try:
-        with sqlite3.connect(temp_name) as db:
+        db = sqlite3.connect(temp_name)
+        try:
             db.execute('PRAGMA foreign_keys=ON')
             db.executescript(SCHEMA)
             _formal(db,curated,stats)
@@ -231,7 +261,7 @@ def build(output, reference_dir=OUTPUT, triage_dir=TRIAGE, discovery_dir=DISCOVE
                 for record in read_jsonl(Path(reference_dir)/name):
                     _reference_record(db,record,stats)
                 db.commit()
-            _leads(db,Path(triage_dir),Path(discovery_dir),candidate_files,stats)
+            _leads(db,Path(triage_dir),Path(discovery_dir),candidate_files,groups_path,stats)
             db.execute('INSERT INTO metadata VALUES (?,?)',('formatVersion','1.0.0'))
             db.execute('INSERT INTO metadata VALUES (?,?)',('curatedDataVersion',curated['dataVersion']))
             source_roots = {Path(reference_dir).resolve(): 'reference',
@@ -248,6 +278,8 @@ def build(output, reference_dir=OUTPUT, triage_dir=TRIAGE, discovery_dir=DISCOVE
                 raise ValueError('Unlinked bulk history site/group')
             stats['materializedSites'] = db.execute('SELECT COUNT(*) FROM sites').fetchone()[0]
             db.execute('VACUUM')
+        finally:
+            db.close()
         os.replace(temp_name,output)
         return {'schemaVersion':'1.0.0','database':str(output),'dataVersion':curated['dataVersion'],
                 'historicallyVerifiedReferenceClaims':0,'metrics':stats,'databaseSha256':digest(output),
@@ -282,7 +314,10 @@ def lookup(database,code,scheme='IATA',at=None,limit=50,offset=0):
                 raise ValueError()
         except ValueError:
             raise ValueError('Date must be YYYY-MM-DD') from None
-    conn = sqlite3.connect(f'file:{Path(database).resolve()}?mode=ro',uri=True)
+        start, end = QUERY_HORIZON['fromInclusive'], QUERY_HORIZON['toExclusive']
+        if not start <= at < end:
+            raise ValueError(f'Local date is outside the supported range [{start}, {end}).')
+    conn = sqlite3.connect(f'{Path(database).resolve().as_uri()}?mode=ro',uri=True)
     conn.row_factory = sqlite3.Row
     try:
         if conn.execute('SELECT value FROM metadata WHERE key=?',('formatVersion',)).fetchone()[0] != '1.0.0':

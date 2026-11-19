@@ -1,0 +1,44 @@
+{
+  "admitted080Citations": [],
+  "citedPageWindows": {
+    "1": [
+      {
+        "expectedCitation": {
+          "anchor": "Lat. 35[deg]12'41'' N., long. 84[deg]47'59'' W.",
+          "context": "ty Hospital, Pikeville, TN. * * * * * ASO TN E5 Cleveland, TN [New] Cleveland Regional Jetport, TN (Lat. 35[deg]12'41'' N., long. 84[deg]47'59'' W.) Bradley Memorial Hospital, TN, Point in Space Coordinates (Lat. 35[deg]10'52'' N., long. 84[deg]52'56'' W.) That airspace extending upward",
+          "extractedPage": 1,
+          "normalizedOffset": 7433
+        },
+        "factId": "rzr-location",
+        "pageLength": 8288,
+        "requiredContext": [],
+        "snippet": " feet above the surface within a 9.8-mile radius of the Mark Anton Airport, and that airspace within a 6-mile radius of the Point in Space Coordinates (lat. 35[deg]37'34'' N., long 85[deg]10'38'' W.) serving Bledsoe County Hospital, Pikeville, TN. * * * * * ASO TN E5 Cleveland, TN [New] Cleveland Regional Jetport, TN (Lat. 35[deg]12'41'' N., long. 84[deg]47'59'' W.) Bradley Memorial Hospital, TN, Point in Space Coordinates (Lat. 35[deg]10'52'' N., long. 84[deg]52'56'' W.) That airspace extending upward from 700 feet above the surface within ",
+        "windowEnd": 7660,
+        "windowStart": 7113
+      },
+      {
+        "expectedCitation": {
+          "anchor": "Hardwick Field Airport has closed",
+          "context": "ew Standard Instrument Approach Procedures (SIAPs) have been developed at Mark Anton Airport. Also, Hardwick Field Airport has closed; therefore, the controlled airspace area is removed. This action also establishes Class E Airspace at Cleveland Regional Jetport, Cleveland",
+          "extractedPage": 1,
+          "normalizedOffset": 987
+        },
+        "factId": "cleveland-earlier-closure",
+        "pageLength": 8288,
+        "requiredContext": [],
+        "snippet": ": Final rule. ----------------------------------------------------------------------- SUMMARY: This action amends Class E Airspace at Dayton, TN, as the Hardwick Non-Directional Beacon (NDB) has been decommissioned and new Standard Instrument Approach Procedures (SIAPs) have been developed at Mark Anton Airport. Also, Hardwick Field Airport has closed; therefore, the controlled airspace area is removed. This action also establishes Class E Airspace at Cleveland Regional Jetport, Cleveland, TN, to accommodate area navigation (RN",
+        "windowEnd": 1200,
+        "windowStart": 667
+      }
+    ]
+  },
+  "formatVersion": 1,
+  "inputSha256": "0a5ecec9555ea82bfd226347de8c4b2ed9971ece4751510358a4989949f3b71f",
+  "originalPublicationKey": "usdot-faa:FR:2013-20499",
+  "originalSha256": "780a79e1895b069bd53957f8e13e975f25516c16db9819b2cef3f5b631bc429f",
+  "pageCount": 1,
+  "sourceId": "fr-2013-20499",
+  "textOriginalSha256": "f1cacb0f5b2d12624efbb5b404f5279e639a323fbbcaadc6aa6d2200200e4378",
+  "textSha256": "dbef4a619ecab83faf6be2c7d4cd1ac9dd6e0e18d59e5be1dbb19d3d8c0a89c9",
+  "url": "https://www.govinfo.gov/content/pkg/FR-2013-08-23/html/2013-20499.htm"
+}
