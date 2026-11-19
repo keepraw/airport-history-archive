@@ -113,8 +113,26 @@ dist/v0.13.0/
 
 Builds validate first, sort keys and identity collections, and omit build-time
 clocks. Identical inputs produce identical bytes. Package and data versions must
-match. Generated artifacts are ignored by Git. Nothing publishes a Release or
-an npm package (`private: true`); a future release can attach this directory.
+match. Generated artifacts are ignored by Git.
+
+### Publish a formal data version
+
+Keepraw-Fly reads [the production manifest](data/production-manifest.json) from
+`main`. It records the data version, schema version, immutable dataset commit,
+supported local-date horizon and SHA-256 of the source `data/airports.json`.
+
+After the reviewed data commit has landed on `main`, open a PR with the generated
+manifest for that commit. A merge of the manifest PR publishes the version.
+
+```sh
+git fetch origin main
+python3 scripts/production_manifest.py --commit "$(git rev-parse origin/main)"
+python3 scripts/production_manifest.py --check
+```
+
+Research changes leave the production manifest at the last published data version.
+Each publication advances `dataVersion`. Consumers fetch the dataset at the
+manifest's exact commit and check its hash before importing it.
 
 ## Resolve a historical code
 

@@ -12,6 +12,8 @@ jobs:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0
+      - name: Verify the published production manifest
+        run: python3 scripts/production_manifest.py --check
       - uses: pnpm/action-setup@v4
         with:
           version: 10.14.0
